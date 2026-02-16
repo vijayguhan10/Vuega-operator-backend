@@ -1,14 +1,15 @@
 package net.vuega.vuega_backend.config;
 
+import java.time.LocalDateTime;
+import java.util.List;
+
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.stereotype.Component;
+
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import net.vuega.vuega_backend.Model.operator_config.OperatorConfig;
 import net.vuega.vuega_backend.Repository.OperatorConfigRepository;
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.stereotype.Component;
-
-import java.time.LocalDateTime;
-import java.util.List;
 
 @Component
 @RequiredArgsConstructor
