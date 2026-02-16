@@ -21,14 +21,15 @@ import lombok.NoArgsConstructor;
 @Builder
 public class OperatorConfig {
     
-    @Id
+@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "operator_id")
     private Long operatorId;
 
     @Column(name = "license_key", nullable = false)
-    private String licenseKey;
-
+    private String 
+    licenseKey;
     @Column(name = "last_checked")
     private LocalDateTime lastChecked;
+   
 }

@@ -1,16 +1,17 @@
 package net.vuega.vuega_backend.Service.operator_config;
 
-import lombok.RequiredArgsConstructor;
-import net.vuega.vuega_backend.DTO.operator_config.OperatorConfigDTO;
-import net.vuega.vuega_backend.Model.operator_config.OperatorConfig;
-import net.vuega.vuega_backend.Repository.OperatorConfigRepository;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
+
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import lombok.RequiredArgsConstructor;
+import net.vuega.vuega_backend.DTO.operator_config.OperatorConfigDTO;
+import net.vuega.vuega_backend.Model.operator_config.OperatorConfig;
+import net.vuega.vuega_backend.Repository.OperatorConfigRepository;
 
 @Service
 @RequiredArgsConstructor
