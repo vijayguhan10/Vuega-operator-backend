@@ -1,4 +1,4 @@
-package net.vuega.vuega_backend.DTO.operator_config;
+package net.vuega.vuega_backend.DTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
