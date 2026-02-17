@@ -8,40 +8,64 @@ import org.springframework.stereotype.Component;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import net.vuega.vuega_backend.Model.operator_config.OperatorConfig;
-import net.vuega.vuega_backend.Repository.OperatorConfigRepository;
+import net.vuega.vuega_backend.Model.Operator;
+import net.vuega.vuega_backend.Repository.OperatorRepository;
 
 @Component
 @RequiredArgsConstructor
 @Slf4j
 public class DataInitializer implements CommandLineRunner {
 
-    private final OperatorConfigRepository operatorConfigRepository;
+    private final OperatorRepository operatorRepository;
 
     @Override
     public void run(String... args) {
-        if (operatorConfigRepository.count() == 0) {
-            log.info("Initializing sample operator_config data...");
+        if (operatorRepository.count() == 0) {
+            log.info("Initializing sample operator data...");
 
-            List<OperatorConfig> sampleData = List.of(
-                OperatorConfig.builder()
-                    .licenseKey("VUEGA-PRO-2026-ABCD-1234")
-                    .lastChecked(LocalDateTime.now().minusDays(1))
+            List<Operator> sampleData = List.of(
+                Operator.builder()
+                    .serviceEmail("admin@vuega.net")
+                    .accessToken("tok_abc123")
+                    .tokenExpiresAt(LocalDateTime.now().plusDays(30))
+                    .operatorName("Vuega Admin")
+                    .organizationName("Vuega Transport Ltd")
+                    .licenseStatus("ACTIVE")
+                    .accountStatus("ACTIVE")
+                    .busLimit(50)
+                    .routeLimit(20)
+                    .lastChecked(LocalDateTime.now())
                     .build(),
-                OperatorConfig.builder()
-                    .licenseKey("VUEGA-ENT-2026-EFGH-5678")
+                Operator.builder()
+                    .serviceEmail("ops@citytransit.com")
+                    .accessToken("tok_def456")
+                    .tokenExpiresAt(LocalDateTime.now().plusDays(15))
+                    .operatorName("City Transit Ops")
+                    .organizationName("City Transit Corp")
+                    .licenseStatus("ACTIVE")
+                    .accountStatus("ACTIVE")
+                    .busLimit(100)
+                    .routeLimit(40)
                     .lastChecked(LocalDateTime.now().minusHours(6))
                     .build(),
-                OperatorConfig.builder()
-                    .licenseKey("VUEGA-STD-2026-IJKL-9012")
-                    .lastChecked(LocalDateTime.now())
+                Operator.builder()
+                    .serviceEmail("demo@testbus.org")
+                    .accessToken("tok_ghi789")
+                    .tokenExpiresAt(LocalDateTime.now().plusDays(7))
+                    .operatorName("Demo User")
+                    .organizationName("TestBus Inc")
+                    .licenseStatus("TRIAL")
+                    .accountStatus("ACTIVE")
+                    .busLimit(5)
+                    .routeLimit(3)
+                    .lastChecked(LocalDateTime.now().minusDays(1))
                     .build()
             );
 
-            operatorConfigRepository.saveAll(sampleData);
-            log.info("Sample data initialized: {} operator configs created", sampleData.size());
+            operatorRepository.saveAll(sampleData);
+            log.info("Sample data initialized: {} operators created", sampleData.size());
         } else {
-            log.info("Operator config data already exists, skipping initialization.");
+            log.info("Operator data already exists, skipping initialization.");
         }
     }
 }
