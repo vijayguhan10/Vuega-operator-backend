@@ -1,3 +1,14 @@
+error id: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/scheduler/ScheduleService.java:_empty_/ScheduleStatus#
+file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/scheduler/ScheduleService.java
+empty definition using pc, found symbol in pc: _empty_/ScheduleStatus#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 4859
+uri: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/scheduler/ScheduleService.java
+text:
+```scala
 package net.vuega.vuega_backend.Service.scheduler;
 
 import java.util.List;
@@ -123,7 +134,7 @@ public class ScheduleService {
         if (schedule == null)
             return null;
 
-        schedule.setStatus(ScheduleStatus.ABORTED);
+        schedule.setStatus(Sch@@eduleStatus.ABORTED);
         Schedule saved = repository.save(schedule);
         return enrichWithControlPlane(saved);
     }
@@ -166,6 +177,23 @@ public class ScheduleService {
                 .toList();
     }
 
+    /**
+     * Get active schedules for a specific bus.
+     */
+    public List<ScheduleDTO> getActiveSchedulesByBus(Long busId) {
+        return repository.findByBusIdAndStatus(busId, ScheduleStatus.ACTIVE).stream()
+                .map(this::enrichWithControlPlane)
+                .toList();
+    }
+
+    /**
+     * Get active schedules for a specific route.
+     */
+    public List<ScheduleDTO> getActiveSchedulesByRoute(Long routeId) {
+        return repository.findByRouteIdAndStatus(routeId, ScheduleStatus.ACTIVE).stream()
+                .map(this::enrichWithControlPlane)
+                .toList();
+    }
 
     /**
      * Toggle schedule status (ACTIVE ↔ INACTIVE).
@@ -245,3 +273,10 @@ public class ScheduleService {
         }
     }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: _empty_/ScheduleStatus#

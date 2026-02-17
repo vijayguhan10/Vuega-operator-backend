@@ -1,3 +1,14 @@
+error id: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/scheduler/ScheduleController.java:_empty_/ResponseDto#success#
+file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/scheduler/ScheduleController.java
+empty definition using pc, found symbol in pc: _empty_/ResponseDto#success#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 5468
+uri: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/scheduler/ScheduleController.java
+text:
+```scala
 package net.vuega.vuega_backend.Controller.scheduler;
 
 import java.util.List;
@@ -134,10 +145,25 @@ public class ScheduleController {
     @GetMapping("/bus/{busId}/route/{routeId}")
     public ResponseEntity<ResponseDto<List<ScheduleDTO>>> getByBusAndRoute(
             @PathVariable Long busId, @PathVariable Long routeId) {
-        return ResponseEntity.ok(ResponseDto.success(service.getSchedulesByBusAndRoute(busId, routeId)));
+        return ResponseEntity.ok(ResponseDto.succe@@ss(service.getSchedulesByBusAndRoute(busId, routeId)));
     }
 
-  
+    /**
+     * GET /api/schedules/bus/{busId}/active — Get active schedules for a bus
+     */
+    @GetMapping("/bus/{busId}/active")
+    public ResponseEntity<ResponseDto<List<ScheduleDTO>>> getActiveByBus(@PathVariable Long busId) {
+        return ResponseEntity.ok(ResponseDto.success(service.getActiveSchedulesByBus(busId)));
+    }
+
+    /**
+     * GET /api/schedules/route/{routeId}/active — Get active schedules for a route
+     */
+    @GetMapping("/route/{routeId}/active")
+    public ResponseEntity<ResponseDto<List<ScheduleDTO>>> getActiveByRoute(@PathVariable Long routeId) {
+        return ResponseEntity.ok(ResponseDto.success(service.getActiveSchedulesByRoute(routeId)));
+    }
+
     /**
      * PATCH /api/schedules/{id}/toggle — Toggle ACTIVE ↔ INACTIVE
      */
@@ -151,3 +177,10 @@ public class ScheduleController {
         return ResponseEntity.ok(ResponseDto.success(dto));
     }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: _empty_/ResponseDto#success#

@@ -1,3 +1,14 @@
+error id: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/scheduler/ScheduleController.java:_empty_/ScheduleService#deleteSchedule#
+file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/scheduler/ScheduleController.java
+empty definition using pc, found symbol in pc: _empty_/ScheduleService#deleteSchedule#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 3780
+uri: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/scheduler/ScheduleController.java
+text:
+```scala
 package net.vuega.vuega_backend.Controller.scheduler;
 
 import java.util.List;
@@ -89,16 +100,16 @@ public class ScheduleController {
     }
 
     /**
-     * DELETE /api/schedules/{id} — Soft-delete (set status to ABORTED)
+     * DELETE /api/schedules/{id} — Delete schedule
      */
     @DeleteMapping("/{id}")
-    public ResponseEntity<ResponseDto<ScheduleDTO>> delete(@PathVariable Long id) {
-        ScheduleDTO dto = service.deleteSchedule(id);
-        if (dto == null) {
+    public ResponseEntity<ResponseDto<Void>> delete(@PathVariable Long id) {
+        boolean deleted = service.delet@@eSchedule(id);
+        if (!deleted) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
                     .body(ResponseDto.notFound("Schedule not found with id: " + id));
         }
-        return ResponseEntity.ok(ResponseDto.success(dto));
+        return ResponseEntity.ok(ResponseDto.success(null));
     }
 
     // ======================== BUSINESS ENDPOINTS ========================
@@ -137,7 +148,22 @@ public class ScheduleController {
         return ResponseEntity.ok(ResponseDto.success(service.getSchedulesByBusAndRoute(busId, routeId)));
     }
 
-  
+    /**
+     * GET /api/schedules/bus/{busId}/active — Get active schedules for a bus
+     */
+    @GetMapping("/bus/{busId}/active")
+    public ResponseEntity<ResponseDto<List<ScheduleDTO>>> getActiveByBus(@PathVariable Long busId) {
+        return ResponseEntity.ok(ResponseDto.success(service.getActiveSchedulesByBus(busId)));
+    }
+
+    /**
+     * GET /api/schedules/route/{routeId}/active — Get active schedules for a route
+     */
+    @GetMapping("/route/{routeId}/active")
+    public ResponseEntity<ResponseDto<List<ScheduleDTO>>> getActiveByRoute(@PathVariable Long routeId) {
+        return ResponseEntity.ok(ResponseDto.success(service.getActiveSchedulesByRoute(routeId)));
+    }
+
     /**
      * PATCH /api/schedules/{id}/toggle — Toggle ACTIVE ↔ INACTIVE
      */
@@ -151,3 +177,10 @@ public class ScheduleController {
         return ResponseEntity.ok(ResponseDto.success(dto));
     }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: _empty_/ScheduleService#deleteSchedule#

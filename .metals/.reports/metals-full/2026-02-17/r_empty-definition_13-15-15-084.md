@@ -1,3 +1,14 @@
+error id: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/scheduler/ScheduleController.java:_empty_/ResponseEntity#status#
+file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/scheduler/ScheduleController.java
+empty definition using pc, found symbol in pc: _empty_/ResponseEntity#status#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 1691
+uri: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/scheduler/ScheduleController.java
+text:
+```scala
 package net.vuega.vuega_backend.Controller.scheduler;
 
 import java.util.List;
@@ -20,7 +31,6 @@ import net.vuega.vuega_backend.DTO.ResponseDto;
 import net.vuega.vuega_backend.DTO.scheduler.CreateScheduleRequest;
 import net.vuega.vuega_backend.DTO.scheduler.ScheduleDTO;
 import net.vuega.vuega_backend.DTO.scheduler.UpdateScheduleRequest;
-import net.vuega.vuega_backend.Exception.ScheduleOverlapException;
 import net.vuega.vuega_backend.Model.scheduler.ScheduleStatus;
 import net.vuega.vuega_backend.Service.scheduler.ScheduleService;
 
@@ -38,13 +48,8 @@ public class ScheduleController {
      */
     @PostMapping
     public ResponseEntity<ResponseDto<ScheduleDTO>> create(@RequestBody CreateScheduleRequest request) {
-        try {
-            ScheduleDTO created = service.createSchedule(request);
-            return ResponseEntity.status(HttpStatus.CREATED).body(ResponseDto.created(created));
-        } catch (ScheduleOverlapException e) {
-            return ResponseEntity.status(HttpStatus.CONFLICT)
-                    .body(ResponseDto.error(409, e.getMessage()));
-        }
+        ScheduleDTO created = service.createSchedule(request);
+        return ResponseEntity.@@status(HttpStatus.CREATED).body(ResponseDto.created(created));
     }
 
     /**
@@ -75,30 +80,25 @@ public class ScheduleController {
     @PutMapping("/{id}")
     public ResponseEntity<ResponseDto<ScheduleDTO>> update(
             @PathVariable Long id, @RequestBody UpdateScheduleRequest request) {
-        try {
-            ScheduleDTO dto = service.updateSchedule(id, request);
-            if (dto == null) {
-                return ResponseEntity.status(HttpStatus.NOT_FOUND)
-                        .body(ResponseDto.notFound("Schedule not found with id: " + id));
-            }
-            return ResponseEntity.ok(ResponseDto.success(dto));
-        } catch (ScheduleOverlapException e) {
-            return ResponseEntity.status(HttpStatus.CONFLICT)
-                    .body(ResponseDto.error(409, e.getMessage()));
-        }
-    }
-
-    /**
-     * DELETE /api/schedules/{id} — Soft-delete (set status to ABORTED)
-     */
-    @DeleteMapping("/{id}")
-    public ResponseEntity<ResponseDto<ScheduleDTO>> delete(@PathVariable Long id) {
-        ScheduleDTO dto = service.deleteSchedule(id);
+        ScheduleDTO dto = service.updateSchedule(id, request);
         if (dto == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
                     .body(ResponseDto.notFound("Schedule not found with id: " + id));
         }
         return ResponseEntity.ok(ResponseDto.success(dto));
+    }
+
+    /**
+     * DELETE /api/schedules/{id} — Delete schedule
+     */
+    @DeleteMapping("/{id}")
+    public ResponseEntity<ResponseDto<Void>> delete(@PathVariable Long id) {
+        boolean deleted = service.deleteSchedule(id);
+        if (!deleted) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body(ResponseDto.notFound("Schedule not found with id: " + id));
+        }
+        return ResponseEntity.ok(ResponseDto.success(null));
     }
 
     // ======================== BUSINESS ENDPOINTS ========================
@@ -137,7 +137,22 @@ public class ScheduleController {
         return ResponseEntity.ok(ResponseDto.success(service.getSchedulesByBusAndRoute(busId, routeId)));
     }
 
-  
+    /**
+     * GET /api/schedules/bus/{busId}/active — Get active schedules for a bus
+     */
+    @GetMapping("/bus/{busId}/active")
+    public ResponseEntity<ResponseDto<List<ScheduleDTO>>> getActiveByBus(@PathVariable Long busId) {
+        return ResponseEntity.ok(ResponseDto.success(service.getActiveSchedulesByBus(busId)));
+    }
+
+    /**
+     * GET /api/schedules/route/{routeId}/active — Get active schedules for a route
+     */
+    @GetMapping("/route/{routeId}/active")
+    public ResponseEntity<ResponseDto<List<ScheduleDTO>>> getActiveByRoute(@PathVariable Long routeId) {
+        return ResponseEntity.ok(ResponseDto.success(service.getActiveSchedulesByRoute(routeId)));
+    }
+
     /**
      * PATCH /api/schedules/{id}/toggle — Toggle ACTIVE ↔ INACTIVE
      */
@@ -151,3 +166,10 @@ public class ScheduleController {
         return ResponseEntity.ok(ResponseDto.success(dto));
     }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: _empty_/ResponseEntity#status#

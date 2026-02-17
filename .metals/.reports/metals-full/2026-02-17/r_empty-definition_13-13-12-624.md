@@ -1,3 +1,14 @@
+error id: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/scheduler/ScheduleService.java:_empty_/ScheduleRepository#
+file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/scheduler/ScheduleService.java
+empty definition using pc, found symbol in pc: _empty_/ScheduleRepository#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 767
+uri: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/scheduler/ScheduleService.java
+text:
+```scala
 package net.vuega.vuega_backend.Service.scheduler;
 
 import java.util.List;
@@ -11,7 +22,6 @@ import org.springframework.web.client.RestClient;
 import net.vuega.vuega_backend.DTO.scheduler.CreateScheduleRequest;
 import net.vuega.vuega_backend.DTO.scheduler.ScheduleDTO;
 import net.vuega.vuega_backend.DTO.scheduler.UpdateScheduleRequest;
-import net.vuega.vuega_backend.Exception.ScheduleOverlapException;
 import net.vuega.vuega_backend.Model.scheduler.Schedule;
 import net.vuega.vuega_backend.Model.scheduler.ScheduleStatus;
 import net.vuega.vuega_backend.Repository.scheduler.ScheduleRepository;
@@ -19,7 +29,7 @@ import net.vuega.vuega_backend.Repository.scheduler.ScheduleRepository;
 @Service
 public class ScheduleService {
 
-    private final ScheduleRepository repository;
+    private final Sc@@heduleRepository repository;
     private final RestClient controlPlaneClient;
 
     public ScheduleService(
@@ -37,16 +47,6 @@ public class ScheduleService {
      * Create a new schedule.
      */
     public ScheduleDTO createSchedule(CreateScheduleRequest request) {
-        // Check for overlapping schedule on the same bus
-        if (repository.existsOverlappingSchedule(
-                request.getBusId(),
-                request.getDepartTime(),
-                request.getArriveTime())) {
-            throw new ScheduleOverlapException(
-                    "Bus " + request.getBusId() + " already has a schedule between " +
-                            request.getDepartTime() + " and " + request.getArriveTime());
-        }
-
         Schedule schedule = Schedule.builder()
                 .busId(request.getBusId())
                 .routeId(request.getRouteId())
@@ -86,20 +86,6 @@ public class ScheduleService {
         if (schedule == null)
             return null;
 
-        // Determine final values after update
-        Long busId = request.getBusId() != null ? request.getBusId() : schedule.getBusId();
-        java.time.LocalTime departTime = request.getDepartTime() != null ? request.getDepartTime()
-                : schedule.getDepartTime();
-        java.time.LocalTime arriveTime = request.getArriveTime() != null ? request.getArriveTime()
-                : schedule.getArriveTime();
-
-        // Check for overlapping schedule on the same bus (excluding current schedule)
-        if (repository.existsOverlappingScheduleExcluding(busId, departTime, arriveTime, id)) {
-            throw new ScheduleOverlapException(
-                    "Bus " + busId + " already has a schedule between " +
-                            departTime + " and " + arriveTime);
-        }
-
         if (request.getBusId() != null)
             schedule.setBusId(request.getBusId());
         if (request.getRouteId() != null)
@@ -116,16 +102,13 @@ public class ScheduleService {
     }
 
     /**
-     * Soft-delete a schedule by setting status to ABORTED.
+     * Delete a schedule by ID.
      */
-    public ScheduleDTO deleteSchedule(Long id) {
-        Schedule schedule = repository.findById(id).orElse(null);
-        if (schedule == null)
-            return null;
-
-        schedule.setStatus(ScheduleStatus.ABORTED);
-        Schedule saved = repository.save(schedule);
-        return enrichWithControlPlane(saved);
+    public boolean deleteSchedule(Long id) {
+        if (!repository.existsById(id))
+            return false;
+        repository.deleteById(id);
+        return true;
     }
 
     // ======================== BUSINESS QUERIES ========================
@@ -166,6 +149,23 @@ public class ScheduleService {
                 .toList();
     }
 
+    /**
+     * Get active schedules for a specific bus.
+     */
+    public List<ScheduleDTO> getActiveSchedulesByBus(Long busId) {
+        return repository.findByBusIdAndStatus(busId, ScheduleStatus.ACTIVE).stream()
+                .map(this::enrichWithControlPlane)
+                .toList();
+    }
+
+    /**
+     * Get active schedules for a specific route.
+     */
+    public List<ScheduleDTO> getActiveSchedulesByRoute(Long routeId) {
+        return repository.findByRouteIdAndStatus(routeId, ScheduleStatus.ACTIVE).stream()
+                .map(this::enrichWithControlPlane)
+                .toList();
+    }
 
     /**
      * Toggle schedule status (ACTIVE ↔ INACTIVE).
@@ -245,3 +245,10 @@ public class ScheduleService {
         }
     }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: _empty_/ScheduleRepository#
