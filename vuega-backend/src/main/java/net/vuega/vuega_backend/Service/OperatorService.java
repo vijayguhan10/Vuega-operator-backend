@@ -67,16 +67,26 @@ public class OperatorService {
     @Transactional
     public Optional<OperatorDTO> patch(Long id, OperatorDTO dto) {
         return repository.findById(id).map(existing -> {
-            if (dto.getServiceEmail() != null) existing.setServiceEmail(dto.getServiceEmail());
-            if (dto.getAccessToken() != null) existing.setAccessToken(dto.getAccessToken());
-            if (dto.getTokenExpiresAt() != null) existing.setTokenExpiresAt(dto.getTokenExpiresAt());
-            if (dto.getOperatorName() != null) existing.setOperatorName(dto.getOperatorName());
-            if (dto.getOrganizationName() != null) existing.setOrganizationName(dto.getOrganizationName());
-            if (dto.getLicenseStatus() != null) existing.setLicenseStatus(dto.getLicenseStatus());
-            if (dto.getAccountStatus() != null) existing.setAccountStatus(dto.getAccountStatus());
-            if (dto.getBusLimit() != null) existing.setBusLimit(dto.getBusLimit());
-            if (dto.getRouteLimit() != null) existing.setRouteLimit(dto.getRouteLimit());
-            if (dto.getLastChecked() != null) existing.setLastChecked(dto.getLastChecked());
+            if (dto.getServiceEmail() != null)
+                existing.setServiceEmail(dto.getServiceEmail());
+            if (dto.getAccessToken() != null)
+                existing.setAccessToken(dto.getAccessToken());
+            if (dto.getTokenExpiresAt() != null)
+                existing.setTokenExpiresAt(dto.getTokenExpiresAt());
+            if (dto.getOperatorName() != null)
+                existing.setOperatorName(dto.getOperatorName());
+            if (dto.getOrganizationName() != null)
+                existing.setOrganizationName(dto.getOrganizationName());
+            if (dto.getLicenseStatus() != null)
+                existing.setLicenseStatus(dto.getLicenseStatus());
+            if (dto.getAccountStatus() != null)
+                existing.setAccountStatus(dto.getAccountStatus());
+            if (dto.getBusLimit() != null)
+                existing.setBusLimit(dto.getBusLimit());
+            if (dto.getRouteLimit() != null)
+                existing.setRouteLimit(dto.getRouteLimit());
+            if (dto.getLastChecked() != null)
+                existing.setLastChecked(dto.getLastChecked());
             return toDTO(repository.save(existing));
         });
     }
