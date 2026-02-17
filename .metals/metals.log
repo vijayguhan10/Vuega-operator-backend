@@ -3464,3 +3464,703 @@ WARNING: Unmatched cancel notification for request id 1326
 2026.02.17 13:11:55 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java
 2026.02.17 13:11:55 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\ResponseDto.java. Using fallback presentation compiler.
 2026.02.17 13:11:55 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Model\scheduler\ScheduleStatus.java. Using fallback presentation compiler.
+2026.02.17 13:12:28 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Model\scheduler\ScheduleStatus.java. Using fallback presentation compiler.
+2026.02.17 13:12:28 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Model\scheduler\Schedule.java. Using fallback presentation compiler.
+2026.02.17 13:12:28 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\scheduler\ScheduleDTO.java. Using fallback presentation compiler.
+2026.02.17 13:12:28 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\scheduler\CreateScheduleRequest.java. Using fallback presentation compiler.
+2026.02.17 13:12:28 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\scheduler\UpdateScheduleRequest.java. Using fallback presentation compiler.
+2026.02.17 13:12:28 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\scheduler\ScheduleRepository.java. Using fallback presentation compiler.
+2026.02.17 13:12:28 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 13:12:28 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 13:12:29 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Model\scheduler\ScheduleStatus.java
+2026.02.17 13:12:29 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\scheduler\CreateScheduleRequest.java
+2026.02.17 13:12:29 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\scheduler\UpdateScheduleRequest.java
+2026.02.17 13:12:29 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\scheduler\ScheduleDTO.java
+2026.02.17 13:12:29 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\ResponseDto.java. Using fallback presentation compiler.
+2026.02.17 13:12:29 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Model\scheduler\ScheduleStatus.java. Using fallback presentation compiler.
+2026.02.17 13:12:29 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Model\scheduler\Schedule.java
+2026.02.17 13:12:29 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\scheduler\ScheduleRepository.java
+2026.02.17 13:12:28 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 13:12:29 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java
+2026.02.17 13:12:28 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 13:12:29 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java
+2026.02.17 13:12:29 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\ResponseDto.java. Using fallback presentation compiler.
+2026.02.17 13:12:29 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Model\scheduler\ScheduleStatus.java. Using fallback presentation compiler.
+2026.02.17 13:12:33 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java
+2026.02.17 13:12:33 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 13:12:33 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\ResponseDto.java. Using fallback presentation compiler.
+2026.02.17 13:12:33 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 13:12:33 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 13:12:33 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 13:12:39 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 13:12:39 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 13:12:48 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 13:12:48 INFO  Created report: Optional[file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/scheduler/ScheduleController.java]
+2026.02.17 13:12:48 INFO  empty definition using pc, found symbol in pc: _empty_/ScheduleService#getSchedulesByBus# (full report at: "C:\Projects\Vuega-backend\.metals\.reports\metals-full\2026-02-17\r_empty-definition_13-12-48-073.md")
+2026.02.17 13:12:48 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 13:12:48 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 13:12:48 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 13:12:48 INFO  empty definition using pc, found symbol in pc: _empty_/ScheduleService#getSchedulesByBus# (full report at: "C:\Projects\Vuega-backend\.metals\.reports\metals-full\2026-02-17\r_empty-definition_13-12-48-073.md")
+2026.02.17 13:12:48 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java
+2026.02.17 13:12:48 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 13:12:48 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 13:12:48 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\ResponseDto.java. Using fallback presentation compiler.
+2026.02.17 13:12:48 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 13:12:48 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 13:12:49 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 13:12:49 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 13:12:49 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 13:12:50 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 13:12:51 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 13:12:51 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 13:12:51 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 13:12:51 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 13:12:51 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 13:12:52 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 13:12:52 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 13:12:56 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 13:12:56 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 13:12:56 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 13:12:58 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+Feb 17, 2026 1:12:58 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1679
+2026.02.17 13:12:58 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 13:12:58 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 13:13:00 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\operator_config\LoginRequest.java. Using fallback presentation compiler.
+2026.02.17 13:13:00 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 13:13:00 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\VuegaBackendApplication.java. Using fallback presentation compiler.
+2026.02.17 13:13:01 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 13:13:01 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 13:13:02 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+Feb 17, 2026 1:13:02 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1685
+2026.02.17 13:13:03 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 13:13:03 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 13:13:05 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 13:13:05 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+Feb 17, 2026 1:13:06 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: Range [-1, 1187) out of bounds for length 8062
+java.lang.StringIndexOutOfBoundsException: Range [-1, 1187) out of bounds for length 8062
+	at java.base/jdk.internal.util.Preconditions$1.apply(Preconditions.java:55)
+	at java.base/jdk.internal.util.Preconditions$1.apply(Preconditions.java:52)
+	at java.base/jdk.internal.util.Preconditions$4.apply(Preconditions.java:213)
+	at java.base/jdk.internal.util.Preconditions$4.apply(Preconditions.java:210)
+	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:98)
+	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckFromToIndex(Preconditions.java:112)
+	at java.base/jdk.internal.util.Preconditions.checkFromToIndex(Preconditions.java:349)
+	at java.base/java.lang.String.checkBoundsBeginEnd(String.java:4865)
+	at java.base/java.lang.String.substring(String.java:2834)
+	at scala.meta.internal.pc.JavaMetalsGlobal.findIndentifierStartAndEnd(JavaMetalsGlobal.scala:87)
+	at scala.meta.internal.pc.JavaMetalsGlobal.isAtIdentifier(JavaMetalsGlobal.scala:137)
+	at scala.meta.internal.pc.JavaDocumentHighlightProvider.atIdentifier$1(JavaDocumentHighlightProvider.scala:53)
+	at scala.meta.internal.pc.JavaDocumentHighlightProvider.documentHighlight(JavaDocumentHighlightProvider.scala:55)
+	at scala.meta.internal.pc.JavaDocumentHighlightProvider.documentHighlight(JavaDocumentHighlightProvider.scala:25)
+	at scala.meta.internal.pc.JavaPresentationCompiler.documentHighlight(JavaPresentationCompiler.scala:112)
+	at scala.meta.internal.metals.Compilers.$anonfun$documentHighlight$1(Compilers.scala:821)
+	at scala.meta.internal.metals.Compilers.$anonfun$withPCAndAdjustLsp$4(Compilers.scala:1446)
+	at scala.Option.map(Option.scala:242)
+	at scala.meta.internal.metals.Compilers.$anonfun$withPCAndAdjustLsp$3(Compilers.scala:1446)
+	at scala.Option.flatMap(Option.scala:283)
+	at scala.meta.internal.metals.Compilers.withPCAndAdjustLsp(Compilers.scala:1438)
+	at scala.meta.internal.metals.Compilers.documentHighlight(Compilers.scala:816)
+	at scala.meta.internal.metals.MetalsLspService.$anonfun$documentHighlights$1(MetalsLspService.scala:1015)
+	at scala.meta.internal.metals.CancelTokens$.future(CancelTokens.scala:38)
+	at scala.meta.internal.metals.MetalsLspService.documentHighlights(MetalsLspService.scala:1014)
+	at scala.meta.internal.metals.WorkspaceLspService.documentHighlights(WorkspaceLspService.scala:541)
+	at scala.meta.metals.lsp.DelegatingScalaService.documentHighlights(DelegatingScalaService.scala:83)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$recursiveFindRpcMethods$0(GenericEndpoint.java:65)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.request(GenericEndpoint.java:128)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleRequest(RemoteEndpoint.java:271)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:201)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:185)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:97)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:114)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+2026.02.17 13:13:05 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 13:13:05 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 13:13:05 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+Feb 17, 2026 1:13:06 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: Range [-1, 1187) out of bounds for length 8062
+java.lang.StringIndexOutOfBoundsException: Range [-1, 1187) out of bounds for length 8062
+	at java.base/jdk.internal.util.Preconditions$1.apply(Preconditions.java:55)
+	at java.base/jdk.internal.util.Preconditions$1.apply(Preconditions.java:52)
+	at java.base/jdk.internal.util.Preconditions$4.apply(Preconditions.java:213)
+	at java.base/jdk.internal.util.Preconditions$4.apply(Preconditions.java:210)
+	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:98)
+	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckFromToIndex(Preconditions.java:112)
+	at java.base/jdk.internal.util.Preconditions.checkFromToIndex(Preconditions.java:349)
+	at java.base/java.lang.String.checkBoundsBeginEnd(String.java:4865)
+	at java.base/java.lang.String.substring(String.java:2834)
+	at scala.meta.internal.pc.JavaMetalsGlobal.findIndentifierStartAndEnd(JavaMetalsGlobal.scala:87)
+	at scala.meta.internal.pc.JavaMetalsGlobal.isAtIdentifier(JavaMetalsGlobal.scala:137)
+	at scala.meta.internal.pc.JavaDocumentHighlightProvider.atIdentifier$1(JavaDocumentHighlightProvider.scala:53)
+	at scala.meta.internal.pc.JavaDocumentHighlightProvider.documentHighlight(JavaDocumentHighlightProvider.scala:55)
+	at scala.meta.internal.pc.JavaDocumentHighlightProvider.documentHighlight(JavaDocumentHighlightProvider.scala:25)
+	at scala.meta.internal.pc.JavaPresentationCompiler.documentHighlight(JavaPresentationCompiler.scala:112)
+	at scala.meta.internal.metals.Compilers.$anonfun$documentHighlight$1(Compilers.scala:821)
+	at scala.meta.internal.metals.Compilers.$anonfun$withPCAndAdjustLsp$4(Compilers.scala:1446)
+	at scala.Option.map(Option.scala:242)
+	at scala.meta.internal.metals.Compilers.$anonfun$withPCAndAdjustLsp$3(Compilers.scala:1446)
+	at scala.Option.flatMap(Option.scala:283)
+	at scala.meta.internal.metals.Compilers.withPCAndAdjustLsp(Compilers.scala:1438)
+	at scala.meta.internal.metals.Compilers.documentHighlight(Compilers.scala:816)
+	at scala.meta.internal.metals.MetalsLspService.$anonfun$documentHighlights$1(MetalsLspService.scala:1015)
+	at scala.meta.internal.metals.CancelTokens$.future(CancelTokens.scala:38)
+	at scala.meta.internal.metals.MetalsLspService.documentHighlights(MetalsLspService.scala:1014)
+	at scala.meta.internal.metals.WorkspaceLspService.documentHighlights(WorkspaceLspService.scala:541)
+	at scala.meta.metals.lsp.DelegatingScalaService.documentHighlights(DelegatingScalaService.scala:83)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$recursiveFindRpcMethods$0(GenericEndpoint.java:65)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.request(GenericEndpoint.java:128)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleRequest(RemoteEndpoint.java:271)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:201)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:185)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:97)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:114)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+2026.02.17 13:13:07 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 13:13:08 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 13:13:08 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 13:13:08 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 13:13:09 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 13:13:09 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 13:13:10 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 13:13:10 INFO  Created report: Optional[file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/scheduler/ScheduleService.java]
+2026.02.17 13:13:10 INFO  empty definition using pc, found symbol in pc: _empty_/RestClient# (full report at: "C:\Projects\Vuega-backend\.metals\.reports\metals-full\2026-02-17\r_empty-definition_13-13-10-666.md")
+2026.02.17 13:13:09 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 13:13:11 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 13:13:12 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 13:13:12 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 13:13:12 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 13:13:12 INFO  Created report: Optional[file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/scheduler/ScheduleService.java]
+2026.02.17 13:13:12 INFO  empty definition using pc, found symbol in pc: _empty_/ScheduleRepository# (full report at: "C:\Projects\Vuega-backend\.metals\.reports\metals-full\2026-02-17\r_empty-definition_13-13-12-624.md")
+2026.02.17 13:13:12 INFO  empty definition using pc, found symbol in pc: _empty_/RestClient# (full report at: "C:\Projects\Vuega-backend\.metals\.reports\metals-full\2026-02-17\r_empty-definition_13-13-10-666.md")
+2026.02.17 13:13:12 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+Feb 17, 2026 1:13:12 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1705
+2026.02.17 13:13:12 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 13:13:12 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 13:13:13 INFO  empty definition using pc, found symbol in pc: _empty_/RestClient# (full report at: "C:\Projects\Vuega-backend\.metals\.reports\metals-full\2026-02-17\r_empty-definition_13-13-10-666.md")
+2026.02.17 13:13:12 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 13:13:12 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 13:13:13 INFO  no build target found for /org/springframework/web/client/RestClient.java. Using fallback presentation compiler.
+2026.02.17 13:13:16 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 13:13:16 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 13:13:16 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 13:13:16 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 13:13:18 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 13:13:22 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 13:13:22 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 13:13:22 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 13:13:24 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 13:13:25 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 13:13:25 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 13:13:25 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 13:13:30 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 13:13:30 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 13:14:02 INFO  no build target found for /org/springframework/web/client/RestClient.java. Using fallback presentation compiler.
+2026.02.17 13:14:02 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java
+2026.02.17 13:14:02 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 13:14:02 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\ResponseDto.java. Using fallback presentation compiler.
+2026.02.17 13:14:02 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 13:14:02 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 13:14:05 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 13:14:07 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 13:14:09 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 13:14:09 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 13:14:09 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 13:14:09 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 13:14:11 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 13:14:27 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 13:14:40 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 13:14:41 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 13:14:41 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 13:14:41 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 13:14:43 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 13:15:11 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 13:15:11 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 13:15:11 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 13:15:13 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 13:15:13 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 13:15:13 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 13:15:14 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 13:15:14 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 13:15:15 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 13:15:15 INFO  Created report: Optional[file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/scheduler/ScheduleController.java]
+2026.02.17 13:15:15 INFO  empty definition using pc, found symbol in pc: _empty_/ResponseEntity#status# (full report at: "C:\Projects\Vuega-backend\.metals\.reports\metals-full\2026-02-17\r_empty-definition_13-15-15-084.md")
+2026.02.17 13:15:14 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+Feb 17, 2026 2:47:16 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleNotification
+WARNING: Notification threw an exception: {
+  "jsonrpc": "2.0",
+  "method": "metals/didFocusTextDocument",
+  "params": [
+    "class:/c%3A/Projects/Vuega-backend/vuega-backend/target/classes/net/vuega/vuega_backend/Controller/operator_config/OperatorController.class"
+  ]
+}
+java.nio.file.FileSystemNotFoundException: Provider "class" not installed
+	at java.base/java.nio.file.Path.of(Path.java:213)
+	at java.base/java.nio.file.Paths.get(Paths.java:98)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionURIMtags.toAbsolutePath(MtagsEnrichments.scala:149)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionStringMtags.toAbsolutePath(MtagsEnrichments.scala:209)
+	at scala.meta.internal.metals.MetalsEnrichments$XtensionString.toAbsolutePath(MetalsEnrichments.scala:778)
+	at scala.meta.internal.metals.MetalsEnrichments$XtensionString.toAbsolutePath(MetalsEnrichments.scala:775)
+	at scala.meta.internal.metals.WorkspaceLspService.didFocus(WorkspaceLspService.scala:808)
+	at scala.meta.metals.lsp.DelegatingScalaService.didFocus(DelegatingScalaService.scala:42)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$recursiveFindRpcMethods$0(GenericEndpoint.java:65)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.notify(GenericEndpoint.java:160)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleNotification(RemoteEndpoint.java:231)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:198)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:185)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:97)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:114)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+2026.02.17 14:47:26 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\operator_config\OperatorController.java
+2026.02.17 14:47:26 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\operator_config\OperatorController.java. Using fallback presentation compiler.
+Feb 17, 2026 2:47:26 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1854
+2026.02.17 14:47:26 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\operator_config\OperatorController.java. Using fallback presentation compiler.
+2026.02.17 14:47:26 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\ResponseDto.java. Using fallback presentation compiler.
+2026.02.17 14:47:26 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\operator_config\OperatorController.java. Using fallback presentation compiler.
+2026.02.17 14:47:31 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\operator_config\OperatorController.java. Using fallback presentation compiler.
+2026.02.17 14:47:35 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\operator_config\OperatorController.java. Using fallback presentation compiler.
+2026.02.17 14:47:35 INFO  Created report: Optional[file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/operator_config/OperatorController.java]
+2026.02.17 14:47:35 INFO  empty definition using pc, found symbol in pc: net/vuega/vuega_backend/Service/operator_config/OperatorService# (full report at: "C:\Projects\Vuega-backend\.metals\.reports\metals-full\2026-02-17\r_empty-definition_14-47-35-617.md")
+2026.02.17 14:47:35 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\operator_config\OperatorController.java. Using fallback presentation compiler.
+2026.02.17 14:47:35 INFO  empty definition using pc, found symbol in pc: net/vuega/vuega_backend/Service/operator_config/OperatorService# (full report at: "C:\Projects\Vuega-backend\.metals\.reports\metals-full\2026-02-17\r_empty-definition_14-47-35-617.md")
+2026.02.17 14:47:37 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\operator_config\OperatorController.java. Using fallback presentation compiler.
+2026.02.17 14:47:38 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\operator_config\OperatorController.java. Using fallback presentation compiler.
+2026.02.17 14:47:38 INFO  empty definition using pc, found symbol in pc: net/vuega/vuega_backend/Service/operator_config/OperatorService# (full report at: "C:\Projects\Vuega-backend\.metals\.reports\metals-full\2026-02-17\r_empty-definition_14-47-35-617.md")
+2026.02.17 14:47:38 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\operator_config\OperatorController.java. Using fallback presentation compiler.
+2026.02.17 14:47:38 INFO  Created report: Optional[file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/operator_config/OperatorController.java]
+2026.02.17 14:47:38 INFO  empty definition using pc, found symbol in pc: lombok/RequiredArgsConstructor# (full report at: "C:\Projects\Vuega-backend\.metals\.reports\metals-full\2026-02-17\r_empty-definition_14-47-38-552.md")
+2026.02.17 14:47:38 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\operator_config\OperatorController.java. Using fallback presentation compiler.
+2026.02.17 14:47:38 INFO  empty definition using pc, found symbol in pc: net/vuega/vuega_backend/Service/operator_config/OperatorService# (full report at: "C:\Projects\Vuega-backend\.metals\.reports\metals-full\2026-02-17\r_empty-definition_14-47-35-617.md")
+2026.02.17 14:47:38 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\operator_config\OperatorService.java
+2026.02.17 14:47:38 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\operator_config\OperatorController.java. Using fallback presentation compiler.
+2026.02.17 14:47:38 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\ResponseDto.java. Using fallback presentation compiler.
+2026.02.17 14:47:39 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\operator_config\OperatorService.java. Using fallback presentation compiler.
+2026.02.17 14:48:03 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\operator_config\OperatorController.java. Using fallback presentation compiler.
+2026.02.17 14:48:05 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\operator_config\OperatorController.java. Using fallback presentation compiler.
+2026.02.17 14:48:05 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\operator_config\OperatorController.java. Using fallback presentation compiler.
+2026.02.17 14:48:05 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\operator_config\OperatorController.java. Using fallback presentation compiler.
+2026.02.17 14:48:05 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\operator_config\OperatorController.java. Using fallback presentation compiler.
+2026.02.17 14:48:08 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\operator_config\OperatorController.java. Using fallback presentation compiler.
+2026.02.17 14:48:08 INFO  empty definition using pc, found symbol in pc: net/vuega/vuega_backend/Service/operator_config/OperatorService# (full report at: "C:\Projects\Vuega-backend\.metals\.reports\metals-full\2026-02-17\r_empty-definition_14-47-35-617.md")
+2026.02.17 14:48:08 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\operator_config\OperatorController.java. Using fallback presentation compiler.
+2026.02.17 14:48:09 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\operator_config\OperatorController.java. Using fallback presentation compiler.
+2026.02.17 14:48:09 INFO  empty definition using pc, found symbol in pc: net/vuega/vuega_backend/Service/operator_config/OperatorService# (full report at: "C:\Projects\Vuega-backend\.metals\.reports\metals-full\2026-02-17\r_empty-definition_14-47-35-617.md")
+2026.02.17 14:48:09 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\operator_config\OperatorService.java
+2026.02.17 14:48:09 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\operator_config\OperatorService.java. Using fallback presentation compiler.
+2026.02.17 14:48:09 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\operator_config\OperatorService.java. Using fallback presentation compiler.
+2026.02.17 14:48:09 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\operator_config\OperatorService.java. Using fallback presentation compiler.
+2026.02.17 14:48:09 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\ResponseDto.java. Using fallback presentation compiler.
+2026.02.17 14:48:09 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\operator_config\OperatorService.java. Using fallback presentation compiler.
+2026.02.17 14:48:10 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\operator_config\OperatorService.java. Using fallback presentation compiler.
+2026.02.17 14:48:11 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\operator_config\OperatorService.java. Using fallback presentation compiler.
+2026.02.17 14:48:12 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\operator_config\OperatorService.java. Using fallback presentation compiler.
+2026.02.17 14:49:41 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\operator_config\OperatorService.java. Using fallback presentation compiler.
+2026.02.17 14:49:41 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Config\AppConfig.java
+2026.02.17 14:49:41 WARN  Running javac-semanticdb failed for file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Config/AppConfig.java. Output:
+
+2026.02.17 14:49:41 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Config\AppConfig.java. Using fallback presentation compiler.
+2026.02.17 14:49:41 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\ResponseDto.java. Using fallback presentation compiler.
+2026.02.17 14:49:41 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Config\AppConfig.java. Using fallback presentation compiler.
+2026.02.17 14:49:41 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Config\AppConfig.java
+2026.02.17 14:49:41 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\ResponseDto.java. Using fallback presentation compiler.
+2026.02.17 14:49:42 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Config\AppConfig.java. Using fallback presentation compiler.
+2026.02.17 14:49:41 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Config\AppConfig.java. Using fallback presentation compiler.
+2026.02.17 14:49:46 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Config\AppConfig.java. Using fallback presentation compiler.
+2026.02.17 14:49:47 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Config\AppConfig.java
+2026.02.17 14:49:47 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Config\AppConfig.java. Using fallback presentation compiler.
+2026.02.17 14:49:47 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\ResponseDto.java. Using fallback presentation compiler.
+2026.02.17 14:49:58 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\operator_config\OperatorController.java
+2026.02.17 14:49:58 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\operator_config\OperatorController.java. Using fallback presentation compiler.
+2026.02.17 14:49:58 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\ResponseDto.java. Using fallback presentation compiler.
+2026.02.17 14:49:58 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\operator_config\OperatorController.java. Using fallback presentation compiler.
+2026.02.17 14:49:58 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\operator_config\OperatorController.java. Using fallback presentation compiler.
+2026.02.17 14:49:58 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\operator_config\OperatorController.java. Using fallback presentation compiler.
+2026.02.17 14:50:00 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\operator_config\OperatorController.java. Using fallback presentation compiler.
+2026.02.17 14:50:06 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\operator_config\OperatorController.java. Using fallback presentation compiler.
+2026.02.17 14:50:06 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\operator_config\OperatorController.java. Using fallback presentation compiler.
+2026.02.17 14:50:06 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\operator_config\OperatorController.java. Using fallback presentation compiler.
+2026.02.17 14:50:10 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\operator_config\OperatorController.java. Using fallback presentation compiler.
+Feb 17, 2026 2:50:10 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1938
+2026.02.17 14:50:10 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\operator_config\OperatorController.java. Using fallback presentation compiler.
+2026.02.17 14:50:10 INFO  Created report: Optional[file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/operator_config/OperatorController.java]
+2026.02.17 14:50:10 INFO  empty definition using pc, found symbol in pc: _empty_/OperatorService#login# (full report at: "C:\Projects\Vuega-backend\.metals\.reports\metals-full\2026-02-17\r_empty-definition_14-50-10-747.md")
+2026.02.17 14:50:10 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\operator_config\OperatorController.java. Using fallback presentation compiler.
+2026.02.17 14:50:12 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\operator_config\OperatorController.java. Using fallback presentation compiler.
+2026.02.17 14:50:12 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\operator_config\OperatorController.java. Using fallback presentation compiler.
+2026.02.17 14:50:12 INFO  empty definition using pc, found symbol in pc: _empty_/OperatorService#login# (full report at: "C:\Projects\Vuega-backend\.metals\.reports\metals-full\2026-02-17\r_empty-definition_14-50-10-747.md")
+2026.02.17 14:50:12 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\operator_config\OperatorService.java
+2026.02.17 14:50:12 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\operator_config\OperatorService.java. Using fallback presentation compiler.
+2026.02.17 14:50:13 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\operator_config\OperatorService.java. Using fallback presentation compiler.
+2026.02.17 14:50:12 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\operator_config\OperatorService.java. Using fallback presentation compiler.
+2026.02.17 14:50:13 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\ResponseDto.java. Using fallback presentation compiler.
+2026.02.17 14:50:12 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\operator_config\OperatorService.java. Using fallback presentation compiler.
+2026.02.17 14:50:12 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\operator_config\OperatorService.java. Using fallback presentation compiler.
+2026.02.17 14:50:14 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\operator_config\OperatorService.java. Using fallback presentation compiler.
+2026.02.17 14:50:14 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\operator_config\OperatorService.java. Using fallback presentation compiler.
+2026.02.17 14:50:14 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\operator_config\OperatorService.java. Using fallback presentation compiler.
+2026.02.17 14:50:14 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\operator_config\OperatorService.java. Using fallback presentation compiler.
+2026.02.17 14:50:29 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\operator_config\OperatorService.java. Using fallback presentation compiler.
+2026.02.17 14:50:29 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\operator_config\OperatorService.java. Using fallback presentation compiler.
+2026.02.17 14:50:29 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\operator_config\OperatorService.java. Using fallback presentation compiler.
+2026.02.17 14:50:29 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\operator_config\OperatorService.java. Using fallback presentation compiler.
+Feb 17, 2026 2:50:30 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1964
+2026.02.17 14:50:30 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\operator_config\OperatorService.java. Using fallback presentation compiler.
+2026.02.17 14:50:30 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\operator_config\OperatorService.java. Using fallback presentation compiler.
+2026.02.17 14:50:30 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\operator_config\OperatorService.java. Using fallback presentation compiler.
+2026.02.17 14:50:46 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\operator_config\OperatorService.java. Using fallback presentation compiler.
+2026.02.17 14:50:46 INFO  Created report: Optional[file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/operator_config/OperatorService.java]
+2026.02.17 14:50:46 INFO  empty definition using pc, found symbol in pc: org/springframework/web/client/RestClient# (full report at: "C:\Projects\Vuega-backend\.metals\.reports\metals-full\2026-02-17\r_empty-definition_14-50-46-776.md")
+2026.02.17 14:50:48 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\operator_config\OperatorService.java. Using fallback presentation compiler.
+2026.02.17 14:50:48 INFO  empty definition using pc, found symbol in pc: org/springframework/web/client/RestClient# (full report at: "C:\Projects\Vuega-backend\.metals\.reports\metals-full\2026-02-17\r_empty-definition_14-50-46-776.md")
+2026.02.17 14:50:48 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\operator_config\OperatorService.java. Using fallback presentation compiler.
+2026.02.17 14:50:49 INFO  Created report: Optional[file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/operator_config/OperatorService.java]
+2026.02.17 14:50:49 INFO  empty definition using pc, found symbol in pc: org/springframework/beans/factory/annotation/Value# (full report at: "C:\Projects\Vuega-backend\.metals\.reports\metals-full\2026-02-17\r_empty-definition_14-50-49-758.md")
+2026.02.17 14:50:49 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\operator_config\OperatorService.java. Using fallback presentation compiler.
+2026.02.17 14:50:49 INFO  empty definition using pc, found symbol in pc: org/springframework/web/client/RestClient# (full report at: "C:\Projects\Vuega-backend\.metals\.reports\metals-full\2026-02-17\r_empty-definition_14-50-46-776.md")
+2026.02.17 14:50:51 INFO  no build target found for /org/springframework/beans/factory/annotation/Value.java. Using fallback presentation compiler.
+2026.02.17 14:51:00 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\operator_config\OperatorService.java. Using fallback presentation compiler.
+2026.02.17 14:51:24 INFO  no build target found for c:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Config\AppConfig.java. Using fallback presentation compiler.
+2026.02.17 14:51:38 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\operator_config\OperatorService.java. Using fallback presentation compiler.
+2026.02.17 14:52:38 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 14:52:38 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java
+2026.02.17 14:52:38 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\ResponseDto.java. Using fallback presentation compiler.
+2026.02.17 14:52:38 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 14:52:38 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 14:52:38 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 14:52:38 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 14:52:40 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 14:52:40 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 14:52:41 INFO  Created report: Optional[file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/scheduler/ScheduleController.java]
+2026.02.17 14:52:41 INFO  empty definition using pc, found symbol in pc: _empty_/ResponseDto# (full report at: "C:\Projects\Vuega-backend\.metals\.reports\metals-full\2026-02-17\r_empty-definition_14-52-41-053.md")
+2026.02.17 14:52:41 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 14:52:42 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 14:52:42 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 14:52:43 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 14:52:43 INFO  Created report: Optional[file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/scheduler/ScheduleController.java]
+2026.02.17 14:52:43 INFO  empty definition using pc, found symbol in pc: _empty_/ScheduleService#createSchedule# (full report at: "C:\Projects\Vuega-backend\.metals\.reports\metals-full\2026-02-17\r_empty-definition_14-52-43-488.md")
+2026.02.17 14:52:43 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 14:52:43 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 14:52:43 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 14:52:43 INFO  empty definition using pc, found symbol in pc: _empty_/ScheduleService#createSchedule# (full report at: "C:\Projects\Vuega-backend\.metals\.reports\metals-full\2026-02-17\r_empty-definition_14-52-43-488.md")
+2026.02.17 14:52:43 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java
+2026.02.17 14:52:43 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 14:52:43 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 14:52:44 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\ResponseDto.java. Using fallback presentation compiler.
+2026.02.17 14:52:44 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 14:52:43 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 14:52:43 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 14:52:54 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 14:52:56 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 14:52:56 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 14:52:56 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 14:52:56 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 14:52:58 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 14:53:40 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 14:53:40 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 14:55:29 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 14:55:31 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 14:55:39 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 14:55:57 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\operator_config\OperatorService.java. Using fallback presentation compiler.
+2026.02.17 14:55:57 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\scheduler\ScheduleRepository.java
+2026.02.17 14:55:57 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\scheduler\ScheduleRepository.java. Using fallback presentation compiler.
+2026.02.17 14:55:57 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\scheduler\ScheduleRepository.java. Using fallback presentation compiler.
+2026.02.17 14:55:58 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\ResponseDto.java. Using fallback presentation compiler.
+2026.02.17 14:55:58 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\scheduler\ScheduleRepository.java. Using fallback presentation compiler.
+2026.02.17 14:55:59 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\scheduler\ScheduleRepository.java. Using fallback presentation compiler.
+2026.02.17 14:55:59 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\scheduler\ScheduleRepository.java. Using fallback presentation compiler.
+2026.02.17 14:55:59 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\scheduler\ScheduleRepository.java. Using fallback presentation compiler.
+2026.02.17 14:55:59 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\scheduler\ScheduleRepository.java. Using fallback presentation compiler.
+2026.02.17 14:55:59 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\scheduler\ScheduleRepository.java. Using fallback presentation compiler.
+2026.02.17 14:55:59 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\scheduler\ScheduleRepository.java. Using fallback presentation compiler.
+2026.02.17 14:55:59 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\scheduler\ScheduleRepository.java. Using fallback presentation compiler.
+2026.02.17 14:55:59 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\scheduler\ScheduleRepository.java. Using fallback presentation compiler.
+2026.02.17 14:55:59 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\scheduler\ScheduleRepository.java. Using fallback presentation compiler.
+2026.02.17 14:55:59 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 14:56:00 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\scheduler\ScheduleRepository.java. Using fallback presentation compiler.
+2026.02.17 14:56:00 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\scheduler\ScheduleRepository.java. Using fallback presentation compiler.
+2026.02.17 14:56:00 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\scheduler\ScheduleRepository.java. Using fallback presentation compiler.
+2026.02.17 14:56:00 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\scheduler\ScheduleRepository.java
+2026.02.17 14:56:00 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\ResponseDto.java. Using fallback presentation compiler.
+2026.02.17 14:56:00 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\scheduler\ScheduleRepository.java. Using fallback presentation compiler.
+2026.02.17 14:56:00 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\scheduler\ScheduleRepository.java. Using fallback presentation compiler.
+2026.02.17 14:56:10 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Exception\ScheduleOverlapException.java
+2026.02.17 14:56:10 WARN  Running javac-semanticdb failed for file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Exception/ScheduleOverlapException.java. Output:
+
+2026.02.17 14:56:10 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Exception\ScheduleOverlapException.java. Using fallback presentation compiler.
+2026.02.17 14:56:10 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\ResponseDto.java. Using fallback presentation compiler.
+2026.02.17 14:56:10 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Exception\ScheduleOverlapException.java. Using fallback presentation compiler.
+2026.02.17 14:56:10 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Exception\ScheduleOverlapException.java
+2026.02.17 14:56:10 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Exception\ScheduleOverlapException.java. Using fallback presentation compiler.
+2026.02.17 14:56:10 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Exception\ScheduleOverlapException.java. Using fallback presentation compiler.
+2026.02.17 14:56:11 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\ResponseDto.java. Using fallback presentation compiler.
+2026.02.17 14:56:19 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 14:56:24 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java
+2026.02.17 14:56:24 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 14:56:24 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\ResponseDto.java. Using fallback presentation compiler.
+2026.02.17 14:56:24 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 14:56:24 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 14:56:24 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 14:56:24 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 14:56:25 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 14:56:25 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 14:56:25 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 14:56:25 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 14:56:25 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 14:56:25 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 14:56:26 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 14:56:25 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 14:56:26 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 14:56:26 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 14:56:26 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 14:56:26 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 14:56:26 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 14:56:26 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 14:56:27 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 14:56:26 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 14:56:27 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 14:56:27 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java
+2026.02.17 14:56:27 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\ResponseDto.java. Using fallback presentation compiler.
+2026.02.17 14:56:26 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 14:56:28 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 14:56:29 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\scheduler\ScheduleRepository.java. Using fallback presentation compiler.
+2026.02.17 14:56:29 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\scheduler\ScheduleRepository.java. Using fallback presentation compiler.
+2026.02.17 14:56:29 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 14:56:29 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 14:56:29 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 14:56:31 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 14:56:31 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\scheduler\ScheduleRepository.java. Using fallback presentation compiler.
+2026.02.17 14:56:31 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java
+2026.02.17 14:56:31 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\scheduler\ScheduleRepository.java
+2026.02.17 14:56:31 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\ResponseDto.java. Using fallback presentation compiler.
+2026.02.17 14:56:31 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 14:56:31 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\ResponseDto.java. Using fallback presentation compiler.
+2026.02.17 14:56:31 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 14:56:33 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java
+2026.02.17 14:56:33 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 14:56:33 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 14:56:33 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\ResponseDto.java. Using fallback presentation compiler.
+2026.02.17 14:56:33 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 14:56:33 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 14:56:34 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 14:56:34 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 14:56:34 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 14:56:34 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 14:56:34 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 14:56:34 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 14:56:35 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 14:56:34 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 14:56:35 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 14:56:35 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 14:56:35 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java
+2026.02.17 14:56:34 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\ResponseDto.java. Using fallback presentation compiler.
+2026.02.17 14:56:35 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 14:56:36 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 14:56:41 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 14:56:41 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java
+2026.02.17 14:56:41 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\ResponseDto.java. Using fallback presentation compiler.
+2026.02.17 14:56:41 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 14:56:41 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 15:21:22 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 15:21:25 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 15:21:28 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 15:21:30 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 15:21:30 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 15:21:30 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 15:21:31 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 15:21:32 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 15:21:31 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 15:21:32 INFO  Created report: Optional[file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/scheduler/ScheduleController.java]
+2026.02.17 15:21:32 INFO  empty definition using pc, found symbol in pc: _empty_/ScheduleService#deleteSchedule# (full report at: "C:\Projects\Vuega-backend\.metals\.reports\metals-full\2026-02-17\r_empty-definition_15-21-32-799.md")
+2026.02.17 15:21:33 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 15:21:33 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 15:21:33 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 15:21:34 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 15:21:34 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 15:21:34 INFO  empty definition using pc, found symbol in pc: _empty_/ScheduleService#deleteSchedule# (full report at: "C:\Projects\Vuega-backend\.metals\.reports\metals-full\2026-02-17\r_empty-definition_15-21-32-799.md")
+2026.02.17 15:21:34 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java
+2026.02.17 15:21:34 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 15:21:34 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 15:21:34 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\ResponseDto.java. Using fallback presentation compiler.
+2026.02.17 15:21:34 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 15:21:34 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 15:21:37 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 15:21:37 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 15:21:37 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 15:21:40 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 15:21:40 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 15:21:40 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 15:21:40 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 15:21:41 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 15:21:41 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 15:22:09 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 15:22:09 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 15:22:25 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\operator_config\OperatorService.java
+2026.02.17 15:22:25 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 15:22:25 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\ResponseDto.java. Using fallback presentation compiler.
+2026.02.17 15:22:33 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 15:22:40 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Model\scheduler\ScheduleStatus.java
+2026.02.17 15:22:40 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Model\scheduler\ScheduleStatus.java. Using fallback presentation compiler.
+2026.02.17 15:22:40 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\ResponseDto.java. Using fallback presentation compiler.
+2026.02.17 15:22:40 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Model\scheduler\ScheduleStatus.java. Using fallback presentation compiler.
+2026.02.17 15:23:10 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Model\scheduler\ScheduleStatus.java. Using fallback presentation compiler.
+2026.02.17 15:23:10 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Model\scheduler\ScheduleStatus.java
+2026.02.17 15:23:10 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\ResponseDto.java. Using fallback presentation compiler.
+2026.02.17 15:23:10 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Model\scheduler\ScheduleStatus.java. Using fallback presentation compiler.
+2026.02.17 15:23:13 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Model\scheduler\ScheduleStatus.java. Using fallback presentation compiler.
+2026.02.17 15:23:14 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Model\scheduler\ScheduleStatus.java
+2026.02.17 15:23:14 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\ResponseDto.java. Using fallback presentation compiler.
+2026.02.17 15:23:14 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Model\scheduler\ScheduleStatus.java. Using fallback presentation compiler.
+2026.02.17 15:23:17 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java
+2026.02.17 15:23:17 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 15:23:17 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 15:23:17 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\ResponseDto.java. Using fallback presentation compiler.
+2026.02.17 15:23:19 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 15:23:19 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 15:23:19 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 15:23:19 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 15:23:19 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 15:23:19 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 15:23:20 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 15:23:19 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 15:23:20 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java
+2026.02.17 15:23:20 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\ResponseDto.java. Using fallback presentation compiler.
+2026.02.17 15:23:20 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 15:23:21 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 15:23:22 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 15:23:23 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java
+2026.02.17 15:23:24 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 15:23:24 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\ResponseDto.java. Using fallback presentation compiler.
+2026.02.17 15:23:24 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 15:23:25 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 15:23:25 INFO  Created report: Optional[file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/scheduler/ScheduleService.java]
+2026.02.17 15:23:25 INFO  empty definition using pc, found symbol in pc: _empty_/ScheduleStatus# (full report at: "C:\Projects\Vuega-backend\.metals\.reports\metals-full\2026-02-17\r_empty-definition_15-23-25-851.md")
+2026.02.17 15:23:24 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 15:23:26 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 15:23:26 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 15:23:31 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java
+2026.02.17 15:23:31 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 15:23:31 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 15:23:31 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\ResponseDto.java. Using fallback presentation compiler.
+2026.02.17 15:23:31 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 15:23:31 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 15:23:31 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 15:23:31 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 15:23:31 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 15:23:31 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 15:23:32 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 15:23:32 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 15:23:32 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 15:23:32 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 15:23:32 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 15:23:33 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 15:23:33 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 15:23:33 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 15:23:33 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java
+2026.02.17 15:23:33 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\ResponseDto.java. Using fallback presentation compiler.
+2026.02.17 15:23:33 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 15:23:34 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 15:23:34 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 15:23:34 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 15:23:36 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 15:23:37 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 15:23:38 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java
+2026.02.17 15:23:38 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\ResponseDto.java. Using fallback presentation compiler.
+2026.02.17 15:23:38 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 15:24:58 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 15:25:07 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 15:25:13 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 15:25:16 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 15:25:24 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 15:25:25 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\operator_config\OperatorService.java. Using fallback presentation compiler.
+2026.02.17 15:25:26 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 15:25:26 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 15:25:27 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 15:25:27 INFO  empty definition using pc, found symbol in pc: _empty_/ResponseDto# (full report at: "C:\Projects\Vuega-backend\.metals\.reports\metals-full\2026-02-17\r_empty-definition_14-52-41-053.md")
+2026.02.17 15:25:27 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 15:25:27 INFO  empty definition using pc, found symbol in pc: _empty_/ResponseDto# (full report at: "C:\Projects\Vuega-backend\.metals\.reports\metals-full\2026-02-17\r_empty-definition_14-52-41-053.md")
+2026.02.17 15:25:27 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 15:25:27 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 15:25:53 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\operator_config\OperatorService.java
+2026.02.17 15:25:53 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\ResponseDto.java. Using fallback presentation compiler.
+2026.02.17 15:25:53 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 15:26:30 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 15:28:37 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 15:28:38 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 15:28:38 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 15:28:40 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 15:28:40 INFO  Created report: Optional[file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/scheduler/ScheduleController.java]
+2026.02.17 15:28:40 INFO  empty definition using pc, found symbol in pc: _empty_/ResponseDto#success# (full report at: "C:\Projects\Vuega-backend\.metals\.reports\metals-full\2026-02-17\r_empty-definition_15-28-40-917.md")
+2026.02.17 15:28:41 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 15:28:53 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\operator_config\OperatorService.java. Using fallback presentation compiler.
+2026.02.17 15:35:23 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 15:35:23 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 15:35:23 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 15:35:24 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 15:35:46 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 15:35:46 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 15:35:46 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 15:35:47 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 15:35:50 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 15:35:50 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 15:35:54 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 15:35:55 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 15:35:55 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java
+2026.02.17 15:35:55 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\ResponseDto.java. Using fallback presentation compiler.
+2026.02.17 15:35:55 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 15:35:56 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 15:35:56 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 15:35:58 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 15:35:58 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 15:35:58 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 15:35:59 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 15:35:59 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 15:36:00 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 15:36:01 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 15:36:01 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java
+2026.02.17 15:36:00 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\ResponseDto.java. Using fallback presentation compiler.
+2026.02.17 15:36:01 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 15:36:04 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java. Using fallback presentation compiler.
+2026.02.17 15:36:12 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java
+2026.02.17 15:36:12 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 15:36:12 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\ResponseDto.java. Using fallback presentation compiler.
+2026.02.17 15:36:12 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 15:36:12 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 15:36:14 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 15:36:16 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 15:36:16 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 15:36:17 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 15:36:19 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 15:36:21 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 15:36:21 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 15:36:22 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 15:36:23 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 15:36:22 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
+2026.02.17 15:36:23 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java
+2026.02.17 15:36:23 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\ResponseDto.java. Using fallback presentation compiler.
+2026.02.17 15:36:23 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java. Using fallback presentation compiler.
