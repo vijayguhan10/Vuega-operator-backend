@@ -1,3 +1,14 @@
+error id: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/OperatorService.java:net/vuega/vuega_backend/DTO/LoginRequest#
+file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/OperatorService.java
+empty definition using pc, found symbol in pc: net/vuega/vuega_backend/DTO/LoginRequest#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 312
+uri: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/OperatorService.java
+text:
+```scala
 package net.vuega.vuega_backend.Service;
 
 import java.time.LocalDateTime;
@@ -8,6 +19,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import lombok.RequiredArgsConstructor;
+import net.vuega.vuega_backend.DTO.@@LoginRequest;
 import net.vuega.vuega_backend.DTO.OperatorDTO;
 import net.vuega.vuega_backend.Model.Operator;
 import net.vuega.vuega_backend.Repository.OperatorRepository;
@@ -43,6 +55,14 @@ public class OperatorService {
     @Transactional(readOnly = true)
     public Optional<OperatorDTO> findByEmail(String email) {
         return repository.findByServiceEmail(email).map(this::toDTO);
+    }
+
+    // LOGIN
+    @Transactional(readOnly = true)
+    public Optional<OperatorDTO> login(LoginRequest request) {
+        return repository.findByServiceEmail(request.getEmail())
+                .filter(op -> op.getPassword().equals(request.getPassword()))
+                .map(this::toDTO);
     }
 
     // UPDATE (full replace)
@@ -168,3 +188,10 @@ public class OperatorService {
                 .build();
     }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: net/vuega/vuega_backend/DTO/LoginRequest#

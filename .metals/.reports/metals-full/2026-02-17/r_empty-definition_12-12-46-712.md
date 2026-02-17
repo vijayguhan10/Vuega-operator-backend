@@ -1,3 +1,14 @@
+error id: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/OperatorController.java:_empty_/HttpStatus#
+file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/OperatorController.java
+empty definition using pc, found symbol in pc: _empty_/HttpStatus#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 2262
+uri: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/OperatorController.java
+text:
+```scala
 package net.vuega.vuega_backend.Controller;
 
 import java.util.List;
@@ -15,6 +26,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import lombok.RequiredArgsConstructor;
+import net.vuega.vuega_backend.DTO.LoginRequest;
 import net.vuega.vuega_backend.DTO.OperatorDTO;
 import net.vuega.vuega_backend.DTO.ResponseDto;
 import net.vuega.vuega_backend.Service.OperatorService;
@@ -25,6 +37,15 @@ import net.vuega.vuega_backend.Service.OperatorService;
 public class OperatorController {
 
     private final OperatorService service;
+
+    // LOGIN
+    @PostMapping("/login")
+    public ResponseEntity<ResponseDto<OperatorDTO>> login(@RequestBody LoginRequest request) {
+        return service.login(request)
+                .map(dto -> ResponseEntity.ok(ResponseDto.success(dto)))
+                .orElse(ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                        .body(ResponseDto.error(401, "Invalid email or password")));
+    }
 
     // CREATE
     @PostMapping
@@ -44,7 +65,7 @@ public class OperatorController {
     public ResponseEntity<ResponseDto<OperatorDTO>> findById(@PathVariable Long id) {
         return service.findById(id)
                 .map(dto -> ResponseEntity.ok(ResponseDto.success(dto)))
-                .orElse(ResponseEntity.status(HttpStatus.NOT_FOUND)
+                .orElse(ResponseEntity.status(HttpStat@@us.NOT_FOUND)
                         .body(ResponseDto.notFound("Operator not found")));
     }
 
@@ -119,3 +140,10 @@ public class OperatorController {
                         .body(ResponseDto.notFound("Operator not found")));
     }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: _empty_/HttpStatus#

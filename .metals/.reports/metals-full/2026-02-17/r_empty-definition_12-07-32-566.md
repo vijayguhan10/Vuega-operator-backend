@@ -1,3 +1,14 @@
+error id: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/config/DataInitializer.java:_empty_/Operator#builder#serviceEmail#password#
+file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/config/DataInitializer.java
+empty definition using pc, found symbol in pc: _empty_/Operator#builder#serviceEmail#password#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 883
+uri: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/config/DataInitializer.java
+text:
+```scala
 package net.vuega.vuega_backend.config;
 
 import java.time.LocalDateTime;
@@ -26,6 +37,7 @@ public class DataInitializer implements CommandLineRunner {
             List<Operator> sampleData = List.of(
                     Operator.builder()
                             .serviceEmail("admin@vuega.net")
+                            .@@password("admin123")
                             .accessToken("tok_abc123")
                             .tokenExpiresAt(LocalDateTime.now().plusDays(30))
                             .operatorName("Vuega Admin")
@@ -38,6 +50,7 @@ public class DataInitializer implements CommandLineRunner {
                             .build(),
                     Operator.builder()
                             .serviceEmail("ops@citytransit.com")
+                            .password("transit456")
                             .accessToken("tok_def456")
                             .tokenExpiresAt(LocalDateTime.now().plusDays(15))
                             .operatorName("City Transit Ops")
@@ -50,6 +63,7 @@ public class DataInitializer implements CommandLineRunner {
                             .build(),
                     Operator.builder()
                             .serviceEmail("demo@testbus.org")
+                            .password("demo789")
                             .accessToken("tok_ghi789")
                             .tokenExpiresAt(LocalDateTime.now().plusDays(7))
                             .operatorName("Demo User")
@@ -68,3 +82,10 @@ public class DataInitializer implements CommandLineRunner {
         }
     }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: _empty_/Operator#builder#serviceEmail#password#
