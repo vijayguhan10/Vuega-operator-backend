@@ -3423,3 +3423,13 @@ WARNING: Unmatched cancel notification for request id 1326
 2026.02.17 13:10:40 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\scheduler\UpdateScheduleRequest.java
 2026.02.17 13:10:43 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\operator_config\OperatorController.java. Using fallback presentation compiler.
 2026.02.17 13:10:43 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\ResponseDto.java. Using fallback presentation compiler.
+2026.02.17 13:10:52 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\scheduler\ScheduleRepository.java
+2026.02.17 13:10:52 WARN  Running javac-semanticdb failed for file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Repository/scheduler/ScheduleRepository.java. Output:
+
+2026.02.17 13:10:52 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\scheduler\ScheduleRepository.java. Using fallback presentation compiler.
+2026.02.17 13:10:52 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\operator_config\OperatorController.java. Using fallback presentation compiler.
+2026.02.17 13:10:52 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\ResponseDto.java. Using fallback presentation compiler.
+2026.02.17 13:10:52 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\scheduler\ScheduleRepository.java. Using fallback presentation compiler.
+2026.02.17 13:10:52 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\scheduler\ScheduleRepository.java
+2026.02.17 13:10:52 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\operator_config\OperatorController.java. Using fallback presentation compiler.
+2026.02.17 13:10:52 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\ResponseDto.java. Using fallback presentation compiler.
