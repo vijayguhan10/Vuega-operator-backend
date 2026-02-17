@@ -1,4 +1,15 @@
-package net.vuega.vuega_backend.Controller.operatorConfig;
+error id: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/operatorConfig/OperatorConfigController.java:java/lang/System#out#println#
+file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/operatorConfig/OperatorConfigController.java
+empty definition using pc, found symbol in pc: java/lang/System#out#println#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 3006
+uri: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/operatorConfig/OperatorConfigController.java
+text:
+```scala
+package net.vuega.vuega_backend.Controller.OperatorConfig;
 
 import java.util.List;
 
@@ -80,12 +91,14 @@ public class OperatorConfigController {
     }
 
     // DELETE ALL
+    System.out.pri@@ntln("OperatorConfigController class loaded");
     @DeleteMapping
     public ResponseEntity<Void> deleteAll() {
         service.deleteAll();
         return ResponseEntity.noContent().build();
     }
 
+    
     @GetMapping("/exists/{id}")
     public ResponseEntity<Boolean> existsById(@PathVariable Long id) {
         return ResponseEntity.ok(service.existsById(id));
@@ -111,3 +124,10 @@ public class OperatorConfigController {
                 .orElse(ResponseEntity.notFound().build());
     }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: java/lang/System#out#println#

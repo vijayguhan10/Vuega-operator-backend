@@ -1,4 +1,15 @@
-package net.vuega.vuega_backend.Controller.operatorConfig;
+error id: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/operatorConfig/OperatorConfigController.java:_empty_/RequestBody#
+file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/operatorConfig/OperatorConfigController.java
+empty definition using pc, found symbol in pc: _empty_/RequestBody#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 1176
+uri: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/operatorConfig/OperatorConfigController.java
+text:
+```scala
+package net.vuega.vuega_backend.Controller.OperatorConfig;
 
 import java.util.List;
 
@@ -19,7 +30,7 @@ import net.vuega.vuega_backend.DTO.operator_config.OperatorConfigDTO;
 import net.vuega.vuega_backend.Service.operator_config.OperatorConfigService;
 
 @RestController
-@RequestMapping("/api/operator-config")
+@RequestMapping("/api/operator-configuration")
 @RequiredArgsConstructor
 public class OperatorConfigController {
 
@@ -27,7 +38,7 @@ public class OperatorConfigController {
 
     // CREATE
     @PostMapping
-    public ResponseEntity<OperatorConfigDTO> create(@RequestBody OperatorConfigDTO dto) {
+    public ResponseEntity<OperatorConfigDTO> create(@@@RequestBody OperatorConfigDTO dto) {
         OperatorConfigDTO created = service.create(dto);
         return ResponseEntity.status(HttpStatus.CREATED).body(created);
     }
@@ -86,6 +97,7 @@ public class OperatorConfigController {
         return ResponseEntity.noContent().build();
     }
 
+    
     @GetMapping("/exists/{id}")
     public ResponseEntity<Boolean> existsById(@PathVariable Long id) {
         return ResponseEntity.ok(service.existsById(id));
@@ -102,7 +114,6 @@ public class OperatorConfigController {
     public ResponseEntity<Long> count() {
         return ResponseEntity.ok(service.count());
     }
-
     // UPDATE LAST CHECKED (validate license)
     @PostMapping("/{id}/validate")
     public ResponseEntity<OperatorConfigDTO> updateLastChecked(@PathVariable Long id) {
@@ -111,3 +122,10 @@ public class OperatorConfigController {
                 .orElse(ResponseEntity.notFound().build());
     }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: _empty_/RequestBody#

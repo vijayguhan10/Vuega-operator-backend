@@ -12,7 +12,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class OperatorConfigDTO {
-
     private Long operatorId;
     private String licenseKey;
     private LocalDateTime lastChecked;
