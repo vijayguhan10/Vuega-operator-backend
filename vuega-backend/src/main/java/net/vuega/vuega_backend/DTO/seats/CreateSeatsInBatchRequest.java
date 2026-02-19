@@ -2,14 +2,12 @@ package net.vuega.vuega_backend.DTO.seats;
 
 import java.util.List;
 
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
+import jakarta.validation.constraints.*;
+import jakarta.validation.Valid;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

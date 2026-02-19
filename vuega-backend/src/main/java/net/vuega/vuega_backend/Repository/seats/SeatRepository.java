@@ -24,7 +24,9 @@ public interface SeatRepository extends JpaRepository<Seat, Long> {
 
     List<Seat> findByBusIdAndStatus(Long busId, SeatStatus status);
 
-    /** Used to enforce the (bus_id, seat_no) uniqueness check at the service layer. */
+    /**
+     * Used to enforce the (bus_id, seat_no) uniqueness check at the service layer.
+     */
     boolean existsByBusIdAndSeatNo(Long busId, String seatNo);
 
     // ---- Availability ------------------------------------------------
@@ -76,7 +78,7 @@ public interface SeatRepository extends JpaRepository<Seat, Long> {
      * than loading entities one by one.
      *
      * @Modifying is required for any JPQL UPDATE/DELETE to signal Spring Data
-     * that the query mutates state and clears the first-level cache.
+     *            that the query mutates state and clears the first-level cache.
      */
     @Modifying
     @Query("""

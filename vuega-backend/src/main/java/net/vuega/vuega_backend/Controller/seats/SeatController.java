@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import net.vuega.vuega_backend.DTO.ResponseDto;
 import net.vuega.vuega_backend.DTO.seats.CreateSeatRequest;
@@ -28,28 +27,28 @@ import net.vuega.vuega_backend.Exception.SeatLockConflictException;
 import net.vuega.vuega_backend.Exception.SeatNotAvailableException;
 import net.vuega.vuega_backend.Exception.SeatNotFoundException;
 import net.vuega.vuega_backend.Service.seats.SeatService;
-
+import jakarta.validation.*;
 /**
  * REST controller for the Seats resource.
  *
  * Endpoints:
  *
- *  CRUD
- *    POST   /api/seats              – create one seat
- *    POST   /api/seats/batch        – batch-create seats
- *    GET    /api/seats/{id}         – get by id
- *    GET    /api/seats/bus/{busId}          – all seats for a bus
- *    GET    /api/seats/bus/{busId}/available – available seats for a bus
- *    PUT    /api/seats/{id}         – partial update (seatNo, type, price)
- *    DELETE /api/seats/{id}         – hard-delete (only AVAILABLE)
+ * CRUD
+ * POST /api/seats – create one seat
+ * POST /api/seats/batch – batch-create seats
+ * GET /api/seats/{id} – get by id
+ * GET /api/seats/bus/{busId} – all seats for a bus
+ * GET /api/seats/bus/{busId}/available – available seats for a bus
+ * PUT /api/seats/{id} – partial update (seatNo, type, price)
+ * DELETE /api/seats/{id} – hard-delete (only AVAILABLE)
  *
- *  Locking
- *    POST   /api/seats/{id}/lock    – lock seat (body: lockedBy, fromStop, toStop)
- *    DELETE /api/seats/{id}/lock    – unlock seat (?lockedBy=…)
+ * Locking
+ * POST /api/seats/{id}/lock – lock seat (body: lockedBy, fromStop, toStop)
+ * DELETE /api/seats/{id}/lock – unlock seat (?lockedBy=…)
  *
- *  Booking
- *    POST   /api/seats/{id}/book    – confirm booking (?lockedBy=…)
- *    POST   /api/seats/{id}/cancel  – cancel booking → AVAILABLE
+ * Booking
+ * POST /api/seats/{id}/book – confirm booking (?lockedBy=…)
+ * POST /api/seats/{id}/cancel – cancel booking → AVAILABLE
  */
 @RestController
 @RequestMapping("/api/seats")
@@ -63,7 +62,7 @@ public class SeatController {
     /**
      * POST /api/seats
      * Body: { busId, seatNo, type, price }
-     * 201 Created  | 409 Conflict (duplicate) | 400 Bad Request (validation)
+     * 201 Created | 409 Conflict (duplicate) | 400 Bad Request (validation)
      */
     @PostMapping
     public ResponseEntity<ResponseDto<SeatDTO>> create(
@@ -80,7 +79,7 @@ public class SeatController {
     /**
      * POST /api/seats/batch
      * Body: { seats: [ {busId, seatNo, type, price}, … ] }
-     * 201 Created  | 409 Conflict (any duplicate) | 400 Bad Request
+     * 201 Created | 409 Conflict (any duplicate) | 400 Bad Request
      */
     @PostMapping("/batch")
     public ResponseEntity<ResponseDto<List<SeatDTO>>> createBatch(
@@ -130,7 +129,7 @@ public class SeatController {
 
     /**
      * PUT /api/seats/{id}
-     * Body: { seatNo?, type?, price? }   (all fields optional — null = keep current)
+     * Body: { seatNo?, type?, price? } (all fields optional — null = keep current)
      * 200 OK | 404 | 409 (seat in use or duplicate seatNo)
      */
     @PutMapping("/{id}")
@@ -229,7 +228,8 @@ public class SeatController {
      * Transitions a LOCKED seat to BOOKED.
      * The @Version column provides optimistic-locking safety as a last defence.
      *
-     * 200 OK | 404 | 409 (concurrent write / wrong owner) | 422 (wrong state / expired lock)
+     * 200 OK | 404 | 409 (concurrent write / wrong owner) | 422 (wrong state /
+     * expired lock)
      */
     @PostMapping("/{id}/book")
     public ResponseEntity<ResponseDto<SeatDTO>> book(

@@ -53,8 +53,8 @@ public class SeatService {
      * Create a single seat.
      *
      * Edge cases:
-     *  - Duplicate (bus_id, seat_no) → DuplicateSeatException (409)
-     *  - price <= 0 → caught by @Valid before reaching here
+     * - Duplicate (bus_id, seat_no) → DuplicateSeatException (409)
+     * - price <= 0 → caught by @Valid before reaching here
      */
     @Transactional
     public SeatDTO createSeat(CreateSeatRequest request) {
@@ -78,8 +78,9 @@ public class SeatService {
      * Batch-create seats.
      *
      * Edge cases:
-     *  - Any duplicate within the batch or with existing data → exception, whole batch rolled back
-     *  - Batch size capped at DTO layer (100 seats)
+     * - Any duplicate within the batch or with existing data → exception, whole
+     * batch rolled back
+     * - Batch size capped at DTO layer (100 seats)
      */
     @Transactional
     public List<SeatDTO> createSeatsInBatch(CreateSeatsInBatchRequest request) {
@@ -110,7 +111,7 @@ public class SeatService {
      * Get a seat by ID (enriched with bus details from Control Plane).
      *
      * Edge cases:
-     *  - Not found → SeatNotFoundException (404)
+     * - Not found → SeatNotFoundException (404)
      */
     @Transactional(readOnly = true)
     public SeatDTO getSeatById(Long seatId) {
@@ -130,7 +131,8 @@ public class SeatService {
     }
 
     /**
-     * Get only AVAILABLE seats for a given bus (unenriched — for fast availability checks).
+     * Get only AVAILABLE seats for a given bus (unenriched — for fast availability
+     * checks).
      */
     @Transactional(readOnly = true)
     public List<SeatDTO> getAvailableSeats(Long busId) {
@@ -143,10 +145,11 @@ public class SeatService {
      * Partial update of a seat.
      *
      * Edge cases:
-     *  - Not found → SeatNotFoundException (404)
-     *  - Seat is LOCKED or BOOKED → SeatNotAvailableException (409): cannot mutate
-     *    a seat that is currently in use
-     *  - New seatNo collides with another seat on the same bus → DuplicateSeatException (409)
+     * - Not found → SeatNotFoundException (404)
+     * - Seat is LOCKED or BOOKED → SeatNotAvailableException (409): cannot mutate
+     * a seat that is currently in use
+     * - New seatNo collides with another seat on the same bus →
+     * DuplicateSeatException (409)
      */
     @Transactional
     public SeatDTO updateSeat(Long seatId, UpdateSeatRequest request) {
@@ -156,8 +159,8 @@ public class SeatService {
         if (seat.getStatus() != SeatStatus.AVAILABLE) {
             throw new SeatNotAvailableException(
                     "Cannot update seat " + seatId
-                    + " — it is currently " + seat.getStatus()
-                    + ". Only AVAILABLE seats can be modified.");
+                            + " — it is currently " + seat.getStatus()
+                            + ". Only AVAILABLE seats can be modified.");
         }
 
         if (request.getSeatNo() != null
@@ -167,9 +170,12 @@ public class SeatService {
                     String.valueOf(seat.getBusId()), request.getSeatNo());
         }
 
-        if (request.getSeatNo() != null)  seat.setSeatNo(request.getSeatNo());
-        if (request.getType()   != null)  seat.setType(request.getType());
-        if (request.getPrice()  != null)  seat.setPrice(request.getPrice());
+        if (request.getSeatNo() != null)
+            seat.setSeatNo(request.getSeatNo());
+        if (request.getType() != null)
+            seat.setType(request.getType());
+        if (request.getPrice() != null)
+            seat.setPrice(request.getPrice());
 
         return toDTO(repository.save(seat));
     }
@@ -178,8 +184,8 @@ public class SeatService {
      * Hard-delete a seat.
      *
      * Edge cases:
-     *  - Not found → SeatNotFoundException (404)
-     *  - Seat is LOCKED or BOOKED → SeatNotAvailableException (409)
+     * - Not found → SeatNotFoundException (404)
+     * - Seat is LOCKED or BOOKED → SeatNotAvailableException (409)
      */
     @Transactional
     public void deleteSeat(Long seatId) {
@@ -189,8 +195,8 @@ public class SeatService {
         if (seat.getStatus() != SeatStatus.AVAILABLE) {
             throw new SeatNotAvailableException(
                     "Cannot delete seat " + seatId
-                    + " — it is currently " + seat.getStatus()
-                    + ". Only AVAILABLE seats can be deleted.");
+                            + " — it is currently " + seat.getStatus()
+                            + ". Only AVAILABLE seats can be deleted.");
         }
 
         repository.delete(seat);
@@ -202,23 +208,24 @@ public class SeatService {
      * Lock a seat for a specific journey segment.
      *
      * Concurrency strategy:
-     *   1. PESSIMISTIC_WRITE (SELECT … FOR UPDATE) — the DB row is exclusively
-     *      locked for the duration of this transaction, so two concurrent
-     *      requests reading the same seat both see its real status; only one
-     *      will find it AVAILABLE and proceed; the second will see LOCKED and
-     *      fail immediately with SeatLockConflictException.
+     * 1. PESSIMISTIC_WRITE (SELECT … FOR UPDATE) — the DB row is exclusively
+     * locked for the duration of this transaction, so two concurrent
+     * requests reading the same seat both see its real status; only one
+     * will find it AVAILABLE and proceed; the second will see LOCKED and
+     * fail immediately with SeatLockConflictException.
      *
      * Edge cases:
-     *  - Not found       → SeatNotFoundException  (404)
-     *  - Already BOOKED  → SeatNotAvailableException (422)
-     *  - Already LOCKED  → SeatLockConflictException  (409)
-     *  - fromStop >= toStop → InvalidStopRangeException (400)
+     * - Not found → SeatNotFoundException (404)
+     * - Already BOOKED → SeatNotAvailableException (422)
+     * - Already LOCKED → SeatLockConflictException (409)
+     * - fromStop >= toStop → InvalidStopRangeException (400)
      */
     @Transactional(isolation = Isolation.READ_COMMITTED)
     public SeatDTO lockSeat(Long seatId, LockSeatRequest request) {
         validateStopRange(request.getFromStopOrder(), request.getToStopOrder());
 
-        // Acquires DB-level exclusive row lock — blocks concurrent lockSeat / bookSeat calls
+        // Acquires DB-level exclusive row lock — blocks concurrent lockSeat / bookSeat
+        // calls
         Seat seat = repository.findByIdWithPessimisticLock(seatId)
                 .orElseThrow(() -> new SeatNotFoundException(seatId));
 
@@ -227,8 +234,9 @@ public class SeatService {
                     "Seat " + seatId + " is already BOOKED and cannot be locked.");
             case LOCKED -> throw new SeatLockConflictException(
                     "Seat " + seatId + " is already locked by session: " + seat.getLockedBy()
-                    + ". Lock expires at " + seat.getLockedAt().plusMinutes(LOCK_TTL_MINUTES) + ".");
-            default -> { /* AVAILABLE — proceed */ }
+                            + ". Lock expires at " + seat.getLockedAt().plusMinutes(LOCK_TTL_MINUTES) + ".");
+            default -> {
+                /* AVAILABLE — proceed */ }
         }
 
         seat.setStatus(SeatStatus.LOCKED);
@@ -247,9 +255,9 @@ public class SeatService {
      * book cannot race each other.
      *
      * Edge cases:
-     *  - Not found            → SeatNotFoundException  (404)
-     *  - Not LOCKED           → SeatNotAvailableException (422)
-     *  - lockedBy mismatch    → SeatLockConflictException  (403)
+     * - Not found → SeatNotFoundException (404)
+     * - Not LOCKED → SeatNotAvailableException (422)
+     * - lockedBy mismatch → SeatLockConflictException (403)
      */
     @Transactional(isolation = Isolation.READ_COMMITTED)
     public SeatDTO unlockSeat(Long seatId, String lockedBy) {
@@ -263,7 +271,7 @@ public class SeatService {
         if (!seat.getLockedBy().equals(lockedBy)) {
             throw new SeatLockConflictException(
                     "Cannot unlock seat " + seatId
-                    + " — it was locked by a different session (" + seat.getLockedBy() + ").");
+                            + " — it was locked by a different session (" + seat.getLockedBy() + ").");
         }
 
         clearLock(seat);
@@ -276,21 +284,22 @@ public class SeatService {
      * Confirm a booking for a seat that is already LOCKED by the same session.
      *
      * Concurrency strategy:
-     *   1. PESSIMISTIC_WRITE prevents a second concurrent book from reading
-     *      LOCKED status simultaneously.
-     *   2. @Version (optimistic locking) is the last line of defence: if a
-     *      concurrent transaction somehow committed a version change between
-     *      our read and our write, Hibernate throws
-     *      ObjectOptimisticLockingFailureException, which is caught and surfaced
-     *      as SeatLockConflictException so the caller can retry.
+     * 1. PESSIMISTIC_WRITE prevents a second concurrent book from reading
+     * LOCKED status simultaneously.
+     * 2. @Version (optimistic locking) is the last line of defence: if a
+     * concurrent transaction somehow committed a version change between
+     * our read and our write, Hibernate throws
+     * ObjectOptimisticLockingFailureException, which is caught and surfaced
+     * as SeatLockConflictException so the caller can retry.
      *
      * Edge cases:
-     *  - Not found          → SeatNotFoundException  (404)
-     *  - Already BOOKED     → SeatNotAvailableException (422)
-     *  - Not LOCKED         → SeatNotAvailableException (422): must lock first
-     *  - lockedBy mismatch  → SeatLockConflictException  (409)
-     *  - Lock expired       → SeatNotAvailableException (422): seat auto-reverts to AVAILABLE
-     *  - Concurrent write   → SeatLockConflictException  (409): retry
+     * - Not found → SeatNotFoundException (404)
+     * - Already BOOKED → SeatNotAvailableException (422)
+     * - Not LOCKED → SeatNotAvailableException (422): must lock first
+     * - lockedBy mismatch → SeatLockConflictException (409)
+     * - Lock expired → SeatNotAvailableException (422): seat auto-reverts to
+     * AVAILABLE
+     * - Concurrent write → SeatLockConflictException (409): retry
      */
     @Transactional(isolation = Isolation.READ_COMMITTED)
     public SeatDTO bookSeat(Long seatId, String lockedBy) {
@@ -304,12 +313,12 @@ public class SeatService {
             if (seat.getStatus() != SeatStatus.LOCKED) {
                 throw new SeatNotAvailableException(
                         "Seat " + seatId + " must be LOCKED before booking (current status: "
-                        + seat.getStatus() + "). Call /lock first.");
+                                + seat.getStatus() + "). Call /lock first.");
             }
             if (!seat.getLockedBy().equals(lockedBy)) {
                 throw new SeatLockConflictException(
                         "Cannot book seat " + seatId
-                        + " — it was locked by a different session (" + seat.getLockedBy() + ").");
+                                + " — it was locked by a different session (" + seat.getLockedBy() + ").");
             }
 
             // Check the lock has not expired
@@ -319,7 +328,7 @@ public class SeatService {
                 repository.save(seat);
                 throw new SeatNotAvailableException(
                         "The lock on seat " + seatId + " expired at " + lockExpiry
-                        + ". Please lock the seat again.");
+                                + ". Please lock the seat again.");
             }
 
             seat.setStatus(SeatStatus.BOOKED);
@@ -328,7 +337,7 @@ public class SeatService {
             seat.setLockedBy(null);
             seat.setLockedAt(null);
 
-            return toDTO(repository.save(seat));  // @Version incremented here
+            return toDTO(repository.save(seat)); // @Version incremented here
 
         } catch (ObjectOptimisticLockingFailureException e) {
             // Another transaction updated this row after we read it.
@@ -341,8 +350,8 @@ public class SeatService {
      * Cancel a confirmed booking — reverts the seat to AVAILABLE.
      *
      * Edge cases:
-     *  - Not found      → SeatNotFoundException (404)
-     *  - Not BOOKED     → SeatNotAvailableException (422)
+     * - Not found → SeatNotFoundException (404)
+     * - Not BOOKED → SeatNotAvailableException (422)
      */
     @Transactional
     public SeatDTO cancelBooking(Long seatId) {
@@ -352,7 +361,7 @@ public class SeatService {
         if (seat.getStatus() != SeatStatus.BOOKED) {
             throw new SeatNotAvailableException(
                     "Seat " + seatId + " is not BOOKED (current status: "
-                    + seat.getStatus() + "). Nothing to cancel.");
+                            + seat.getStatus() + "). Nothing to cancel.");
         }
 
         clearLock(seat);
@@ -368,8 +377,9 @@ public class SeatService {
      * keeping the DB round-trip O(1) regardless of how many locks expire.
      *
      * @Modifying queries clear the Hibernate first-level cache automatically
-     * (via clearAutomatically = true default on Spring Data's @Modifying),
-     * preventing stale entity reads after the bulk write.
+     *            (via clearAutomatically = true default on Spring
+     *            Data's @Modifying),
+     *            preventing stale entity reads after the bulk write.
      */
     @Scheduled(fixedRate = 60_000)
     @Transactional

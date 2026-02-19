@@ -19,13 +19,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(
-    name = "seats",
-    uniqueConstraints = @UniqueConstraint(
-        name = "uq_bus_seat_no",
-        columnNames = {"bus_id", "seat_no"}
-    )
-)
+@Table(name = "seats", uniqueConstraints = @UniqueConstraint(name = "uq_bus_seat_no", columnNames = { "bus_id",
+        "seat_no" }))
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -78,10 +73,11 @@ public class Seat {
 
     /**
      * @Version causes Hibernate to append a WHERE version = ? clause on every
-     * UPDATE. If a concurrent transaction already incremented the version,
-     * Hibernate throws ObjectOptimisticLockingFailureException, preventing
-     * silent lost updates (e.g., two threads both believing they booked the
-     * same seat).
+     *          UPDATE. If a concurrent transaction already incremented the version,
+     *          Hibernate throws ObjectOptimisticLockingFailureException, preventing
+     *          silent lost updates (e.g., two threads both believing they booked
+     *          the
+     *          same seat).
      */
     @Version
     @Column(name = "version", nullable = false)
