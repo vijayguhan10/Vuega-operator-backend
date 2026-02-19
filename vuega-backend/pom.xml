@@ -66,6 +66,11 @@
             <scope>runtime</scope>
             <optional>true</optional>
         </dependency>
+        <!-- Bean Validation (Jakarta @Valid, @NotNull, @Size, etc.) -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
