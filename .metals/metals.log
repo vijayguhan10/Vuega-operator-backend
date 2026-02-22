@@ -6233,3 +6233,34 @@ WARNING: Unmatched cancel notification for request id 35
 2026.02.22 17:53:02 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\seats\SeatRepository.java. Using fallback presentation compiler.
 2026.02.22 17:53:04 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\seats\SeatRepository.java. Using fallback presentation compiler.
 2026.02.22 17:53:12 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\seats\SeatRepository.java. Using fallback presentation compiler.
+2026.02.22 17:53:57 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\operator_config\OperatorController.java
+2026.02.22 17:53:58 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\seats\SeatRepository.java. Using fallback presentation compiler.
+2026.02.22 17:53:58 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\scheduler\ScheduleController.java
+2026.02.22 17:53:58 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\seats\SeatController.java
+2026.02.22 17:53:58 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\seats\SeatRepository.java. Using fallback presentation compiler.
+2026.02.22 17:53:58 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\SeatService.java
+2026.02.22 17:53:57 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\seats\SeatRepository.java. Using fallback presentation compiler.
+2026.02.22 17:54:05 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\scheduler\ScheduleService.java
+2026.02.22 17:54:05 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\seats\SeatRepository.java. Using fallback presentation compiler.
+2026.02.22 17:54:14 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Model\seats\Seat.java
+2026.02.22 17:54:14 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\seats\SeatRepository.java. Using fallback presentation compiler.
+2026.02.22 17:54:21 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Model\scheduler\Schedule.java
+2026.02.22 17:54:21 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\seats\SeatRepository.java. Using fallback presentation compiler.
+2026.02.22 17:54:21 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\scheduler\ScheduleRepository.java
+2026.02.22 17:54:21 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\ResponseDto.java
+2026.02.22 17:54:21 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\seats\SeatRepository.java. Using fallback presentation compiler.
+2026.02.22 17:54:22 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\operator_config\OperatorService.java
+2026.02.22 17:54:22 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\seats\SeatRepository.java. Using fallback presentation compiler.
+2026.02.22 17:54:28 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\seats\CreateSeatRequest.java
+2026.02.22 17:54:28 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\seats\SeatRepository.java. Using fallback presentation compiler.
+2026.02.22 17:54:28 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\seats\CreateSeatsInBatchRequest.java
+2026.02.22 17:54:28 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\seats\LockSeatRequest.java
+2026.02.22 17:54:29 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\seats\SeatDTO.java
+2026.02.22 17:54:29 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\seats\SeatRepository.java. Using fallback presentation compiler.
+2026.02.22 17:54:47 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\seats\UpdateSeatRequest.java
+2026.02.22 17:54:47 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\seats\UpdateSeatRequest.java. Using fallback presentation compiler.
+2026.02.22 17:54:47 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\seats\UpdateSeatRequest.java. Using fallback presentation compiler.
+2026.02.22 17:54:47 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\seats\UpdateSeatRequest.java. Using fallback presentation compiler.
+2026.02.22 17:54:48 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\seats\UpdateSeatRequest.java. Using fallback presentation compiler.
+2026.02.22 17:54:49 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\seats\UpdateSeatRequest.java. Using fallback presentation compiler.
+2026.02.22 17:54:49 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\seats\UpdateSeatRequest.java. Using fallback presentation compiler.

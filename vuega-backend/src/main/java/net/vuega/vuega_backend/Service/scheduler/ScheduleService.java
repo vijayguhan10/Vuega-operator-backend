@@ -16,6 +16,7 @@ import net.vuega.vuega_backend.Model.scheduler.Schedule;
 import net.vuega.vuega_backend.Model.scheduler.ScheduleStatus;
 import net.vuega.vuega_backend.Repository.scheduler.ScheduleRepository;
 
+// Schedule service — CRUD and Control Plane enrichment.
 @Service
 public class ScheduleService {
 
@@ -31,13 +32,7 @@ public class ScheduleService {
                 .build();
     }
 
-    // ======================== CRUD ========================
-
-    /**
-     * Create a new schedule.
-     */
     public ScheduleDTO createSchedule(CreateScheduleRequest request) {
-        // Check for overlapping schedule on the same bus
         if (repository.existsOverlappingSchedule(
                 request.getBusId(),
                 request.getDepartTime(),
@@ -59,9 +54,6 @@ public class ScheduleService {
         return enrichWithControlPlane(saved);
     }
 
-    /**
-     * Get a single schedule by ID (enriched with bus & route details).
-     */
     public ScheduleDTO getScheduleById(Long id) {
         Schedule schedule = repository.findById(id).orElse(null);
         if (schedule == null)
@@ -69,31 +61,23 @@ public class ScheduleService {
         return enrichWithControlPlane(schedule);
     }
 
-    /**
-     * Get all schedules (enriched).
-     */
     public List<ScheduleDTO> getAllSchedules() {
         return repository.findAll().stream()
                 .map(this::enrichWithControlPlane)
                 .toList();
     }
 
-    /**
-     * Update an existing schedule.
-     */
     public ScheduleDTO updateSchedule(Long id, UpdateScheduleRequest request) {
         Schedule schedule = repository.findById(id).orElse(null);
         if (schedule == null)
             return null;
 
-        // Determine final values after update
         Long busId = request.getBusId() != null ? request.getBusId() : schedule.getBusId();
         java.time.LocalTime departTime = request.getDepartTime() != null ? request.getDepartTime()
                 : schedule.getDepartTime();
         java.time.LocalTime arriveTime = request.getArriveTime() != null ? request.getArriveTime()
                 : schedule.getArriveTime();
 
-        // Check for overlapping schedule on the same bus (excluding current schedule)
         if (repository.existsOverlappingScheduleExcluding(busId, departTime, arriveTime, id)) {
             throw new ScheduleOverlapException(
                     "Bus " + busId + " already has a schedule between " +
@@ -115,9 +99,6 @@ public class ScheduleService {
         return enrichWithControlPlane(saved);
     }
 
-    /**
-     * Soft-delete a schedule by setting status to ABORTED.
-     */
     public ScheduleDTO deleteSchedule(Long id) {
         Schedule schedule = repository.findById(id).orElse(null);
         if (schedule == null)
@@ -128,38 +109,24 @@ public class ScheduleService {
         return enrichWithControlPlane(saved);
     }
 
-    // ======================== BUSINESS QUERIES ========================
-
-    /**
-     * Get all schedules for a specific bus.
-     */
     public List<ScheduleDTO> getSchedulesByBus(Long busId) {
         return repository.findByBusId(busId).stream()
                 .map(this::enrichWithControlPlane)
                 .toList();
     }
 
-    /**
-     * Get all schedules for a specific route.
-     */
     public List<ScheduleDTO> getSchedulesByRoute(Long routeId) {
         return repository.findByRouteId(routeId).stream()
                 .map(this::enrichWithControlPlane)
                 .toList();
     }
 
-    /**
-     * Get all schedules by status (ACTIVE / INACTIVE).
-     */
     public List<ScheduleDTO> getSchedulesByStatus(ScheduleStatus status) {
         return repository.findByStatus(status).stream()
                 .map(this::enrichWithControlPlane)
                 .toList();
     }
 
-    /**
-     * Get schedules for a bus + route combination.
-     */
     public List<ScheduleDTO> getSchedulesByBusAndRoute(Long busId, Long routeId) {
         return repository.findByBusIdAndRouteId(busId, routeId).stream()
                 .map(this::enrichWithControlPlane)
@@ -167,9 +134,6 @@ public class ScheduleService {
     }
 
 
-    /**
-     * Toggle schedule status (ACTIVE ↔ INACTIVE).
-     */
     public ScheduleDTO toggleStatus(Long id) {
         Schedule schedule = repository.findById(id).orElse(null);
         if (schedule == null)
@@ -184,12 +148,6 @@ public class ScheduleService {
         return enrichWithControlPlane(saved);
     }
 
-    // ======================== CONTROL PLANE INTEGRATION ========================
-
-    /**
-     * Converts entity to DTO and enriches with bus & route details from Control
-     * Plane.
-     */
     private ScheduleDTO enrichWithControlPlane(Schedule schedule) {
         ScheduleDTO dto = ScheduleDTO.builder()
                 .scheduleId(schedule.getScheduleId())
@@ -200,19 +158,12 @@ public class ScheduleService {
                 .status(schedule.getStatus())
                 .build();
 
-        // Fetch bus details from Control Plane
         dto.setBusDetails(fetchBusDetails(schedule.getBusId()));
-
-        // Fetch route details from Control Plane
         dto.setRouteDetails(fetchRouteDetails(schedule.getRouteId()));
 
         return dto;
     }
 
-    /**
-     * Fetch bus info from Control Plane: GET
-     * http://localhost:3000/api/controlplane/buses/{busId}
-     */
     @SuppressWarnings("unchecked")
     private Map<String, Object> fetchBusDetails(Long busId) {
         try {
@@ -227,10 +178,6 @@ public class ScheduleService {
         }
     }
 
-    /**
-     * Fetch route info from Control Plane: GET
-     * http://localhost:3000/api/controlplane/routes/{routeId}
-     */
     @SuppressWarnings("unchecked")
     private Map<String, Object> fetchRouteDetails(Long routeId) {
         try {

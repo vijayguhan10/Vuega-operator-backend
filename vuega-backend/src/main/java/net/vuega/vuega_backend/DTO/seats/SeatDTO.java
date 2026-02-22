@@ -22,26 +22,14 @@ public class SeatDTO {
     private SeatType type;
     private BigDecimal price;
 
-    /**
-     * The stop segment this seat is currently locked/booked for. Null when
-     * AVAILABLE.
-     */
     private Integer fromStopOrder;
     private Integer toStopOrder;
 
     private SeatStatus status;
 
-    /**
-     * Session/user that holds the current lock. Null after booking or when
-     * AVAILABLE.
-     */
     private String lockedBy;
 
-    /**
-     * Wall-clock time the lock was acquired. Null after booking or when AVAILABLE.
-     */
     private LocalDateTime lockedAt;
 
-    /** Enriched: bus details fetched from the Control Plane. */
     private Object busDetails;
 }

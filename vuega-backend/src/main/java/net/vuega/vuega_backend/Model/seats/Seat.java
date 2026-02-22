@@ -32,7 +32,6 @@ public class Seat {
     @Column(name = "seat_id")
     private Long seatId;
 
-    // FK — references a bus managed by the Control Plane
     @Column(name = "bus_id", nullable = false)
     private Long busId;
 
@@ -46,8 +45,6 @@ public class Seat {
     @Column(name = "price", nullable = false, precision = 10, scale = 2)
     private BigDecimal price;
 
-    // The route segment this seat is currently locked/booked for.
-    // Null when AVAILABLE.
     @Column(name = "from_stop_order")
     private Integer fromStopOrder;
 
@@ -59,26 +56,12 @@ public class Seat {
     @Builder.Default
     private SeatStatus status = SeatStatus.AVAILABLE;
 
-    // ---- Lock metadata ------------------------------------------------
-
-    /** Session-ID or user-ID that acquired the lock. */
     @Column(name = "locked_by", length = 100)
     private String lockedBy;
 
-    /** Wall-clock time the lock was acquired; used for TTL expiry. */
     @Column(name = "locked_at")
     private LocalDateTime lockedAt;
 
-    // ---- Optimistic locking -------------------------------------------
-
-    /**
-     * @Version causes Hibernate to append a WHERE version = ? clause on every
-     *          UPDATE. If a concurrent transaction already incremented the version,
-     *          Hibernate throws ObjectOptimisticLockingFailureException, preventing
-     *          silent lost updates (e.g., two threads both believing they booked
-     *          the
-     *          same seat).
-     */
     @Version
     @Column(name = "version", nullable = false)
     private Long version;

@@ -20,10 +20,6 @@ public class OperatorService {
                 .build();
     }
 
-    /**
-     * Forwards email + password to the control panel login endpoint
-     * and returns the OperatorDTO response.
-     */
     public OperatorDTO login(LoginRequest request) {
         try {
             return restClient.post()

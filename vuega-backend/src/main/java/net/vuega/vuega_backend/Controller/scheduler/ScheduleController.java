@@ -24,6 +24,7 @@ import net.vuega.vuega_backend.Exception.ScheduleOverlapException;
 import net.vuega.vuega_backend.Model.scheduler.ScheduleStatus;
 import net.vuega.vuega_backend.Service.scheduler.ScheduleService;
 
+// Schedule REST controller — CRUD and business queries.
 @RestController
 @RequestMapping("/api/schedules")
 @RequiredArgsConstructor
@@ -31,11 +32,6 @@ public class ScheduleController {
 
     private final ScheduleService service;
 
-    // ======================== CRUD ========================
-
-    /**
-     * POST /api/schedules — Create a new schedule
-     */
     @PostMapping
     public ResponseEntity<ResponseDto<ScheduleDTO>> create(@RequestBody CreateScheduleRequest request) {
         try {
@@ -47,18 +43,12 @@ public class ScheduleController {
         }
     }
 
-    /**
-     * GET /api/schedules — Get all schedules
-     */
     @GetMapping
     public ResponseEntity<ResponseDto<List<ScheduleDTO>>> getAll() {
         List<ScheduleDTO> list = service.getAllSchedules();
         return ResponseEntity.ok(ResponseDto.success(list));
     }
 
-    /**
-     * GET /api/schedules/{id} — Get schedule by ID
-     */
     @GetMapping("/{id}")
     public ResponseEntity<ResponseDto<ScheduleDTO>> getById(@PathVariable Long id) {
         ScheduleDTO dto = service.getScheduleById(id);
@@ -69,9 +59,6 @@ public class ScheduleController {
         return ResponseEntity.ok(ResponseDto.success(dto));
     }
 
-    /**
-     * PUT /api/schedules/{id} — Update schedule
-     */
     @PutMapping("/{id}")
     public ResponseEntity<ResponseDto<ScheduleDTO>> update(
             @PathVariable Long id, @RequestBody UpdateScheduleRequest request) {
@@ -88,9 +75,6 @@ public class ScheduleController {
         }
     }
 
-    /**
-     * DELETE /api/schedules/{id} — Soft-delete (set status to ABORTED)
-     */
     @DeleteMapping("/{id}")
     public ResponseEntity<ResponseDto<ScheduleDTO>> delete(@PathVariable Long id) {
         ScheduleDTO dto = service.deleteSchedule(id);
@@ -101,46 +85,27 @@ public class ScheduleController {
         return ResponseEntity.ok(ResponseDto.success(dto));
     }
 
-    // ======================== BUSINESS ENDPOINTS ========================
-
-    /**
-     * GET /api/schedules/bus/{busId} — Get all schedules for a bus
-     */
     @GetMapping("/bus/{busId}")
     public ResponseEntity<ResponseDto<List<ScheduleDTO>>> getByBus(@PathVariable Long busId) {
         return ResponseEntity.ok(ResponseDto.success(service.getSchedulesByBus(busId)));
     }
 
-    /**
-     * GET /api/schedules/route/{routeId} — Get all schedules for a route
-     */
     @GetMapping("/route/{routeId}")
     public ResponseEntity<ResponseDto<List<ScheduleDTO>>> getByRoute(@PathVariable Long routeId) {
         return ResponseEntity.ok(ResponseDto.success(service.getSchedulesByRoute(routeId)));
     }
 
-    /**
-     * GET /api/schedules/status?status=ACTIVE — Get schedules by status
-     */
     @GetMapping("/status")
     public ResponseEntity<ResponseDto<List<ScheduleDTO>>> getByStatus(@RequestParam ScheduleStatus status) {
         return ResponseEntity.ok(ResponseDto.success(service.getSchedulesByStatus(status)));
     }
 
-    /**
-     * GET /api/schedules/bus/{busId}/route/{routeId} — Get schedules for a bus +
-     * route combo
-     */
     @GetMapping("/bus/{busId}/route/{routeId}")
     public ResponseEntity<ResponseDto<List<ScheduleDTO>>> getByBusAndRoute(
             @PathVariable Long busId, @PathVariable Long routeId) {
         return ResponseEntity.ok(ResponseDto.success(service.getSchedulesByBusAndRoute(busId, routeId)));
     }
 
-  
-    /**
-     * PATCH /api/schedules/{id}/toggle — Toggle ACTIVE ↔ INACTIVE
-     */
     @PatchMapping("/{id}/toggle")
     public ResponseEntity<ResponseDto<ScheduleDTO>> toggleStatus(@PathVariable Long id) {
         ScheduleDTO dto = service.toggleStatus(id);

@@ -20,7 +20,6 @@ public class OperatorController {
 
     private final OperatorService service;
 
-    // LOGIN — forwards to control panel and returns operator data
     @PostMapping("/login")
     public ResponseEntity<ResponseDto<OperatorDTO>> login(@RequestBody LoginRequest request) {
         OperatorDTO result = service.login(request);

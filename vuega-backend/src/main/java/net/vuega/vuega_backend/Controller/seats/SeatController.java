@@ -28,28 +28,7 @@ import net.vuega.vuega_backend.Exception.SeatNotAvailableException;
 import net.vuega.vuega_backend.Exception.SeatNotFoundException;
 import net.vuega.vuega_backend.Service.seats.SeatService;
 import jakarta.validation.*;
-/**
- * REST controller for the Seats resource.
- *
- * Endpoints:
- *
- * CRUD
- * POST /api/seats – create one seat
- * POST /api/seats/batch – batch-create seats
- * GET /api/seats/{id} – get by id
- * GET /api/seats/bus/{busId} – all seats for a bus
- * GET /api/seats/bus/{busId}/available – available seats for a bus
- * PUT /api/seats/{id} – partial update (seatNo, type, price)
- * DELETE /api/seats/{id} – hard-delete (only AVAILABLE)
- *
- * Locking
- * POST /api/seats/{id}/lock – lock seat (body: lockedBy, fromStop, toStop)
- * DELETE /api/seats/{id}/lock – unlock seat (?lockedBy=…)
- *
- * Booking
- * POST /api/seats/{id}/book – confirm booking (?lockedBy=…)
- * POST /api/seats/{id}/cancel – cancel booking → AVAILABLE
- */
+// Seat REST controller — CRUD, locking, and booking.
 @RestController
 @RequestMapping("/api/seats")
 @RequiredArgsConstructor
@@ -57,13 +36,6 @@ public class SeatController {
 
     private final SeatService service;
 
-    // ======================== CRUD ========================
-
-    /**
-     * POST /api/seats
-     * Body: { busId, seatNo, type, price }
-     * 201 Created | 409 Conflict (duplicate) | 400 Bad Request (validation)
-     */
     @PostMapping
     public ResponseEntity<ResponseDto<SeatDTO>> create(
             @Valid @RequestBody CreateSeatRequest request) {
@@ -76,11 +48,6 @@ public class SeatController {
         }
     }
 
-    /**
-     * POST /api/seats/batch
-     * Body: { seats: [ {busId, seatNo, type, price}, … ] }
-     * 201 Created | 409 Conflict (any duplicate) | 400 Bad Request
-     */
     @PostMapping("/batch")
     public ResponseEntity<ResponseDto<List<SeatDTO>>> createBatch(
             @Valid @RequestBody CreateSeatsInBatchRequest request) {
@@ -93,10 +60,6 @@ public class SeatController {
         }
     }
 
-    /**
-     * GET /api/seats/{id}
-     * 200 OK | 404 Not Found
-     */
     @GetMapping("/{id}")
     public ResponseEntity<ResponseDto<SeatDTO>> getById(@PathVariable Long id) {
         try {
@@ -107,31 +70,16 @@ public class SeatController {
         }
     }
 
-    /**
-     * GET /api/seats/bus/{busId}
-     * Returns all seats (any status) for a bus, enriched with bus details.
-     * 200 OK
-     */
     @GetMapping("/bus/{busId}")
     public ResponseEntity<ResponseDto<List<SeatDTO>>> getByBus(@PathVariable Long busId) {
         return ResponseEntity.ok(ResponseDto.success(service.getSeatsByBus(busId)));
     }
 
-    /**
-     * GET /api/seats/bus/{busId}/available
-     * Returns only AVAILABLE seats for a bus (fast — no Control Plane enrichment).
-     * 200 OK
-     */
     @GetMapping("/bus/{busId}/available")
     public ResponseEntity<ResponseDto<List<SeatDTO>>> getAvailable(@PathVariable Long busId) {
         return ResponseEntity.ok(ResponseDto.success(service.getAvailableSeats(busId)));
     }
 
-    /**
-     * PUT /api/seats/{id}
-     * Body: { seatNo?, type?, price? } (all fields optional — null = keep current)
-     * 200 OK | 404 | 409 (seat in use or duplicate seatNo)
-     */
     @PutMapping("/{id}")
     public ResponseEntity<ResponseDto<SeatDTO>> update(
             @PathVariable Long id,
@@ -147,10 +95,6 @@ public class SeatController {
         }
     }
 
-    /**
-     * DELETE /api/seats/{id}
-     * 200 OK | 404 | 409 (seat in use)
-     */
     @DeleteMapping("/{id}")
     public ResponseEntity<ResponseDto<Void>> delete(@PathVariable Long id) {
         try {
@@ -165,17 +109,6 @@ public class SeatController {
         }
     }
 
-    // ======================== LOCKING ========================
-
-    /**
-     * POST /api/seats/{id}/lock
-     * Body: { lockedBy, fromStopOrder, toStopOrder }
-     *
-     * Acquires a pessimistic DB write-lock on the seat row so that two
-     * concurrent requests cannot both see AVAILABLE and both succeed.
-     *
-     * 200 OK | 404 | 400 (invalid stop range) | 409 (locked) | 422 (booked)
-     */
     @PostMapping("/{id}/lock")
     public ResponseEntity<ResponseDto<SeatDTO>> lock(
             @PathVariable Long id,
@@ -197,12 +130,6 @@ public class SeatController {
         }
     }
 
-    /**
-     * DELETE /api/seats/{id}/lock?lockedBy={sessionId}
-     * Only the session that owns the lock can release it.
-     *
-     * 200 OK | 404 | 422 (not locked) | 403 (wrong owner)
-     */
     @DeleteMapping("/{id}/lock")
     public ResponseEntity<ResponseDto<SeatDTO>> unlock(
             @PathVariable Long id,
@@ -221,16 +148,6 @@ public class SeatController {
         }
     }
 
-    // ======================== BOOKING ========================
-
-    /**
-     * POST /api/seats/{id}/book?lockedBy={sessionId}
-     * Transitions a LOCKED seat to BOOKED.
-     * The @Version column provides optimistic-locking safety as a last defence.
-     *
-     * 200 OK | 404 | 409 (concurrent write / wrong owner) | 422 (wrong state /
-     * expired lock)
-     */
     @PostMapping("/{id}/book")
     public ResponseEntity<ResponseDto<SeatDTO>> book(
             @PathVariable Long id,
@@ -249,12 +166,6 @@ public class SeatController {
         }
     }
 
-    /**
-     * POST /api/seats/{id}/cancel
-     * Cancels a confirmed booking — returns the seat to AVAILABLE.
-     *
-     * 200 OK | 404 | 422 (not booked)
-     */
     @PostMapping("/{id}/cancel")
     public ResponseEntity<ResponseDto<SeatDTO>> cancel(@PathVariable Long id) {
         try {
@@ -268,4 +179,3 @@ public class SeatController {
         }
     }
 }
-//
