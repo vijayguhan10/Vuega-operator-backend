@@ -1,3 +1,14 @@
+error id: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/SeatService.java:_empty_/SeatSocketService#broadcast#
+file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/SeatService.java
+empty definition using pc, found symbol in pc: _empty_/SeatSocketService#broadcast#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 7330
+uri: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/SeatService.java
+text:
+```scala
 package net.vuega.vuega_backend.Service.seats;
 
 import java.time.LocalDateTime;
@@ -182,7 +193,7 @@ public class SeatService {
         seat.setToStopOrder(request.getToStopOrder());
 
         SeatDTO dto = toDTO(repository.save(seat));
-        socketService.broadcast(SeatUpdateMessage.builder()
+        socketService.@@broadcast(SeatUpdateMessage.builder()
                 .event(SeatUpdateMessage.Event.LOCKED)
                 .seatId(dto.getSeatId())
                 .busId(dto.getBusId())
@@ -364,3 +375,10 @@ public class SeatService {
         }
     }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: _empty_/SeatSocketService#broadcast#

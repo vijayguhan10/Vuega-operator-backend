@@ -1,3 +1,14 @@
+error id: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/SeatService.java:_empty_/`<any>`#count#
+file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/SeatService.java
+empty definition using pc, found symbol in pc: _empty_/`<any>`#count#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 7602
+uri: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/SeatService.java
+text:
+```scala
 package net.vuega.vuega_backend.Service.seats;
 
 import java.time.LocalDateTime;
@@ -188,7 +199,7 @@ public class SeatService {
                 .busId(dto.getBusId())
                 .seatNo(dto.getSeatNo())
                 .status(dto.getStatus())
-                .count(1)
+                .@@count(1)
                 .timestamp(LocalDateTime.now())
                 .build());
         return dto;
@@ -364,3 +375,10 @@ public class SeatService {
         }
     }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: _empty_/`<any>`#count#

@@ -1,3 +1,14 @@
+error id: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/SeatService.java:SeatUpdateMessage/Event#EXPIRED#
+file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/SeatService.java
+empty definition using pc, found symbol in pc: SeatUpdateMessage/Event#EXPIRED#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 12651
+uri: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/SeatService.java
+text:
+```scala
 package net.vuega.vuega_backend.Service.seats;
 
 import java.time.LocalDateTime;
@@ -307,7 +318,7 @@ public class SeatService {
         if (released > 0) {
             log.info("[SeatService] Released {} expired seat lock(s).", released);
             socketService.broadcast(SeatUpdateMessage.builder()
-                    .event(SeatUpdateMessage.Event.EXPIRED)
+                    .event(SeatUpdateMessage.Event.@@EXPIRED)
                     .count(released)
                     .timestamp(LocalDateTime.now())
                     .build());
@@ -364,3 +375,10 @@ public class SeatService {
         }
     }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: SeatUpdateMessage/Event#EXPIRED#
