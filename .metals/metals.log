@@ -6209,3 +6209,27 @@ org.eclipse.lsp4j.jsonrpc.ResponseErrorException: Request window/showMessageRequ
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.lang.Thread.run(Thread.java:1583)
 
+2026.02.22 17:52:09 INFO  Started: Metals version 1.6.5 in folders 'C:\Projects\Vuega-backend' for client Visual Studio Code 1.109.4.
+2026.02.22 17:52:09 INFO  Memory monitor started
+2026.02.22 17:52:10 WARN  Using H2 2.4.240 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
+2026.02.22 17:52:10 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\seats\SeatRepository.java. Using fallback presentation compiler.
+Feb 22, 2026 5:52:12 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 2
+2026.02.22 17:52:12 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\seats\SeatRepository.java. Using fallback presentation compiler.
+Feb 22, 2026 5:52:15 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+2026.02.22 17:52:21 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\seats\SeatRepository.java
+2026.02.22 17:52:21 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\seats\SeatRepository.java. Using fallback presentation compiler.
+2026.02.22 17:52:49 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\seats\SeatRepository.java. Using fallback presentation compiler.
+2026.02.22 17:52:52 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\seats\SeatRepository.java. Using fallback presentation compiler.
+2026.02.22 17:52:56 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\seats\SeatRepository.java. Using fallback presentation compiler.
+2026.02.22 17:52:56 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\seats\SeatRepository.java. Using fallback presentation compiler.
+2026.02.22 17:52:57 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\seats\SeatRepository.java. Using fallback presentation compiler.
+2026.02.22 17:52:59 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\seats\SeatRepository.java. Using fallback presentation compiler.
+2026.02.22 17:53:00 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\seats\SeatRepository.java. Using fallback presentation compiler.
+Feb 22, 2026 5:53:00 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 35
+2026.02.22 17:53:00 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\seats\SeatRepository.java. Using fallback presentation compiler.
+2026.02.22 17:53:02 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\seats\SeatRepository.java. Using fallback presentation compiler.
+2026.02.22 17:53:04 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\seats\SeatRepository.java. Using fallback presentation compiler.
+2026.02.22 17:53:12 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\seats\SeatRepository.java. Using fallback presentation compiler.
