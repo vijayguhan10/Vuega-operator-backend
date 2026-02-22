@@ -133,7 +133,6 @@ public class ScheduleService {
                 .toList();
     }
 
-
     public ScheduleDTO toggleStatus(Long id) {
         Schedule schedule = repository.findById(id).orElse(null);
         if (schedule == null)

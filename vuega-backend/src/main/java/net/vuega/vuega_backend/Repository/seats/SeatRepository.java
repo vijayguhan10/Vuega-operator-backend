@@ -19,36 +19,36 @@ import net.vuega.vuega_backend.Model.seats.SeatStatus;
 @Repository
 public interface SeatRepository extends JpaRepository<Seat, Long> {
 
-    List<Seat> findByBusId(Long busId);
+  List<Seat> findByBusId(Long busId);
 
-    List<Seat> findByBusIdAndStatus(Long busId, SeatStatus status);
+  List<Seat> findByBusIdAndStatus(Long busId, SeatStatus status);
 
-    boolean existsByBusIdAndSeatNo(Long busId, String seatNo);
+  boolean existsByBusIdAndSeatNo(Long busId, String seatNo);
 
-    @Query("SELECT s FROM Seat s WHERE s.busId = :busId AND s.status = 'AVAILABLE'")
-    List<Seat> findAvailableSeatsByBusId(@Param("busId") Long busId);
+  @Query("SELECT s FROM Seat s WHERE s.busId = :busId AND s.status = 'AVAILABLE'")
+  List<Seat> findAvailableSeatsByBusId(@Param("busId") Long busId);
 
-    @Lock(LockModeType.PESSIMISTIC_WRITE)
-    @Query("SELECT s FROM Seat s WHERE s.seatId = :seatId")
-    Optional<Seat> findByIdWithPessimisticLock(@Param("seatId") Long seatId);
+  @Lock(LockModeType.PESSIMISTIC_WRITE)
+  @Query("SELECT s FROM Seat s WHERE s.seatId = :seatId")
+  Optional<Seat> findByIdWithPessimisticLock(@Param("seatId") Long seatId);
 
-    @Lock(LockModeType.PESSIMISTIC_WRITE)
-    @Query("SELECT s FROM Seat s WHERE s.seatId IN :seatIds ORDER BY s.seatId ASC")
-    List<Seat> findAllByIdWithPessimisticLock(@Param("seatIds") List<Long> seatIds);
+  @Lock(LockModeType.PESSIMISTIC_WRITE)
+  @Query("SELECT s FROM Seat s WHERE s.seatId IN :seatIds ORDER BY s.seatId ASC")
+  List<Seat> findAllByIdWithPessimisticLock(@Param("seatIds") List<Long> seatIds);
 
-    @Query("SELECT s FROM Seat s WHERE s.status = 'LOCKED' AND s.lockedAt < :expiryTime")
-    List<Seat> findExpiredLockedSeats(@Param("expiryTime") LocalDateTime expiryTime);
+  @Query("SELECT s FROM Seat s WHERE s.status = 'LOCKED' AND s.lockedAt < :expiryTime")
+  List<Seat> findExpiredLockedSeats(@Param("expiryTime") LocalDateTime expiryTime);
 
-    @Modifying
-    @Query("""
-            UPDATE Seat s
-            SET    s.status        = 'AVAILABLE',
-                   s.lockedBy      = null,
-                   s.lockedAt      = null,
-                   s.fromStopOrder = null,
-                   s.toStopOrder   = null
-            WHERE  s.status = 'LOCKED'
-              AND  s.lockedAt < :expiryTime
-            """)
-    int bulkReleaseExpiredLocks(@Param("expiryTime") LocalDateTime expiryTime);
+  @Modifying
+  @Query("""
+      UPDATE Seat s
+      SET    s.status        = 'AVAILABLE',
+             s.lockedBy      = null,
+             s.lockedAt      = null,
+             s.fromStopOrder = null,
+             s.toStopOrder   = null
+      WHERE  s.status = 'LOCKED'
+        AND  s.lockedAt < :expiryTime
+      """)
+  int bulkReleaseExpiredLocks(@Param("expiryTime") LocalDateTime expiryTime);
 }
