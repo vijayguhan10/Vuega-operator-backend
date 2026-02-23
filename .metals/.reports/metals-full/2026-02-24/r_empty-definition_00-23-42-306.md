@@ -1,3 +1,14 @@
+error id: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/lock/SeatLockService.java:_empty_/Scheduled#fixedRate#
+file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/lock/SeatLockService.java
+empty definition using pc, found symbol in pc: _empty_/Scheduled#fixedRate#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 7483
+uri: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/lock/SeatLockService.java
+text:
+```scala
 package net.vuega.vuega_backend.Service.seats.lock;
 
 import java.time.LocalDateTime;
@@ -170,7 +181,7 @@ public class SeatLockService {
     // Uses a single bulk DELETE query — no per-row locks, no N+1 loads.
     // Count is fetched first (read-only) purely for the WebSocket broadcast.
 
-    @Scheduled(fixedRate = 10_000)
+    @Scheduled(@@fixedRate = 30_000)
     @Transactional
     public void releaseExpiredLocks() {
         LocalDateTime now = LocalDateTime.now();
@@ -199,3 +210,10 @@ public class SeatLockService {
                 .build();
     }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: _empty_/Scheduled#fixedRate#

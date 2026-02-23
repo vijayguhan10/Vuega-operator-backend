@@ -1,3 +1,14 @@
+error id: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/lock/SeatLockService.java:_empty_/SeatSocketService#broadcast#
+file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/lock/SeatLockService.java
+empty definition using pc, found symbol in pc: _empty_/SeatSocketService#broadcast#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 7905
+uri: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/lock/SeatLockService.java
+text:
+```scala
 package net.vuega.vuega_backend.Service.seats.lock;
 
 import java.time.LocalDateTime;
@@ -178,7 +189,7 @@ public class SeatLockService {
         if (!expired.isEmpty()) {
             int count = lockRepository.deleteExpiredLocks(now);
             log.info("[SeatLockService] Bulk-released {} expired seat lock(s).", count);
-            socketService.broadcast(SeatUpdateMessage.builder()
+            socketService.broad@@cast(SeatUpdateMessage.builder()
                     .event(SeatUpdateMessage.Event.EXPIRED)
                     .count(count)
                     .timestamp(now)
@@ -199,3 +210,10 @@ public class SeatLockService {
                 .build();
     }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: _empty_/SeatSocketService#broadcast#

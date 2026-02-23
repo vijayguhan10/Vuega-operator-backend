@@ -9,7 +9,6 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 public class VuegaBackendApplication {
 
 	public static void main(String[] args) {
-		System.out.println("Starting Vuega Backend Application...");
 		SpringApplication.run(VuegaBackendApplication.class, args);
 	}
 
