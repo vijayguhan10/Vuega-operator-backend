@@ -1,5 +1,6 @@
 package net.vuega.vuega_backend.Service.seats.seat;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
 
@@ -23,8 +24,6 @@ import net.vuega.vuega_backend.Model.seats.seat.Seat;
 import net.vuega.vuega_backend.Model.seats.seat.SeatStatus;
 import net.vuega.vuega_backend.Repository.seats.seat.SeatRepository;
 import net.vuega.vuega_backend.Service.seats.socket.SeatSocketService;
-
-import java.time.LocalDateTime;
 
 // Seat service — CRUD operations and cancellation.
 // Locking and booking are handled by SeatLockService.
@@ -138,9 +137,12 @@ public class SeatService {
             throw new DuplicateSeatException(String.valueOf(seat.getBusId()), request.getSeatNo());
         }
 
-        if (request.getSeatNo() != null) seat.setSeatNo(request.getSeatNo());
-        if (request.getType() != null)   seat.setType(request.getType());
-        if (request.getPrice() != null)  seat.setPrice(request.getPrice());
+        if (request.getSeatNo() != null)
+            seat.setSeatNo(request.getSeatNo());
+        if (request.getType() != null)
+            seat.setType(request.getType());
+        if (request.getPrice() != null)
+            seat.setPrice(request.getPrice());
 
         return toDTO(repository.save(seat));
     }

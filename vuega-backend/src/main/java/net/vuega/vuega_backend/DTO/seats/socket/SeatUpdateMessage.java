@@ -20,10 +20,10 @@ public class SeatUpdateMessage {
     }
 
     private Event event;
-    private Long seatId;   // null for bulk EXPIRED messages
-    private Long busId;    // null for bulk EXPIRED messages
+    private Long seatId; // null for bulk EXPIRED messages
+    private Long busId; // null for bulk EXPIRED messages
     private String seatNo; // null for bulk EXPIRED messages
     private SeatStatus status;
-    private int count;     // 1 for individual events; N for bulk EXPIRED
+    private int count; // 1 for individual events; N for bulk EXPIRED
     private LocalDateTime timestamp;
 }

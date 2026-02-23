@@ -17,10 +17,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(
-    name = "seats",
-    uniqueConstraints = @UniqueConstraint(name = "uq_bus_seat_no", columnNames = { "bus_id", "seat_no" })
-)
+@Table(name = "seats", uniqueConstraints = @UniqueConstraint(name = "uq_bus_seat_no", columnNames = { "bus_id",
+        "seat_no" }))
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
