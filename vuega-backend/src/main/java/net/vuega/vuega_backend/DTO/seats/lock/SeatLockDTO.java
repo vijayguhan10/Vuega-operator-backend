@@ -1,6 +1,18 @@
 package net.vuega.vuega_backend.DTO.seats.lock;
 
+import java.time.LocalDateTime;
+
+import lombok.Builder;
+import lombok.Data;
+
 // Response DTO representing an active seat lock.
 @Data
-
-private Long lockId;private Long seatId;private String seatNo;private Long busId;private Long partnerId;private LocalDateTime expiresAt;}
+@Builder
+public class SeatLockDTO {
+    private Long lockId;
+    private Long seatId;
+    private String seatNo;
+    private Long busId;
+    private Long partnerId;
+    private LocalDateTime expiresAt;
+}

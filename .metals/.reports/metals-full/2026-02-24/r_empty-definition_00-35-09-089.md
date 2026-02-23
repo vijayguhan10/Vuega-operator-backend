@@ -1,3 +1,14 @@
+error id: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Model/seats/seat/Seat.java:jakarta/persistence/Table#
+file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Model/seats/seat/Seat.java
+empty definition using pc, found symbol in pc: jakarta/persistence/Table#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 371
+uri: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Model/seats/seat/Seat.java
+text:
+```scala
 package net.vuega.vuega_backend.Model.seats.seat;
 
 import java.math.BigDecimal;
@@ -9,7 +20,7 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.@@Table;
 import jakarta.persistence.UniqueConstraint;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -18,8 +29,7 @@ import lombok.NoArgsConstructor;
 
 // JPA entity for the seats table.
 @Entity
-@Table(name = "seats", uniqueConstraints = @UniqueConstraint(name = "uq_bus_seat_no", columnNames = { "bus_id",
-        "seat_no" }))
+@Table(name = "seats", uniqueConstraints = @UniqueConstraint(name = "uq_bus_seat_no", columnNames = { "bus_id", "seat_no" }))
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -55,3 +65,10 @@ public class Seat {
     @Builder.Default
     private SeatStatus status = SeatStatus.AVAILABLE;
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: jakarta/persistence/Table#

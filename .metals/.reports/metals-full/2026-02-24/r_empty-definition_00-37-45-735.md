@@ -1,8 +1,19 @@
+error id: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/DTO/ResponseDto.java:lombok/Data#
+file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/DTO/ResponseDto.java
+empty definition using pc, found symbol in pc: lombok/Data#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 109
+uri: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/DTO/ResponseDto.java
+text:
+```scala
 package net.vuega.vuega_backend.DTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
+import lombok.@@Data;
 import lombok.NoArgsConstructor;
 
 // Generic API response wrapper used by all endpoints.
@@ -48,3 +59,10 @@ public class ResponseDto<T> {
                 .build();
     }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: lombok/Data#
