@@ -1,3 +1,14 @@
+error id: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/lock/SeatLockService.java:net/vuega/vuega_backend/Service/seats/socket/SeatSocketService#
+file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/lock/SeatLockService.java
+empty definition using pc, found symbol in pc: net/vuega/vuega_backend/Service/seats/socket/SeatSocketService#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 1360
+uri: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/lock/SeatLockService.java
+text:
+```scala
 package net.vuega.vuega_backend.Service.seats.lock;
 
 import java.time.LocalDateTime;
@@ -24,7 +35,7 @@ import net.vuega.vuega_backend.Model.seats.seat.SeatStatus;
 import net.vuega.vuega_backend.Repository.seats.lock.SeatLockRepository;
 import net.vuega.vuega_backend.Repository.seats.seat.SeatRepository;
 import net.vuega.vuega_backend.Service.seats.seat.SeatService;
-import net.vuega.vuega_backend.Service.seats.socket.SeatSocketService;
+import net.vuega.vuega_backend.Service.seats.socket.@@SeatSocketService;
 
 // Handles all seat locking and booking logic using the separate seat_locks table.
 @Service
@@ -40,10 +51,14 @@ public class SeatLockService {
     private final SeatService seatService;
 
     // ─── ACQUIRE LOCK ────────────────────────────────────────────────────────────
+    //
+    // SERIALIZABLE isolation + PESSIMISTIC_WRITE on both seat and lock row
+    // prevents the TOCTOU race: two concurrent requests both seeing "no lock"
+    // and both proceeding to insert — only one wins, the other hits the conflict.
 
     @Transactional(isolation = Isolation.SERIALIZABLE)
     public SeatLockDTO acquireLock(Long seatId, AcquireLockRequest request) {
-        // Lock seat row first, then check for existing lock — prevents TOCTOU race.
+        // Lock the seat row first — blocks concurrent acquires on the same seat
         Seat seat = seatRepository.findByIdWithPessimisticLock(seatId)
                 .orElseThrow(() -> new SeatNotFoundException(seatId));
 
@@ -81,6 +96,9 @@ public class SeatLockService {
     }
 
     // ─── RELEASE LOCK ────────────────────────────────────────────────────────────
+    //
+    // PESSIMISTIC_WRITE on the lock row ensures no concurrent bookSeat or
+    // another releaseLock can touch this row while we are deleting it.
 
     @Transactional(isolation = Isolation.READ_COMMITTED)
     public void releaseLock(Long seatId, Long partnerId) {
@@ -102,10 +120,14 @@ public class SeatLockService {
     }
 
     // ─── BOOK SEAT ───────────────────────────────────────────────────────────────
+    //
+    // Locks both the seat row and the lock row with PESSIMISTIC_WRITE before
+    // mutating either. Seat is locked first (consistent ordering prevents
+    // deadlock).
 
     @Transactional(isolation = Isolation.READ_COMMITTED)
     public SeatDTO bookSeat(Long seatId, Long partnerId) {
-        // Seat row locked first — consistent ordering avoids deadlock with acquireLock.
+        // Lock seat row first — consistent ordering avoids deadlock with acquireLock
         Seat seat = seatRepository.findByIdWithPessimisticLock(seatId)
                 .orElseThrow(() -> new SeatNotFoundException(seatId));
 
@@ -155,6 +177,9 @@ public class SeatLockService {
     }
 
     // ─── SCHEDULED: RELEASE EXPIRED LOCKS ───────────────────────────────────────
+    //
+    // Uses a single bulk DELETE query — no per-row locks, no N+1 loads.
+    // Count is fetched first (read-only) purely for the WebSocket broadcast.
 
     @Scheduled(fixedRate = 10_000)
     @Transactional
@@ -185,3 +210,10 @@ public class SeatLockService {
                 .build();
     }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: net/vuega/vuega_backend/Service/seats/socket/SeatSocketService#

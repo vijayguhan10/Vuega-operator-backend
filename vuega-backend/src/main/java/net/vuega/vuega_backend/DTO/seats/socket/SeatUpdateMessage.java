@@ -8,7 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import net.vuega.vuega_backend.Model.seats.seat.SeatStatus;
 
-// Payload broadcast to /topic/seats on every seat state change.
+// Payload broadcast to /topic/seats/bus/{busId} on every seat state change.
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
