@@ -1,3 +1,14 @@
+error id: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/seats/seat/SeatController.java:_empty_/ResponseEntity#status#
+file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/seats/seat/SeatController.java
+empty definition using pc, found symbol in pc: _empty_/ResponseEntity#status#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 1776
+uri: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/seats/seat/SeatController.java
+text:
+```scala
 package net.vuega.vuega_backend.Controller.seats.seat;
 
 import java.util.List;
@@ -39,7 +50,7 @@ public class SeatController {
     public ResponseEntity<ResponseDto<SeatDTO>> create(
             @Valid @RequestBody CreateSeatRequest request) {
         try {
-            return ResponseEntity.status(HttpStatus.CREATED)
+            return ResponseEntity.@@status(HttpStatus.CREATED)
                     .body(ResponseDto.created(service.createSeat(request)));
         } catch (InvalidStopRangeException e) {
             return ResponseEntity.badRequest().body(ResponseDto.error(400, e.getMessage()));
@@ -102,12 +113,12 @@ public class SeatController {
         }
     }
 
-    // ─── TOGGLE AVAILABILITY ──────────────────────────────────────────────────
+    // ─── DEACTIVATE (soft-delete) ─────────────────────────────────────────────
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<ResponseDto<SeatDTO>> toggle(@PathVariable Long id) {
+    public ResponseEntity<ResponseDto<SeatDTO>> delete(@PathVariable Long id) {
         try {
-            return ResponseEntity.ok(ResponseDto.success(service.toggleAvailability(id)));
+            return ResponseEntity.ok(ResponseDto.success(service.deactivateSeat(id)));
         } catch (SeatNotFoundException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
                     .body(ResponseDto.notFound(e.getMessage()));
@@ -129,3 +140,10 @@ public class SeatController {
         }
     }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: _empty_/ResponseEntity#status#

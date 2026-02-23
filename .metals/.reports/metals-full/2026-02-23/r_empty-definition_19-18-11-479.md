@@ -1,3 +1,14 @@
+error id: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/seats/seat/SeatController.java:_empty_/ResponseDto#
+file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/seats/seat/SeatController.java
+empty definition using pc, found symbol in pc: _empty_/ResponseDto#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 2272
+uri: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/seats/seat/SeatController.java
+text:
+```scala
 package net.vuega.vuega_backend.Controller.seats.seat;
 
 import java.util.List;
@@ -50,7 +61,7 @@ public class SeatController {
     }
 
     @PostMapping("/batch")
-    public ResponseEntity<ResponseDto<List<SeatDTO>>> createBatch(
+    public ResponseEntity<Respons@@eDto<List<SeatDTO>>> createBatch(
             @Valid @RequestBody CreateSeatsInBatchRequest request) {
         try {
             return ResponseEntity.status(HttpStatus.CREATED)
@@ -102,15 +113,19 @@ public class SeatController {
         }
     }
 
-    // ─── TOGGLE AVAILABILITY ──────────────────────────────────────────────────
+    // ─── DELETE ──────────────────────────────────────────────────────────────────
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<ResponseDto<SeatDTO>> toggle(@PathVariable Long id) {
+    public ResponseEntity<ResponseDto<Void>> delete(@PathVariable Long id) {
         try {
-            return ResponseEntity.ok(ResponseDto.success(service.toggleAvailability(id)));
+            service.deleteSeat(id);
+            return ResponseEntity.ok(ResponseDto.success(null));
         } catch (SeatNotFoundException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
                     .body(ResponseDto.notFound(e.getMessage()));
+        } catch (SeatNotAvailableException e) {
+            return ResponseEntity.status(HttpStatus.CONFLICT)
+                    .body(ResponseDto.error(409, e.getMessage()));
         }
     }
 
@@ -129,3 +144,10 @@ public class SeatController {
         }
     }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: _empty_/ResponseDto#

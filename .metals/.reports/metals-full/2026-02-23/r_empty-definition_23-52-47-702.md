@@ -1,3 +1,14 @@
+error id: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/seat/SeatService.java:net/vuega/vuega_backend/Model/seats/seat/SeatStatus#
+file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/seat/SeatService.java
+empty definition using pc, found symbol in pc: net/vuega/vuega_backend/Model/seats/seat/SeatStatus#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 1147
+uri: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/seat/SeatService.java
+text:
+```scala
 package net.vuega.vuega_backend.Service.seats.seat;
 
 import java.time.LocalDateTime;
@@ -21,7 +32,7 @@ import net.vuega.vuega_backend.Exception.InvalidStopRangeException;
 import net.vuega.vuega_backend.Exception.SeatNotAvailableException;
 import net.vuega.vuega_backend.Exception.SeatNotFoundException;
 import net.vuega.vuega_backend.Model.seats.seat.Seat;
-import net.vuega.vuega_backend.Model.seats.seat.SeatStatus;
+import net.vuega.vuega_backend.Model.seats.seat.Seat@@Status;
 import net.vuega.vuega_backend.Repository.seats.seat.SeatRepository;
 import net.vuega.vuega_backend.Service.seats.socket.SeatSocketService;
 
@@ -147,18 +158,14 @@ public class SeatService {
         return toDTO(repository.save(seat));
     }
 
-    // ─── TOGGLE AVAILABILITY ───────────────────────────────────────────────────
+    // ─── DEACTIVATE (soft-delete) ─────────────────────────────────────────────
 
     @Transactional
-    public SeatDTO toggleAvailability(Long seatId) {
+    public SeatDTO deactivateSeat(Long seatId) {
         Seat seat = repository.findById(seatId)
                 .orElseThrow(() -> new SeatNotFoundException(seatId));
 
-        seat.setStatus(
-                seat.getStatus() == SeatStatus.AVAILABLE
-                        ? SeatStatus.NOT_AVAILABLE
-                        : SeatStatus.AVAILABLE);
-
+        seat.setStatus(SeatStatus.NOT_AVAILABLE);
         return toDTO(repository.save(seat));
     }
 
@@ -235,3 +242,10 @@ public class SeatService {
         }
     }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: net/vuega/vuega_backend/Model/seats/seat/SeatStatus#

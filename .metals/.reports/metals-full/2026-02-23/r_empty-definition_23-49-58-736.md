@@ -1,3 +1,14 @@
+error id: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/seats/seat/SeatController.java:net/vuega/vuega_backend/Exception/SeatNotAvailableException#
+file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/seats/seat/SeatController.java
+empty definition using pc, found symbol in pc: net/vuega/vuega_backend/Exception/SeatNotAvailableException#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 1212
+uri: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/seats/seat/SeatController.java
+text:
+```scala
 package net.vuega.vuega_backend.Controller.seats.seat;
 
 import java.util.List;
@@ -22,7 +33,7 @@ import net.vuega.vuega_backend.DTO.seats.seat.SeatDTO;
 import net.vuega.vuega_backend.DTO.seats.seat.UpdateSeatRequest;
 import net.vuega.vuega_backend.Exception.DuplicateSeatException;
 import net.vuega.vuega_backend.Exception.InvalidStopRangeException;
-import net.vuega.vuega_backend.Exception.SeatNotAvailableException;
+import net.vuega.vuega_backend.Exception.@@SeatNotAvailableException;
 import net.vuega.vuega_backend.Exception.SeatNotFoundException;
 import net.vuega.vuega_backend.Service.seats.seat.SeatService;
 
@@ -102,12 +113,12 @@ public class SeatController {
         }
     }
 
-    // ─── TOGGLE AVAILABILITY ──────────────────────────────────────────────────
+    // ─── DEACTIVATE (soft-delete) ─────────────────────────────────────────────
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<ResponseDto<SeatDTO>> toggle(@PathVariable Long id) {
+    public ResponseEntity<ResponseDto<SeatDTO>> delete(@PathVariable Long id) {
         try {
-            return ResponseEntity.ok(ResponseDto.success(service.toggleAvailability(id)));
+            return ResponseEntity.ok(ResponseDto.success(service.deactivateSeat(id)));
         } catch (SeatNotFoundException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
                     .body(ResponseDto.notFound(e.getMessage()));
@@ -129,3 +140,10 @@ public class SeatController {
         }
     }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: net/vuega/vuega_backend/Exception/SeatNotAvailableException#
