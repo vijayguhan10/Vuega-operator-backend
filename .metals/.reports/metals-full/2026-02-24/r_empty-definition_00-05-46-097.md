@@ -1,3 +1,14 @@
+error id: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/lock/SeatLockService.java:_empty_/Isolation#READ_COMMITTED#
+file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/lock/SeatLockService.java
+empty definition using pc, found symbol in pc: _empty_/Isolation#READ_COMMITTED#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 4056
+uri: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/lock/SeatLockService.java
+text:
+```scala
 package net.vuega.vuega_backend.Service.seats.lock;
 
 import java.time.LocalDateTime;
@@ -89,7 +100,7 @@ public class SeatLockService {
     // PESSIMISTIC_WRITE on the lock row ensures no concurrent bookSeat or
     // another releaseLock can touch this row while we are deleting it.
 
-    @Transactional(isolation = Isolation.READ_COMMITTED)
+    @Transactional(isolation = Isolation.@@READ_COMMITTED)
     public void releaseLock(Long seatId, Long partnerId) {
         SeatLock lock = lockRepository.findBySeatIdAndPartnerIdForWrite(seatId, partnerId)
                 .orElseThrow(() -> new SeatLockNotFoundException(seatId, partnerId));
@@ -111,8 +122,7 @@ public class SeatLockService {
     // ─── BOOK SEAT ───────────────────────────────────────────────────────────────
     //
     // Locks both the seat row and the lock row with PESSIMISTIC_WRITE before
-    // mutating either. Seat is locked first (consistent ordering prevents
-    // deadlock).
+    // mutating either. Seat is locked first (consistent ordering prevents deadlock).
 
     @Transactional(isolation = Isolation.READ_COMMITTED)
     public SeatDTO bookSeat(Long seatId, Long partnerId) {
@@ -199,3 +209,10 @@ public class SeatLockService {
                 .build();
     }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: _empty_/Isolation#READ_COMMITTED#

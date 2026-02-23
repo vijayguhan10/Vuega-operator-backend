@@ -1,3 +1,14 @@
+error id: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Repository/seats/lock/SeatLockRepository.java:_empty_/LockModeType#PESSIMISTIC_WRITE#
+file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Repository/seats/lock/SeatLockRepository.java
+empty definition using pc, found symbol in pc: _empty_/LockModeType#PESSIMISTIC_WRITE#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 1126
+uri: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Repository/seats/lock/SeatLockRepository.java
+text:
+```scala
 package net.vuega.vuega_backend.Repository.seats.lock;
 
 import java.time.LocalDateTime;
@@ -27,7 +38,7 @@ public interface SeatLockRepository extends JpaRepository<SeatLock, Long> {
     // ─── PESSIMISTIC WRITE (used in all write operations) ────────────────────────
 
     // Used in acquireLock — blocks concurrent lock acquisition on same seat
-    @Lock(LockModeType.PESSIMISTIC_WRITE)
+    @Lock(LockModeType.@@PESSIMISTIC_WRITE)
     @Query("SELECT sl FROM SeatLock sl WHERE sl.seat.seatId = :seatId")
     Optional<SeatLock> findBySeatIdForWrite(@Param("seatId") Long seatId);
 
@@ -46,3 +57,10 @@ public interface SeatLockRepository extends JpaRepository<SeatLock, Long> {
     @Query("DELETE FROM SeatLock sl WHERE sl.expiresAt < :now")
     int deleteExpiredLocks(@Param("now") LocalDateTime now);
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: _empty_/LockModeType#PESSIMISTIC_WRITE#

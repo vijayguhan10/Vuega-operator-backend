@@ -1,3 +1,14 @@
+error id: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/lock/SeatLockService.java:net/vuega/vuega_backend/Model/seats/seat/SeatStatus#
+file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/lock/SeatLockService.java
+empty definition using pc, found symbol in pc: net/vuega/vuega_backend/Model/seats/seat/SeatStatus#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 1091
+uri: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/lock/SeatLockService.java
+text:
+```scala
 package net.vuega.vuega_backend.Service.seats.lock;
 
 import java.time.LocalDateTime;
@@ -20,7 +31,7 @@ import net.vuega.vuega_backend.Exception.SeatNotAvailableException;
 import net.vuega.vuega_backend.Exception.SeatNotFoundException;
 import net.vuega.vuega_backend.Model.seats.lock.SeatLock;
 import net.vuega.vuega_backend.Model.seats.seat.Seat;
-import net.vuega.vuega_backend.Model.seats.seat.SeatStatus;
+import net.vuega.vuega_backend.Model.seats.seat.@@SeatStatus;
 import net.vuega.vuega_backend.Repository.seats.lock.SeatLockRepository;
 import net.vuega.vuega_backend.Repository.seats.seat.SeatRepository;
 import net.vuega.vuega_backend.Service.seats.seat.SeatService;
@@ -40,14 +51,9 @@ public class SeatLockService {
     private final SeatService seatService;
 
     // ─── ACQUIRE LOCK ────────────────────────────────────────────────────────────
-    //
-    // SERIALIZABLE isolation + PESSIMISTIC_WRITE on both seat and lock row
-    // prevents the TOCTOU race: two concurrent requests both seeing "no lock"
-    // and both proceeding to insert — only one wins, the other hits the conflict.
 
-    @Transactional(isolation = Isolation.SERIALIZABLE)
+    @Transactional(isolation = Isolation.READ_COMMITTED)
     public SeatLockDTO acquireLock(Long seatId, AcquireLockRequest request) {
-        // Lock the seat row first — blocks concurrent acquires on the same seat
         Seat seat = seatRepository.findByIdWithPessimisticLock(seatId)
                 .orElseThrow(() -> new SeatNotFoundException(seatId));
 
@@ -56,8 +62,7 @@ public class SeatLockService {
                     "Seat " + seatId + " is NOT_AVAILABLE (already booked) and cannot be locked.");
         }
 
-        // Lock the lock row (if it exists) — prevents double-lock race
-        lockRepository.findBySeatIdForWrite(seatId).ifPresent(existing -> {
+        lockRepository.findBySeat_SeatId(seatId).ifPresent(existing -> {
             throw new SeatLockConflictException(
                     "Seat " + seatId + " is already locked by partner " + existing.getPartnerId()
                             + ". Lock expires at " + existing.getExpiresAt() + ".");
@@ -85,13 +90,10 @@ public class SeatLockService {
     }
 
     // ─── RELEASE LOCK ────────────────────────────────────────────────────────────
-    //
-    // PESSIMISTIC_WRITE on the lock row ensures no concurrent bookSeat or
-    // another releaseLock can touch this row while we are deleting it.
 
     @Transactional(isolation = Isolation.READ_COMMITTED)
     public void releaseLock(Long seatId, Long partnerId) {
-        SeatLock lock = lockRepository.findBySeatIdAndPartnerIdForWrite(seatId, partnerId)
+        SeatLock lock = lockRepository.findBySeat_SeatIdAndPartnerId(seatId, partnerId)
                 .orElseThrow(() -> new SeatLockNotFoundException(seatId, partnerId));
 
         Seat seat = lock.getSeat();
@@ -109,14 +111,9 @@ public class SeatLockService {
     }
 
     // ─── BOOK SEAT ───────────────────────────────────────────────────────────────
-    //
-    // Locks both the seat row and the lock row with PESSIMISTIC_WRITE before
-    // mutating either. Seat is locked first (consistent ordering prevents
-    // deadlock).
 
     @Transactional(isolation = Isolation.READ_COMMITTED)
     public SeatDTO bookSeat(Long seatId, Long partnerId) {
-        // Lock seat row first — consistent ordering avoids deadlock with acquireLock
         Seat seat = seatRepository.findByIdWithPessimisticLock(seatId)
                 .orElseThrow(() -> new SeatNotFoundException(seatId));
 
@@ -124,8 +121,7 @@ public class SeatLockService {
             throw new SeatNotAvailableException("Seat " + seatId + " is already booked.");
         }
 
-        // Lock the lock row — prevents concurrent releaseLock or duplicate bookSeat
-        SeatLock lock = lockRepository.findBySeatIdAndPartnerIdForWrite(seatId, partnerId)
+        SeatLock lock = lockRepository.findBySeat_SeatIdAndPartnerId(seatId, partnerId)
                 .orElseThrow(() -> new SeatLockConflictException(
                         "No active lock found for seat " + seatId + " by partner " + partnerId
                                 + ". Please acquire a lock first via POST /api/seats/" + seatId + "/lock."));
@@ -166,22 +162,18 @@ public class SeatLockService {
     }
 
     // ─── SCHEDULED: RELEASE EXPIRED LOCKS ───────────────────────────────────────
-    //
-    // Uses a single bulk DELETE query — no per-row locks, no N+1 loads.
-    // Count is fetched first (read-only) purely for the WebSocket broadcast.
 
     @Scheduled(fixedRate = 30_000)
     @Transactional
     public void releaseExpiredLocks() {
-        LocalDateTime now = LocalDateTime.now();
-        List<SeatLock> expired = lockRepository.findByExpiresAtBefore(now);
+        List<SeatLock> expired = lockRepository.findByExpiresAtBefore(LocalDateTime.now());
         if (!expired.isEmpty()) {
-            int count = lockRepository.deleteExpiredLocks(now);
-            log.info("[SeatLockService] Bulk-released {} expired seat lock(s).", count);
+            lockRepository.deleteAll(expired);
+            log.info("[SeatLockService] Released {} expired seat lock(s).", expired.size());
             socketService.broadcast(SeatUpdateMessage.builder()
                     .event(SeatUpdateMessage.Event.EXPIRED)
-                    .count(count)
-                    .timestamp(now)
+                    .count(expired.size())
+                    .timestamp(LocalDateTime.now())
                     .build());
         }
     }
@@ -199,3 +191,10 @@ public class SeatLockService {
                 .build();
     }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: net/vuega/vuega_backend/Model/seats/seat/SeatStatus#

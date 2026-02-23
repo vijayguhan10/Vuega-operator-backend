@@ -1,3 +1,14 @@
+error id: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/lock/SeatLockService.java:_empty_/Isolation#SERIALIZABLE#
+file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/lock/SeatLockService.java
+empty definition using pc, found symbol in pc: _empty_/Isolation#SERIALIZABLE#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 2158
+uri: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/lock/SeatLockService.java
+text:
+```scala
 package net.vuega.vuega_backend.Service.seats.lock;
 
 import java.time.LocalDateTime;
@@ -45,7 +56,7 @@ public class SeatLockService {
     // prevents the TOCTOU race: two concurrent requests both seeing "no lock"
     // and both proceeding to insert — only one wins, the other hits the conflict.
 
-    @Transactional(isolation = Isolation.SERIALIZABLE)
+    @Transactional(isolation = Isolation.@@SERIALIZABLE)
     public SeatLockDTO acquireLock(Long seatId, AcquireLockRequest request) {
         // Lock the seat row first — blocks concurrent acquires on the same seat
         Seat seat = seatRepository.findByIdWithPessimisticLock(seatId)
@@ -111,8 +122,7 @@ public class SeatLockService {
     // ─── BOOK SEAT ───────────────────────────────────────────────────────────────
     //
     // Locks both the seat row and the lock row with PESSIMISTIC_WRITE before
-    // mutating either. Seat is locked first (consistent ordering prevents
-    // deadlock).
+    // mutating either. Seat is locked first (consistent ordering prevents deadlock).
 
     @Transactional(isolation = Isolation.READ_COMMITTED)
     public SeatDTO bookSeat(Long seatId, Long partnerId) {
@@ -199,3 +209,10 @@ public class SeatLockService {
                 .build();
     }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: _empty_/Isolation#SERIALIZABLE#
