@@ -1,3 +1,14 @@
+error id: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/seats/seat/SeatController.java:net/vuega/vuega_backend/DTO/ResponseDto#
+file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/seats/seat/SeatController.java
+empty definition using pc, found symbol in pc: net/vuega/vuega_backend/DTO/ResponseDto#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 767
+uri: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/seats/seat/SeatController.java
+text:
+```scala
 package net.vuega.vuega_backend.Controller.seats.seat;
 
 import java.util.List;
@@ -15,7 +26,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import net.vuega.vuega_backend.DTO.ResponseDto;
+import net.vuega.vuega_backend.DTO.@@ResponseDto;
 import net.vuega.vuega_backend.DTO.seats.seat.CreateSeatRequest;
 import net.vuega.vuega_backend.DTO.seats.seat.CreateSeatsInBatchRequest;
 import net.vuega.vuega_backend.DTO.seats.seat.SeatDTO;
@@ -130,3 +141,10 @@ public class SeatController {
         }
     }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: net/vuega/vuega_backend/DTO/ResponseDto#

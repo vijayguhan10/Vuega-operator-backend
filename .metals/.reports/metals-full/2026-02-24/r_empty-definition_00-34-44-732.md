@@ -1,3 +1,14 @@
+error id: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/seats/lock/SeatLockController.java:net/vuega/vuega_backend/DTO/seats/seat/SeatDTO#
+file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/seats/lock/SeatLockController.java
+empty definition using pc, found symbol in pc: net/vuega/vuega_backend/DTO/seats/seat/SeatDTO#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 997
+uri: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/seats/lock/SeatLockController.java
+text:
+```scala
 package net.vuega.vuega_backend.Controller.seats.lock;
 
 import org.springframework.http.HttpStatus;
@@ -17,7 +28,7 @@ import net.vuega.vuega_backend.DTO.seats.lock.AcquireLockRequest;
 import net.vuega.vuega_backend.DTO.seats.lock.BookSeatRequest;
 import net.vuega.vuega_backend.DTO.seats.lock.ReleaseLockRequest;
 import net.vuega.vuega_backend.DTO.seats.lock.SeatLockDTO;
-import net.vuega.vuega_backend.DTO.seats.seat.SeatDTO;
+import net.vuega.vuega_backend.DTO.seats.seat.@@SeatDTO;
 import net.vuega.vuega_backend.Exception.SeatLockConflictException;
 import net.vuega.vuega_backend.Exception.SeatLockNotFoundException;
 import net.vuega.vuega_backend.Exception.SeatNotAvailableException;
@@ -99,3 +110,10 @@ public class SeatLockController {
         }
     }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: net/vuega/vuega_backend/DTO/seats/seat/SeatDTO#

@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 import jakarta.persistence.LockModeType;
 import net.vuega.vuega_backend.Model.seats.seat.Seat;
 
+// JPA repository for Seat — includes pessimistic-lock queries used by the lock service.
 @Repository
 public interface SeatRepository extends JpaRepository<Seat, Long> {
 

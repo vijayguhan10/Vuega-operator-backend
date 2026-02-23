@@ -1,3 +1,14 @@
+error id: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/seats/seat/SeatController.java:net/vuega/vuega_backend/DTO/seats/seat/UpdateSeatRequest#
+file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/seats/seat/SeatController.java
+empty definition using pc, found symbol in pc: net/vuega/vuega_backend/DTO/seats/seat/UpdateSeatRequest#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 1019
+uri: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/seats/seat/SeatController.java
+text:
+```scala
 package net.vuega.vuega_backend.Controller.seats.seat;
 
 import java.util.List;
@@ -19,7 +30,7 @@ import net.vuega.vuega_backend.DTO.ResponseDto;
 import net.vuega.vuega_backend.DTO.seats.seat.CreateSeatRequest;
 import net.vuega.vuega_backend.DTO.seats.seat.CreateSeatsInBatchRequest;
 import net.vuega.vuega_backend.DTO.seats.seat.SeatDTO;
-import net.vuega.vuega_backend.DTO.seats.seat.UpdateSeatRequest;
+import net.vuega.vuega_backend.DTO.seats.seat.@@UpdateSeatRequest;
 import net.vuega.vuega_backend.Exception.DuplicateSeatException;
 import net.vuega.vuega_backend.Exception.InvalidStopRangeException;
 import net.vuega.vuega_backend.Exception.SeatNotAvailableException;
@@ -130,3 +141,10 @@ public class SeatController {
         }
     }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: net/vuega/vuega_backend/DTO/seats/seat/UpdateSeatRequest#

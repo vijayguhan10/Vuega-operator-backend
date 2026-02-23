@@ -1,9 +1,20 @@
+error id: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Model/seats/lock/SeatLock.java:jakarta/persistence/Entity#
+file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Model/seats/lock/SeatLock.java
+empty definition using pc, found symbol in pc: jakarta/persistence/Entity#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 146
+uri: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Model/seats/lock/SeatLock.java
+text:
+```scala
 package net.vuega.vuega_backend.Model.seats.lock;
 
 import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
+import jakarta.persistence.@@Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -39,3 +50,10 @@ public class SeatLock {
     @Column(name = "expires_at", nullable = false)
     private LocalDateTime expiresAt;
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: jakarta/persistence/Entity#

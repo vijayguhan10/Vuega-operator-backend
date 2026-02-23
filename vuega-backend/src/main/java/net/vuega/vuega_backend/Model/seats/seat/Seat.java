@@ -3,21 +3,18 @@ package net.vuega.vuega_backend.Model.seats.seat;
 import java.math.BigDecimal;
 
 import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import jakarta.persistence.UniqueConstraint;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
-@Table(name = "seats", uniqueConstraints = @UniqueConstraint(name = "uq_bus_seat_no", columnNames = { "bus_id",
+// JPA entity for the seats table.
+@Entity = @UniqueConstraint(name = "uq_bus_seat_no", columnNames = { "bus_id",
         "seat_no" }))
 @Data
 @NoArgsConstructor

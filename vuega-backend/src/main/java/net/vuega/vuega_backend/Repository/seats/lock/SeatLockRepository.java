@@ -14,6 +14,7 @@ import org.springframework.stereotype.Repository;
 import jakarta.persistence.LockModeType;
 import net.vuega.vuega_backend.Model.seats.lock.SeatLock;
 
+// JPA repository for SeatLock — write-locked queries and bulk-delete for expiry.
 @Repository
 public interface SeatLockRepository extends JpaRepository<SeatLock, Long> {
 

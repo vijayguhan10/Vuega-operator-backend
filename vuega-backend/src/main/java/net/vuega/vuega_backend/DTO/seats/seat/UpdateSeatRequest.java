@@ -10,13 +10,13 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import net.vuega.vuega_backend.Model.seats.seat.SeatType;
 
+// Request DTO for partial seat update — null fields are ignored.
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 public class UpdateSeatRequest {
 
-    /** Leave null to keep the current value. */
     @Size(max = 10, message = "seatNo must be at most 10 characters")
     private String seatNo;
 

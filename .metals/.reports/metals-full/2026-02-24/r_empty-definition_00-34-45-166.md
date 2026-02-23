@@ -1,3 +1,14 @@
+error id: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/seats/lock/SeatLockController.java:net/vuega/vuega_backend/DTO/seats/lock/AcquireLockRequest#
+file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/seats/lock/SeatLockController.java
+empty definition using pc, found symbol in pc: net/vuega/vuega_backend/DTO/seats/lock/AcquireLockRequest#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 743
+uri: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/seats/lock/SeatLockController.java
+text:
+```scala
 package net.vuega.vuega_backend.Controller.seats.lock;
 
 import org.springframework.http.HttpStatus;
@@ -13,7 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import net.vuega.vuega_backend.DTO.ResponseDto;
-import net.vuega.vuega_backend.DTO.seats.lock.AcquireLockRequest;
+import net.vuega.vuega_backend.DTO.seats.lock.@@AcquireLockRequest;
 import net.vuega.vuega_backend.DTO.seats.lock.BookSeatRequest;
 import net.vuega.vuega_backend.DTO.seats.lock.ReleaseLockRequest;
 import net.vuega.vuega_backend.DTO.seats.lock.SeatLockDTO;
@@ -99,3 +110,10 @@ public class SeatLockController {
         }
     }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: net/vuega/vuega_backend/DTO/seats/lock/AcquireLockRequest#

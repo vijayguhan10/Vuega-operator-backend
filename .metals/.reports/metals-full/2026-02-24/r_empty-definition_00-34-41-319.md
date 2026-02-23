@@ -1,3 +1,14 @@
+error id: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/seats/seat/SeatController.java:net/vuega/vuega_backend/Service/seats/seat/SeatService#
+file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/seats/seat/SeatController.java
+empty definition using pc, found symbol in pc: net/vuega/vuega_backend/Service/seats/seat/SeatService#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 1353
+uri: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/seats/seat/SeatController.java
+text:
+```scala
 package net.vuega.vuega_backend.Controller.seats.seat;
 
 import java.util.List;
@@ -24,7 +35,7 @@ import net.vuega.vuega_backend.Exception.DuplicateSeatException;
 import net.vuega.vuega_backend.Exception.InvalidStopRangeException;
 import net.vuega.vuega_backend.Exception.SeatNotAvailableException;
 import net.vuega.vuega_backend.Exception.SeatNotFoundException;
-import net.vuega.vuega_backend.Service.seats.seat.SeatService;
+import net.vuega.vuega_backend.Service.seats.seat.@@SeatService;
 
 // REST controller for seat CRUD and availability toggling.
 @RestController
@@ -130,3 +141,10 @@ public class SeatController {
         }
     }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: net/vuega/vuega_backend/Service/seats/seat/SeatService#

@@ -15,7 +15,8 @@ public class SeatSocketService {
 
     // Per-bus topic; busId is appended at call time.
     private static final String BUS_TOPIC_PREFIX = "/topic/seats/bus/";
-    // Fallback for bulk events that have no specific busId (e.g., scheduled expiry).
+    // Fallback for bulk events that have no specific busId (e.g., scheduled
+    // expiry).
     private static final String GLOBAL_TOPIC = "/topic/seats/global";
 
     private final SimpMessagingTemplate messagingTemplate;

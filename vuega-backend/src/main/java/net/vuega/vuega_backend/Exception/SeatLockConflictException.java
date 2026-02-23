@@ -1,10 +1,6 @@
 package net.vuega.vuega_backend.Exception;
 
-/**
- * Thrown when a seat lock cannot be acquired or released because another
- * session holds it, or when the booking request comes from a different
- * session than the one that locked the seat.
- */
+// Thrown when a conflicting lock exists or the requesting partner does not own the lock.
 public class SeatLockConflictException extends RuntimeException {
     public SeatLockConflictException(String message) {
         super(message);
