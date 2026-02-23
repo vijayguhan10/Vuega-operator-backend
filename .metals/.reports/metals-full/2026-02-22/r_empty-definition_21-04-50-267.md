@@ -1,3 +1,14 @@
+error id: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/SeatService.java:_empty_/LOCKED#
+file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/SeatService.java
+empty definition using pc, found symbol in pc: _empty_/LOCKED#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 6701
+uri: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/SeatService.java
+text:
+```scala
 package net.vuega.vuega_backend.Service.seats;
 
 import java.time.LocalDateTime;
@@ -68,7 +79,7 @@ public class SeatService {
 
         return toDTO(repository.save(seat));
     }
-    
+
     @Transactional
     public List<SeatDTO> createSeatsInBatch(CreateSeatsInBatchRequest request) {
         for (CreateSeatRequest r : request.getSeats()) {
@@ -168,7 +179,7 @@ public class SeatService {
         switch (seat.getStatus()) {
             case BOOKED -> throw new SeatNotAvailableException(
                     "Seat " + seatId + " is already BOOKED and cannot be locked.");
-            case LOCKED -> throw new SeatLockConflictException(
+            case @@LOCKED -> throw new SeatLockConflictException(
                     "Seat " + seatId + " is already locked by session: " + seat.getLockedBy()
                             + ". Lock expires at " + seat.getLockedAt().plusMinutes(LOCK_TTL_MINUTES) + ".");
             default -> {
@@ -364,3 +375,10 @@ public class SeatService {
         }
     }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: _empty_/LOCKED#

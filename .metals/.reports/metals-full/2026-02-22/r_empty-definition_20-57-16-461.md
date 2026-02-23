@@ -1,3 +1,14 @@
+error id: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/SeatService.java:net/vuega/vuega_backend/DTO/seats/LockSeatRequest#
+file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/SeatService.java
+empty definition using pc, found symbol in pc: net/vuega/vuega_backend/DTO/seats/LockSeatRequest#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 808
+uri: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/SeatService.java
+text:
+```scala
 package net.vuega.vuega_backend.Service.seats;
 
 import java.time.LocalDateTime;
@@ -16,7 +27,7 @@ import org.springframework.web.client.RestClient;
 import lombok.extern.slf4j.Slf4j;
 import net.vuega.vuega_backend.DTO.seats.CreateSeatRequest;
 import net.vuega.vuega_backend.DTO.seats.CreateSeatsInBatchRequest;
-import net.vuega.vuega_backend.DTO.seats.LockSeatRequest;
+import net.vuega.vuega_backend.DTO.seats.@@LockSeatRequest;
 import net.vuega.vuega_backend.DTO.seats.SeatDTO;
 import net.vuega.vuega_backend.DTO.seats.SeatUpdateMessage;
 import net.vuega.vuega_backend.DTO.seats.UpdateSeatRequest;
@@ -68,7 +79,7 @@ public class SeatService {
 
         return toDTO(repository.save(seat));
     }
-    
+
     @Transactional
     public List<SeatDTO> createSeatsInBatch(CreateSeatsInBatchRequest request) {
         for (CreateSeatRequest r : request.getSeats()) {
@@ -364,3 +375,10 @@ public class SeatService {
         }
     }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: net/vuega/vuega_backend/DTO/seats/LockSeatRequest#

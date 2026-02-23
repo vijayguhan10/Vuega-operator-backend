@@ -1,3 +1,14 @@
+error id: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/SeatService.java:SeatUpdateMessage/Event#UNLOCKED#
+file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/SeatService.java
+empty definition using pc, found symbol in pc: SeatUpdateMessage/Event#UNLOCKED#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 8636
+uri: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/SeatService.java
+text:
+```scala
 package net.vuega.vuega_backend.Service.seats;
 
 import java.time.LocalDateTime;
@@ -68,7 +79,7 @@ public class SeatService {
 
         return toDTO(repository.save(seat));
     }
-    
+
     @Transactional
     public List<SeatDTO> createSeatsInBatch(CreateSeatsInBatchRequest request) {
         for (CreateSeatRequest r : request.getSeats()) {
@@ -212,7 +223,7 @@ public class SeatService {
         clearLock(seat);
         SeatDTO dto = toDTO(repository.save(seat));
         socketService.broadcast(SeatUpdateMessage.builder()
-                .event(SeatUpdateMessage.Event.UNLOCKED)
+                .event(SeatUpdateMessage.Event.@@UNLOCKED)
                 .seatId(dto.getSeatId())
                 .busId(dto.getBusId())
                 .seatNo(dto.getSeatNo())
@@ -364,3 +375,10 @@ public class SeatService {
         }
     }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: SeatUpdateMessage/Event#UNLOCKED#

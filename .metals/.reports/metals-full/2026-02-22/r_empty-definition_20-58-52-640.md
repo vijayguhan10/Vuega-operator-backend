@@ -1,3 +1,14 @@
+error id: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/SeatService.java:_empty_/Isolation#
+file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/SeatService.java
+empty definition using pc, found symbol in pc: _empty_/Isolation#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 6185
+uri: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/SeatService.java
+text:
+```scala
 package net.vuega.vuega_backend.Service.seats;
 
 import java.time.LocalDateTime;
@@ -68,7 +79,7 @@ public class SeatService {
 
         return toDTO(repository.save(seat));
     }
-    
+
     @Transactional
     public List<SeatDTO> createSeatsInBatch(CreateSeatsInBatchRequest request) {
         for (CreateSeatRequest r : request.getSeats()) {
@@ -158,7 +169,7 @@ public class SeatService {
         repository.delete(seat);
     }
 
-    @Transactional(isolation = Isolation.READ_COMMITTED)
+    @Transactional(isolation = @@Isolation.READ_COMMITTED)
     public SeatDTO lockSeat(Long seatId, LockSeatRequest request) {
         validateStopRange(request.getFromStopOrder(), request.getToStopOrder());
 
@@ -364,3 +375,10 @@ public class SeatService {
         }
     }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: _empty_/Isolation#

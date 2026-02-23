@@ -1,3 +1,14 @@
+error id: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/SeatService.java:_empty_/SeatRepository#findByIdWithPessimisticLock#
+file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/SeatService.java
+empty definition using pc, found symbol in pc: _empty_/SeatRepository#findByIdWithPessimisticLock#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 6396
+uri: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/SeatService.java
+text:
+```scala
 package net.vuega.vuega_backend.Service.seats;
 
 import java.time.LocalDateTime;
@@ -162,7 +173,7 @@ public class SeatService {
     public SeatDTO lockSeat(Long seatId, LockSeatRequest request) {
         validateStopRange(request.getFromStopOrder(), request.getToStopOrder());
 
-        Seat seat = repository.findByIdWithPessimisticLock(seatId)
+        Seat seat = repository.@@findByIdWithPessimisticLock(seatId)
                 .orElseThrow(() -> new SeatNotFoundException(seatId));
 
         switch (seat.getStatus()) {
@@ -364,3 +375,10 @@ public class SeatService {
         }
     }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: _empty_/SeatRepository#findByIdWithPessimisticLock#
