@@ -102,7 +102,7 @@ public class RedisLockService {
      * Convenience method: builds the key and acquires the lock.
      */
     public boolean acquireSeatLock(Long scheduleId, Long seatId, Long partnerId, long ttlSeconds) {
-        String key   = buildKey(scheduleId, seatId);
+        String key = buildKey(scheduleId, seatId);
         String value = ownerValue(partnerId);
         return acquireLock(key, value, ttlSeconds);
     }
@@ -111,7 +111,7 @@ public class RedisLockService {
      * Convenience method: release only if caller owns the lock.
      */
     public boolean releaseSeatLock(Long scheduleId, Long seatId, Long partnerId) {
-        String key   = buildKey(scheduleId, seatId);
+        String key = buildKey(scheduleId, seatId);
         String value = ownerValue(partnerId);
         return releaseLockIfOwner(key, value);
     }
@@ -120,7 +120,7 @@ public class RedisLockService {
      * Convenience method: renew TTL only if caller owns the lock.
      */
     public boolean renewSeatLock(Long scheduleId, Long seatId, Long partnerId, long ttlSeconds) {
-        String key   = buildKey(scheduleId, seatId);
+        String key = buildKey(scheduleId, seatId);
         String value = ownerValue(partnerId);
         return renewLock(key, value, ttlSeconds);
     }
