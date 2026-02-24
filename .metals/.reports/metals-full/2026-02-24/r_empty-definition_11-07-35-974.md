@@ -1,3 +1,14 @@
+error id: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/lock/SeatLockService.java:_empty_/SeatLockRepository#findActiveLock#
+file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/lock/SeatLockService.java
+empty definition using pc, found symbol in pc: _empty_/SeatLockRepository#findActiveLock#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 5662
+uri: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/lock/SeatLockService.java
+text:
+```scala
 package net.vuega.vuega_backend.Service.seats.lock;
 
 import java.time.LocalDateTime;
@@ -43,13 +54,43 @@ public class SeatLockService {
 
         @Transactional
         public SeatLockDTO acquireLock(Long seatId, AcquireLockRequest request) {
+                if (request.getFromStopOrder() >= request.getToStopOrder()) {
+                        throw new InvalidStopRangeException(
+                                        "fromStopOrder must be less than toStopOrder");
+                }
+
                 Seat seat = seatRepository.findById(seatId)
                                 .orElseThrow(() -> new SeatNotFoundException(seatId));
+
+                long overlappingBookings = bookingRepository.countOverlappingBookings(
+                                seatId, request.getScheduleId(),
+                                request.getFromStopOrder(), request.getToStopOrder(),
+                                BookingStatus.CONFIRMED);
+                if (overlappingBookings > 0) {
+                        throw new SeatNotAvailableException(
+                                        "Seat " + seatId + " is already booked for schedule "
+                                                        + request.getScheduleId()
+                                                        + " on this segment.");
+                }
+
+                List<SeatLock> overlappingLocks = lockRepository.findOverlappingActiveLocks(
+                                seatId, request.getScheduleId(),
+                                request.getFromStopOrder(), request.getToStopOrder(),
+                                LocalDateTime.now());
+                if (!overlappingLocks.isEmpty()) {
+                        SeatLock existing = overlappingLocks.get(0);
+                        throw new SeatLockConflictException(
+                                        "Seat " + seatId + " is already locked by partner " + existing.getPartnerId()
+                                                        + " for this segment. Lock expires at "
+                                                        + existing.getExpiresAt() + ".");
+                }
 
                 SeatLock lock = SeatLock.builder()
                                 .seat(seat)
                                 .scheduleId(request.getScheduleId())
                                 .partnerId(request.getPartnerId())
+                                .fromStopOrder(request.getFromStopOrder())
+                                .toStopOrder(request.getToStopOrder())
                                 .expiresAt(LocalDateTime.now().plusMinutes(LOCK_TTL_MINUTES))
                                 .build();
 
@@ -57,17 +98,6 @@ public class SeatLockService {
                 try {
                         result = toDTO(lockRepository.saveAndFlush(lock));
                 } catch (DataIntegrityViolationException e) {
-                        SeatLock existing = lockRepository
-                                        .findActiveLockBySeatId(seatId, request.getScheduleId(),
-                                                        LocalDateTime.now())
-                                        .orElse(null);
-                        if (existing != null) {
-                                throw new SeatLockConflictException(
-                                                "Seat " + seatId + " is already locked by partner "
-                                                                + existing.getPartnerId()
-                                                                + " for schedule " + request.getScheduleId()
-                                                                + ". Expires at " + existing.getExpiresAt() + ".");
-                        }
                         throw new SeatLockConflictException(
                                         "Seat " + seatId + " was just locked by another request. Please try again.");
                 }
@@ -78,6 +108,8 @@ public class SeatLockService {
                                 .seatId(seatId)
                                 .seatNo(seat.getSeatNo())
                                 .scheduleId(request.getScheduleId())
+                                .fromStopOrder(request.getFromStopOrder())
+                                .toStopOrder(request.getToStopOrder())
                                 .timestamp(LocalDateTime.now())
                                 .build());
 
@@ -85,8 +117,8 @@ public class SeatLockService {
         }
 
         @Transactional
-        public void releaseLock(Long seatId, Long scheduleId, Long partnerId) {
-                SeatLock lock = lockRepository.findActiveLock(seatId, scheduleId, partnerId, LocalDateTime.now())
+        public void releaseLock(Long seatId, Long scheduleId, Long partnerId, int fromStop, int toStop) {
+                SeatLock lock = lockRepository.@@findActiveLock(seatId, scheduleId, partnerId, fromStop, toStop)
                                 .orElseThrow(() -> new SeatLockNotFoundException(seatId, partnerId));
 
                 Seat seat = lock.getSeat();
@@ -98,6 +130,8 @@ public class SeatLockService {
                                 .seatId(seatId)
                                 .seatNo(seat.getSeatNo())
                                 .scheduleId(scheduleId)
+                                .fromStopOrder(fromStop)
+                                .toStopOrder(toStop)
                                 .timestamp(LocalDateTime.now())
                                 .build());
         }
@@ -111,17 +145,24 @@ public class SeatLockService {
 
                 SeatLock lock = lockRepository.findActiveLock(
                                 seatId, request.getScheduleId(), request.getPartnerId(),
-                                LocalDateTime.now())
+                                request.getFromStopOrder(), request.getToStopOrder())
                                 .orElseThrow(() -> new SeatLockConflictException(
                                                 "No active lock found for seat " + seatId
                                                                 + " on schedule " + request.getScheduleId()
                                                                 + ". Please acquire a lock first via POST /api/seats/"
                                                                 + seatId + "/lock."));
 
+                if (lock.getExpiresAt().isBefore(LocalDateTime.now())) {
+                        lockRepository.delete(lock);
+                        throw new SeatNotAvailableException(
+                                        "Lock on seat " + seatId + " expired at " + lock.getExpiresAt()
+                                                        + ". Please acquire a new lock.");
+                }
+
                 long overlapping = bookingRepository.countOverlappingBookings(
                                 seatId, request.getScheduleId(),
                                 request.getFromStopOrder(), request.getToStopOrder(),
-                                BookingStatus.BOOKED);
+                                BookingStatus.CONFIRMED);
                 if (overlapping > 0) {
                         throw new SeatNotAvailableException(
                                         "Seat " + seatId + " is already booked for this segment.");
@@ -132,10 +173,11 @@ public class SeatLockService {
                 Booking booking = Booking.builder()
                                 .seat(seat)
                                 .scheduleId(request.getScheduleId())
+                                .userId(request.getUserId())
                                 .partnerId(request.getPartnerId())
                                 .fromStopOrder(request.getFromStopOrder())
                                 .toStopOrder(request.getToStopOrder())
-                                .status(BookingStatus.BOOKED)
+                                .status(BookingStatus.CONFIRMED)
                                 .bookedAt(LocalDateTime.now())
                                 .build();
 
@@ -164,8 +206,8 @@ public class SeatLockService {
         }
 
         @Transactional(readOnly = true)
-        public SeatLockDTO getLockBySeat(Long seatId, Long scheduleId) {
-                return lockRepository.findActiveLockBySeatId(seatId, scheduleId, LocalDateTime.now())
+        public SeatLockDTO getLockBySeat(Long seatId) {
+                return lockRepository.findActiveLockBySeatId(seatId, LocalDateTime.now())
                                 .map(this::toDTO)
                                 .orElseThrow(() -> new SeatLockNotFoundException(seatId, null));
         }
@@ -183,6 +225,8 @@ public class SeatLockService {
                                         .seatId(lock.getSeat().getSeatId())
                                         .seatNo(lock.getSeat().getSeatNo())
                                         .scheduleId(lock.getScheduleId())
+                                        .fromStopOrder(lock.getFromStopOrder())
+                                        .toStopOrder(lock.getToStopOrder())
                                         .timestamp(now)
                                         .build()));
                         log.info("[SeatLockService] Released {} expired lock(s)", count);
@@ -197,17 +241,20 @@ public class SeatLockService {
                                 .busId(lock.getSeat().getBusId())
                                 .scheduleId(lock.getScheduleId())
                                 .partnerId(lock.getPartnerId())
+                                .fromStopOrder(lock.getFromStopOrder())
+                                .toStopOrder(lock.getToStopOrder())
                                 .expiresAt(lock.getExpiresAt())
                                 .build();
         }
 
         private BookingDTO toBookingDTO(Booking booking) {
                 return BookingDTO.builder()
-                                .seatStatusId(booking.getSeatStatusId())
+                                .bookingId(booking.getBookingId())
                                 .seatId(booking.getSeat().getSeatId())
                                 .seatNo(booking.getSeat().getSeatNo())
                                 .busId(booking.getSeat().getBusId())
                                 .scheduleId(booking.getScheduleId())
+                                .userId(booking.getUserId())
                                 .partnerId(booking.getPartnerId())
                                 .fromStopOrder(booking.getFromStopOrder())
                                 .toStopOrder(booking.getToStopOrder())
@@ -216,3 +263,10 @@ public class SeatLockService {
                                 .build();
         }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: _empty_/SeatLockRepository#findActiveLock#

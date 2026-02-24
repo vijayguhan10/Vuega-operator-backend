@@ -13,9 +13,6 @@ public class BookSeatRequest {
     @NotNull(message = "scheduleId is required")
     private Long scheduleId;
 
-    @NotNull(message = "userId is required")
-    private Long userId;
-
     @NotNull(message = "fromStopOrder is required")
     @Min(value = 0, message = "fromStopOrder must be >= 0")
     private Integer fromStopOrder;

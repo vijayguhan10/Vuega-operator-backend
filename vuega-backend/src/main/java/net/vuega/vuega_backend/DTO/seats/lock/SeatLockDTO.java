@@ -14,7 +14,5 @@ public class SeatLockDTO {
     private Long busId;
     private Long scheduleId;
     private Long partnerId;
-    private Integer fromStopOrder;
-    private Integer toStopOrder;
     private LocalDateTime expiresAt;
 }

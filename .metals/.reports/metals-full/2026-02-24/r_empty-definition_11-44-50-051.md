@@ -1,3 +1,14 @@
+error id: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/seats/lock/SeatLockController.java:net/vuega/vuega_backend/Service/seats/lock/SeatLockService#
+file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/seats/lock/SeatLockController.java
+empty definition using pc, found symbol in pc: net/vuega/vuega_backend/Service/seats/lock/SeatLockService#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 1325
+uri: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/seats/lock/SeatLockController.java
+text:
+```scala
 package net.vuega.vuega_backend.Controller.seats.lock;
 
 import org.springframework.http.HttpStatus;
@@ -8,7 +19,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import jakarta.validation.Valid;
@@ -23,7 +33,7 @@ import net.vuega.vuega_backend.Exception.SeatLockConflictException;
 import net.vuega.vuega_backend.Exception.SeatLockNotFoundException;
 import net.vuega.vuega_backend.Exception.SeatNotAvailableException;
 import net.vuega.vuega_backend.Exception.SeatNotFoundException;
-import net.vuega.vuega_backend.Service.seats.lock.SeatLockService;
+import net.vuega.vuega_backend.Service.seats.lock.@@SeatLockService;
 
 @RestController
 @RequestMapping("/api/seats/{seatId}/lock")
@@ -33,11 +43,9 @@ public class SeatLockController {
     private final SeatLockService service;
 
     @GetMapping
-    public ResponseEntity<ResponseDto<SeatLockDTO>> getLock(
-            @PathVariable Long seatId,
-            @RequestParam Long scheduleId) {
+    public ResponseEntity<ResponseDto<SeatLockDTO>> getLock(@PathVariable Long seatId) {
         try {
-            return ResponseEntity.ok(ResponseDto.success(service.getLockBySeat(seatId, scheduleId)));
+            return ResponseEntity.ok(ResponseDto.success(service.getLockBySeat(seatId)));
         } catch (SeatLockNotFoundException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
                     .body(ResponseDto.notFound(e.getMessage()));
@@ -67,7 +75,8 @@ public class SeatLockController {
             @PathVariable Long seatId,
             @Valid @RequestBody ReleaseLockRequest request) {
         try {
-            service.releaseLock(seatId, request.getScheduleId(), request.getPartnerId());
+            service.releaseLock(seatId, request.getScheduleId(), request.getPartnerId(),
+                    request.getFromStopOrder(), request.getToStopOrder());
             return ResponseEntity.ok(ResponseDto.success(null));
         } catch (SeatLockNotFoundException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
@@ -93,3 +102,9 @@ public class SeatLockController {
         }
     }
 }
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: net/vuega/vuega_backend/Service/seats/lock/SeatLockService#

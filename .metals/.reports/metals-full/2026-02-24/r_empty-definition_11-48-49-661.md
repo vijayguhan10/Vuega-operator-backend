@@ -1,3 +1,14 @@
+error id: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Repository/seats/lock/SeatLockRepository.java:net/vuega/vuega_backend/Model/seats/lock/SeatLock#
+file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Repository/seats/lock/SeatLockRepository.java
+empty definition using pc, found symbol in pc: net/vuega/vuega_backend/Model/seats/lock/SeatLock#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 468
+uri: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Repository/seats/lock/SeatLockRepository.java
+text:
+```scala
 package net.vuega.vuega_backend.Repository.seats.lock;
 
 import java.time.LocalDateTime;
@@ -10,7 +21,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import net.vuega.vuega_backend.Model.seats.lock.SeatLock;
+import net.vuega.vuega_backend.Model.seats.lock.@@SeatLock;
 
 @Repository
 public interface SeatLockRepository extends JpaRepository<SeatLock, Long> {
@@ -46,3 +57,10 @@ public interface SeatLockRepository extends JpaRepository<SeatLock, Long> {
     @Query("DELETE FROM SeatLock sl WHERE sl.expiresAt < :now")
     int deleteExpiredLocks(@Param("now") LocalDateTime now);
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: net/vuega/vuega_backend/Model/seats/lock/SeatLock#

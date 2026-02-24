@@ -22,9 +22,14 @@ import lombok.NoArgsConstructor;
 import net.vuega.vuega_backend.Model.seats.seat.Seat;
 
 @Entity
-@Table(name = "bookings", uniqueConstraints = @UniqueConstraint(name = "uq_booking_segment", columnNames = {
-        "schedule_id", "seat_id", "from_stop_order",
-        "to_stop_order" }), indexes = @Index(name = "idx_booking_lookup", columnList = "schedule_id, seat_id"))
+@Table(
+    name = "seat_status",
+    uniqueConstraints = @UniqueConstraint(
+        name = "uq_seat_status_segment",
+        columnNames = { "schedule_id", "seat_id", "from_stop_order", "to_stop_order" }
+    ),
+    indexes = @Index(name = "idx_seat_status_lookup", columnList = "schedule_id, seat_id")
+)
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -33,8 +38,8 @@ public class Booking {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "booking_id")
-    private Long bookingId;
+    @Column(name = "seat_status_id")
+    private Long seatStatusId;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "seat_id", nullable = false)
@@ -42,9 +47,6 @@ public class Booking {
 
     @Column(name = "schedule_id", nullable = false)
     private Long scheduleId;
-
-    @Column(name = "user_id", nullable = false)
-    private Long userId;
 
     @Column(name = "partner_id", nullable = false)
     private Long partnerId;

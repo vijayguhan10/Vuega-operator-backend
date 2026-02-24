@@ -9,12 +9,11 @@ import net.vuega.vuega_backend.Model.bookings.BookingStatus;
 @Data
 @Builder
 public class BookingDTO {
-    private Long bookingId;
+    private Long seatStatusId;
     private Long seatId;
     private String seatNo;
     private Long busId;
     private Long scheduleId;
-    private Long userId;
     private Long partnerId;
     private Integer fromStopOrder;
     private Integer toStopOrder;
