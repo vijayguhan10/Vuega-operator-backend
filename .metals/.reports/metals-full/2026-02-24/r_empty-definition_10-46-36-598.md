@@ -1,8 +1,20 @@
+error id: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/lock/SeatLockService.java:net/vuega/vuega_backend/Service/seats/socket/SeatSocketService#
+file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/lock/SeatLockService.java
+empty definition using pc, found symbol in pc: net/vuega/vuega_backend/Service/seats/socket/SeatSocketService#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 1668
+uri: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/lock/SeatLockService.java
+text:
+```scala
 package net.vuega.vuega_backend.Service.seats.lock;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,6 +25,7 @@ import net.vuega.vuega_backend.DTO.bookings.BookingDTO;
 import net.vuega.vuega_backend.DTO.seats.lock.AcquireLockRequest;
 import net.vuega.vuega_backend.DTO.seats.lock.BookSeatRequest;
 import net.vuega.vuega_backend.DTO.seats.lock.SeatLockDTO;
+import net.vuega.vuega_backend.DTO.seats.seat.SeatDTO;
 import net.vuega.vuega_backend.DTO.seats.socket.SeatUpdateMessage;
 import net.vuega.vuega_backend.Exception.SeatLockConflictException;
 import net.vuega.vuega_backend.Exception.SeatLockNotFoundException;
@@ -22,10 +35,12 @@ import net.vuega.vuega_backend.Model.bookings.Booking;
 import net.vuega.vuega_backend.Model.bookings.BookingStatus;
 import net.vuega.vuega_backend.Model.seats.lock.SeatLock;
 import net.vuega.vuega_backend.Model.seats.seat.Seat;
+import net.vuega.vuega_backend.Model.seats.seat.SeatStatus;
 import net.vuega.vuega_backend.Repository.bookings.BookingRepository;
 import net.vuega.vuega_backend.Repository.seats.lock.SeatLockRepository;
 import net.vuega.vuega_backend.Repository.seats.seat.SeatRepository;
-import net.vuega.vuega_backend.Service.seats.socket.SeatSocketService;
+import net.vuega.vuega_backend.Service.seats.seat.SeatService;
+import net.vuega.vuega_backend.Service.seats.socket.@@SeatSocketService;
 
 @Service
 @RequiredArgsConstructor
@@ -227,3 +242,10 @@ public class SeatLockService {
                                 .build();
         }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: net/vuega/vuega_backend/Service/seats/socket/SeatSocketService#

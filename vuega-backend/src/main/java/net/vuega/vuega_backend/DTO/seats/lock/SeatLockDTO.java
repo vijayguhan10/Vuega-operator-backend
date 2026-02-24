@@ -5,7 +5,6 @@ import java.time.LocalDateTime;
 import lombok.Builder;
 import lombok.Data;
 
-// Response DTO representing an active seat lock.
 @Data
 @Builder
 public class SeatLockDTO {
@@ -13,6 +12,9 @@ public class SeatLockDTO {
     private Long seatId;
     private String seatNo;
     private Long busId;
+    private Long scheduleId;
     private Long partnerId;
+    private Integer fromStopOrder;
+    private Integer toStopOrder;
     private LocalDateTime expiresAt;
 }

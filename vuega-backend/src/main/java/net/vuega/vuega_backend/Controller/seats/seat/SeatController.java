@@ -4,13 +4,13 @@ import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import jakarta.validation.Valid;
@@ -82,8 +82,13 @@ public class SeatController {
     }
 
     @GetMapping("/bus/{busId}/available")
-    public ResponseEntity<ResponseDto<List<SeatDTO>>> getAvailable(@PathVariable Long busId) {
-        return ResponseEntity.ok(ResponseDto.success(service.getAvailableSeats(busId)));
+    public ResponseEntity<ResponseDto<List<SeatDTO>>> getAvailable(
+            @PathVariable Long busId,
+            @RequestParam Long scheduleId,
+            @RequestParam int fromStop,
+            @RequestParam int toStop) {
+        return ResponseEntity.ok(ResponseDto.success(
+                service.getAvailableSeatsForSegment(busId, scheduleId, fromStop, toStop)));
     }
 
     // ─── UPDATE ──────────────────────────────────────────────────────────────────
@@ -103,30 +108,4 @@ public class SeatController {
         }
     }
 
-    // ─── TOGGLE AVAILABILITY ──────────────────────────────────────────────────
-
-    @DeleteMapping("/{id}")
-    public ResponseEntity<ResponseDto<SeatDTO>> toggle(@PathVariable Long id) {
-        try {
-            return ResponseEntity.ok(ResponseDto.success(service.toggleAvailability(id)));
-        } catch (SeatNotFoundException e) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND)
-                    .body(ResponseDto.notFound(e.getMessage()));
-        }
-    }
-
-    // ─── CANCEL BOOKING ──────────────────────────────────────────────────────────
-
-    @PostMapping("/{id}/cancel")
-    public ResponseEntity<ResponseDto<SeatDTO>> cancel(@PathVariable Long id) {
-        try {
-            return ResponseEntity.ok(ResponseDto.success(service.cancelBooking(id)));
-        } catch (SeatNotFoundException e) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND)
-                    .body(ResponseDto.notFound(e.getMessage()));
-        } catch (SeatNotAvailableException e) {
-            return ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY)
-                    .body(ResponseDto.error(422, e.getMessage()));
-        }
-    }
 }

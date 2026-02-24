@@ -15,13 +15,35 @@ import net.vuega.vuega_backend.Model.seats.lock.SeatLock;
 @Repository
 public interface SeatLockRepository extends JpaRepository<SeatLock, Long> {
 
-    @Query("SELECT sl FROM SeatLock sl WHERE sl.seat.seatId = :seatId")
-    Optional<SeatLock> findBySeatId(@Param("seatId") Long seatId);
-
-    @Query("SELECT sl FROM SeatLock sl WHERE sl.seat.seatId = :seatId AND sl.partnerId = :partnerId")
-    Optional<SeatLock> findBySeatIdAndPartnerId(
+    @Query("""
+            SELECT sl FROM SeatLock sl
+            WHERE sl.seat.seatId = :seatId
+            AND sl.scheduleId = :scheduleId
+            AND sl.expiresAt > :now
+            AND sl.fromStopOrder < :toStop
+            AND sl.toStopOrder > :fromStop
+            """)
+    List<SeatLock> findOverlappingActiveLocks(
             @Param("seatId") Long seatId,
-            @Param("partnerId") Long partnerId);
+            @Param("scheduleId") Long scheduleId,
+            @Param("fromStop") int fromStop,
+            @Param("toStop") int toStop,
+            @Param("now") LocalDateTime now);
+
+    @Query("""
+            SELECT sl FROM SeatLock sl
+            WHERE sl.seat.seatId = :seatId
+            AND sl.scheduleId = :scheduleId
+            AND sl.partnerId = :partnerId
+            AND sl.fromStopOrder = :fromStop
+            AND sl.toStopOrder = :toStop
+            """)
+    Optional<SeatLock> findActiveLock(
+            @Param("seatId") Long seatId,
+            @Param("scheduleId") Long scheduleId,
+            @Param("partnerId") Long partnerId,
+            @Param("fromStop") int fromStop,
+            @Param("toStop") int toStop);
 
     List<SeatLock> findByExpiresAtBefore(LocalDateTime now);
 

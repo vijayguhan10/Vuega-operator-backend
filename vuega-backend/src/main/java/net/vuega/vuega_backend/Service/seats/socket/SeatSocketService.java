@@ -27,10 +27,11 @@ public class SeatSocketService {
 
         messagingTemplate.convertAndSend(topic, message);
 
-        log.info("[WebSocket] {} → bus={} seat={} status={}",
+        log.info("[WebSocket] {} → bus={} seat={} segment={}-{}",
                 message.getEvent(),
                 message.getBusId(),
                 message.getSeatNo(),
-                message.getStatus());
+                message.getFromStopOrder(),
+                message.getToStopOrder());
     }
 }

@@ -16,7 +16,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-// JPA entity for the seats table.
 @Entity
 @Table(name = "seats", uniqueConstraints = @UniqueConstraint(name = "uq_bus_seat_no", columnNames = { "bus_id",
         "seat_no" }))
@@ -41,17 +40,6 @@ public class Seat {
     @Column(name = "type", nullable = false, length = 10)
     private SeatType type;
 
-    @Column(name = "price", nullable = false, precision = 10, scale = 2)
-    private BigDecimal price;
-
-    @Column(name = "from_stop_order", nullable = false)
-    private Integer fromStopOrder;
-
-    @Column(name = "to_stop_order", nullable = false)
-    private Integer toStopOrder;
-
-    @Enumerated(EnumType.STRING)
-    @Column(name = "status", nullable = false, length = 15)
-    @Builder.Default
-    private SeatStatus status = SeatStatus.AVAILABLE;
+    @Column(name = "base_price", nullable = false, precision = 10, scale = 2)
+    private BigDecimal basePrice;
 }

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import net.vuega.vuega_backend.DTO.ResponseDto;
+import net.vuega.vuega_backend.DTO.bookings.BookingDTO;
 import net.vuega.vuega_backend.DTO.seats.lock.AcquireLockRequest;
 import net.vuega.vuega_backend.DTO.seats.lock.BookSeatRequest;
 import net.vuega.vuega_backend.DTO.seats.lock.ReleaseLockRequest;
@@ -24,15 +25,12 @@ import net.vuega.vuega_backend.Exception.SeatNotAvailableException;
 import net.vuega.vuega_backend.Exception.SeatNotFoundException;
 import net.vuega.vuega_backend.Service.seats.lock.SeatLockService;
 
-// REST controller for seat lock acquisition, release, and booking.
 @RestController
 @RequestMapping("/api/seats/{seatId}/lock")
 @RequiredArgsConstructor
 public class SeatLockController {
 
     private final SeatLockService service;
-
-    // ─── GET ACTIVE LOCK ─────────────────────────────────────────────────────────
 
     @GetMapping
     public ResponseEntity<ResponseDto<SeatLockDTO>> getLock(@PathVariable Long seatId) {
@@ -43,8 +41,6 @@ public class SeatLockController {
                     .body(ResponseDto.notFound(e.getMessage()));
         }
     }
-
-    // ─── ACQUIRE LOCK ────────────────────────────────────────────────────────────
 
     @PostMapping
     public ResponseEntity<ResponseDto<SeatLockDTO>> acquireLock(
@@ -64,14 +60,13 @@ public class SeatLockController {
         }
     }
 
-    // ─── RELEASE LOCK ────────────────────────────────────────────────────────────
-
     @DeleteMapping
     public ResponseEntity<ResponseDto<Void>> releaseLock(
             @PathVariable Long seatId,
             @Valid @RequestBody ReleaseLockRequest request) {
         try {
-            service.releaseLock(seatId, request.getPartnerId());
+            service.releaseLock(seatId, request.getScheduleId(), request.getPartnerId(),
+                    request.getFromStopOrder(), request.getToStopOrder());
             return ResponseEntity.ok(ResponseDto.success(null));
         } catch (SeatLockNotFoundException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
@@ -79,14 +74,12 @@ public class SeatLockController {
         }
     }
 
-    // ─── BOOK SEAT ───────────────────────────────────────────────────────────────
-
     @PostMapping("/book")
-    public ResponseEntity<ResponseDto<SeatDTO>> bookSeat(
+    public ResponseEntity<ResponseDto<BookingDTO>> bookSeat(
             @PathVariable Long seatId,
             @Valid @RequestBody BookSeatRequest request) {
         try {
-            return ResponseEntity.ok(ResponseDto.success(service.bookSeat(seatId, request.getPartnerId())));
+            return ResponseEntity.ok(ResponseDto.success(service.bookSeat(seatId, request)));
         } catch (SeatNotFoundException | SeatLockNotFoundException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
                     .body(ResponseDto.notFound(e.getMessage()));

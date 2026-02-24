@@ -22,6 +22,6 @@ public class UpdateSeatRequest {
 
     private SeatType type;
 
-    @DecimalMin(value = "0.01", message = "price must be greater than 0")
-    private BigDecimal price;
+    @DecimalMin(value = "0.01", message = "basePrice must be greater than 0")
+    private BigDecimal basePrice;
 }

@@ -1,14 +1,11 @@
 package net.vuega.vuega_backend.DTO.seats.socket;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import net.vuega.vuega_backend.DTO.seats.seat.SeatDTO;
-import net.vuega.vuega_backend.Model.seats.seat.SeatStatus;
 
 @Data
 @NoArgsConstructor
@@ -17,15 +14,15 @@ import net.vuega.vuega_backend.Model.seats.seat.SeatStatus;
 public class SeatUpdateMessage {
 
     public enum Event {
-        LOCKED, UNLOCKED, BOOKED, CANCELLED, EXPIRED, SYNC
+        LOCKED, UNLOCKED, BOOKED, CANCELLED, EXPIRED
     }
 
     private Event event;
     private Long seatId;
     private Long busId;
     private String seatNo;
-    private SeatStatus status;
-    private int count;
+    private Long scheduleId;
+    private Integer fromStopOrder;
+    private Integer toStopOrder;
     private LocalDateTime timestamp;
-    private List<SeatDTO> seats;
 }

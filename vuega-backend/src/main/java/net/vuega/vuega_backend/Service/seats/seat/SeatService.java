@@ -25,33 +25,24 @@ import net.vuega.vuega_backend.Model.seats.seat.SeatStatus;
 import net.vuega.vuega_backend.Repository.seats.seat.SeatRepository;
 import net.vuega.vuega_backend.Service.seats.socket.SeatSocketService;
 
-// Seat service — CRUD operations and cancellation.
-// Locking and booking are handled by SeatLockService.
 @Service
 @Slf4j
 public class SeatService {
 
     private final SeatRepository repository;
-    private final SeatSocketService socketService;
     private final RestClient controlPlaneClient;
 
     public SeatService(
             SeatRepository repository,
-            SeatSocketService socketService,
             @Value("${control-plane.base-url:http://localhost:3000}") String controlPlaneBaseUrl) {
         this.repository = repository;
-        this.socketService = socketService;
         this.controlPlaneClient = RestClient.builder()
                 .baseUrl(controlPlaneBaseUrl)
                 .build();
     }
 
-    // ─── CREATE ─────────────────────────────────────────────────────────────────
-
     @Transactional
     public SeatDTO createSeat(CreateSeatRequest request) {
-        validateStopRange(request.getFromStopOrder(), request.getToStopOrder());
-
         if (repository.existsByBusIdAndSeatNo(request.getBusId(), request.getSeatNo())) {
             throw new DuplicateSeatException(String.valueOf(request.getBusId()), request.getSeatNo());
         }
@@ -60,10 +51,7 @@ public class SeatService {
                 .busId(request.getBusId())
                 .seatNo(request.getSeatNo())
                 .type(request.getType())
-                .price(request.getPrice())
-                .fromStopOrder(request.getFromStopOrder())
-                .toStopOrder(request.getToStopOrder())
-                .status(SeatStatus.AVAILABLE)
+                .basePrice(request.getBasePrice())
                 .build();
 
         return toDTO(repository.save(seat));
@@ -72,7 +60,6 @@ public class SeatService {
     @Transactional
     public List<SeatDTO> createSeatsInBatch(CreateSeatsInBatchRequest request) {
         for (CreateSeatRequest r : request.getSeats()) {
-            validateStopRange(r.getFromStopOrder(), r.getToStopOrder());
             if (repository.existsByBusIdAndSeatNo(r.getBusId(), r.getSeatNo())) {
                 throw new DuplicateSeatException(String.valueOf(r.getBusId()), r.getSeatNo());
             }
@@ -83,10 +70,7 @@ public class SeatService {
                         .busId(r.getBusId())
                         .seatNo(r.getSeatNo())
                         .type(r.getType())
-                        .price(r.getPrice())
-                        .fromStopOrder(r.getFromStopOrder())
-                        .toStopOrder(r.getToStopOrder())
-                        .status(SeatStatus.AVAILABLE)
+                        .basePrice(r.getBasePrice())
                         .build())
                 .toList();
 
@@ -94,8 +78,6 @@ public class SeatService {
                 .map(this::toDTO)
                 .toList();
     }
-
-    // ─── READ ────────────────────────────────────────────────────────────────────
 
     @Transactional(readOnly = true)
     public SeatDTO getSeatById(Long seatId) {
@@ -112,24 +94,16 @@ public class SeatService {
     }
 
     @Transactional(readOnly = true)
-    public List<SeatDTO> getAvailableSeats(Long busId) {
-        return repository.findAvailableSeatsByBusId(busId).stream()
+    public List<SeatDTO> getAvailableSeatsForSegment(Long busId, Long scheduleId, int fromStop, int toStop) {
+        return repository.findAvailableSeatsForSegment(busId, scheduleId, fromStop, toStop).stream()
                 .map(this::toDTO)
                 .toList();
     }
-
-    // ─── UPDATE ──────────────────────────────────────────────────────────────────
 
     @Transactional
     public SeatDTO updateSeat(Long seatId, UpdateSeatRequest request) {
         Seat seat = repository.findById(seatId)
                 .orElseThrow(() -> new SeatNotFoundException(seatId));
-
-        if (seat.getStatus() != SeatStatus.AVAILABLE) {
-            throw new SeatNotAvailableException(
-                    "Cannot update seat " + seatId + " — it is currently " + seat.getStatus()
-                            + ". Only AVAILABLE seats can be modified.");
-        }
 
         if (request.getSeatNo() != null
                 && !request.getSeatNo().equals(seat.getSeatNo())
@@ -141,57 +115,11 @@ public class SeatService {
             seat.setSeatNo(request.getSeatNo());
         if (request.getType() != null)
             seat.setType(request.getType());
-        if (request.getPrice() != null)
-            seat.setPrice(request.getPrice());
+        if (request.getBasePrice() != null)
+            seat.setBasePrice(request.getBasePrice());
 
         return toDTO(repository.save(seat));
     }
-
-    // ─── TOGGLE AVAILABILITY ───────────────────────────────────────────────────
-
-    @Transactional
-    public SeatDTO toggleAvailability(Long seatId) {
-        Seat seat = repository.findById(seatId)
-                .orElseThrow(() -> new SeatNotFoundException(seatId));
-
-        seat.setStatus(
-                seat.getStatus() == SeatStatus.AVAILABLE
-                        ? SeatStatus.NOT_AVAILABLE
-                        : SeatStatus.AVAILABLE);
-
-        return toDTO(repository.save(seat));
-    }
-
-    // ─── CANCEL BOOKING ──────────────────────────────────────────────────────────
-
-    @Transactional
-    public SeatDTO cancelBooking(Long seatId) {
-        Seat seat = repository.findById(seatId)
-                .orElseThrow(() -> new SeatNotFoundException(seatId));
-
-        if (seat.getStatus() != SeatStatus.NOT_AVAILABLE) {
-            throw new SeatNotAvailableException(
-                    "Seat " + seatId + " is not booked (current status: "
-                            + seat.getStatus() + "). Nothing to cancel.");
-        }
-
-        seat.setStatus(SeatStatus.AVAILABLE);
-        SeatDTO dto = toDTO(repository.save(seat));
-
-        socketService.broadcast(SeatUpdateMessage.builder()
-                .event(SeatUpdateMessage.Event.CANCELLED)
-                .seatId(dto.getSeatId())
-                .busId(dto.getBusId())
-                .seatNo(dto.getSeatNo())
-                .status(dto.getStatus())
-                .count(1)
-                .timestamp(LocalDateTime.now())
-                .build());
-
-        return dto;
-    }
-
-    // ─── MAPPERS ─────────────────────────────────────────────────────────────────
 
     public SeatDTO toDTO(Seat seat) {
         return SeatDTO.builder()
@@ -199,10 +127,7 @@ public class SeatService {
                 .busId(seat.getBusId())
                 .seatNo(seat.getSeatNo())
                 .type(seat.getType())
-                .price(seat.getPrice())
-                .fromStopOrder(seat.getFromStopOrder())
-                .toStopOrder(seat.getToStopOrder())
-                .status(seat.getStatus())
+                .basePrice(seat.getBasePrice())
                 .build();
     }
 
@@ -223,15 +148,6 @@ public class SeatService {
             return Map.of("error", "Bus not found", "busId", busId);
         } catch (Exception e) {
             return Map.of("error", "Control Plane unavailable", "busId", busId);
-        }
-    }
-
-    // ─── HELPERS ─────────────────────────────────────────────────────────────────
-
-    private void validateStopRange(int from, int to) {
-        if (from >= to) {
-            throw new InvalidStopRangeException(
-                    "fromStopOrder (" + from + ") must be strictly less than toStopOrder (" + to + ").");
         }
     }
 }

@@ -8,10 +8,10 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Index;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import jakarta.persistence.UniqueConstraint;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -19,8 +19,7 @@ import lombok.NoArgsConstructor;
 import net.vuega.vuega_backend.Model.seats.seat.Seat;
 
 @Entity
-@Table(name = "seat_locks", uniqueConstraints = @UniqueConstraint(name = "uq_seat_lock_seat_id", columnNames = {
-        "seat_id" }))
+@Table(name = "seat_locks", indexes = @Index(name = "idx_lock_lookup", columnList = "schedule_id, seat_id"))
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -36,8 +35,17 @@ public class SeatLock {
     @JoinColumn(name = "seat_id", nullable = false)
     private Seat seat;
 
+    @Column(name = "schedule_id", nullable = false)
+    private Long scheduleId;
+
     @Column(name = "partner_id", nullable = false)
     private Long partnerId;
+
+    @Column(name = "from_stop_order", nullable = false)
+    private Integer fromStopOrder;
+
+    @Column(name = "to_stop_order", nullable = false)
+    private Integer toStopOrder;
 
     @Column(name = "expires_at", nullable = false)
     private LocalDateTime expiresAt;

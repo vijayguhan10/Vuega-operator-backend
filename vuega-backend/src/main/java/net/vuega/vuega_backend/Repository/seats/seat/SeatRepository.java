@@ -3,7 +3,6 @@ package net.vuega.vuega_backend.Repository.seats.seat;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
@@ -17,10 +16,20 @@ public interface SeatRepository extends JpaRepository<Seat, Long> {
 
     boolean existsByBusIdAndSeatNo(Long busId, String seatNo);
 
-    @Query("SELECT s FROM Seat s WHERE s.busId = :busId AND s.status = 'AVAILABLE'")
-    List<Seat> findAvailableSeatsByBusId(@Param("busId") Long busId);
-
-    @Modifying
-    @Query("UPDATE Seat s SET s.status = 'NOT_AVAILABLE' WHERE s.seatId = :seatId AND s.status = 'AVAILABLE'")
-    int bookIfAvailable(@Param("seatId") Long seatId);
+    @Query("""
+            SELECT s FROM Seat s WHERE s.busId = :busId
+            AND NOT EXISTS (
+                SELECT 1 FROM Booking b
+                WHERE b.seat.seatId = s.seatId
+                AND b.scheduleId = :scheduleId
+                AND b.status = 'CONFIRMED'
+                AND b.fromStopOrder < :toStop
+                AND b.toStopOrder > :fromStop
+            )
+            """)
+    List<Seat> findAvailableSeatsForSegment(
+            @Param("busId") Long busId,
+            @Param("scheduleId") Long scheduleId,
+            @Param("fromStop") int fromStop,
+            @Param("toStop") int toStop);
 }
