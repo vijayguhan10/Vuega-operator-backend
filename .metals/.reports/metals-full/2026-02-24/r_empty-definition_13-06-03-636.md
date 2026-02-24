@@ -1,9 +1,20 @@
+error id: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Repository/seats/seat/SeatRepository.java:org/springframework/data/jpa/repository/Query#
+file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Repository/seats/seat/SeatRepository.java
+empty definition using pc, found symbol in pc: org/springframework/data/jpa/repository/Query#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 189
+uri: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Repository/seats/seat/SeatRepository.java
+text:
+```scala
 package net.vuega.vuega_backend.Repository.seats.seat;
 
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.jpa.repository.@@Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
@@ -34,3 +45,10 @@ public interface SeatRepository extends JpaRepository<Seat, Long> {
             @Param("toStop") int toStop);
 
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: org/springframework/data/jpa/repository/Query#

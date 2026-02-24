@@ -244,14 +244,7 @@ public class SeatLockService {
                 }
 
                 // Resolve the seat ID list from whichever selection mode was used
-                List<Long> ids;
-                if (request.getSeatIds() != null && !request.getSeatIds().isEmpty()) {
-                        ids = request.getSeatIds();
-                } else {
-                        ids = seatRepository.findSeatIdsByIdRange(
-                                        request.getFromSeatId(), request.getToSeatId());
-                }
-
+                List<Long> ids = request.getSeatIds();
                 List<SeatBookingResult> results = new ArrayList<>(ids.size());
 
                 for (Long seatId : ids) {
