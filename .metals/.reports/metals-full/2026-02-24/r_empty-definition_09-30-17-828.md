@@ -1,3 +1,14 @@
+error id: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/lock/SeatLockService.java:SeatUpdateMessage/Event#RELEASED#
+file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/lock/SeatLockService.java
+empty definition using pc, found symbol in pc: SeatUpdateMessage/Event#RELEASED#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 4123
+uri: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/lock/SeatLockService.java
+text:
+```scala
 package net.vuega.vuega_backend.Service.seats.lock;
 
 import java.time.LocalDateTime;
@@ -83,7 +94,7 @@ public class SeatLockService {
                 lockRepository.delete(lock);
 
                 socketService.broadcast(SeatUpdateMessage.builder()
-                                .event(SeatUpdateMessage.Event.UNLOCKED)
+                                .event(SeatUpdateMessage.Event.@@RELEASED)
                                 .busId(seat.getBusId())
                                 .seatId(seatId)
                                 .seatNo(seat.getSeatNo())
@@ -146,7 +157,7 @@ public class SeatLockService {
                 if (!expired.isEmpty()) {
                         expired.forEach(lock -> {
                                 socketService.broadcast(SeatUpdateMessage.builder()
-                                                .event(SeatUpdateMessage.Event.UNLOCKED)
+                                                .event(SeatUpdateMessage.Event.RELEASED)
                                                 .busId(lock.getSeat().getBusId())
                                                 .seatId(lock.getSeat().getSeatId())
                                                 .seatNo(lock.getSeat().getSeatNo())
@@ -170,3 +181,10 @@ public class SeatLockService {
                                 .build();
         }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: SeatUpdateMessage/Event#RELEASED#
