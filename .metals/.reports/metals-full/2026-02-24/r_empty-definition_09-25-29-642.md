@@ -1,3 +1,14 @@
+error id: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/socket/SeatSocketService.java:_empty_/Scheduled#fixedRate#
+file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/socket/SeatSocketService.java
+empty definition using pc, found symbol in pc: _empty_/Scheduled#fixedRate#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 949
+uri: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/socket/SeatSocketService.java
+text:
+```scala
 package net.vuega.vuega_backend.Service.seats.socket;
 
 import java.time.LocalDateTime;
@@ -26,7 +37,7 @@ public class SeatSocketService {
     private final SimpMessagingTemplate messagingTemplate;
     private final SeatRepository seatRepository;
 
-    @Scheduled(fixedRate = 2000)
+    @Scheduled(@@fixedRate = 2000)
     public void broadcastAllSeatsStatus() {
         List<SeatDTO> allSeats = seatRepository.findAll().stream()
                 .map(seat -> SeatDTO.builder()
@@ -64,3 +75,10 @@ public class SeatSocketService {
                 message.getSeatId(), message.getStatus());
     }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: _empty_/Scheduled#fixedRate#

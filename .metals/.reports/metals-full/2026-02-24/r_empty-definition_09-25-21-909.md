@@ -1,3 +1,14 @@
+error id: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/socket/SeatSocketService.java:SeatUpdateMessage/Event#SYNC#
+file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/socket/SeatSocketService.java
+empty definition using pc, found symbol in pc: SeatUpdateMessage/Event#SYNC#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 1704
+uri: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/socket/SeatSocketService.java
+text:
+```scala
 package net.vuega.vuega_backend.Service.seats.socket;
 
 import java.time.LocalDateTime;
@@ -42,7 +53,7 @@ public class SeatSocketService {
 
         seatsByBus.forEach((busId, seats) -> {
             SeatUpdateMessage message = SeatUpdateMessage.builder()
-                    .event(SeatUpdateMessage.Event.SYNC)
+                    .event(SeatUpdateMessage.Event.@@SYNC)
                     .busId(busId)
                     .seats(seats)
                     .count(seats.size())
@@ -64,3 +75,10 @@ public class SeatSocketService {
                 message.getSeatId(), message.getStatus());
     }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: SeatUpdateMessage/Event#SYNC#

@@ -1,3 +1,14 @@
+error id: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/socket/SeatSocketService.java:_empty_/`<any>`#busId#
+file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/socket/SeatSocketService.java
+empty definition using pc, found symbol in pc: _empty_/`<any>`#busId#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 1200
+uri: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/socket/SeatSocketService.java
+text:
+```scala
 package net.vuega.vuega_backend.Service.seats.socket;
 
 import java.time.LocalDateTime;
@@ -31,7 +42,7 @@ public class SeatSocketService {
         List<SeatDTO> allSeats = seatRepository.findAll().stream()
                 .map(seat -> SeatDTO.builder()
                         .seatId(seat.getSeatId())
-                        .busId(seat.getBusId())
+                        .@@busId(seat.getBusId())
                         .seatNo(seat.getSeatNo())
                         .status(seat.getStatus())
                         .build())
@@ -64,3 +75,10 @@ public class SeatSocketService {
                 message.getSeatId(), message.getStatus());
     }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: _empty_/`<any>`#busId#

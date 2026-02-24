@@ -1,3 +1,14 @@
+error id: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/socket/SeatSocketService.java:org/springframework/scheduling/annotation/Scheduled#
+file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/socket/SeatSocketService.java
+empty definition using pc, found symbol in pc: org/springframework/scheduling/annotation/Scheduled#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 283
+uri: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/socket/SeatSocketService.java
+text:
+```scala
 package net.vuega.vuega_backend.Service.seats.socket;
 
 import java.time.LocalDateTime;
@@ -6,7 +17,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 import org.springframework.messaging.simp.SimpMessagingTemplate;
-import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.scheduling.annotation.@@Scheduled;
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
@@ -64,3 +75,10 @@ public class SeatSocketService {
                 message.getSeatId(), message.getStatus());
     }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: org/springframework/scheduling/annotation/Scheduled#

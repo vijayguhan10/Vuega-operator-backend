@@ -1,7 +1,18 @@
+error id: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/DTO/seats/socket/SeatUpdateMessage.java:java/util/List#
+file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/DTO/seats/socket/SeatUpdateMessage.java
+empty definition using pc, found symbol in pc: java/util/List#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 100
+uri: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/DTO/seats/socket/SeatUpdateMessage.java
+text:
+```scala
 package net.vuega.vuega_backend.DTO.seats.socket;
 
 import java.time.LocalDateTime;
-import java.util.List;
+import java.util.@@List;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -29,3 +40,10 @@ public class SeatUpdateMessage {
     private LocalDateTime timestamp;
     private List<SeatDTO> seats;
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: java/util/List#
