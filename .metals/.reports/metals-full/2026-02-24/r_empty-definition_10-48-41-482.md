@@ -1,3 +1,14 @@
+error id: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/seats/lock/SeatLockController.java:_empty_/HttpStatus#UNPROCESSABLE_ENTITY#
+file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/seats/lock/SeatLockController.java
+empty definition using pc, found symbol in pc: _empty_/HttpStatus#UNPROCESSABLE_ENTITY#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 2558
+uri: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/seats/lock/SeatLockController.java
+text:
+```scala
 package net.vuega.vuega_backend.Controller.seats.lock;
 
 import org.springframework.http.HttpStatus;
@@ -14,9 +25,11 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import net.vuega.vuega_backend.DTO.ResponseDto;
 import net.vuega.vuega_backend.DTO.bookings.BookingDTO;
+import net.vuega.vuega_backend.DTO.seats.lock.AcquireLockRequest;
 import net.vuega.vuega_backend.DTO.seats.lock.BookSeatRequest;
 import net.vuega.vuega_backend.DTO.seats.lock.ReleaseLockRequest;
 import net.vuega.vuega_backend.DTO.seats.lock.SeatLockDTO;
+import net.vuega.vuega_backend.DTO.seats.seat.SeatDTO;
 import net.vuega.vuega_backend.Exception.SeatLockConflictException;
 import net.vuega.vuega_backend.Exception.SeatLockNotFoundException;
 import net.vuega.vuega_backend.Exception.SeatNotAvailableException;
@@ -50,7 +63,7 @@ public class SeatLockController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
                     .body(ResponseDto.notFound(e.getMessage()));
         } catch (SeatNotAvailableException e) {
-            return ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY)
+            return ResponseEntity.status(HttpStatus.@@UNPROCESSABLE_ENTITY)
                     .body(ResponseDto.error(422, e.getMessage()));
         } catch (SeatLockConflictException e) {
             return ResponseEntity.status(HttpStatus.CONFLICT)
@@ -90,3 +103,9 @@ public class SeatLockController {
         }
     }
 }
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: _empty_/HttpStatus#UNPROCESSABLE_ENTITY#

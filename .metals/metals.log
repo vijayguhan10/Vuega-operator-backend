@@ -11080,3 +11080,439 @@ WARNING: Unmatched cancel notification for request id 914
 2026.02.24 10:36:38 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\seats\seat\SeatDTO.java. Using fallback presentation compiler.
 2026.02.24 10:36:38 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\seats\lock\BookSeatRequest.java. Using fallback presentation compiler.
 2026.02.24 10:36:44 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\seat\SeatService.java. Using fallback presentation compiler.
+2026.02.24 10:36:56 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Model\seats\seat\Seat.java
+2026.02.24 10:36:56 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Model\seats\seat\Seat.java. Using fallback presentation compiler.
+2026.02.24 10:36:56 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Model\seats\lock\SeatLock.java. Using fallback presentation compiler.
+2026.02.24 10:36:56 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:36:56 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Model\seats\seat\Seat.java
+2026.02.24 10:36:56 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Model\seats\lock\SeatLock.java
+2026.02.24 10:36:56 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:36:57 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:36:58 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:36:58 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:37:00 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:37:00 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:37:12 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:37:12 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:37:14 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:37:14 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:37:15 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:37:15 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:37:16 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:37:18 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:37:18 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:37:20 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:37:20 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:37:21 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:37:25 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\seats\lock\SeatLockRepository.java. Using fallback presentation compiler.
+2026.02.24 10:37:25 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\seats\seat\SeatRepository.java. Using fallback presentation compiler.
+2026.02.24 10:37:25 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\seats\lock\SeatLockRepository.java
+2026.02.24 10:37:25 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\seats\seat\SeatRepository.java
+2026.02.24 10:37:25 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:37:26 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:37:27 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:37:29 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:37:57 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Model\seats\seat\SeatStatus.java. Using fallback presentation compiler.
+2026.02.24 10:37:57 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\seats\lock\ReleaseLockRequest.java. Using fallback presentation compiler.
+2026.02.24 10:37:57 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\seats\seat\CreateSeatRequest.java. Using fallback presentation compiler.
+2026.02.24 10:38:00 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\seats\lock\AcquireLockRequest.java
+2026.02.24 10:38:00 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\seats\lock\ReleaseLockRequest.java
+2026.02.24 10:38:00 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\seats\lock\BookSeatRequest.java
+2026.02.24 10:38:00 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\seats\lock\SeatLockDTO.java
+2026.02.24 10:38:00 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\seats\seat\SeatDTO.java
+2026.02.24 10:38:01 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\seats\lock\AcquireLockRequest.java. Using fallback presentation compiler.
+2026.02.24 10:38:01 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\seats\lock\BookSeatRequest.java. Using fallback presentation compiler.
+2026.02.24 10:38:01 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\seats\lock\ReleaseLockRequest.java. Using fallback presentation compiler.
+2026.02.24 10:38:01 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\seats\lock\SeatLockDTO.java. Using fallback presentation compiler.
+2026.02.24 10:38:01 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\seats\seat\SeatDTO.java. Using fallback presentation compiler.
+2026.02.24 10:38:01 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\seats\socket\SeatUpdateMessage.java. Using fallback presentation compiler.
+2026.02.24 10:38:00 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:38:01 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\seats\lock\ReleaseLockRequest.java
+2026.02.24 10:38:01 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\seats\lock\AcquireLockRequest.java
+2026.02.24 10:38:01 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\seats\lock\BookSeatRequest.java
+2026.02.24 10:38:01 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\seats\socket\SeatUpdateMessage.java
+2026.02.24 10:38:01 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\seats\seat\SeatDTO.java
+2026.02.24 10:38:00 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\seats\lock\SeatLockDTO.java
+2026.02.24 10:38:01 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:38:03 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:38:03 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:38:04 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:38:05 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\seats\seat\CreateSeatRequest.java
+2026.02.24 10:38:05 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:38:06 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\seats\seat\CreateSeatRequest.java. Using fallback presentation compiler.
+2026.02.24 10:38:06 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\seats\seat\CreateSeatRequest.java. Using fallback presentation compiler.
+2026.02.24 10:38:12 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\seats\seat\CreateSeatRequest.java
+2026.02.24 10:38:13 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\seats\seat\CreateSeatRequest.java. Using fallback presentation compiler.
+2026.02.24 10:38:13 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:38:13 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\seats\seat\CreateSeatRequest.java
+2026.02.24 10:38:13 INFO  Created report: Optional[file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/DTO/seats/seat/CreateSeatRequest.java]
+2026.02.24 10:38:13 INFO  QDox parse error in file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/DTO/seats/seat/CreateSeatRequest.java (full report at: "C:\Projects\Vuega-backend\.metals\.reports\metals-full\2026-02-24\r_qdox-error_10-38-13-099.md")
+2026.02.24 10:38:12 WARN  Running javac-semanticdb failed for file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/DTO/seats/seat/CreateSeatRequest.java. Output:
+
+2026.02.24 10:38:13 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:38:14 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:38:14 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:38:16 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:38:37 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\seats\seat\CreateSeatRequest.java. Using fallback presentation compiler.
+2026.02.24 10:38:37 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\seats\seat\CreateSeatRequest.java
+2026.02.24 10:38:37 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:38:38 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:38:38 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:38:40 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:38:52 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:38:52 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:39:26 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:39:26 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java
+2026.02.24 10:39:26 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:39:26 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:39:26 WARN  Running javac-semanticdb failed for file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/lock/SeatLockService.java. Output:
+
+2026.02.24 10:39:26 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:39:27 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:39:27 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:39:29 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:39:54 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\seat\SeatService.java
+2026.02.24 10:39:54 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\seat\SeatService.java. Using fallback presentation compiler.
+2026.02.24 10:39:54 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:39:54 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\seat\SeatService.java
+2026.02.24 10:39:55 WARN  Running javac-semanticdb failed for file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/seat/SeatService.java. Output:
+
+2026.02.24 10:39:54 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:39:56 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:39:56 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\seats\seat\SeatController.java
+2026.02.24 10:39:56 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\seats\seat\SeatController.java. Using fallback presentation compiler.
+2026.02.24 10:39:56 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\seats\seat\SeatController.java. Using fallback presentation compiler.
+2026.02.24 10:39:56 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\seats\seat\SeatController.java. Using fallback presentation compiler.
+2026.02.24 10:39:57 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\seats\seat\SeatController.java. Using fallback presentation compiler.
+2026.02.24 10:39:56 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\seats\seat\SeatController.java. Using fallback presentation compiler.
+2026.02.24 10:39:58 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\seats\seat\SeatController.java. Using fallback presentation compiler.
+2026.02.24 10:39:58 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\seats\seat\SeatController.java. Using fallback presentation compiler.
+2026.02.24 10:39:59 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\seats\lock\SeatLockController.java. Using fallback presentation compiler.
+2026.02.24 10:39:59 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:39:59 INFO  Created report: Optional[file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/lock/SeatLockService.java]
+2026.02.24 10:39:59 INFO  empty definition using pc, found symbol in pc: net/vuega/vuega_backend/DTO/bookings/BookingDTO# (full report at: "C:\Projects\Vuega-backend\.metals\.reports\metals-full\2026-02-24\r_empty-definition_10-39-59-802.md")
+2026.02.24 10:40:00 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\seats\seat\SeatController.java. Using fallback presentation compiler.
+2026.02.24 10:40:04 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\seats\seat\SeatController.java. Using fallback presentation compiler.
+2026.02.24 10:40:12 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\seats\lock\SeatLockController.java. Using fallback presentation compiler.
+2026.02.24 10:40:12 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\seats\lock\SeatLockController.java
+2026.02.24 10:40:12 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\seats\seat\SeatController.java. Using fallback presentation compiler.
+2026.02.24 10:40:12 WARN  Running javac-semanticdb failed for file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/seats/lock/SeatLockController.java. Output:
+
+2026.02.24 10:40:13 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\seats\seat\SeatController.java. Using fallback presentation compiler.
+2026.02.24 10:40:15 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\seats\seat\SeatController.java. Using fallback presentation compiler.
+2026.02.24 10:40:29 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\seats\seat\UpdateSeatRequest.java
+2026.02.24 10:40:29 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\seats\seat\SeatController.java. Using fallback presentation compiler.
+2026.02.24 10:41:17 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:41:17 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\seats\socket\SeatUpdateMessage.java. Using fallback presentation compiler.
+2026.02.24 10:41:17 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Model\seats\lock\SeatLock.java. Using fallback presentation compiler.
+2026.02.24 10:41:17 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\seats\lock\SeatLockRepository.java. Using fallback presentation compiler.
+2026.02.24 10:41:17 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\seats\seat\SeatRepository.java. Using fallback presentation compiler.
+2026.02.24 10:41:17 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Model\bookings\BookingStatus.java. Using fallback presentation compiler.
+2026.02.24 10:41:17 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\bookings\BookingDTO.java. Using fallback presentation compiler.
+2026.02.24 10:41:17 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Model\bookings\Booking.java. Using fallback presentation compiler.
+2026.02.24 10:41:17 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\bookings\BookingRepository.java. Using fallback presentation compiler.
+2026.02.24 10:41:17 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Model\seats\seat\Seat.java. Using fallback presentation compiler.
+2026.02.24 10:41:17 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\seats\lock\AcquireLockRequest.java. Using fallback presentation compiler.
+2026.02.24 10:41:17 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\seats\lock\BookSeatRequest.java. Using fallback presentation compiler.
+2026.02.24 10:41:17 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\seats\lock\ReleaseLockRequest.java. Using fallback presentation compiler.
+2026.02.24 10:41:17 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\seats\lock\SeatLockRepository.java
+2026.02.24 10:41:17 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\seats\seat\SeatController.java. Using fallback presentation compiler.
+2026.02.24 10:41:17 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\seats\seat\SeatRepository.java
+2026.02.24 10:41:17 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\seats\socket\SeatUpdateMessage.java
+2026.02.24 10:41:17 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Model\seats\lock\SeatLock.java
+2026.02.24 10:41:17 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\seats\lock\SeatLockDTO.java. Using fallback presentation compiler.
+2026.02.24 10:41:17 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Model\bookings\BookingStatus.java
+2026.02.24 10:41:17 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\seats\seat\SeatDTO.java. Using fallback presentation compiler.
+2026.02.24 10:41:17 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\seats\seat\CreateSeatRequest.java. Using fallback presentation compiler.
+2026.02.24 10:41:17 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\bookings\BookingDTO.java
+2026.02.24 10:41:17 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Model\bookings\Booking.java
+2026.02.24 10:41:17 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:41:17 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\seat\SeatService.java. Using fallback presentation compiler.
+2026.02.24 10:41:17 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java
+2026.02.24 10:41:17 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\bookings\BookingRepository.java
+2026.02.24 10:41:17 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\seats\lock\SeatLockController.java. Using fallback presentation compiler.
+2026.02.24 10:41:18 WARN  Running javac-semanticdb failed for file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/lock/SeatLockService.java. Output:
+
+2026.02.24 10:41:18 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Model\seats\seat\Seat.java. Using fallback presentation compiler.
+2026.02.24 10:41:17 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Model\seats\seat\Seat.java
+2026.02.24 10:41:18 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\seats\lock\AcquireLockRequest.java
+2026.02.24 10:41:17 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\seats\seat\SeatController.java. Using fallback presentation compiler.
+2026.02.24 10:41:18 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:41:17 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\seats\lock\BookSeatRequest.java
+2026.02.24 10:41:18 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\seats\socket\SeatUpdateMessage.java. Using fallback presentation compiler.
+2026.02.24 10:41:17 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\seats\lock\ReleaseLockRequest.java
+2026.02.24 10:41:18 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Model\seats\lock\SeatLock.java. Using fallback presentation compiler.
+2026.02.24 10:41:18 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\seats\lock\SeatLockDTO.java
+2026.02.24 10:41:18 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\seats\lock\SeatLockRepository.java. Using fallback presentation compiler.
+2026.02.24 10:41:18 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\seats\seat\SeatDTO.java
+2026.02.24 10:41:18 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\seats\seat\SeatRepository.java. Using fallback presentation compiler.
+2026.02.24 10:41:18 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\seats\seat\CreateSeatRequest.java
+2026.02.24 10:41:18 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Model\bookings\BookingStatus.java. Using fallback presentation compiler.
+2026.02.24 10:41:18 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\bookings\BookingDTO.java. Using fallback presentation compiler.
+2026.02.24 10:41:19 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Model\bookings\Booking.java. Using fallback presentation compiler.
+2026.02.24 10:41:19 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\bookings\BookingRepository.java. Using fallback presentation compiler.
+2026.02.24 10:41:19 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\seats\lock\SeatLockController.java. Using fallback presentation compiler.
+2026.02.24 10:41:18 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\seats\lock\SeatLockController.java
+2026.02.24 10:41:19 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\seats\seat\SeatController.java. Using fallback presentation compiler.
+2026.02.24 10:41:19 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Model\bookings\BookingStatus.java
+2026.02.24 10:41:19 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\seats\lock\SeatLockRepository.java
+2026.02.24 10:41:19 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\bookings\BookingDTO.java
+2026.02.24 10:41:19 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\bookings\BookingRepository.java
+2026.02.24 10:41:19 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\seats\socket\SeatUpdateMessage.java
+2026.02.24 10:41:19 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Model\seats\lock\SeatLock.java
+2026.02.24 10:41:19 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\seats\seat\SeatRepository.java
+2026.02.24 10:41:19 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Model\bookings\Booking.java
+2026.02.24 10:41:19 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\seats\seat\SeatController.java. Using fallback presentation compiler.
+2026.02.24 10:41:19 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\seat\SeatService.java. Using fallback presentation compiler.
+2026.02.24 10:41:19 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\seat\SeatService.java
+2026.02.24 10:41:18 WARN  Running javac-semanticdb failed for file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/seats/lock/SeatLockController.java. Output:
+
+2026.02.24 10:41:20 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java
+2026.02.24 10:41:19 WARN  Running javac-semanticdb failed for file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/seat/SeatService.java. Output:
+
+2026.02.24 10:41:19 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\seats\seat\SeatController.java. Using fallback presentation compiler.
+2026.02.24 10:41:21 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\seats\seat\SeatController.java. Using fallback presentation compiler.
+2026.02.24 10:41:21 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\seats\seat\SeatController.java. Using fallback presentation compiler.
+2026.02.24 10:41:23 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\seats\seat\SeatController.java. Using fallback presentation compiler.
+2026.02.24 10:41:24 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\seats\seat\SeatController.java. Using fallback presentation compiler.
+2026.02.24 10:42:08 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\seats\seat\UpdateSeatRequest.java. Using fallback presentation compiler.
+2026.02.24 10:42:09 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\seats\seat\SeatController.java. Using fallback presentation compiler.
+2026.02.24 10:42:09 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\seats\lock\AcquireLockRequest.java
+2026.02.24 10:42:09 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\seats\lock\AcquireLockRequest.java. Using fallback presentation compiler.
+2026.02.24 10:42:09 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\seats\lock\AcquireLockRequest.java. Using fallback presentation compiler.
+2026.02.24 10:42:09 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\seats\lock\AcquireLockRequest.java. Using fallback presentation compiler.
+2026.02.24 10:42:13 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\seats\lock\SeatLockDTO.java
+2026.02.24 10:42:13 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\seats\lock\SeatLockDTO.java. Using fallback presentation compiler.
+2026.02.24 10:42:13 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\seats\lock\SeatLockDTO.java. Using fallback presentation compiler.
+2026.02.24 10:42:13 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\seats\lock\SeatLockDTO.java. Using fallback presentation compiler.
+2026.02.24 10:42:14 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\seats\lock\ReleaseLockRequest.java
+2026.02.24 10:42:14 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\seats\lock\ReleaseLockRequest.java. Using fallback presentation compiler.
+2026.02.24 10:42:14 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\seats\lock\ReleaseLockRequest.java. Using fallback presentation compiler.
+2026.02.24 10:42:14 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\seats\lock\ReleaseLockRequest.java. Using fallback presentation compiler.
+2026.02.24 10:42:15 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\seats\lock\ReleaseLockRequest.java. Using fallback presentation compiler.
+Feb 24, 2026 10:42:15 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1375
+2026.02.24 10:42:20 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\seats\seat\SeatController.java
+2026.02.24 10:42:20 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\seats\lock\ReleaseLockRequest.java. Using fallback presentation compiler.
+2026.02.24 10:42:27 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\seats\lock\SeatLockRepository.java
+2026.02.24 10:42:27 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\seats\lock\SeatLockRepository.java. Using fallback presentation compiler.
+2026.02.24 10:42:28 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\seats\lock\SeatLockRepository.java. Using fallback presentation compiler.
+2026.02.24 10:42:27 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\seats\lock\SeatLockRepository.java. Using fallback presentation compiler.
+2026.02.24 10:42:29 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\seats\lock\SeatLockRepository.java. Using fallback presentation compiler.
+2026.02.24 10:42:32 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\seats\lock\SeatLockRepository.java. Using fallback presentation compiler.
+2026.02.24 10:42:33 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\seats\lock\SeatLockRepository.java. Using fallback presentation compiler.
+2026.02.24 10:42:40 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\bookings\BookingRepository.java
+2026.02.24 10:42:40 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\bookings\BookingRepository.java. Using fallback presentation compiler.
+2026.02.24 10:42:40 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\bookings\BookingRepository.java. Using fallback presentation compiler.
+2026.02.24 10:42:40 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\bookings\BookingRepository.java. Using fallback presentation compiler.
+2026.02.24 10:42:46 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\bookings\BookingRepository.java. Using fallback presentation compiler.
+2026.02.24 10:42:53 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\bookings\BookingRepository.java. Using fallback presentation compiler.
+2026.02.24 10:42:59 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\bookings\BookingRepository.java. Using fallback presentation compiler.
+2026.02.24 10:42:59 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\bookings\BookingRepository.java. Using fallback presentation compiler.
+2026.02.24 10:43:00 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\bookings\BookingRepository.java. Using fallback presentation compiler.
+2026.02.24 10:43:01 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\bookings\BookingRepository.java. Using fallback presentation compiler.
+2026.02.24 10:43:03 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\bookings\BookingRepository.java. Using fallback presentation compiler.
+2026.02.24 10:43:03 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\bookings\BookingRepository.java. Using fallback presentation compiler.
+2026.02.24 10:43:03 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\bookings\BookingRepository.java. Using fallback presentation compiler.
+2026.02.24 10:43:05 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\seats\seat\SeatController.java. Using fallback presentation compiler.
+2026.02.24 10:43:05 INFO  empty definition using pc, found symbol in pc: net/vuega/vuega_backend/Service/seats/seat/SeatService# (full report at: "C:\Projects\Vuega-backend\.metals\.reports\metals-full\2026-02-24\r_empty-definition_00-34-41-319.md")
+2026.02.24 10:43:05 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\seat\SeatService.java. Using fallback presentation compiler.
+2026.02.24 10:43:13 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\seats\lock\SeatLockRepository.java
+2026.02.24 10:43:13 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\seats\lock\SeatLockRepository.java. Using fallback presentation compiler.
+2026.02.24 10:43:13 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\seats\lock\SeatLockRepository.java. Using fallback presentation compiler.
+2026.02.24 10:43:14 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\seats\lock\SeatLockRepository.java. Using fallback presentation compiler.
+2026.02.24 10:43:15 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\seats\lock\SeatLockRepository.java. Using fallback presentation compiler.
+2026.02.24 10:43:15 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\seats\lock\SeatLockRepository.java. Using fallback presentation compiler.
+2026.02.24 10:43:29 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\seats\seat\UpdateSeatRequest.java. Using fallback presentation compiler.
+2026.02.24 10:43:49 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java
+2026.02.24 10:43:49 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:43:49 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:43:50 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:43:54 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:44:01 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:44:05 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:44:05 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:44:06 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:44:07 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:44:07 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:44:07 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:44:07 INFO  Created report: Optional[file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/lock/SeatLockService.java]
+2026.02.24 10:44:07 INFO  empty definition using pc, found symbol in pc:  (full report at: "C:\Projects\Vuega-backend\.metals\.reports\metals-full\2026-02-24\r_empty-definition_10-44-07-225.md")
+2026.02.24 10:44:07 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:44:07 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:44:07 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:44:07 INFO  empty definition using pc, found symbol in pc:  (full report at: "C:\Projects\Vuega-backend\.metals\.reports\metals-full\2026-02-24\r_empty-definition_10-44-07-225.md")
+2026.02.24 10:44:07 INFO  empty definition using pc, found symbol in pc:  (full report at: "C:\Projects\Vuega-backend\.metals\.reports\metals-full\2026-02-24\r_empty-definition_10-44-07-225.md")
+2026.02.24 10:44:07 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:44:07 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:44:07 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:44:09 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:44:11 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:44:11 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:44:14 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:44:17 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:44:17 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:44:19 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:44:28 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:44:28 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:44:30 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:44:34 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:44:35 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:44:34 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:44:34 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:44:36 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:44:36 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:44:37 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:44:37 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:44:38 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:44:37 INFO  empty definition using pc, found symbol in pc: _empty_/SeatRepository# (full report at: "C:\Projects\Vuega-backend\.metals\.reports\metals-full\2026-02-24\r_empty-definition_10-21-08-743.md")
+2026.02.24 10:44:38 INFO  empty definition using pc, found symbol in pc: _empty_/SeatLockRepository# (full report at: "C:\Projects\Vuega-backend\.metals\.reports\metals-full\2026-02-24\r_empty-definition_10-21-08-492.md")
+2026.02.24 10:44:38 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:44:38 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:44:38 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:44:38 INFO  empty definition using pc, found symbol in pc: _empty_/SeatLockRepository# (full report at: "C:\Projects\Vuega-backend\.metals\.reports\metals-full\2026-02-24\r_empty-definition_10-21-08-492.md")
+2026.02.24 10:44:38 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:44:38 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\seats\lock\SeatLockRepository.java
+2026.02.24 10:44:38 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\seats\lock\SeatLockRepository.java. Using fallback presentation compiler.
+2026.02.24 10:44:39 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\seats\lock\SeatLockRepository.java. Using fallback presentation compiler.
+2026.02.24 10:44:38 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\seats\lock\SeatLockRepository.java. Using fallback presentation compiler.
+2026.02.24 10:44:39 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\seats\lock\SeatLockRepository.java. Using fallback presentation compiler.
+2026.02.24 10:44:43 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\seats\lock\SeatLockRepository.java. Using fallback presentation compiler.
+2026.02.24 10:44:44 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\seats\lock\SeatLockRepository.java. Using fallback presentation compiler.
+2026.02.24 10:44:46 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\seats\lock\SeatLockRepository.java. Using fallback presentation compiler.
+2026.02.24 10:44:50 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\seats\lock\SeatLockRepository.java. Using fallback presentation compiler.
+Feb 24, 2026 10:44:57 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+2026.02.24 10:45:11 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\seats\lock\SeatLockRepository.java. Using fallback presentation compiler.
+2026.02.24 10:45:11 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\seats\lock\SeatLockRepository.java. Using fallback presentation compiler.
+2026.02.24 10:45:13 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\seats\lock\SeatLockRepository.java. Using fallback presentation compiler.
+2026.02.24 10:45:15 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\seats\lock\SeatLockRepository.java. Using fallback presentation compiler.
+2026.02.24 10:45:17 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\seats\lock\SeatLockRepository.java. Using fallback presentation compiler.
+2026.02.24 10:45:20 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\seats\seat\SeatController.java. Using fallback presentation compiler.
+2026.02.24 10:45:23 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\seats\lock\SeatLockRepository.java. Using fallback presentation compiler.
+2026.02.24 10:45:23 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\seats\lock\SeatLockRepository.java. Using fallback presentation compiler.
+2026.02.24 10:45:23 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\seats\lock\SeatLockRepository.java. Using fallback presentation compiler.
+2026.02.24 10:45:24 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Repository\seats\lock\SeatLockRepository.java. Using fallback presentation compiler.
+2026.02.24 10:45:34 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:45:34 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\seats\lock\SeatLockController.java. Using fallback presentation compiler.
+2026.02.24 10:45:34 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\seat\SeatService.java. Using fallback presentation compiler.
+2026.02.24 10:45:34 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java
+2026.02.24 10:45:34 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:45:35 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:45:35 WARN  Running javac-semanticdb failed for file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/lock/SeatLockService.java. Output:
+
+2026.02.24 10:45:34 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:45:35 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:45:36 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:45:36 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:45:37 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:45:37 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:45:38 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:45:40 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:45:41 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:45:48 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:45:48 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:45:49 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:45:49 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:45:51 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:45:53 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:45:56 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:45:58 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:45:58 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:46:06 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:46:07 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:46:07 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:46:10 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:46:14 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+Feb 24, 2026 10:46:14 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1694
+2026.02.24 10:46:14 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:46:14 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:46:15 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:46:15 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:46:16 INFO  QDox parse error in file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/lock/SeatLockService.java (full report at: "C:\Projects\Vuega-backend\.metals\.reports\metals-full\2026-02-24\r_qdox-error_09-17-44-967.md")
+2026.02.24 10:46:16 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:46:16 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:46:17 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:46:17 INFO  QDox parse error in file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/lock/SeatLockService.java (full report at: "C:\Projects\Vuega-backend\.metals\.reports\metals-full\2026-02-24\r_qdox-error_09-17-44-967.md")
+2026.02.24 10:46:18 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:46:17 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:46:20 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:46:21 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:46:23 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:46:23 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:46:23 INFO  QDox parse error in file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/lock/SeatLockService.java (full report at: "C:\Projects\Vuega-backend\.metals\.reports\metals-full\2026-02-24\r_qdox-error_09-17-44-967.md")
+2026.02.24 10:46:24 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:46:28 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:46:28 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:46:28 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:46:31 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:46:31 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:46:31 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:46:32 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:46:33 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:46:34 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:46:36 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:46:36 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:46:36 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\seats\seat\SeatController.java
+2026.02.24 10:46:36 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\seats\seat\SeatController.java. Using fallback presentation compiler.
+2026.02.24 10:46:36 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:46:36 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:46:36 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\seats\seat\SeatController.java. Using fallback presentation compiler.
+2026.02.24 10:46:36 INFO  Created report: Optional[file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/lock/SeatLockService.java]
+2026.02.24 10:46:36 INFO  empty definition using pc, found symbol in pc: net/vuega/vuega_backend/Service/seats/socket/SeatSocketService# (full report at: "C:\Projects\Vuega-backend\.metals\.reports\metals-full\2026-02-24\r_empty-definition_10-46-36-598.md")
+2026.02.24 10:46:36 INFO  empty definition using pc, found symbol in pc: net/vuega/vuega_backend/DTO/seats/seat/UpdateSeatRequest# (full report at: "C:\Projects\Vuega-backend\.metals\.reports\metals-full\2026-02-24\r_empty-definition_00-34-44-813.md")
+2026.02.24 10:46:36 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:46:36 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\seats\seat\SeatController.java. Using fallback presentation compiler.
+2026.02.24 10:46:40 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:46:40 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:46:40 INFO  empty definition using pc, found symbol in pc: _empty_/SeatNotAvailableException# (full report at: "C:\Projects\Vuega-backend\.metals\.reports\metals-full\2026-02-24\r_empty-definition_09-41-24-517.md")
+2026.02.24 10:46:40 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:46:42 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:46:42 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:46:58 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\seats\seat\UpdateSeatRequest.java
+2026.02.24 10:46:58 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\socket\SeatSocketService.java. Using fallback presentation compiler.
+2026.02.24 10:46:58 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\seats\seat\UpdateSeatRequest.java. Using fallback presentation compiler.
+2026.02.24 10:46:58 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:46:58 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\socket\SeatSocketService.java
+2026.02.24 10:46:58 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\seats\seat\UpdateSeatRequest.java
+2026.02.24 10:46:58 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:46:58 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:47:00 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:47:02 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:47:08 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:47:08 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:47:08 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:47:08 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java
+2026.02.24 10:47:09 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 10:47:14 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\seats\seat\SeatController.java
+2026.02.24 10:47:14 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\seats\seat\SeatController.java. Using fallback presentation compiler.
+2026.02.24 10:47:14 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\seats\seat\SeatController.java. Using fallback presentation compiler.
+2026.02.24 10:47:14 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\seats\seat\SeatController.java. Using fallback presentation compiler.
+2026.02.24 10:47:14 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\seats\seat\SeatController.java. Using fallback presentation compiler.
+2026.02.24 10:47:15 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\seats\seat\SeatController.java. Using fallback presentation compiler.
+2026.02.24 10:47:15 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\seats\seat\SeatController.java. Using fallback presentation compiler.
+2026.02.24 10:47:19 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\seats\seat\SeatController.java. Using fallback presentation compiler.
+2026.02.24 10:47:20 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\seats\seat\SeatController.java. Using fallback presentation compiler.
+2026.02.24 10:47:20 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\seats\seat\SeatController.java. Using fallback presentation compiler.
+2026.02.24 10:47:20 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\seats\seat\SeatController.java
+2026.02.24 10:47:20 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\seats\seat\SeatController.java. Using fallback presentation compiler.
+2026.02.24 10:47:21 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\seats\seat\SeatController.java. Using fallback presentation compiler.
+2026.02.24 10:47:20 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\seats\seat\SeatController.java. Using fallback presentation compiler.
+2026.02.24 10:47:22 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\seats\seat\SeatController.java. Using fallback presentation compiler.
+2026.02.24 10:47:22 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\seats\seat\SeatController.java. Using fallback presentation compiler.
+Feb 24, 2026 10:47:22 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1791
+2026.02.24 10:47:25 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\seats\seat\SeatController.java. Using fallback presentation compiler.
+2026.02.24 10:47:30 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\socket\SeatSocketService.java
+2026.02.24 10:47:30 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\socket\SeatSocketService.java. Using fallback presentation compiler.
+2026.02.24 10:47:30 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\seats\seat\SeatController.java. Using fallback presentation compiler.
+2026.02.24 10:47:30 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\seats\seat\SeatController.java. Using fallback presentation compiler.
+2026.02.24 10:47:30 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\socket\SeatSocketService.java. Using fallback presentation compiler.
+2026.02.24 10:47:30 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\seats\seat\SeatController.java
+2026.02.24 10:47:31 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\socket\SeatSocketService.java. Using fallback presentation compiler.
+2026.02.24 10:47:32 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\socket\SeatSocketService.java. Using fallback presentation compiler.
+2026.02.24 10:47:32 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\seats\seat\UpdateSeatRequest.java. Using fallback presentation compiler.
+2026.02.24 10:47:35 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\seats\seat\UpdateSeatRequest.java
+2026.02.24 10:47:35 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\socket\SeatSocketService.java
+2026.02.24 10:47:35 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\socket\SeatSocketService.java. Using fallback presentation compiler.

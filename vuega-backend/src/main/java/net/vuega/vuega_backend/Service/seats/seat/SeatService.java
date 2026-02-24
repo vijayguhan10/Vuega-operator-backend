@@ -1,6 +1,5 @@
 package net.vuega.vuega_backend.Service.seats.seat;
 
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
 
@@ -15,15 +14,10 @@ import net.vuega.vuega_backend.DTO.seats.seat.CreateSeatRequest;
 import net.vuega.vuega_backend.DTO.seats.seat.CreateSeatsInBatchRequest;
 import net.vuega.vuega_backend.DTO.seats.seat.SeatDTO;
 import net.vuega.vuega_backend.DTO.seats.seat.UpdateSeatRequest;
-import net.vuega.vuega_backend.DTO.seats.socket.SeatUpdateMessage;
 import net.vuega.vuega_backend.Exception.DuplicateSeatException;
-import net.vuega.vuega_backend.Exception.InvalidStopRangeException;
-import net.vuega.vuega_backend.Exception.SeatNotAvailableException;
 import net.vuega.vuega_backend.Exception.SeatNotFoundException;
 import net.vuega.vuega_backend.Model.seats.seat.Seat;
-import net.vuega.vuega_backend.Model.seats.seat.SeatStatus;
 import net.vuega.vuega_backend.Repository.seats.seat.SeatRepository;
-import net.vuega.vuega_backend.Service.seats.socket.SeatSocketService;
 
 @Service
 @Slf4j
