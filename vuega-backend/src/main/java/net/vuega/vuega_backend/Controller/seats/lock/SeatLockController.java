@@ -14,6 +14,7 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import net.vuega.vuega_backend.DTO.ResponseDto;
 import net.vuega.vuega_backend.DTO.bookings.BookingDTO;
+import net.vuega.vuega_backend.DTO.seats.lock.AcquireLockRequest;
 import net.vuega.vuega_backend.DTO.seats.lock.BookSeatRequest;
 import net.vuega.vuega_backend.DTO.seats.lock.ReleaseLockRequest;
 import net.vuega.vuega_backend.DTO.seats.lock.SeatLockDTO;
@@ -50,7 +51,7 @@ public class SeatLockController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
                     .body(ResponseDto.notFound(e.getMessage()));
         } catch (SeatNotAvailableException e) {
-            return ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY)
+            return ResponseEntity.status(HttpStatus.UNPROCESSABLE_CONTENT)
                     .body(ResponseDto.error(422, e.getMessage()));
         } catch (SeatLockConflictException e) {
             return ResponseEntity.status(HttpStatus.CONFLICT)
@@ -82,7 +83,7 @@ public class SeatLockController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
                     .body(ResponseDto.notFound(e.getMessage()));
         } catch (SeatNotAvailableException e) {
-            return ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY)
+            return ResponseEntity.status(HttpStatus.UNPROCESSABLE_CONTENT)
                     .body(ResponseDto.error(422, e.getMessage()));
         } catch (SeatLockConflictException e) {
             return ResponseEntity.status(HttpStatus.CONFLICT)
