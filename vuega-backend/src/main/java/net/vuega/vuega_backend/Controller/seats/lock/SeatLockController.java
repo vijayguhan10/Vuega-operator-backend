@@ -15,14 +15,11 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import net.vuega.vuega_backend.DTO.ResponseDto;
 import net.vuega.vuega_backend.DTO.bookings.BookingDTO;
-import net.vuega.vuega_backend.DTO.bookings.BulkBookingSummaryDTO;
 import net.vuega.vuega_backend.DTO.seats.lock.AcquireLockRequest;
 import net.vuega.vuega_backend.DTO.seats.lock.BookSeatRequest;
-import net.vuega.vuega_backend.DTO.seats.lock.BulkBookSeatsRequest;
 import net.vuega.vuega_backend.DTO.seats.lock.ReleaseLockRequest;
 import net.vuega.vuega_backend.DTO.seats.lock.RenewLockRequest;
 import net.vuega.vuega_backend.DTO.seats.lock.SeatLockDTO;
-import net.vuega.vuega_backend.Exception.InvalidStopRangeException;
 import net.vuega.vuega_backend.Exception.SeatLockConflictException;
 import net.vuega.vuega_backend.Exception.SeatLockNotFoundException;
 import net.vuega.vuega_backend.Exception.SeatNotAvailableException;
@@ -110,19 +107,4 @@ public class SeatLockController {
         }
     }
 
-    // book multiple seats in one call — supports explicit list [1,5,6,9] or
-    // consecutive range [1..12]
-    @PostMapping("/bulk-book")
-    public ResponseEntity<ResponseDto<BulkBookingSummaryDTO>> bookMultipleSeats(
-            @Valid @RequestBody BulkBookSeatsRequest request) {
-        try {
-            return ResponseEntity.ok(ResponseDto.success(service.bookMultipleSeats(request)));
-        } catch (InvalidStopRangeException e) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-                    .body(ResponseDto.error(400, e.getMessage()));
-        } catch (SeatNotFoundException e) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-                    .body(ResponseDto.error(400, "No seats found in the requested ID range."));
-        }
-    }
 }
