@@ -2,8 +2,12 @@ package net.vuega.vuega_backend.Model.seats.lock;
 
 import java.time.LocalDateTime;
 
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EntityListeners;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -20,9 +24,15 @@ import lombok.NoArgsConstructor;
 import net.vuega.vuega_backend.Model.seats.seat.Seat;
 
 @Entity
-@Table(name = "seat_locks", uniqueConstraints = @UniqueConstraint(name = "uq_lock_schedule_seat", columnNames = {
-        "schedule_id", "seat_id",
-        "partner_id" }), indexes = @Index(name = "idx_lock_lookup", columnList = "schedule_id, seat_id"))
+@EntityListeners(AuditingEntityListener.class)
+@Table(
+    name = "seat_locks",
+    uniqueConstraints = @UniqueConstraint(
+        name = "uq_lock_schedule_seat",
+        columnNames = { "schedule_id", "seat_id" }
+    ),
+    indexes = @Index(name = "idx_lock_lookup", columnList = "schedule_id, seat_id")
+)
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -46,4 +56,8 @@ public class SeatLock {
 
     @Column(name = "expires_at", nullable = false)
     private LocalDateTime expiresAt;
+
+    @CreatedDate
+    @Column(name = "created_at", nullable = false, updatable = false)
+    private LocalDateTime createdAt;
 }

@@ -18,5 +18,7 @@ public class BookingDTO {
     private Integer fromStopOrder;
     private Integer toStopOrder;
     private BookingStatus status;
-    private LocalDateTime bookedAt;
+    private String idempotencyKey;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 }

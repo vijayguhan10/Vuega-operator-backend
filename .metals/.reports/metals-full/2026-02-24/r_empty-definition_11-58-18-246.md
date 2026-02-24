@@ -1,3 +1,14 @@
+error id: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Model/bookings/Booking.java:jakarta/persistence/EntityListeners#
+file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Model/bookings/Booking.java
+empty definition using pc, found symbol in pc: jakarta/persistence/EntityListeners#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 372
+uri: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Model/bookings/Booking.java
+text:
+```scala
 package net.vuega.vuega_backend.Model.bookings;
 
 import java.time.LocalDateTime;
@@ -8,7 +19,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.EntityListeners;
+import jakarta.persistence.@@EntityListeners;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.FetchType;
@@ -72,3 +83,10 @@ public class Booking {
     @Column(name = "updated_at", nullable = false)
     private LocalDateTime updatedAt;
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: jakarta/persistence/EntityListeners#

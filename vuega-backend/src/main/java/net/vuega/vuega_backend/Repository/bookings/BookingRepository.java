@@ -1,5 +1,8 @@
 package net.vuega.vuega_backend.Repository.bookings;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -25,4 +28,18 @@ public interface BookingRepository extends JpaRepository<Booking, Long> {
             @Param("fromStop") int fromStop,
             @Param("toStop") int toStop,
             @Param("status") BookingStatus status);
+
+    Optional<Booking> findByIdempotencyKey(String idempotencyKey);
+
+    List<Booking> findByPartnerId(Long partnerId);
+
+    @Query("""
+            SELECT b FROM Booking b
+            WHERE b.seat.seatId = :seatId
+            AND b.scheduleId = :scheduleId
+            ORDER BY b.createdAt DESC
+            """)
+    List<Booking> findHistoryBySeatAndSchedule(
+            @Param("seatId") Long seatId,
+            @Param("scheduleId") Long scheduleId);
 }

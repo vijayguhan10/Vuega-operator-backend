@@ -2,6 +2,7 @@ package net.vuega.vuega_backend.DTO.seats.lock;
 
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 
 @Data
@@ -20,4 +21,7 @@ public class BookSeatRequest {
     @NotNull(message = "toStopOrder is required")
     @Min(value = 1, message = "toStopOrder must be >= 1")
     private Integer toStopOrder;
+
+    @Size(max = 36, message = "idempotencyKey must be at most 36 characters")
+    private String idempotencyKey;
 }
