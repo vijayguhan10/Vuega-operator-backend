@@ -1,3 +1,14 @@
+error id: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/lock/SeatLockService.java:net/vuega/vuega_backend/Exception/BookingNotFoundException#
+file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/lock/SeatLockService.java
+empty definition using pc, found symbol in pc: net/vuega/vuega_backend/Exception/BookingNotFoundException#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 771
+uri: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/lock/SeatLockService.java
+text:
+```scala
 package net.vuega.vuega_backend.Service.seats.lock;
 
 import java.time.LocalDateTime;
@@ -15,7 +26,7 @@ import net.vuega.vuega_backend.DTO.seats.lock.AcquireLockRequest;
 import net.vuega.vuega_backend.DTO.seats.lock.BookSeatRequest;
 import net.vuega.vuega_backend.DTO.seats.lock.SeatLockDTO;
 import net.vuega.vuega_backend.DTO.seats.socket.SeatUpdateMessage;
-import net.vuega.vuega_backend.Exception.BookingNotFoundException;
+import net.vuega.vuega_backend.Exception.@@BookingNotFoundException;
 import net.vuega.vuega_backend.Exception.InvalidStopRangeException;
 import net.vuega.vuega_backend.Exception.SeatLockConflictException;
 import net.vuega.vuega_backend.Exception.SeatLockNotFoundException;
@@ -343,3 +354,10 @@ public class SeatLockService {
     }
 }
 
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: net/vuega/vuega_backend/Exception/BookingNotFoundException#
