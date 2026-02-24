@@ -3,9 +3,7 @@ package net.vuega.vuega_backend.DTO.bookings;
 import lombok.Builder;
 import lombok.Data;
 
-/**
- * Per-seat outcome inside a bulk-booking response.
- */
+// Per-seat outcome inside a bulk-booking response.
 @Data
 @Builder
 public class SeatBookingResult {
@@ -16,23 +14,16 @@ public class SeatBookingResult {
     }
 
     private Long seatId;
-
-    /**
-     * Human-readable seat number (e.g. "A3") — null when the seat was not found.
-     */
+    // null when the seat was not found
     private String seatNo;
 
     private Status status;
 
-    /** Populated on success. */
+    // populated on success
     private BookingDTO booking;
 
-    /** Populated on failure — contains the reason the seat could not be booked. */
+    // populated on failure — reason the seat could not be booked
     private String reason;
-
-    // -------------------------------------------------------------------------
-    // Factory helpers
-    // -------------------------------------------------------------------------
 
     public static SeatBookingResult success(Long seatId, BookingDTO booking) {
         return SeatBookingResult.builder()

@@ -32,7 +32,6 @@ import net.vuega.vuega_backend.Model.seats.seat.Seat;
 import net.vuega.vuega_backend.Repository.bookings.BookingRepository;
 import net.vuega.vuega_backend.Repository.seats.lock.SeatLockRepository;
 import net.vuega.vuega_backend.Repository.seats.seat.SeatRepository;
-import net.vuega.vuega_backend.Service.redis.RedisLockService;
 import net.vuega.vuega_backend.Service.seats.socket.SeatSocketService;
 
 @Service
@@ -41,33 +40,17 @@ import net.vuega.vuega_backend.Service.seats.socket.SeatSocketService;
 public class SeatLockService {
 
         private static final int LOCK_TTL_MINUTES = 10;
-        private static final long LOCK_TTL_SECONDS = LOCK_TTL_MINUTES * 60L;
 
         private final SeatRepository seatRepository;
         private final SeatLockRepository lockRepository;
         private final BookingRepository bookingRepository;
         private final SeatSocketService socketService;
-        private final RedisLockService redisLockService;
 
-        // -------------------------------------------------------------------------
         // Acquire lock
-        // -------------------------------------------------------------------------
-
         @Transactional
         public SeatLockDTO acquireLock(Long seatId, AcquireLockRequest request) {
                 Seat seat = seatRepository.findById(seatId)
                                 .orElseThrow(() -> new SeatNotFoundException(seatId));
-
-                // Try Redis SETNX first — fast-fail without a DB round-trip
-                boolean redisAcquired = redisLockService.acquireSeatLock(
-                                request.getScheduleId(), seatId, request.getPartnerId(), LOCK_TTL_SECONDS);
-                if (!redisAcquired) {
-                        String holder = redisLockService.getLockHolder(
-                                        redisLockService.buildKey(request.getScheduleId(), seatId));
-                        throw new SeatLockConflictException(
-                                        "Seat " + seatId + " is already locked (holder=" + holder + ") for schedule "
-                                                        + request.getScheduleId() + ".");
-                }
 
                 SeatLock lock = SeatLock.builder()
                                 .seat(seat)
@@ -80,8 +63,6 @@ public class SeatLockService {
                 try {
                         result = toDTO(lockRepository.saveAndFlush(lock));
                 } catch (DataIntegrityViolationException e) {
-                        // DB says the seat is already locked — roll back Redis key we just took
-                        redisLockService.releaseSeatLock(request.getScheduleId(), seatId, request.getPartnerId());
                         SeatLock existing = lockRepository
                                         .findActiveLockBySeatId(seatId, request.getScheduleId(), LocalDateTime.now())
                                         .orElse(null);
@@ -105,20 +86,13 @@ public class SeatLockService {
                 return result;
         }
 
-        // -------------------------------------------------------------------------
         // Release lock
-        // -------------------------------------------------------------------------
-
         @Transactional
         public void releaseLock(Long seatId, Long scheduleId, Long partnerId) {
                 SeatLock lock = lockRepository.findActiveLock(seatId, scheduleId, partnerId, LocalDateTime.now())
                                 .orElseThrow(() -> new SeatLockNotFoundException(seatId, partnerId));
 
                 Seat seat = lock.getSeat();
-
-                // Release Redis key (best-effort — DB record is source of truth)
-                redisLockService.releaseSeatLock(scheduleId, seatId, partnerId);
-
                 lockRepository.delete(lock);
 
                 socketService.broadcast(SeatUpdateMessage.builder()
@@ -131,39 +105,23 @@ public class SeatLockService {
                                 .build());
         }
 
-        // -------------------------------------------------------------------------
         // Renew lock
-        // -------------------------------------------------------------------------
-
         @Transactional
         public SeatLockDTO renewLock(Long seatId, Long scheduleId, Long partnerId) {
                 SeatLock lock = lockRepository.findActiveLock(seatId, scheduleId, partnerId, LocalDateTime.now())
                                 .orElseThrow(() -> new SeatLockNotFoundException(seatId, partnerId));
 
-                // Extend Redis TTL (best-effort; re-acquire if key drifted)
-                boolean renewed = redisLockService.renewSeatLock(scheduleId, seatId, partnerId, LOCK_TTL_SECONDS);
-                if (!renewed) {
-                        log.warn("renewLock: Redis key absent/wrong-owner for seatId={} scheduleId={} partnerId={}",
-                                        seatId, scheduleId, partnerId);
-                        redisLockService.acquireSeatLock(scheduleId, seatId, partnerId, LOCK_TTL_SECONDS);
-                }
-
-                // Extend DB expiry
                 lock.setExpiresAt(LocalDateTime.now().plusMinutes(LOCK_TTL_MINUTES));
                 return toDTO(lockRepository.save(lock));
         }
 
-        // -------------------------------------------------------------------------
         // Book seat
-        // -------------------------------------------------------------------------
-
         @Transactional
         public BookingDTO bookSeat(Long seatId, BookSeatRequest request) {
                 if (request.getFromStopOrder() >= request.getToStopOrder()) {
                         throw new InvalidStopRangeException("fromStopOrder must be less than toStopOrder");
                 }
 
-                // --- Idempotency check ---
                 if (request.getIdempotencyKey() != null && !request.getIdempotencyKey().isBlank()) {
                         return bookingRepository.findByIdempotencyKey(request.getIdempotencyKey())
                                         .map(existing -> {
@@ -214,8 +172,6 @@ public class SeatLockService {
                                         "Seat " + seatId + " was just booked by another request for this segment.");
                 }
 
-                // Release Redis + DB lock after successful booking
-                redisLockService.releaseSeatLock(request.getScheduleId(), seatId, request.getPartnerId());
                 lockRepository.delete(lock);
 
                 socketService.broadcast(SeatUpdateMessage.builder()
@@ -232,10 +188,7 @@ public class SeatLockService {
                 return toBookingDTO(saved);
         }
 
-        // -------------------------------------------------------------------------
-        // Cancel booking (soft-delete — status set to CANCELLED, record kept)
-        // -------------------------------------------------------------------------
-
+        // Cancel booking (soft-delete — record kept, status set to CANCELLED)
         @Transactional
         public BookingDTO cancelBooking(Long seatStatusId, Long partnerId) {
                 Booking booking = bookingRepository.findById(seatStatusId)
@@ -269,10 +222,6 @@ public class SeatLockService {
                 return toBookingDTO(saved);
         }
 
-        // -------------------------------------------------------------------------
-        // Query
-        // -------------------------------------------------------------------------
-
         @Transactional(readOnly = true)
         public SeatLockDTO getLockBySeat(Long seatId, Long scheduleId) {
                 return lockRepository.findActiveLockBySeatId(seatId, scheduleId, LocalDateTime.now())
@@ -288,23 +237,7 @@ public class SeatLockService {
                                 .toList();
         }
 
-        // -------------------------------------------------------------------------
-        // Bulk book multiple seats in one request
-        // -------------------------------------------------------------------------
-
-        /**
-         * Books multiple seats for a single partner/schedule/segment in one call.
-         *
-         * Each seat is processed independently: a failure on one seat does not
-         * prevent the remaining seats from being attempted. The caller should
-         * inspect {@link BulkBookingSummaryDTO#getResults()} for per-seat outcomes.
-         *
-         * Seat selection modes:
-         * Explicit list — populate {@code request.seatIds} (up to 50 entries).
-         * Consecutive ID range — populate {@code request.fromSeatId} and
-         * {@code request.toSeatId}; every seat whose primary-key ID falls
-         * within [fromSeatId, toSeatId] will be attempted.
-         */
+        // Book multiple seats independently; each seat succeeds or fails on its own.
         public BulkBookingSummaryDTO bookMultipleSeats(BulkBookSeatsRequest request) {
                 if (request.getFromStopOrder() >= request.getToStopOrder()) {
                         throw new InvalidStopRangeException("fromStopOrder must be less than toStopOrder");
@@ -354,21 +287,9 @@ public class SeatLockService {
                                 .build();
         }
 
-        /**
-         * Acquires a Redis lock, validates no overlapping bookings exist, persists
-         * the booking, releases the lock, and broadcasts the BOOKED event — all for
-         * a single seat.
-         *
-         * Used by {@link #bookMultipleSeats} so that each seat within a bulk
-         * request succeeds or fails independently.
-         *
-         * This method is intentionally NOT annotated @Transactional. Each DB
-         * operation auto-commits; the DataIntegrityViolationException catch on
-         * saveAndFlush provides the same concurrent-write safety net as the
-         * regular single-seat bookSeat path.
-         */
+        // Lock → validate → persist → release → broadcast for a single seat.
+        // Not @Transactional by design; each DB op auto-commits independently.
         private BookingDTO lockAndBookSeat(Long seatId, BookSeatRequest request) {
-                // --- Idempotency check ---
                 if (request.getIdempotencyKey() != null
                                 && !request.getIdempotencyKey().isBlank()) {
                         var existing = bookingRepository
@@ -383,31 +304,31 @@ public class SeatLockService {
                 Seat seat = seatRepository.findById(seatId)
                                 .orElseThrow(() -> new SeatNotFoundException(seatId));
 
-                // --- Acquire Redis lock (fast-fail without a DB round-trip) ---
-                boolean redisAcquired = redisLockService.acquireSeatLock(
-                                request.getScheduleId(), seatId, request.getPartnerId(),
-                                LOCK_TTL_SECONDS);
-                if (!redisAcquired) {
-                        String holder = redisLockService.getLockHolder(
-                                        redisLockService.buildKey(request.getScheduleId(), seatId));
+                // Acquire DB lock — unique constraint prevents concurrent duplicates
+                SeatLock bulkLock = SeatLock.builder()
+                                .seat(seat)
+                                .scheduleId(request.getScheduleId())
+                                .partnerId(request.getPartnerId())
+                                .expiresAt(LocalDateTime.now().plusMinutes(LOCK_TTL_MINUTES))
+                                .build();
+                try {
+                        lockRepository.saveAndFlush(bulkLock);
+                } catch (DataIntegrityViolationException e) {
                         throw new SeatLockConflictException(
-                                        "Seat " + seatId + " is already locked (holder=" + holder
-                                                        + ") for schedule " + request.getScheduleId() + ".");
+                                        "Seat " + seatId + " is already locked for schedule " + request.getScheduleId()
+                                                        + ".");
                 }
 
-                // --- Check for overlapping confirmed bookings ---
                 long overlapping = bookingRepository.countOverlappingBookings(
                                 seatId, request.getScheduleId(),
                                 request.getFromStopOrder(), request.getToStopOrder(),
                                 BookingStatus.BOOKED);
                 if (overlapping > 0) {
-                        redisLockService.releaseSeatLock(
-                                        request.getScheduleId(), seatId, request.getPartnerId());
+                        lockRepository.delete(bulkLock);
                         throw new SeatNotAvailableException(
                                         "Seat " + seatId + " is already booked for this segment.");
                 }
 
-                // --- Persist the booking ---
                 Booking booking = Booking.builder()
                                 .seat(seat)
                                 .scheduleId(request.getScheduleId())
@@ -422,18 +343,14 @@ public class SeatLockService {
                 try {
                         saved = bookingRepository.saveAndFlush(booking);
                 } catch (DataIntegrityViolationException e) {
-                        redisLockService.releaseSeatLock(
-                                        request.getScheduleId(), seatId, request.getPartnerId());
+                        lockRepository.delete(bulkLock);
                         throw new SeatNotAvailableException(
                                         "Seat " + seatId
                                                         + " was just booked by a concurrent request for this segment.");
                 }
 
-                // --- Release lock ---
-                redisLockService.releaseSeatLock(
-                                request.getScheduleId(), seatId, request.getPartnerId());
+                lockRepository.delete(bulkLock);
 
-                // --- Broadcast ---
                 socketService.broadcast(SeatUpdateMessage.builder()
                                 .event(SeatUpdateMessage.Event.BOOKED)
                                 .busId(seat.getBusId())
@@ -448,20 +365,13 @@ public class SeatLockService {
                 return toBookingDTO(saved);
         }
 
-        // -------------------------------------------------------------------------
-        // Scheduled cleanup
-        // -------------------------------------------------------------------------
-
+        // Cleanup expired locks every 10 seconds
         @Scheduled(fixedRate = 10_000)
         @Transactional
         public void releaseExpiredLocks() {
                 LocalDateTime now = LocalDateTime.now();
                 List<SeatLock> expired = lockRepository.findExpiredLocksWithSeat(now);
                 if (!expired.isEmpty()) {
-                        // Clean up Redis keys before removing DB records
-                        expired.forEach(lock -> redisLockService.releaseSeatLock(
-                                        lock.getScheduleId(), lock.getSeat().getSeatId(), lock.getPartnerId()));
-
                         int count = lockRepository.deleteExpiredLocks(now);
 
                         expired.forEach(lock -> socketService.broadcast(SeatUpdateMessage.builder()
@@ -476,10 +386,6 @@ public class SeatLockService {
                         log.info("[SeatLockService] Released {} expired lock(s)", count);
                 }
         }
-
-        // -------------------------------------------------------------------------
-        // Mappers
-        // -------------------------------------------------------------------------
 
         private SeatLockDTO toDTO(SeatLock lock) {
                 return SeatLockDTO.builder()

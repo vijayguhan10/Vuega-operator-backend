@@ -34,8 +34,6 @@ public class SeatController {
 
     private final SeatService service;
 
-    // ─── CREATE ─────────────────────────────────────────────────────────────────
-
     @PostMapping
     public ResponseEntity<ResponseDto<SeatDTO>> create(
             @Valid @RequestBody CreateSeatRequest request) {
@@ -64,8 +62,6 @@ public class SeatController {
         }
     }
 
-    // ─── READ ────────────────────────────────────────────────────────────────────
-
     @GetMapping("/{id}")
     public ResponseEntity<ResponseDto<SeatDTO>> getById(@PathVariable Long id) {
         try {
@@ -90,8 +86,6 @@ public class SeatController {
         return ResponseEntity.ok(ResponseDto.success(
                 service.getAvailableSeatsForSegment(busId, scheduleId, fromStop, toStop)));
     }
-
-    // ─── UPDATE ──────────────────────────────────────────────────────────────────
 
     @PutMapping("/{id}")
     public ResponseEntity<ResponseDto<SeatDTO>> update(
