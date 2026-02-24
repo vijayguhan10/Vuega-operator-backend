@@ -1,3 +1,14 @@
+error id: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/lock/SeatLockService.java:_empty_/Booking#getStatus#
+file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/lock/SeatLockService.java
+empty definition using pc, found symbol in pc: _empty_/Booking#getStatus#
+found definition using semanticdb; symbol local29
+empty definition using fallback
+non-local guesses:
+
+offset: 12066
+uri: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/lock/SeatLockService.java
+text:
+```scala
 package net.vuega.vuega_backend.Service.seats.lock;
 
 import java.time.LocalDateTime;
@@ -145,7 +156,6 @@ public class SeatLockService {
                                 .seat(seat)
                                 .scheduleId(request.getScheduleId())
                                 .userId(request.getUserId())
-                                .partnerId(request.getPartnerId())
                                 .fromStopOrder(request.getFromStopOrder())
                                 .toStopOrder(request.getToStopOrder())
                                 .status(BookingStatus.CONFIRMED)
@@ -221,11 +231,17 @@ public class SeatLockService {
                                 .busId(booking.getSeat().getBusId())
                                 .scheduleId(booking.getScheduleId())
                                 .userId(booking.getUserId())
-                                .partnerId(booking.getPartnerId())
                                 .fromStopOrder(booking.getFromStopOrder())
                                 .toStopOrder(booking.getToStopOrder())
-                                .status(booking.getStatus())
+                                .status(booking.@@getStatus())
                                 .bookedAt(booking.getBookedAt())
                                 .build();
         }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: _empty_/Booking#getStatus#

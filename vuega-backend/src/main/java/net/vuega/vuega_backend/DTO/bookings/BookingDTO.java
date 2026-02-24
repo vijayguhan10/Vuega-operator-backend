@@ -15,6 +15,7 @@ public class BookingDTO {
     private Long busId;
     private Long scheduleId;
     private Long userId;
+    private Long partnerId;
     private Integer fromStopOrder;
     private Integer toStopOrder;
     private BookingStatus status;

@@ -1,3 +1,14 @@
+error id: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/lock/SeatLockService.java:_empty_/SeatLockRepository#save#
+file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/lock/SeatLockService.java
+empty definition using pc, found symbol in pc: _empty_/SeatLockRepository#save#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 4107
+uri: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/lock/SeatLockService.java
+text:
+```scala
 package net.vuega.vuega_backend.Service.seats.lock;
 
 import java.time.LocalDateTime;
@@ -76,7 +87,7 @@ public class SeatLockService {
                                 .expiresAt(LocalDateTime.now().plusMinutes(LOCK_TTL_MINUTES))
                                 .build();
 
-                SeatLockDTO result = toDTO(lockRepository.save(lock));
+                SeatLockDTO result = toDTO(lockRepository.@@save(lock));
 
                 socketService.broadcast(SeatUpdateMessage.builder()
                                 .event(SeatUpdateMessage.Event.LOCKED)
@@ -145,7 +156,6 @@ public class SeatLockService {
                                 .seat(seat)
                                 .scheduleId(request.getScheduleId())
                                 .userId(request.getUserId())
-                                .partnerId(request.getPartnerId())
                                 .fromStopOrder(request.getFromStopOrder())
                                 .toStopOrder(request.getToStopOrder())
                                 .status(BookingStatus.CONFIRMED)
@@ -221,7 +231,6 @@ public class SeatLockService {
                                 .busId(booking.getSeat().getBusId())
                                 .scheduleId(booking.getScheduleId())
                                 .userId(booking.getUserId())
-                                .partnerId(booking.getPartnerId())
                                 .fromStopOrder(booking.getFromStopOrder())
                                 .toStopOrder(booking.getToStopOrder())
                                 .status(booking.getStatus())
@@ -229,3 +238,10 @@ public class SeatLockService {
                                 .build();
         }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: _empty_/SeatLockRepository#save#

@@ -43,6 +43,9 @@ public class Booking {
     @Column(name = "user_id", nullable = false)
     private Long userId;
 
+    @Column(name = "partner_id", nullable = false)
+    private Long partnerId;
+
     @Column(name = "from_stop_order", nullable = false)
     private Integer fromStopOrder;
 
