@@ -13937,3 +13937,70 @@ WARNING: Unmatched cancel notification for request id 3763
 2026.02.24 13:37:05 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
 2026.02.24 13:37:05 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java
 2026.02.24 13:37:05 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 13:37:06 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 13:37:14 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\seats\lock\SeatLockController.java. Using fallback presentation compiler.
+Feb 24, 2026 1:37:14 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: An unexpected exception occurred while executing jsonrpc method public abstract java.util.concurrent.CompletableFuture scala.meta.metals.lsp.TextDocumentService.definition(org.eclipse.lsp4j.TextDocumentPositionParams)
+java.lang.IllegalStateException: An unexpected exception occurred while executing jsonrpc method public abstract java.util.concurrent.CompletableFuture scala.meta.metals.lsp.TextDocumentService.definition(org.eclipse.lsp4j.TextDocumentPositionParams)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$recursiveFindRpcMethods$0(GenericEndpoint.java:73)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.request(GenericEndpoint.java:128)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleRequest(RemoteEndpoint.java:271)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:201)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:185)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:97)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:114)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: java.nio.file.NoSuchFileException: c:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\DTO\seats\lock\BulkBookSeatsRequest.java
+	at java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:85)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108)
+	at java.base/sun.nio.fs.WindowsFileSystemProvider.newByteChannel(WindowsFileSystemProvider.java:234)
+	at java.base/java.nio.file.Files.newByteChannel(Files.java:379)
+	at java.base/java.nio.file.Files.newByteChannel(Files.java:431)
+	at java.base/java.nio.file.Files.readAllBytes(Files.java:3268)
+	at scala.meta.internal.io.PlatformFileIO$.slurp(PlatformFileIO.scala:38)
+	at scala.meta.internal.io.FileIO$.slurp(FileIO.scala:18)
+	at scala.meta.internal.mtags.ScalametaCommonEnrichments$XtensionAbsolutePath.toInput(ScalametaCommonEnrichments.scala:513)
+	at scala.meta.internal.metals.DefinitionProvider.fromMtags(DefinitionProvider.scala:372)
+	at scala.meta.internal.metals.DefinitionProvider.$anonfun$positionOccurrence$6(DefinitionProvider.scala:291)
+	at scala.Option.orElse(Option.scala:477)
+	at scala.meta.internal.metals.DefinitionProvider.$anonfun$positionOccurrence$1(DefinitionProvider.scala:291)
+	at scala.Option.flatMap(Option.scala:283)
+	at scala.meta.internal.metals.DefinitionProvider.positionOccurrence(DefinitionProvider.scala:276)
+	at scala.meta.internal.metals.MetalsLspService.$anonfun$definitionOrReferences$1(MetalsLspService.scala:1732)
+	at scala.Option.map(Option.scala:242)
+	at scala.meta.internal.metals.MetalsLspService.definitionOrReferences(MetalsLspService.scala:1728)
+	at scala.meta.internal.metals.MetalsLspService.$anonfun$definition$1(MetalsLspService.scala:961)
+	at scala.meta.internal.metals.CancelTokens$.future(CancelTokens.scala:38)
+	at scala.meta.internal.metals.MetalsLspService.definition(MetalsLspService.scala:960)
+	at scala.meta.internal.metals.WorkspaceLspService.definition(WorkspaceLspService.scala:511)
+	at scala.meta.metals.lsp.DelegatingScalaService.definition(DelegatingScalaService.scala:65)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$recursiveFindRpcMethods$0(GenericEndpoint.java:65)
+	... 11 more
+
+2026.02.24 13:37:14 INFO  no build target found for c:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\redis\RedisLockService.java. Using fallback presentation compiler.
+2026.02.24 13:37:42 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 13:37:42 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java
+2026.02.24 13:37:42 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 13:37:42 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Service\seats\lock\SeatLockService.java. Using fallback presentation compiler.
+2026.02.24 13:37:43 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\seats\lock\SeatLockController.java
+2026.02.24 13:37:43 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\seats\lock\SeatLockController.java. Using fallback presentation compiler.
+2026.02.24 13:37:43 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\seats\lock\SeatLockController.java. Using fallback presentation compiler.
+2026.02.24 13:37:44 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\seats\lock\SeatLockController.java. Using fallback presentation compiler.
+2026.02.24 13:37:43 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\seats\lock\SeatLockController.java. Using fallback presentation compiler.
+2026.02.24 13:37:46 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\seats\lock\SeatLockController.java. Using fallback presentation compiler.
+2026.02.24 13:38:40 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\seats\lock\SeatLockController.java. Using fallback presentation compiler.
+2026.02.24 13:38:40 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\seats\lock\SeatLockController.java. Using fallback presentation compiler.
+2026.02.24 13:38:40 WARN  no build target for: C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\seats\lock\SeatLockController.java
+2026.02.24 13:38:40 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\seats\lock\SeatLockController.java. Using fallback presentation compiler.
+2026.02.24 13:38:41 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\seats\lock\SeatLockController.java. Using fallback presentation compiler.
+2026.02.24 13:38:40 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\seats\lock\SeatLockController.java. Using fallback presentation compiler.
+2026.02.24 13:38:45 INFO  no build target found for C:\Projects\Vuega-backend\vuega-backend\src\main\java\net\vuega\vuega_backend\Controller\seats\lock\SeatLockController.java. Using fallback presentation compiler.
+2026.02.24 13:38:45 INFO  Created report: Optional[file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/seats/lock/SeatLockController.java]
+2026.02.24 13:38:45 INFO  empty definition using pc, found symbol in pc: _empty_/ReleaseLockRequest#getPassengerId# (full report at: "C:\Projects\Vuega-backend\.metals\.reports\metals-full\2026-02-24\r_empty-definition_13-38-45-140.md")
