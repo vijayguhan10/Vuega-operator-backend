@@ -1,10 +1,10 @@
-package net.vuega.vuega_backend.DTO.bookings;
+package net.vuega.vuega_backend.DTO.seats.seat.bookings;
 
 import java.time.LocalDateTime;
 
 import lombok.Builder;
 import lombok.Data;
-import net.vuega.vuega_backend.Model.bookings.BookingStatus;
+import net.vuega.vuega_backend.Model.seats.bookings.BookingStatus;
 
 @Data
 @Builder

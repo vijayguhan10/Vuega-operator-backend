@@ -1,4 +1,4 @@
-package net.vuega.vuega_backend.Repository.bookings;
+package net.vuega.vuega_backend.Repository.seats.bookings;
 
 import java.util.List;
 import java.util.Optional;
@@ -8,8 +8,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import net.vuega.vuega_backend.Model.bookings.Booking;
-import net.vuega.vuega_backend.Model.bookings.BookingStatus;
+import net.vuega.vuega_backend.Model.seats.bookings.Booking;
+import net.vuega.vuega_backend.Model.seats.bookings.BookingStatus;
 
 @Repository
 public interface BookingRepository extends JpaRepository<Booking, Long> {
