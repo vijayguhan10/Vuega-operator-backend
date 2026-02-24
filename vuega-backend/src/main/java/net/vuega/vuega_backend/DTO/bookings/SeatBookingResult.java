@@ -17,7 +17,9 @@ public class SeatBookingResult {
 
     private Long seatId;
 
-    /** Human-readable seat number (e.g. "A3") — null when the seat was not found. */
+    /**
+     * Human-readable seat number (e.g. "A3") — null when the seat was not found.
+     */
     private String seatNo;
 
     private Status status;

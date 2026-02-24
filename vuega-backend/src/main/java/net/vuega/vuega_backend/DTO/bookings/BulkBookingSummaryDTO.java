@@ -22,7 +22,10 @@ public class BulkBookingSummaryDTO {
     /** Number of seats that were successfully booked. */
     private int totalBooked;
 
-    /** Number of seats that could not be booked (conflict, already booked, not found, etc.). */
+    /**
+     * Number of seats that could not be booked (conflict, already booked, not
+     * found, etc.).
+     */
     private int totalFailed;
 
     /** Per-seat outcomes in the same order as the request's seat ID list. */

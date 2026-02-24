@@ -110,7 +110,8 @@ public class SeatLockController {
         }
     }
 
-    // book multiple seats in one call — supports explicit list [1,5,6,9] or consecutive range [1..12]
+    // book multiple seats in one call — supports explicit list [1,5,6,9] or
+    // consecutive range [1..12]
     @PostMapping("/bulk-book")
     public ResponseEntity<ResponseDto<BulkBookingSummaryDTO>> bookMultipleSeats(
             @Valid @RequestBody BulkBookSeatsRequest request) {

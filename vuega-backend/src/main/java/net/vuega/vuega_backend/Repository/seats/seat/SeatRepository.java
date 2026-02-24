@@ -35,7 +35,7 @@ public interface SeatRepository extends JpaRepository<Seat, Long> {
 
     /**
      * Returns all seat IDs whose primary-key falls within the inclusive range
-     * [{@code fromId}, {@code toId}].  Used by the bulk-book endpoint to
+     * [{@code fromId}, {@code toId}]. Used by the bulk-book endpoint to
      * resolve a consecutive seat-ID range without loading full entities.
      */
     @Query("SELECT s.seatId FROM Seat s WHERE s.seatId BETWEEN :fromId AND :toId ORDER BY s.seatId")

@@ -300,10 +300,10 @@ public class SeatLockService {
          * inspect {@link BulkBookingSummaryDTO#getResults()} for per-seat outcomes.
          *
          * Seat selection modes:
-         *   Explicit list  — populate {@code request.seatIds} (up to 50 entries).
-         *   Consecutive ID range — populate {@code request.fromSeatId} and
-         *       {@code request.toSeatId}; every seat whose primary-key ID falls
-         *       within [fromSeatId, toSeatId] will be attempted.
+         * Explicit list — populate {@code request.seatIds} (up to 50 entries).
+         * Consecutive ID range — populate {@code request.fromSeatId} and
+         * {@code request.toSeatId}; every seat whose primary-key ID falls
+         * within [fromSeatId, toSeatId] will be attempted.
          */
         public BulkBookingSummaryDTO bookMultipleSeats(BulkBookSeatsRequest request) {
                 if (request.getFromStopOrder() >= request.getToStopOrder()) {
