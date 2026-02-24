@@ -1,3 +1,14 @@
+error id: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/lock/SeatLockService.java:_empty_/SeatLockRepository#saveAndFlush#
+file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/lock/SeatLockService.java
+empty definition using pc, found symbol in pc: _empty_/SeatLockRepository#saveAndFlush#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 2634
+uri: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/lock/SeatLockService.java
+text:
+```scala
 package net.vuega.vuega_backend.Service.seats.lock;
 
 import java.time.LocalDateTime;
@@ -55,7 +66,7 @@ public class SeatLockService {
                                 .build();
 
                 try {
-                        SeatLockDTO result = toDTO(lockRepository.saveAndFlush(lock));
+                        SeatLockDTO result = toDTO(lockRepository.@@saveAndFlush(lock));
 
                         socketService.broadcast(SeatUpdateMessage.builder()
                                         .event(SeatUpdateMessage.Event.LOCKED)
@@ -171,3 +182,10 @@ public class SeatLockService {
                                 .build();
         }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: _empty_/SeatLockRepository#saveAndFlush#

@@ -19,7 +19,8 @@ import lombok.NoArgsConstructor;
 import net.vuega.vuega_backend.Model.seats.seat.Seat;
 
 @Entity
-@Table(name = "seat_locks", uniqueConstraints = @UniqueConstraint(name = "uq_seat_lock_seat_id", columnNames = {"seat_id"}))
+@Table(name = "seat_locks", uniqueConstraints = @UniqueConstraint(name = "uq_seat_lock_seat_id", columnNames = {
+        "seat_id" }))
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
