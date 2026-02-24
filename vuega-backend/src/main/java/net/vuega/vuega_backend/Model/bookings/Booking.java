@@ -22,14 +22,9 @@ import lombok.NoArgsConstructor;
 import net.vuega.vuega_backend.Model.seats.seat.Seat;
 
 @Entity
-@Table(
-    name = "bookings",
-    uniqueConstraints = @UniqueConstraint(
-        name = "uq_booking_segment",
-        columnNames = { "schedule_id", "seat_id", "from_stop_order", "to_stop_order" }
-    ),
-    indexes = @Index(name = "idx_booking_lookup", columnList = "schedule_id, seat_id")
-)
+@Table(name = "bookings", uniqueConstraints = @UniqueConstraint(name = "uq_booking_segment", columnNames = {
+        "schedule_id", "seat_id", "from_stop_order",
+        "to_stop_order" }), indexes = @Index(name = "idx_booking_lookup", columnList = "schedule_id, seat_id"))
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
