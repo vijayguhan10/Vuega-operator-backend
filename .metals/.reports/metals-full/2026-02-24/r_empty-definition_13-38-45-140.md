@@ -1,3 +1,14 @@
+error id: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/seats/lock/SeatLockController.java:_empty_/ReleaseLockRequest#getPassengerId#
+file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/seats/lock/SeatLockController.java
+empty definition using pc, found symbol in pc: _empty_/ReleaseLockRequest#getPassengerId#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 3296
+uri: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/seats/lock/SeatLockController.java
+text:
+```scala
 package net.vuega.vuega_backend.Controller.seats.lock;
 
 import org.springframework.http.HttpStatus;
@@ -68,7 +79,7 @@ public class SeatLockController {
             @PathVariable Long seatId,
             @Valid @RequestBody ReleaseLockRequest request) {
         try {
-            service.releaseLock(seatId, request.getScheduleId(), request.getPassengerId());
+            service.releaseLock(seatId, request.getScheduleId(), request.@@getPassengerId());
             return ResponseEntity.ok(ResponseDto.success(null));
         } catch (SeatLockNotFoundException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
@@ -108,3 +119,9 @@ public class SeatLockController {
     }
 
 }
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: _empty_/ReleaseLockRequest#getPassengerId#
