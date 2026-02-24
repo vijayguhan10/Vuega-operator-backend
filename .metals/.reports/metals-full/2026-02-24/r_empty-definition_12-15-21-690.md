@@ -1,7 +1,17 @@
+error id: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/lock/SeatLockService.java:_empty_/SeatLockRepository#deleteExpiredLocks#
+file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/lock/SeatLockService.java
+empty definition using pc, found symbol in pc: _empty_/SeatLockRepository#deleteExpiredLocks#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 15819
+uri: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/lock/SeatLockService.java
+text:
+```scala
 package net.vuega.vuega_backend.Service.seats.lock;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.dao.DataIntegrityViolationException;
@@ -12,11 +22,8 @@ import org.springframework.transaction.annotation.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import net.vuega.vuega_backend.DTO.bookings.BookingDTO;
-import net.vuega.vuega_backend.DTO.bookings.BulkBookingSummaryDTO;
-import net.vuega.vuega_backend.DTO.bookings.SeatBookingResult;
 import net.vuega.vuega_backend.DTO.seats.lock.AcquireLockRequest;
 import net.vuega.vuega_backend.DTO.seats.lock.BookSeatRequest;
-import net.vuega.vuega_backend.DTO.seats.lock.BulkBookSeatsRequest;
 import net.vuega.vuega_backend.DTO.seats.lock.SeatLockDTO;
 import net.vuega.vuega_backend.DTO.seats.socket.SeatUpdateMessage;
 import net.vuega.vuega_backend.Exception.BookingNotFoundException;
@@ -289,166 +296,6 @@ public class SeatLockService {
         }
 
         // -------------------------------------------------------------------------
-        // Bulk book multiple seats in one request
-        // -------------------------------------------------------------------------
-
-        /**
-         * Books multiple seats for a single partner/schedule/segment in one call.
-         *
-         * Each seat is processed independently: a failure on one seat does not
-         * prevent the remaining seats from being attempted. The caller should
-         * inspect {@link BulkBookingSummaryDTO#getResults()} for per-seat outcomes.
-         *
-         * Seat selection modes:
-         *   Explicit list  — populate {@code request.seatIds} (up to 50 entries).
-         *   Consecutive ID range — populate {@code request.fromSeatId} and
-         *       {@code request.toSeatId}; every seat whose primary-key ID falls
-         *       within [fromSeatId, toSeatId] will be attempted.
-         */
-        public BulkBookingSummaryDTO bookMultipleSeats(BulkBookSeatsRequest request) {
-                if (request.getFromStopOrder() >= request.getToStopOrder()) {
-                        throw new InvalidStopRangeException("fromStopOrder must be less than toStopOrder");
-                }
-
-                // Resolve the seat ID list from whichever selection mode was used
-                List<Long> ids;
-                if (request.getSeatIds() != null && !request.getSeatIds().isEmpty()) {
-                        ids = request.getSeatIds();
-                } else {
-                        ids = seatRepository.findSeatIdsByIdRange(
-                                        request.getFromSeatId(), request.getToSeatId());
-                }
-
-                List<SeatBookingResult> results = new ArrayList<>(ids.size());
-
-                for (Long seatId : ids) {
-                        // Build a standard single-seat BookSeatRequest for each seat
-                        BookSeatRequest bookReq = new BookSeatRequest();
-                        bookReq.setPartnerId(request.getPartnerId());
-                        bookReq.setScheduleId(request.getScheduleId());
-                        bookReq.setFromStopOrder(request.getFromStopOrder());
-                        bookReq.setToStopOrder(request.getToStopOrder());
-                        if (request.getIdempotencyKeyPrefix() != null
-                                        && !request.getIdempotencyKeyPrefix().isBlank()) {
-                                // Per-seat idempotency key = prefix + ":" + seatId
-                                bookReq.setIdempotencyKey(
-                                                request.getIdempotencyKeyPrefix() + ":" + seatId);
-                        }
-
-                        try {
-                                BookingDTO booking = lockAndBookSeat(seatId, bookReq);
-                                results.add(SeatBookingResult.success(seatId, booking));
-                        } catch (Exception e) {
-                                results.add(SeatBookingResult.failure(seatId, e.getMessage()));
-                        }
-                }
-
-                long booked = results.stream()
-                                .filter(r -> r.getStatus() == SeatBookingResult.Status.BOOKED)
-                                .count();
-                return BulkBookingSummaryDTO.builder()
-                                .totalRequested(ids.size())
-                                .totalBooked((int) booked)
-                                .totalFailed((int) (ids.size() - booked))
-                                .results(results)
-                                .build();
-        }
-
-        /**
-         * Acquires a Redis lock, validates no overlapping bookings exist, persists
-         * the booking, releases the lock, and broadcasts the BOOKED event — all for
-         * a single seat.
-         *
-         * Used by {@link #bookMultipleSeats} so that each seat within a bulk
-         * request succeeds or fails independently.
-         *
-         * This method is intentionally NOT annotated @Transactional. Each DB
-         * operation auto-commits; the DataIntegrityViolationException catch on
-         * saveAndFlush provides the same concurrent-write safety net as the
-         * regular single-seat bookSeat path.
-         */
-        private BookingDTO lockAndBookSeat(Long seatId, BookSeatRequest request) {
-                // --- Idempotency check ---
-                if (request.getIdempotencyKey() != null
-                                && !request.getIdempotencyKey().isBlank()) {
-                        var existing = bookingRepository
-                                        .findByIdempotencyKey(request.getIdempotencyKey());
-                        if (existing.isPresent()) {
-                                log.info("lockAndBookSeat: idempotency hit key={}",
-                                                request.getIdempotencyKey());
-                                return toBookingDTO(existing.get());
-                        }
-                }
-
-                Seat seat = seatRepository.findById(seatId)
-                                .orElseThrow(() -> new SeatNotFoundException(seatId));
-
-                // --- Acquire Redis lock (fast-fail without a DB round-trip) ---
-                boolean redisAcquired = redisLockService.acquireSeatLock(
-                                request.getScheduleId(), seatId, request.getPartnerId(),
-                                LOCK_TTL_SECONDS);
-                if (!redisAcquired) {
-                        String holder = redisLockService.getLockHolder(
-                                        redisLockService.buildKey(request.getScheduleId(), seatId));
-                        throw new SeatLockConflictException(
-                                        "Seat " + seatId + " is already locked (holder=" + holder
-                                                        + ") for schedule " + request.getScheduleId() + ".");
-                }
-
-                // --- Check for overlapping confirmed bookings ---
-                long overlapping = bookingRepository.countOverlappingBookings(
-                                seatId, request.getScheduleId(),
-                                request.getFromStopOrder(), request.getToStopOrder(),
-                                BookingStatus.BOOKED);
-                if (overlapping > 0) {
-                        redisLockService.releaseSeatLock(
-                                        request.getScheduleId(), seatId, request.getPartnerId());
-                        throw new SeatNotAvailableException(
-                                        "Seat " + seatId + " is already booked for this segment.");
-                }
-
-                // --- Persist the booking ---
-                Booking booking = Booking.builder()
-                                .seat(seat)
-                                .scheduleId(request.getScheduleId())
-                                .partnerId(request.getPartnerId())
-                                .fromStopOrder(request.getFromStopOrder())
-                                .toStopOrder(request.getToStopOrder())
-                                .status(BookingStatus.BOOKED)
-                                .idempotencyKey(request.getIdempotencyKey())
-                                .build();
-
-                Booking saved;
-                try {
-                        saved = bookingRepository.saveAndFlush(booking);
-                } catch (DataIntegrityViolationException e) {
-                        redisLockService.releaseSeatLock(
-                                        request.getScheduleId(), seatId, request.getPartnerId());
-                        throw new SeatNotAvailableException(
-                                        "Seat " + seatId
-                                                        + " was just booked by a concurrent request for this segment.");
-                }
-
-                // --- Release lock ---
-                redisLockService.releaseSeatLock(
-                                request.getScheduleId(), seatId, request.getPartnerId());
-
-                // --- Broadcast ---
-                socketService.broadcast(SeatUpdateMessage.builder()
-                                .event(SeatUpdateMessage.Event.BOOKED)
-                                .busId(seat.getBusId())
-                                .seatId(seatId)
-                                .seatNo(seat.getSeatNo())
-                                .scheduleId(request.getScheduleId())
-                                .fromStopOrder(request.getFromStopOrder())
-                                .toStopOrder(request.getToStopOrder())
-                                .timestamp(LocalDateTime.now())
-                                .build());
-
-                return toBookingDTO(saved);
-        }
-
-        // -------------------------------------------------------------------------
         // Scheduled cleanup
         // -------------------------------------------------------------------------
 
@@ -462,7 +309,7 @@ public class SeatLockService {
                         expired.forEach(lock -> redisLockService.releaseSeatLock(
                                         lock.getScheduleId(), lock.getSeat().getSeatId(), lock.getPartnerId()));
 
-                        int count = lockRepository.deleteExpiredLocks(now);
+                        int count = lockRepository.@@deleteExpiredLocks(now);
 
                         expired.forEach(lock -> socketService.broadcast(SeatUpdateMessage.builder()
                                         .event(SeatUpdateMessage.Event.EXPIRED)
@@ -510,3 +357,10 @@ public class SeatLockService {
                                 .build();
         }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: _empty_/SeatLockRepository#deleteExpiredLocks#

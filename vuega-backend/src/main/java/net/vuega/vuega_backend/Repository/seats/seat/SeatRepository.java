@@ -32,4 +32,12 @@ public interface SeatRepository extends JpaRepository<Seat, Long> {
             @Param("scheduleId") Long scheduleId,
             @Param("fromStop") int fromStop,
             @Param("toStop") int toStop);
+
+    /**
+     * Returns all seat IDs whose primary-key falls within the inclusive range
+     * [{@code fromId}, {@code toId}].  Used by the bulk-book endpoint to
+     * resolve a consecutive seat-ID range without loading full entities.
+     */
+    @Query("SELECT s.seatId FROM Seat s WHERE s.seatId BETWEEN :fromId AND :toId ORDER BY s.seatId")
+    List<Long> findSeatIdsByIdRange(@Param("fromId") Long fromId, @Param("toId") Long toId);
 }

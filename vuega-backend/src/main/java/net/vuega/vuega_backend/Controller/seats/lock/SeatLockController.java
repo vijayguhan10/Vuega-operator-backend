@@ -15,11 +15,14 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import net.vuega.vuega_backend.DTO.ResponseDto;
 import net.vuega.vuega_backend.DTO.bookings.BookingDTO;
+import net.vuega.vuega_backend.DTO.bookings.BulkBookingSummaryDTO;
 import net.vuega.vuega_backend.DTO.seats.lock.AcquireLockRequest;
 import net.vuega.vuega_backend.DTO.seats.lock.BookSeatRequest;
+import net.vuega.vuega_backend.DTO.seats.lock.BulkBookSeatsRequest;
 import net.vuega.vuega_backend.DTO.seats.lock.ReleaseLockRequest;
 import net.vuega.vuega_backend.DTO.seats.lock.RenewLockRequest;
 import net.vuega.vuega_backend.DTO.seats.lock.SeatLockDTO;
+import net.vuega.vuega_backend.Exception.InvalidStopRangeException;
 import net.vuega.vuega_backend.Exception.SeatLockConflictException;
 import net.vuega.vuega_backend.Exception.SeatLockNotFoundException;
 import net.vuega.vuega_backend.Exception.SeatNotAvailableException;
@@ -27,13 +30,13 @@ import net.vuega.vuega_backend.Exception.SeatNotFoundException;
 import net.vuega.vuega_backend.Service.seats.lock.SeatLockService;
 
 @RestController
-@RequestMapping("/api/seats/{seatId}/lock")
+@RequestMapping("/api/seats")
 @RequiredArgsConstructor
 public class SeatLockController {
 
     private final SeatLockService service;
 
-    @GetMapping
+    @GetMapping("/{seatId}/lock")
     public ResponseEntity<ResponseDto<SeatLockDTO>> getLock(
             @PathVariable Long seatId,
             @RequestParam Long scheduleId) {
@@ -45,7 +48,7 @@ public class SeatLockController {
         }
     }
 
-    @PostMapping
+    @PostMapping("/{seatId}/lock")
     public ResponseEntity<ResponseDto<SeatLockDTO>> acquireLock(
             @PathVariable Long seatId,
             @Valid @RequestBody AcquireLockRequest request) {
@@ -63,7 +66,7 @@ public class SeatLockController {
         }
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{seatId}/lock")
     public ResponseEntity<ResponseDto<Void>> releaseLock(
             @PathVariable Long seatId,
             @Valid @RequestBody ReleaseLockRequest request) {
@@ -76,7 +79,7 @@ public class SeatLockController {
         }
     }
 
-    @PostMapping("/book")
+    @PostMapping("/{seatId}/lock/book")
     public ResponseEntity<ResponseDto<BookingDTO>> bookSeat(
             @PathVariable Long seatId,
             @Valid @RequestBody BookSeatRequest request) {
@@ -94,7 +97,7 @@ public class SeatLockController {
         }
     }
 
-    @PostMapping("/renew")
+    @PostMapping("/{seatId}/lock/renew")
     public ResponseEntity<ResponseDto<SeatLockDTO>> renewLock(
             @PathVariable Long seatId,
             @Valid @RequestBody RenewLockRequest request) {
@@ -104,6 +107,21 @@ public class SeatLockController {
         } catch (SeatLockNotFoundException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
                     .body(ResponseDto.notFound(e.getMessage()));
+        }
+    }
+
+    // book multiple seats in one call — supports explicit list [1,5,6,9] or consecutive range [1..12]
+    @PostMapping("/bulk-book")
+    public ResponseEntity<ResponseDto<BulkBookingSummaryDTO>> bookMultipleSeats(
+            @Valid @RequestBody BulkBookSeatsRequest request) {
+        try {
+            return ResponseEntity.ok(ResponseDto.success(service.bookMultipleSeats(request)));
+        } catch (InvalidStopRangeException e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                    .body(ResponseDto.error(400, e.getMessage()));
+        } catch (SeatNotFoundException e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                    .body(ResponseDto.error(400, "No seats found in the requested ID range."));
         }
     }
 }
