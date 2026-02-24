@@ -18,6 +18,7 @@ import net.vuega.vuega_backend.DTO.bookings.BookingDTO;
 import net.vuega.vuega_backend.DTO.seats.lock.AcquireLockRequest;
 import net.vuega.vuega_backend.DTO.seats.lock.BookSeatRequest;
 import net.vuega.vuega_backend.DTO.seats.lock.ReleaseLockRequest;
+import net.vuega.vuega_backend.DTO.seats.lock.RenewLockRequest;
 import net.vuega.vuega_backend.DTO.seats.lock.SeatLockDTO;
 import net.vuega.vuega_backend.Exception.SeatLockConflictException;
 import net.vuega.vuega_backend.Exception.SeatLockNotFoundException;
@@ -90,6 +91,19 @@ public class SeatLockController {
         } catch (SeatLockConflictException e) {
             return ResponseEntity.status(HttpStatus.CONFLICT)
                     .body(ResponseDto.error(409, e.getMessage()));
+        }
+    }
+
+    @PostMapping("/renew")
+    public ResponseEntity<ResponseDto<SeatLockDTO>> renewLock(
+            @PathVariable Long seatId,
+            @Valid @RequestBody RenewLockRequest request) {
+        try {
+            return ResponseEntity.ok(ResponseDto.success(
+                    service.renewLock(seatId, request.getScheduleId(), request.getPartnerId())));
+        } catch (SeatLockNotFoundException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body(ResponseDto.notFound(e.getMessage()));
         }
     }
 }
