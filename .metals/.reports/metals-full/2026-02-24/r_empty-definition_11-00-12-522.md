@@ -1,9 +1,19 @@
+error id: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/lock/SeatLockService.java:_empty_/SeatLockRepository#findByExpiresAtBefore#
+file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/lock/SeatLockService.java
+empty definition using pc, found symbol in pc: _empty_/SeatLockRepository#findByExpiresAtBefore#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 9117
+uri: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/lock/SeatLockService.java
+text:
+```scala
 package net.vuega.vuega_backend.Service.seats.lock;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,7 +25,6 @@ import net.vuega.vuega_backend.DTO.seats.lock.AcquireLockRequest;
 import net.vuega.vuega_backend.DTO.seats.lock.BookSeatRequest;
 import net.vuega.vuega_backend.DTO.seats.lock.SeatLockDTO;
 import net.vuega.vuega_backend.DTO.seats.socket.SeatUpdateMessage;
-import net.vuega.vuega_backend.Exception.InvalidStopRangeException;
 import net.vuega.vuega_backend.Exception.SeatLockConflictException;
 import net.vuega.vuega_backend.Exception.SeatLockNotFoundException;
 import net.vuega.vuega_backend.Exception.SeatNotAvailableException;
@@ -43,11 +52,6 @@ public class SeatLockService {
 
         @Transactional
         public SeatLockDTO acquireLock(Long seatId, AcquireLockRequest request) {
-                if (request.getFromStopOrder() >= request.getToStopOrder()) {
-                        throw new InvalidStopRangeException(
-                                        "fromStopOrder must be less than toStopOrder");
-                }
-
                 Seat seat = seatRepository.findById(seatId)
                                 .orElseThrow(() -> new SeatNotFoundException(seatId));
 
@@ -83,13 +87,7 @@ public class SeatLockService {
                                 .expiresAt(LocalDateTime.now().plusMinutes(LOCK_TTL_MINUTES))
                                 .build();
 
-                SeatLockDTO result;
-                try {
-                        result = toDTO(lockRepository.saveAndFlush(lock));
-                } catch (DataIntegrityViolationException e) {
-                        throw new SeatLockConflictException(
-                                        "Seat " + seatId + " was just locked by another request. Please try again.");
-                }
+                SeatLockDTO result = toDTO(lockRepository.save(lock));
 
                 socketService.broadcast(SeatUpdateMessage.builder()
                                 .event(SeatUpdateMessage.Event.LOCKED)
@@ -127,11 +125,6 @@ public class SeatLockService {
 
         @Transactional
         public BookingDTO bookSeat(Long seatId, BookSeatRequest request) {
-                if (request.getFromStopOrder() >= request.getToStopOrder()) {
-                        throw new InvalidStopRangeException(
-                                        "fromStopOrder must be less than toStopOrder");
-                }
-
                 SeatLock lock = lockRepository.findActiveLock(
                                 seatId, request.getScheduleId(), request.getPartnerId(),
                                 request.getFromStopOrder(), request.getToStopOrder())
@@ -170,14 +163,7 @@ public class SeatLockService {
                                 .bookedAt(LocalDateTime.now())
                                 .build();
 
-                Booking saved;
-                try {
-                        saved = bookingRepository.saveAndFlush(booking);
-                } catch (DataIntegrityViolationException e) {
-                        throw new SeatNotAvailableException(
-                                        "Seat " + seatId + " was just booked by another request for this segment.");
-                }
-
+                Booking saved = bookingRepository.save(booking);
                 lockRepository.delete(lock);
 
                 socketService.broadcast(SeatUpdateMessage.builder()
@@ -196,7 +182,9 @@ public class SeatLockService {
 
         @Transactional(readOnly = true)
         public SeatLockDTO getLockBySeat(Long seatId) {
-                return lockRepository.findActiveLockBySeatId(seatId, LocalDateTime.now())
+                return lockRepository.@@findByExpiresAtBefore(LocalDateTime.now()).stream()
+                                .filter(l -> l.getSeat().getSeatId().equals(seatId))
+                                .findFirst()
                                 .map(this::toDTO)
                                 .orElseThrow(() -> new SeatLockNotFoundException(seatId, null));
         }
@@ -205,9 +193,8 @@ public class SeatLockService {
         @Transactional
         public void releaseExpiredLocks() {
                 LocalDateTime now = LocalDateTime.now();
-                List<SeatLock> expired = lockRepository.findExpiredLocksWithSeat(now);
+                List<SeatLock> expired = lockRepository.findByExpiresAtBefore(now);
                 if (!expired.isEmpty()) {
-                        int count = lockRepository.deleteExpiredLocks(now);
                         expired.forEach(lock -> socketService.broadcast(SeatUpdateMessage.builder()
                                         .event(SeatUpdateMessage.Event.EXPIRED)
                                         .busId(lock.getSeat().getBusId())
@@ -218,6 +205,7 @@ public class SeatLockService {
                                         .toStopOrder(lock.getToStopOrder())
                                         .timestamp(now)
                                         .build()));
+                        int count = lockRepository.deleteExpiredLocks(now);
                         log.info("[SeatLockService] Released {} expired lock(s)", count);
                 }
         }
@@ -252,3 +240,10 @@ public class SeatLockService {
                                 .build();
         }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: _empty_/SeatLockRepository#findByExpiresAtBefore#

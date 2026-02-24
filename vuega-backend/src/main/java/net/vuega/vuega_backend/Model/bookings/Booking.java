@@ -14,6 +14,7 @@ import jakarta.persistence.Index;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -21,7 +22,14 @@ import lombok.NoArgsConstructor;
 import net.vuega.vuega_backend.Model.seats.seat.Seat;
 
 @Entity
-@Table(name = "bookings", indexes = @Index(name = "idx_booking_lookup", columnList = "schedule_id, seat_id"))
+@Table(
+    name = "bookings",
+    uniqueConstraints = @UniqueConstraint(
+        name = "uq_booking_segment",
+        columnNames = { "schedule_id", "seat_id", "from_stop_order", "to_stop_order" }
+    ),
+    indexes = @Index(name = "idx_booking_lookup", columnList = "schedule_id, seat_id")
+)
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
