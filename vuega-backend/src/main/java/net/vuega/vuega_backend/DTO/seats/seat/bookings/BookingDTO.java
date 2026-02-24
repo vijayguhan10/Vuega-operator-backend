@@ -14,7 +14,7 @@ public class BookingDTO {
     private String seatNo;
     private Long busId;
     private Long scheduleId;
-    private Long partnerId;
+    private Long passengerId;
     private Integer fromStopOrder;
     private Integer toStopOrder;
     private BookingStatus status;

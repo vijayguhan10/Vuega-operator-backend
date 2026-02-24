@@ -19,13 +19,13 @@ public interface SeatLockRepository extends JpaRepository<SeatLock, Long> {
             SELECT l FROM SeatLock l
             WHERE l.seat.seatId = :seatId
             AND l.scheduleId = :scheduleId
-            AND l.partnerId = :partnerId
+            AND l.passengerId = :passengerId
             AND l.expiresAt > :now
             """)
     Optional<SeatLock> findActiveLock(
             @Param("seatId") Long seatId,
             @Param("scheduleId") Long scheduleId,
-            @Param("partnerId") Long partnerId,
+            @Param("passengerId") Long passengerId,
             @Param("now") LocalDateTime now);
 
     @Query("""

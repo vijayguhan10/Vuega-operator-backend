@@ -45,8 +45,8 @@ public class SeatLock {
     @Column(name = "schedule_id", nullable = false)
     private Long scheduleId;
 
-    @Column(name = "partner_id", nullable = false)
-    private Long partnerId;
+    @Column(name = "passenger_id", nullable = false)
+    private Long passengerId;
 
     @Column(name = "expires_at", nullable = false)
     private LocalDateTime expiresAt;

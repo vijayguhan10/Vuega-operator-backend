@@ -31,7 +31,7 @@ public interface BookingRepository extends JpaRepository<Booking, Long> {
 
     Optional<Booking> findByIdempotencyKey(String idempotencyKey);
 
-    List<Booking> findByPartnerId(Long partnerId);
+    List<Booking> findByPassengerId(Long passengerId);
 
     @Query("""
             SELECT b FROM Booking b

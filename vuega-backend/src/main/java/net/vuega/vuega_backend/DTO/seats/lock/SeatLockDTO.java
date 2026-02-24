@@ -13,6 +13,6 @@ public class SeatLockDTO {
     private String seatNo;
     private Long busId;
     private Long scheduleId;
-    private Long partnerId;
+    private Long passengerId;
     private LocalDateTime expiresAt;
 }

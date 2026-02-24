@@ -6,8 +6,8 @@ import lombok.Data;
 @Data
 public class RenewLockRequest {
 
-    @NotNull(message = "partnerId is required")
-    private Long partnerId;
+    @NotNull(message = "passengerId is required")
+    private Long passengerId;
 
     @NotNull(message = "scheduleId is required")
     private Long scheduleId;

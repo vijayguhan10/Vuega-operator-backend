@@ -25,16 +25,13 @@ public class BookingController {
 
     private final SeatLockService service;
 
-    /**
-     * Cancel a booking (soft-delete — status set to CANCELLED, record retained).
-     * POST /api/bookings/{seatStatusId}/cancel?partnerId=42
-     */
+    // Cancel a booking — status set to CANCELLED, record retained
     @PostMapping("/{seatStatusId}/cancel")
     public ResponseEntity<ResponseDto<BookingDTO>> cancelBooking(
             @PathVariable Long seatStatusId,
-            @RequestParam Long partnerId) {
+            @RequestParam Long passengerId) {
         try {
-            return ResponseEntity.ok(ResponseDto.success(service.cancelBooking(seatStatusId, partnerId)));
+            return ResponseEntity.ok(ResponseDto.success(service.cancelBooking(seatStatusId, passengerId)));
         } catch (BookingNotFoundException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
                     .body(ResponseDto.notFound(e.getMessage()));
@@ -44,13 +41,10 @@ public class BookingController {
         }
     }
 
-    /**
-     * Booking history for a partner (all statuses, newest first).
-     * GET /api/bookings?partnerId=42
-     */
+    // Booking history for a passenger
     @GetMapping
     public ResponseEntity<ResponseDto<List<BookingDTO>>> getBookingHistory(
-            @RequestParam Long partnerId) {
-        return ResponseEntity.ok(ResponseDto.success(service.getBookingHistory(partnerId)));
+            @RequestParam Long passengerId) {
+        return ResponseEntity.ok(ResponseDto.success(service.getBookingHistory(passengerId)));
     }
 }

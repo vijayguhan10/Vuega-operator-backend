@@ -46,8 +46,8 @@ public class Booking {
     @Column(name = "schedule_id", nullable = false)
     private Long scheduleId;
 
-    @Column(name = "partner_id", nullable = false)
-    private Long partnerId;
+    @Column(name = "passenger_id", nullable = false)
+    private Long passengerId;
 
     @Column(name = "idempotency_key", unique = true, nullable = true, length = 36)
     private String idempotencyKey;
