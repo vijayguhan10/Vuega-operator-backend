@@ -1,0 +1,61 @@
+error id: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Repository/seats/seat/SeatRepository.java:net/vuega/vuega_backend/Model/seats/seat/Seat#
+file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Repository/seats/seat/SeatRepository.java
+empty definition using pc, found symbol in pc: net/vuega/vuega_backend/Model/seats/seat/Seat#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 351
+uri: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Repository/seats/seat/SeatRepository.java
+text:
+```scala
+package net.vuega.vuega_backend.Repository.seats.seat;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
+
+import net.vuega.vuega_backend.Model.seats.seat.@@Seat;
+
+@Repository
+public interface SeatRepository extends JpaRepository<Seat, Long> {
+
+    List<Seat> findByBusId(Long busId);
+
+    boolean existsByBusIdAndSeatNo(Long busId, String seatNo);
+
+    @Query("""
+            SELECT s FROM Seat s WHERE s.busId = :busId
+            AND NOT EXISTS (
+                SELECT 1 FROM Booking b
+                WHERE b.seat.seatId = s.seatId
+                AND b.scheduleId = :scheduleId
+                AND b.status = 'CONFIRMED'
+                AND b.fromStopOrder < :toStop
+                AND b.toStopOrder > :fromStop
+            )
+            """)
+    List<Seat> findAvailableSeatsForSegment(
+            @Param("busId") Long busId,
+            @Param("scheduleId") Long scheduleId,
+            @Param("fromStop") int fromStop,
+            @Param("toStop") int toStop);
+
+    /**
+     * Returns all seat IDs whose primary-key falls within the inclusive range
+     * [{@code fromId}, {@code toId}]. Used by the bulk-book endpoint to
+     * resolve a consecutive seat-ID range without loading full entities.
+     */
+    @Query("SELECT s.seatId FROM Seat s WHERE s.seatId BETWEEN :fromId AND :toId ORDER BY s.seatId")
+    List<Long> findSeatIdsByIdRange(@Param("fromId") Long fromId, @Param("toId") Long toId);
+}
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: net/vuega/vuega_backend/Model/seats/seat/Seat#

@@ -1,0 +1,32 @@
+{
+    // Enable Java auto build (REQUIRED for Spring Boot DevTools restart)
+    "java.autobuild.enabled": true,
+
+    // Format (auto align) code when you press Ctrl + S
+    "editor.formatOnSave": true,
+
+    // Format Java specifically on save
+    "[java]": {
+        "editor.defaultFormatter": "redhat.java",
+        "editor.formatOnSave": true
+    },
+
+    // Organize imports automatically on save
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": "explicit"
+    },
+
+    // Ensure target folder is NOT excluded (DevTools needs it)
+    "files.watcherExclude": {
+        "**/.git/objects/**": true,
+        "**/.git/subtree-cache/**": true,
+        "**/node_modules/**": true,
+        "**/target": true
+    },
+
+    // Enable Maven auto update
+    "java.configuration.updateBuildConfiguration": "automatic",
+
+    // Improve performance and reliability
+    "java.compile.nullAnalysis.mode": "automatic"
+}
