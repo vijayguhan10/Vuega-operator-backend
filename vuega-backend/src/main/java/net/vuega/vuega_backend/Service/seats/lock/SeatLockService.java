@@ -51,7 +51,7 @@ public class SeatLockService {
                 SeatLock lock = SeatLock.builder()
                                 .seat(seat)
                                 .scheduleId(request.getScheduleId())
-                                .partnerId(request.getPartnerId())
+                                .passengerId(request.getPassengerId())
                                 .expiresAt(LocalDateTime.now().plusMinutes(LOCK_TTL_MINUTES))
                                 .build();
 
@@ -63,7 +63,7 @@ public class SeatLockService {
                                         .findActiveLockBySeatId(seatId, request.getScheduleId(), LocalDateTime.now())
                                         .orElse(null);
                         String detail = existing != null
-                                        ? "partner " + existing.getPartnerId() + ", expires at "
+                                        ? "passenger " + existing.getPassengerId() + ", expires at "
                                                         + existing.getExpiresAt()
                                         : "another request";
                         throw new SeatLockConflictException("Seat " + seatId + " is already locked by " + detail + ".");
@@ -83,9 +83,9 @@ public class SeatLockService {
 
         // Release lock
         @Transactional
-        public void releaseLock(Long seatId, Long scheduleId, Long partnerId) {
-                SeatLock lock = lockRepository.findActiveLock(seatId, scheduleId, partnerId, LocalDateTime.now())
-                                .orElseThrow(() -> new SeatLockNotFoundException(seatId, partnerId));
+        public void releaseLock(Long seatId, Long scheduleId, Long passengerId) {
+                SeatLock lock = lockRepository.findActiveLock(seatId, scheduleId, passengerId, LocalDateTime.now())
+                                .orElseThrow(() -> new SeatLockNotFoundException(seatId, passengerId));
 
                 Seat seat = lock.getSeat();
                 lockRepository.delete(lock);
@@ -102,9 +102,9 @@ public class SeatLockService {
 
         // Renew lock
         @Transactional
-        public SeatLockDTO renewLock(Long seatId, Long scheduleId, Long partnerId) {
-                SeatLock lock = lockRepository.findActiveLock(seatId, scheduleId, partnerId, LocalDateTime.now())
-                                .orElseThrow(() -> new SeatLockNotFoundException(seatId, partnerId));
+        public SeatLockDTO renewLock(Long seatId, Long scheduleId, Long passengerId) {
+                SeatLock lock = lockRepository.findActiveLock(seatId, scheduleId, passengerId, LocalDateTime.now())
+                                .orElseThrow(() -> new SeatLockNotFoundException(seatId, passengerId));
 
                 lock.setExpiresAt(LocalDateTime.now().plusMinutes(LOCK_TTL_MINUTES));
                 return toDTO(lockRepository.save(lock));
@@ -132,7 +132,7 @@ public class SeatLockService {
 
         private BookingDTO doBookSeat(Long seatId, BookSeatRequest request) {
                 SeatLock lock = lockRepository.findActiveLock(
-                                seatId, request.getScheduleId(), request.getPartnerId(), LocalDateTime.now())
+                                seatId, request.getScheduleId(), request.getPassengerId(), LocalDateTime.now())
                                 .orElseThrow(() -> new SeatLockConflictException(
                                                 "No active lock found for seat " + seatId + " on schedule "
                                                                 + request.getScheduleId()
@@ -152,7 +152,7 @@ public class SeatLockService {
                 Booking booking = Booking.builder()
                                 .seat(seat)
                                 .scheduleId(request.getScheduleId())
-                                .partnerId(request.getPartnerId())
+                                .passengerId(request.getPassengerId())
                                 .fromStopOrder(request.getFromStopOrder())
                                 .toStopOrder(request.getToStopOrder())
                                 .status(BookingStatus.BOOKED)
@@ -185,13 +185,13 @@ public class SeatLockService {
 
         // Cancel booking — soft delete, status set to CANCELLED
         @Transactional
-        public BookingDTO cancelBooking(Long seatStatusId, Long partnerId) {
+        public BookingDTO cancelBooking(Long seatStatusId, Long passengerId) {
                 Booking booking = bookingRepository.findById(seatStatusId)
                                 .orElseThrow(() -> new BookingNotFoundException(seatStatusId));
 
-                if (!booking.getPartnerId().equals(partnerId)) {
+                if (!booking.getPassengerId().equals(passengerId)) {
                         throw new SeatLockConflictException(
-                                        "Partner " + partnerId + " does not own booking " + seatStatusId + ".");
+                                        "Passenger " + passengerId + " does not own booking " + seatStatusId + ".");
                 }
 
                 if (booking.getStatus() == BookingStatus.CANCELLED) {
@@ -224,8 +224,8 @@ public class SeatLockService {
         }
 
         @Transactional(readOnly = true)
-        public List<BookingDTO> getBookingHistory(Long partnerId) {
-                return bookingRepository.findByPartnerId(partnerId)
+        public List<BookingDTO> getBookingHistory(Long passengerId) {
+                return bookingRepository.findByPassengerId(passengerId)
                                 .stream()
                                 .map(this::toBookingDTO)
                                 .toList();
@@ -259,7 +259,7 @@ public class SeatLockService {
                                 .seatNo(lock.getSeat().getSeatNo())
                                 .busId(lock.getSeat().getBusId())
                                 .scheduleId(lock.getScheduleId())
-                                .partnerId(lock.getPartnerId())
+                                .passengerId(lock.getPassengerId())
                                 .expiresAt(lock.getExpiresAt())
                                 .build();
         }
@@ -271,7 +271,7 @@ public class SeatLockService {
                                 .seatNo(booking.getSeat().getSeatNo())
                                 .busId(booking.getSeat().getBusId())
                                 .scheduleId(booking.getScheduleId())
-                                .partnerId(booking.getPartnerId())
+                                .passengerId(booking.getPassengerId())
                                 .fromStopOrder(booking.getFromStopOrder())
                                 .toStopOrder(booking.getToStopOrder())
                                 .status(booking.getStatus())
