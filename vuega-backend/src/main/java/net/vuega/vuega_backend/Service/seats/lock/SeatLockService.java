@@ -26,7 +26,6 @@ import net.vuega.vuega_backend.Repository.seats.seat.SeatRepository;
 import net.vuega.vuega_backend.Service.seats.seat.SeatService;
 import net.vuega.vuega_backend.Service.seats.socket.SeatSocketService;
 
-// Handles all seat locking and booking logic using the separate seat_locks table.
 @Service
 @RequiredArgsConstructor
 @Slf4j
@@ -39,11 +38,8 @@ public class SeatLockService {
     private final SeatSocketService socketService;
     private final SeatService seatService;
 
-    // ─── ACQUIRE LOCK ────────────────────────────────────────────────────────────
-
     @Transactional(isolation = Isolation.SERIALIZABLE)
     public SeatLockDTO acquireLock(Long seatId, AcquireLockRequest request) {
-        // Lock seat row first, then check for existing lock — prevents TOCTOU race.
         Seat seat = seatRepository.findByIdWithPessimisticLock(seatId)
                 .orElseThrow(() -> new SeatNotFoundException(seatId));
 
@@ -52,7 +48,6 @@ public class SeatLockService {
                     "Seat " + seatId + " is NOT_AVAILABLE (already booked) and cannot be locked.");
         }
 
-        // Lock the lock row (if it exists) — prevents double-lock race
         lockRepository.findBySeatIdForWrite(seatId).ifPresent(existing -> {
             throw new SeatLockConflictException(
                     "Seat " + seatId + " is already locked by partner " + existing.getPartnerId()
@@ -80,8 +75,6 @@ public class SeatLockService {
         return dto;
     }
 
-    // ─── RELEASE LOCK ────────────────────────────────────────────────────────────
-
     @Transactional(isolation = Isolation.READ_COMMITTED)
     public void releaseLock(Long seatId, Long partnerId) {
         SeatLock lock = lockRepository.findBySeatIdAndPartnerIdForWrite(seatId, partnerId)
@@ -101,11 +94,8 @@ public class SeatLockService {
                 .build());
     }
 
-    // ─── BOOK SEAT ───────────────────────────────────────────────────────────────
-
     @Transactional(isolation = Isolation.READ_COMMITTED)
     public SeatDTO bookSeat(Long seatId, Long partnerId) {
-        // Seat row locked first — consistent ordering avoids deadlock with acquireLock.
         Seat seat = seatRepository.findByIdWithPessimisticLock(seatId)
                 .orElseThrow(() -> new SeatNotFoundException(seatId));
 
@@ -116,7 +106,6 @@ public class SeatLockService {
         // Lock the lock row — prevents concurrent releaseLock or duplicate bookSeat
         SeatLock lock = lockRepository.findBySeatIdAndPartnerIdForWrite(seatId, partnerId)
                 .orElseThrow(() -> new SeatLockConflictException(
-                        "No active lock found for seat " + seatId + " by partner " + partnerId
                                 + ". Please acquire a lock first via POST /api/seats/" + seatId + "/lock."));
 
         if (lock.getExpiresAt().isBefore(LocalDateTime.now())) {
@@ -146,9 +135,7 @@ public class SeatLockService {
     }
 
     // ─── GET LOCK ────────────────────────────────────────────────────────────────
-
-    @Transactional(readOnly = true)
-    public SeatLockDTO getLockBySeat(Long seatId) {
+public SeatLockDTO getLockBySeat(Long seatId) {
         return lockRepository.findBySeat_SeatId(seatId)
                 .map(this::toDTO)
                 .orElseThrow(() -> new SeatLockNotFoundException(seatId, null));
@@ -156,8 +143,6 @@ public class SeatLockService {
 
     // ─── SCHEDULED: RELEASE EXPIRED LOCKS ───────────────────────────────────────
 
-    @Scheduled(fixedRate = 10_000)
-    @Transactional
     public void releaseExpiredLocks() {
         LocalDateTime now = LocalDateTime.now();
         List<SeatLock> expired = lockRepository.findByExpiresAtBefore(now);
@@ -174,8 +159,6 @@ public class SeatLockService {
 
     // ─── MAPPER ──────────────────────────────────────────────────────────────────
 
-    private SeatLockDTO toDTO(SeatLock lock) {
-        return SeatLockDTO.builder()
                 .lockId(lock.getLockId())
                 .seatId(lock.getSeat().getSeatId())
                 .seatNo(lock.getSeat().getSeatNo())
