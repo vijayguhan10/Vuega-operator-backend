@@ -1,25 +1,23 @@
-error id: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Model/bookings/Booking.java:jakarta/persistence/EntityListeners#
-file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Model/bookings/Booking.java
-empty definition using pc, found symbol in pc: jakarta/persistence/EntityListeners#
+error id: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Model/seats/bookings/Booking.java:_empty_/JoinColumn#name#
+file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Model/seats/bookings/Booking.java
+empty definition using pc, found symbol in pc: _empty_/JoinColumn#name#
 empty definition using semanticdb
 empty definition using fallback
 non-local guesses:
 
-offset: 372
-uri: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Model/bookings/Booking.java
+offset: 1421
+uri: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Model/seats/bookings/Booking.java
 text:
 ```scala
-package net.vuega.vuega_backend.Model.bookings;
+package net.vuega.vuega_backend.Model.seats.bookings;
 
 import java.time.LocalDateTime;
 
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.@@EntityListeners;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.FetchType;
@@ -53,14 +51,14 @@ public class Booking {
     private Long seatStatusId;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "seat_id", nullable = false)
+    @JoinColumn(@@name = "seat_id", nullable = false)
     private Seat seat;
 
     @Column(name = "schedule_id", nullable = false)
     private Long scheduleId;
 
-    @Column(name = "partner_id", nullable = false)
-    private Long partnerId;
+    @Column(name = "passenger_id", nullable = false)
+    private Long passengerId;
 
     @Column(name = "idempotency_key", unique = true, nullable = true, length = 36)
     private String idempotencyKey;
@@ -89,4 +87,4 @@ public class Booking {
 
 #### Short summary: 
 
-empty definition using pc, found symbol in pc: jakarta/persistence/EntityListeners#
+empty definition using pc, found symbol in pc: _empty_/JoinColumn#name#
