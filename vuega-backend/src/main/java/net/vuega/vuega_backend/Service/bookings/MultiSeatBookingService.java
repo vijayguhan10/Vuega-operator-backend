@@ -106,13 +106,14 @@ public class MultiSeatBookingService {
         // -----------------------------------------------------------
         // Step 3 — Validate no overlapping bookings for each seat
         // -----------------------------------------------------------
+        var bookedStatus = net.vuega.vuega_backend.Model.seats.bookings.BookingStatus.BOOKED;
         for (SeatLock lock : sessionLocks) {
             long overlapping = seatBookingRepository.countOverlappingBookings(
                     lock.getSeat().getSeatId(),
                     session.getScheduleId(),
                     request.getFromStopOrder(),
                     request.getToStopOrder(),
-                    net.vuega.vuega_backend.Model.seats.bookings.BookingStatus.BOOKED);
+                    bookedStatus);
 
             if (overlapping > 0) {
                 throw new SeatNotAvailableException(
@@ -161,15 +162,15 @@ public class MultiSeatBookingService {
             // Associate passenger to seat in order; cycle if more seats than passengers
             Long passengerId = passengers.get(passengerIndex % passengers.size()).getPassengerId();
 
-            net.vuega.vuega_backend.Model.seats.bookings.Booking seatBooking = net.vuega.vuega_backend.Model.seats.bookings.Booking
-                    .builder()
+            var seatBookingBuilder = net.vuega.vuega_backend.Model.seats.bookings.Booking.builder();
+            net.vuega.vuega_backend.Model.seats.bookings.Booking seatBooking = seatBookingBuilder
                     .seat(lock.getSeat())
                     .scheduleId(session.getScheduleId())
                     .passengerId(passengerId)
                     .fromStopOrder(request.getFromStopOrder())
                     .toStopOrder(request.getToStopOrder())
-                    .status(net.vuega.vuega_backend.Model.seats.bookings.BookingStatus.BOOKED)
-                    .idempotencyKey(null) // idempotency is on main booking
+                    .status(bookedStatus)
+                    .idempotencyKey(null)
                     .build();
             seatBookings.add(seatBookingRepository.save(seatBooking));
             passengerIndex++;
