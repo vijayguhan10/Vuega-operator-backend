@@ -1,7 +1,5 @@
 package net.vuega.vuega_backend.DTO.seats.lock;
 
-import java.time.LocalDateTime;
-
 import lombok.Builder;
 import lombok.Data;
 
@@ -13,6 +11,5 @@ public class SeatLockDTO {
     private String seatNo;
     private Long busId;
     private Long scheduleId;
-    private Long passengerId;
-    private LocalDateTime expiresAt;
+    private Long sessionId;
 }

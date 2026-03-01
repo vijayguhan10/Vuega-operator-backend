@@ -11,4 +11,7 @@ public class AcquireLockRequest {
 
     @NotNull(message = "scheduleId is required")
     private Long scheduleId;
+
+    /** If null, a new BookingSession will be created. */
+    private Long sessionId;
 }

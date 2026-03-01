@@ -1,6 +1,15 @@
-package net.vuega.vuega_backend.Controller.seats.lock;
+error id: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/seats/lock/SeatLockController.java:_empty_/ResponseEntity#
+file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/seats/lock/SeatLockController.java
+empty definition using pc, found symbol in pc: _empty_/ResponseEntity#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
 
-import java.util.List;
+offset: 1852
+uri: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/seats/lock/SeatLockController.java
+text:
+```scala
+package net.vuega.vuega_backend.Controller.seats.lock;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,13 +26,15 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import net.vuega.vuega_backend.DTO.ResponseDto;
 import net.vuega.vuega_backend.DTO.seats.lock.AcquireLockRequest;
+import net.vuega.vuega_backend.DTO.seats.lock.BookSeatRequest;
+import net.vuega.vuega_backend.DTO.seats.lock.ReleaseLockRequest;
+import net.vuega.vuega_backend.DTO.seats.lock.RenewLockRequest;
 import net.vuega.vuega_backend.DTO.seats.lock.SeatLockDTO;
-import net.vuega.vuega_backend.DTO.seats.session.BookingSessionDTO;
+import net.vuega.vuega_backend.DTO.seats.seat.bookings.BookingDTO;
 import net.vuega.vuega_backend.Exception.SeatLockConflictException;
 import net.vuega.vuega_backend.Exception.SeatLockNotFoundException;
+import net.vuega.vuega_backend.Exception.SeatNotAvailableException;
 import net.vuega.vuega_backend.Exception.SeatNotFoundException;
-import net.vuega.vuega_backend.Exception.SessionExpiredException;
-import net.vuega.vuega_backend.Exception.SessionNotFoundException;
 import net.vuega.vuega_backend.Service.seats.lock.SeatLockService;
 
 @RestController
@@ -38,7 +49,7 @@ public class SeatLockController {
             @PathVariable Long seatId,
             @RequestParam Long scheduleId) {
         try {
-            return ResponseEntity.ok(ResponseDto.success(service.getLockBySeat(seatId, scheduleId)));
+            return ResponseEnt@@ity.ok(ResponseDto.success(service.getLockBySeat(seatId, scheduleId)));
         } catch (SeatLockNotFoundException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
                     .body(ResponseDto.notFound(e.getMessage()));
@@ -51,15 +62,12 @@ public class SeatLockController {
             @Valid @RequestBody AcquireLockRequest request) {
         try {
             return ResponseEntity.ok(ResponseDto.success(service.acquireLock(seatId, request)));
-        } catch (SeatNotFoundException e) {
+        } catch (SeatNotFoundException | SeatLockNotFoundException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
                     .body(ResponseDto.notFound(e.getMessage()));
-        } catch (SessionNotFoundException e) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND)
-                    .body(ResponseDto.notFound(e.getMessage()));
-        } catch (SessionExpiredException e) {
-            return ResponseEntity.status(HttpStatus.GONE)
-                    .body(ResponseDto.error(410, e.getMessage()));
+        } catch (SeatNotAvailableException e) {
+            return ResponseEntity.status(HttpStatus.UNPROCESSABLE_CONTENT)
+                    .body(ResponseDto.error(422, e.getMessage()));
         } catch (SeatLockConflictException e) {
             return ResponseEntity.status(HttpStatus.CONFLICT)
                     .body(ResponseDto.error(409, e.getMessage()));
@@ -69,9 +77,9 @@ public class SeatLockController {
     @DeleteMapping("/{seatId}/lock")
     public ResponseEntity<ResponseDto<Void>> releaseLock(
             @PathVariable Long seatId,
-            @RequestParam Long scheduleId) {
+            @Valid @RequestBody ReleaseLockRequest request) {
         try {
-            service.releaseLock(seatId, scheduleId);
+            service.releaseLock(seatId, request.getScheduleId(), request.getPassengerId());
             return ResponseEntity.ok(ResponseDto.success(null));
         } catch (SeatLockNotFoundException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
@@ -79,20 +87,41 @@ public class SeatLockController {
         }
     }
 
-    @GetMapping("/session/{sessionId}/locks")
-    public ResponseEntity<ResponseDto<List<SeatLockDTO>>> getLocksBySession(
-            @PathVariable Long sessionId) {
-        return ResponseEntity.ok(ResponseDto.success(service.getLocksBySession(sessionId)));
+    @PostMapping("/{seatId}/lock/book")
+    public ResponseEntity<ResponseDto<BookingDTO>> bookSeat(
+            @PathVariable Long seatId,
+            @Valid @RequestBody BookSeatRequest request) {
+        try {
+            return ResponseEntity.ok(ResponseDto.success(service.bookSeat(seatId, request)));
+        } catch (SeatNotFoundException | SeatLockNotFoundException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body(ResponseDto.notFound(e.getMessage()));
+        } catch (SeatNotAvailableException e) {
+            return ResponseEntity.status(HttpStatus.UNPROCESSABLE_CONTENT)
+                    .body(ResponseDto.error(422, e.getMessage()));
+        } catch (SeatLockConflictException e) {
+            return ResponseEntity.status(HttpStatus.CONFLICT)
+                    .body(ResponseDto.error(409, e.getMessage()));
+        }
     }
 
-    @GetMapping("/session/{sessionId}")
-    public ResponseEntity<ResponseDto<BookingSessionDTO>> getSession(
-            @PathVariable Long sessionId) {
+    @PostMapping("/{seatId}/lock/renew")
+    public ResponseEntity<ResponseDto<SeatLockDTO>> renewLock(
+            @PathVariable Long seatId,
+            @Valid @RequestBody RenewLockRequest request) {
         try {
-            return ResponseEntity.ok(ResponseDto.success(service.getSession(sessionId)));
-        } catch (SessionNotFoundException e) {
+            return ResponseEntity.ok(ResponseDto.success(
+                    service.renewLock(seatId, request.getScheduleId(), request.getPassengerId())));
+        } catch (SeatLockNotFoundException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
                     .body(ResponseDto.notFound(e.getMessage()));
         }
     }
+
 }
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: _empty_/ResponseEntity#

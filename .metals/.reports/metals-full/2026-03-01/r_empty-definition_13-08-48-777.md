@@ -1,3 +1,14 @@
+error id: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/bookings/BookingController.java:net/vuega/vuega_backend/Exception/SessionNotFoundException#
+file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/bookings/BookingController.java
+empty definition using pc, found symbol in pc: net/vuega/vuega_backend/Exception/SessionNotFoundException#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 1366
+uri: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/bookings/BookingController.java
+text:
+```scala
 package net.vuega.vuega_backend.Controller.bookings;
 
 import java.util.List;
@@ -24,7 +35,7 @@ import net.vuega.vuega_backend.Exception.SeatLockConflictException;
 import net.vuega.vuega_backend.Exception.SeatMismatchException;
 import net.vuega.vuega_backend.Exception.SeatNotAvailableException;
 import net.vuega.vuega_backend.Exception.SessionExpiredException;
-import net.vuega.vuega_backend.Exception.SessionNotFoundException;
+import net.vuega.vuega_backend.Exception.@@SessionNotFoundException;
 import net.vuega.vuega_backend.Service.bookings.MultiSeatBookingService;
 import net.vuega.vuega_backend.Service.seats.lock.SeatLockService;
 
@@ -85,3 +96,10 @@ public class BookingController {
         return ResponseEntity.ok(ResponseDto.success(seatLockService.getBookingHistory(passengerId)));
     }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: net/vuega/vuega_backend/Exception/SessionNotFoundException#

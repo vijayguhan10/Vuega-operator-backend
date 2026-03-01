@@ -9,6 +9,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EntityListeners;
 import jakarta.persistence.FetchType;
+import jakarta.persistence.ForeignKey;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -22,6 +23,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import net.vuega.vuega_backend.Model.seats.seat.Seat;
+import net.vuega.vuega_backend.Model.seats.session.BookingSession;
 
 @Entity
 @EntityListeners(AuditingEntityListener.class)
@@ -45,11 +47,9 @@ public class SeatLock {
     @Column(name = "schedule_id", nullable = false)
     private Long scheduleId;
 
-    @Column(name = "passenger_id", nullable = false)
-    private Long passengerId;
-
-    @Column(name = "expires_at", nullable = false)
-    private LocalDateTime expiresAt;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "session_id", nullable = false, foreignKey = @ForeignKey(name = "fk_lock_session", foreignKeyDefinition = "FOREIGN KEY (session_id) REFERENCES booking_sessions(session_id) ON DELETE CASCADE"))
+    private BookingSession session;
 
     @CreatedDate
     @Column(name = "created_at", nullable = false, updatable = false)

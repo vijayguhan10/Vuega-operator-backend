@@ -1,3 +1,14 @@
+error id: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/bookings/BookingController.java:_empty_/HttpStatus#UNPROCESSABLE_ENTITY#
+file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/bookings/BookingController.java
+empty definition using pc, found symbol in pc: _empty_/HttpStatus#UNPROCESSABLE_ENTITY#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 3033
+uri: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/bookings/BookingController.java
+text:
+```scala
 package net.vuega.vuega_backend.Controller.bookings;
 
 import java.util.List;
@@ -57,7 +68,7 @@ public class BookingController {
             return ResponseEntity.status(HttpStatus.CONFLICT)
                     .body(ResponseDto.error(409, e.getMessage()));
         } catch (InvalidStopRangeException e) {
-            return ResponseEntity.status(422)
+            return ResponseEntity.status(HttpStatus.@@UNPROCESSABLE_ENTITY)
                     .body(ResponseDto.error(422, e.getMessage()));
         }
     }
@@ -85,3 +96,10 @@ public class BookingController {
         return ResponseEntity.ok(ResponseDto.success(seatLockService.getBookingHistory(passengerId)));
     }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: _empty_/HttpStatus#UNPROCESSABLE_ENTITY#
