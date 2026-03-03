@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import jakarta.validation.Valid;
@@ -37,7 +36,7 @@ public class RouteStopController {
             @Valid @RequestBody CreateRouteStopRequest request) {
         RouteStopDTO routeStop = routeStopService.createRouteStop(request);
         return ResponseEntity.status(HttpStatus.CREATED)
-                .body(new ResponseDto<RouteStopDTO>("Route stop created successfully", routeStop));
+                .body(ResponseDto.created(routeStop));
     }
 
     /**
@@ -46,7 +45,7 @@ public class RouteStopController {
     @GetMapping("/{stopId}")
     public ResponseEntity<ResponseDto<RouteStopDTO>> getRouteStop(@PathVariable Long stopId) {
         RouteStopDTO routeStop = routeStopService.getRouteStopById(stopId);
-        return ResponseEntity.ok(new ResponseDto<RouteStopDTO>("Route stop retrieved successfully", routeStop));
+        return ResponseEntity.ok(ResponseDto.success(routeStop));
     }
 
     /**
@@ -55,7 +54,7 @@ public class RouteStopController {
     @GetMapping("/route/{routeId}")
     public ResponseEntity<ResponseDto<List<RouteStopDTO>>> getRouteStopsByRoute(@PathVariable Long routeId) {
         List<RouteStopDTO> stops = routeStopService.getRouteStopsByRoute(routeId);
-        return ResponseEntity.ok(new ResponseDto<List<RouteStopDTO>>("Route stops retrieved successfully", stops));
+        return ResponseEntity.ok(ResponseDto.success(stops));
     }
 
     /**
@@ -66,7 +65,7 @@ public class RouteStopController {
             @PathVariable Long routeId,
             @PathVariable Integer stopOrder) {
         RouteStopDTO routeStop = routeStopService.getRouteStopByRouteAndOrder(routeId, stopOrder);
-        return ResponseEntity.ok(new ResponseDto<RouteStopDTO>("Route stop retrieved successfully", routeStop));
+        return ResponseEntity.ok(ResponseDto.success(routeStop));
     }
 
     /**
@@ -75,7 +74,7 @@ public class RouteStopController {
     @GetMapping("/city/{cityId}")
     public ResponseEntity<ResponseDto<List<RouteStopDTO>>> getRouteStopsByCity(@PathVariable String cityId) {
         List<RouteStopDTO> stops = routeStopService.getRouteStopsByCity(cityId);
-        return ResponseEntity.ok(new ResponseDto<List<RouteStopDTO>>("Route stops retrieved successfully", stops));
+        return ResponseEntity.ok(ResponseDto.success(stops));
     }
 
     /**
@@ -86,7 +85,7 @@ public class RouteStopController {
             @PathVariable Long stopId,
             @Valid @RequestBody UpdateRouteStopRequest request) {
         RouteStopDTO routeStop = routeStopService.updateRouteStop(stopId, request);
-        return ResponseEntity.ok(new ResponseDto<RouteStopDTO>("Route stop updated successfully", routeStop));
+        return ResponseEntity.ok(ResponseDto.success(routeStop));
     }
 
     /**
@@ -95,7 +94,7 @@ public class RouteStopController {
     @DeleteMapping("/{stopId}")
     public ResponseEntity<ResponseDto<Void>> deleteRouteStop(@PathVariable Long stopId) {
         routeStopService.deleteRouteStop(stopId);
-        return ResponseEntity.ok(new ResponseDto<Void>("Route stop deleted successfully", null));
+        return ResponseEntity.ok(ResponseDto.success(null));
     }
 
     /**
@@ -104,6 +103,6 @@ public class RouteStopController {
     @DeleteMapping("/route/{routeId}")
     public ResponseEntity<ResponseDto<Void>> deleteRouteStopsByRoute(@PathVariable Long routeId) {
         routeStopService.deleteRouteStopsByRoute(routeId);
-        return ResponseEntity.ok(new ResponseDto<Void>("All route stops deleted successfully", null));
+        return ResponseEntity.ok(ResponseDto.success(null));
     }
 }

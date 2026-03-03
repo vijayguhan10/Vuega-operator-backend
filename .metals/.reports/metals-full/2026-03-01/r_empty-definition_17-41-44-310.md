@@ -1,0 +1,75 @@
+error id: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Model/seats/lock/SeatLock.java:_empty_/GeneratedValue#
+file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Model/seats/lock/SeatLock.java
+empty definition using pc, found symbol in pc: _empty_/GeneratedValue#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 1338
+uri: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Model/seats/lock/SeatLock.java
+text:
+```scala
+package net.vuega.vuega_backend.Model.seats.lock;
+
+import java.time.LocalDateTime;
+
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EntityListeners;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.ForeignKey;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Index;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import net.vuega.vuega_backend.Model.seats.seat.Seat;
+import net.vuega.vuega_backend.Model.seats.session.BookingSession;
+
+@Entity
+@EntityListeners(AuditingEntityListener.class)
+@Table(name = "seat_locks", uniqueConstraints = @UniqueConstraint(name = "uq_lock_schedule_seat", columnNames = {
+        "schedule_id", "seat_id" }), indexes = @Index(name = "idx_lock_lookup", columnList = "schedule_id, seat_id"))
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class SeatLock {
+
+    @Id
+    @GeneratedValu@@e(strategy = GenerationType.IDENTITY)
+    @Column(name = "lock_id")
+    private Long lockId;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "seat_id", nullable = false)
+    private Seat seat;
+
+    @Column(name = "schedule_id", nullable = false)
+    private Long scheduleId;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "session_id", nullable = false, foreignKey = @ForeignKey(name = "fk_lock_session", foreignKeyDefinition = "FOREIGN KEY (session_id) REFERENCES booking_sessions(session_id) ON DELETE CASCADE"))
+    private BookingSession session;
+
+    @CreatedDate
+    @Column(name = "created_at", nullable = false, updatable = false)
+    private LocalDateTime createdAt;
+}
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: _empty_/GeneratedValue#
