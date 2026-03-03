@@ -1,3 +1,14 @@
+error id: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/bookings/MultiSeatBookingService.java:BookingSessionRepository#
+file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/bookings/MultiSeatBookingService.java
+empty definition using pc, found symbol in pc: 
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 2269
+uri: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/bookings/MultiSeatBookingService.java
+text:
+```scala
 package net.vuega.vuega_backend.Service.bookings;
 
 import java.math.BigDecimal;
@@ -11,8 +22,6 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import jakarta.persistence.EntityManager;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -48,14 +57,13 @@ public class MultiSeatBookingService {
 
         private static final long GRACE_PERIOD_SECONDS = 30;
 
-        private final BookingSessionRepository sessionRepository;
+        private final BookingSessionRepository@@ sessionRepository;
         private final SeatLockRepository lockRepository;
         private final BookingRepository bookingRepository;
         private final SeatBookingRepository seatBookingRepository;
         private final PassengerRepository passengerRepository;
         private final BookingPassengerRepository bookingPassengerRepository;
         private final SeatSocketService socketService;
-        private final EntityManager entityManager;
 
         /**
          * Atomic multi-seat booking — ONE @Transactional method.
@@ -327,3 +335,10 @@ public class MultiSeatBookingService {
                 return UUID.randomUUID().toString().substring(0, 8).toUpperCase();
         }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: 

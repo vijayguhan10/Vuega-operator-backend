@@ -25,7 +25,7 @@ import net.vuega.vuega_backend.Model.seats.bookings.BookingStatus;
 import net.vuega.vuega_backend.Model.seats.lock.SeatLock;
 import net.vuega.vuega_backend.Model.seats.seat.Seat;
 import net.vuega.vuega_backend.Model.seats.session.BookingSession;
-import net.vuega.vuega_backend.Repository.seats.bookings.BookingRepository;
+import net.vuega.vuega_backend.Repository.seats.bookings.SeatBookingRepository;
 import net.vuega.vuega_backend.Repository.seats.lock.SeatLockRepository;
 import net.vuega.vuega_backend.Repository.seats.seat.SeatRepository;
 import net.vuega.vuega_backend.Repository.seats.session.BookingSessionRepository;
@@ -40,7 +40,7 @@ public class SeatLockService {
 
         private final SeatRepository seatRepository;
         private final SeatLockRepository lockRepository;
-        private final BookingRepository bookingRepository;
+        private final SeatBookingRepository bookingRepository;
         private final BookingSessionRepository sessionRepository;
         private final SeatSocketService socketService;
 
@@ -68,9 +68,8 @@ public class SeatLockService {
                         session.setExpiresAt(LocalDateTime.now().plusMinutes(SESSION_TTL_MINUTES));
                         sessionRepository.save(session);
                 } else {
-                        // Create new session
+                        // Create new session — no passenger data at this stage
                         session = BookingSession.builder()
-                                        .passengerId(request.getPassengerId())
                                         .scheduleId(request.getScheduleId())
                                         .expiresAt(LocalDateTime.now().plusMinutes(SESSION_TTL_MINUTES))
                                         .build();
@@ -216,6 +215,7 @@ public class SeatLockService {
         private BookingDTO toBookingDTO(Booking booking) {
                 return BookingDTO.builder()
                                 .seatStatusId(booking.getSeatStatusId())
+                                .bookingId(booking.getBookingId())
                                 .seatId(booking.getSeat().getSeatId())
                                 .seatNo(booking.getSeat().getSeatNo())
                                 .busId(booking.getSeat().getBusId())
@@ -224,16 +224,12 @@ public class SeatLockService {
                                 .fromStopOrder(booking.getFromStopOrder())
                                 .toStopOrder(booking.getToStopOrder())
                                 .status(booking.getStatus())
-                                .idempotencyKey(booking.getIdempotencyKey())
-                                .createdAt(booking.getCreatedAt())
-                                .updatedAt(booking.getUpdatedAt())
                                 .build();
         }
 
         private BookingSessionDTO toSessionDTO(BookingSession session) {
                 return BookingSessionDTO.builder()
                                 .sessionId(session.getSessionId())
-                                .passengerId(session.getPassengerId())
                                 .scheduleId(session.getScheduleId())
                                 .expiresAt(session.getExpiresAt())
                                 .createdAt(session.getCreatedAt())

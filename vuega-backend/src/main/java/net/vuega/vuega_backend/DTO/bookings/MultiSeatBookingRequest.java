@@ -3,7 +3,6 @@ package net.vuega.vuega_backend.DTO.bookings;
 import java.util.List;
 
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -15,16 +14,8 @@ public class MultiSeatBookingRequest {
     @NotNull(message = "sessionId is required")
     private Long sessionId;
 
-    @NotEmpty(message = "seatIds must not be empty")
-    private List<Long> seatIds;
-
-    @NotNull(message = "fromStopOrder is required")
-    @Min(value = 0, message = "fromStopOrder must be >= 0")
-    private Integer fromStopOrder;
-
-    @NotNull(message = "toStopOrder is required")
-    @Min(value = 1, message = "toStopOrder must be >= 1")
-    private Integer toStopOrder;
+    @NotNull(message = "partnerId is required")
+    private Long partnerId;
 
     @NotEmpty(message = "passengerDetails must not be empty")
     @Valid

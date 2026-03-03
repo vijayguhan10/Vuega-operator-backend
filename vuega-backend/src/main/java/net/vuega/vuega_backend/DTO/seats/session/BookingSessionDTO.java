@@ -13,7 +13,6 @@ import lombok.NoArgsConstructor;
 @Builder
 public class BookingSessionDTO {
     private Long sessionId;
-    private Long passengerId;
     private Long scheduleId;
     private LocalDateTime expiresAt;
     private LocalDateTime createdAt;

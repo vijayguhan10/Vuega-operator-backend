@@ -1,3 +1,14 @@
+error id: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/bookings/booking/NewBookingController.java:_empty_/BookingService#createBooking#
+file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/bookings/booking/NewBookingController.java
+empty definition using pc, found symbol in pc: _empty_/BookingService#createBooking#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 1520
+uri: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/bookings/booking/NewBookingController.java
+text:
+```scala
 package net.vuega.vuega_backend.Controller.bookings.booking;
 
 import java.util.List;
@@ -33,7 +44,7 @@ public class NewBookingController {
     public ResponseEntity<ResponseDto<BookingDTO>> createBooking(
             @Valid @RequestBody CreateBookingRequest request) {
         return ResponseEntity.status(HttpStatus.CREATED)
-                .body(ResponseDto.created(service.createBooking(request)));
+                .body(ResponseDto.created(service.createB@@ooking(request)));
     }
 
     @GetMapping("/{bookingId}")
@@ -76,3 +87,10 @@ public class NewBookingController {
         }
     }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: _empty_/BookingService#createBooking#

@@ -1,3 +1,14 @@
+error id: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/bookings/MultiSeatBookingService.java:_empty_/BookingSession#
+file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/bookings/MultiSeatBookingService.java
+empty definition using pc, found symbol in pc: _empty_/BookingSession#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 4171
+uri: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/bookings/MultiSeatBookingService.java
+text:
+```scala
 package net.vuega.vuega_backend.Service.bookings;
 
 import java.math.BigDecimal;
@@ -11,8 +22,6 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import jakarta.persistence.EntityManager;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -28,12 +37,10 @@ import net.vuega.vuega_backend.Exception.SeatNotAvailableException;
 import net.vuega.vuega_backend.Exception.SessionExpiredException;
 import net.vuega.vuega_backend.Exception.SessionNotFoundException;
 import net.vuega.vuega_backend.Model.bookings.Booking;
-import net.vuega.vuega_backend.Model.bookings.BookingPassenger;
 import net.vuega.vuega_backend.Model.bookings.BookingStatus;
 import net.vuega.vuega_backend.Model.passengers.Passenger;
 import net.vuega.vuega_backend.Model.seats.lock.SeatLock;
 import net.vuega.vuega_backend.Model.seats.session.BookingSession;
-import net.vuega.vuega_backend.Repository.bookings.BookingPassengerRepository;
 import net.vuega.vuega_backend.Repository.bookings.BookingRepository;
 import net.vuega.vuega_backend.Repository.passengers.PassengerRepository;
 import net.vuega.vuega_backend.Repository.seats.bookings.SeatBookingRepository;
@@ -53,9 +60,7 @@ public class MultiSeatBookingService {
         private final BookingRepository bookingRepository;
         private final SeatBookingRepository seatBookingRepository;
         private final PassengerRepository passengerRepository;
-        private final BookingPassengerRepository bookingPassengerRepository;
         private final SeatSocketService socketService;
-        private final EntityManager entityManager;
 
         /**
          * Atomic multi-seat booking — ONE @Transactional method.
@@ -88,7 +93,7 @@ public class MultiSeatBookingService {
                 // -----------------------------------------------------------
                 // Step 1 — Validate Session
                 // -----------------------------------------------------------
-                BookingSession session = sessionRepository.findById(request.getSessionId())
+                Booking@@Session session = sessionRepository.findById(request.getSessionId())
                                 .orElseThrow(() -> new SessionNotFoundException(request.getSessionId()));
 
                 LocalDateTime graceDeadline = session.getExpiresAt().plusSeconds(GRACE_PERIOD_SECONDS);
@@ -164,14 +169,14 @@ public class MultiSeatBookingService {
                                 .build();
                 mainBooking = bookingRepository.save(mainBooking);
 
-                // 4.2 — Insert Passengers, SeatBookings, and BookingPassengers (one per
-                // passenger entry)
+                // 4.2 — Insert Passengers and SeatBookings (one per passenger entry)
                 List<Passenger> passengers = new ArrayList<>();
                 List<net.vuega.vuega_backend.Model.seats.bookings.Booking> seatBookings = new ArrayList<>();
 
                 for (PassengerRequest pr : request.getPassengerDetails()) {
-                        // Insert passenger (no booking FK — linked via booking_passengers)
+                        // Insert passenger linked to main booking
                         Passenger passenger = Passenger.builder()
+                                        .booking(mainBooking)
                                         .name(pr.getName())
                                         .age(pr.getAge())
                                         .gender(pr.getGender())
@@ -179,24 +184,17 @@ public class MultiSeatBookingService {
                         passenger = passengerRepository.save(passenger);
                         passengers.add(passenger);
 
-                        // Insert booking_passengers junction record
-                        BookingPassenger bp = BookingPassenger.builder()
-                                        .bookingId(mainBooking.getBookingId())
-                                        .passengerId(passenger.getPassengerId())
-                                        .build();
-                        bookingPassengerRepository.save(bp);
-
                         // Insert seat booking with this passenger's seat and segment
                         SeatLock lock = lockBySeatId.get(pr.getSeatId());
-                        net.vuega.vuega_backend.Model.seats.bookings.Booking seatBooking = net.vuega.vuega_backend.Model.seats.bookings.Booking
-                                        .builder()
-                                        .bookingId(mainBooking.getBookingId())
+                        var seatBookingBuilder = net.vuega.vuega_backend.Model.seats.bookings.Booking.builder();
+                        net.vuega.vuega_backend.Model.seats.bookings.Booking seatBooking = seatBookingBuilder
                                         .seat(lock.getSeat())
                                         .scheduleId(session.getScheduleId())
                                         .passengerId(passenger.getPassengerId())
                                         .fromStopOrder(pr.getFromStopOrder())
                                         .toStopOrder(pr.getToStopOrder())
                                         .status(bookedStatus)
+                                        .idempotencyKey(null)
                                         .build();
                         seatBookings.add(seatBookingRepository.save(seatBooking));
                 }
@@ -238,6 +236,7 @@ public class MultiSeatBookingService {
                 List<PassengerDTO> passengerDTOs = passengers.stream()
                                 .map(p -> PassengerDTO.builder()
                                                 .passengerId(p.getPassengerId())
+                                                .bookingId(p.getBooking().getBookingId())
                                                 .name(p.getName())
                                                 .age(p.getAge())
                                                 .gender(p.getGender())
@@ -247,7 +246,6 @@ public class MultiSeatBookingService {
                 List<BookingDTO> seatBookingDTOs = seatBookings.stream()
                                 .map(sb -> BookingDTO.builder()
                                                 .seatStatusId(sb.getSeatStatusId())
-                                                .bookingId(sb.getBookingId())
                                                 .seatId(sb.getSeat().getSeatId())
                                                 .seatNo(sb.getSeat().getSeatNo())
                                                 .busId(sb.getSeat().getBusId())
@@ -256,6 +254,9 @@ public class MultiSeatBookingService {
                                                 .fromStopOrder(sb.getFromStopOrder())
                                                 .toStopOrder(sb.getToStopOrder())
                                                 .status(sb.getStatus())
+                                                .idempotencyKey(sb.getIdempotencyKey())
+                                                .createdAt(sb.getCreatedAt())
+                                                .updatedAt(sb.getUpdatedAt())
                                                 .build())
                                 .toList();
 
@@ -274,38 +275,15 @@ public class MultiSeatBookingService {
         }
 
         private MultiSeatBookingResponse buildResponseFromExisting(Booking mainBooking) {
-                // Look up passengers via junction table
-                List<Long> passengerIds = bookingPassengerRepository
-                                .findByBookingId(mainBooking.getBookingId())
-                                .stream()
-                                .map(BookingPassenger::getPassengerId)
-                                .toList();
-                List<Passenger> passengers = passengerRepository.findAllById(passengerIds);
+                List<Passenger> passengers = passengerRepository.findByBookingBookingId(mainBooking.getBookingId());
 
                 List<PassengerDTO> passengerDTOs = passengers.stream()
                                 .map(p -> PassengerDTO.builder()
                                                 .passengerId(p.getPassengerId())
+                                                .bookingId(p.getBooking().getBookingId())
                                                 .name(p.getName())
                                                 .age(p.getAge())
                                                 .gender(p.getGender())
-                                                .build())
-                                .toList();
-
-                // Look up seat bookings for this booking
-                List<BookingDTO> seatBookingDTOs = seatBookingRepository
-                                .findByBookingId(mainBooking.getBookingId())
-                                .stream()
-                                .map(sb -> BookingDTO.builder()
-                                                .seatStatusId(sb.getSeatStatusId())
-                                                .bookingId(sb.getBookingId())
-                                                .seatId(sb.getSeat().getSeatId())
-                                                .seatNo(sb.getSeat().getSeatNo())
-                                                .busId(sb.getSeat().getBusId())
-                                                .scheduleId(sb.getScheduleId())
-                                                .passengerId(sb.getPassengerId())
-                                                .fromStopOrder(sb.getFromStopOrder())
-                                                .toStopOrder(sb.getToStopOrder())
-                                                .status(sb.getStatus())
                                                 .build())
                                 .toList();
 
@@ -319,7 +297,6 @@ public class MultiSeatBookingService {
                                 .idempotencyKey(mainBooking.getIdempotencyKey())
                                 .createdAt(mainBooking.getCreatedAt())
                                 .passengers(passengerDTOs)
-                                .seatBookings(seatBookingDTOs)
                                 .build();
         }
 
@@ -327,3 +304,10 @@ public class MultiSeatBookingService {
                 return UUID.randomUUID().toString().substring(0, 8).toUpperCase();
         }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: _empty_/BookingSession#

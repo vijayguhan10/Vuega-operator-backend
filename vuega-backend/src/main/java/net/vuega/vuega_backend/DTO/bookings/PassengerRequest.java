@@ -9,6 +9,9 @@ import net.vuega.vuega_backend.Model.passengers.Gender;
 @Data
 public class PassengerRequest {
 
+    @NotNull(message = "seatId is required")
+    private Long seatId;
+
     @NotBlank(message = "name is required")
     private String name;
 
@@ -18,4 +21,12 @@ public class PassengerRequest {
 
     @NotNull(message = "gender is required")
     private Gender gender;
+
+    @NotNull(message = "fromStopOrder is required")
+    @Min(value = 0, message = "fromStopOrder must be >= 0")
+    private Integer fromStopOrder;
+
+    @NotNull(message = "toStopOrder is required")
+    @Min(value = 1, message = "toStopOrder must be >= 1")
+    private Integer toStopOrder;
 }

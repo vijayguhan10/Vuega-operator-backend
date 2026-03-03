@@ -1,3 +1,14 @@
+error id: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/bookings/MultiSeatBookingService.java:_empty_/InvalidStopRangeException#
+file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/bookings/MultiSeatBookingService.java
+empty definition using pc, found symbol in pc: _empty_/InvalidStopRangeException#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 3293
+uri: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/bookings/MultiSeatBookingService.java
+text:
+```scala
 package net.vuega.vuega_backend.Service.bookings;
 
 import java.math.BigDecimal;
@@ -11,8 +22,6 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import jakarta.persistence.EntityManager;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -55,7 +64,6 @@ public class MultiSeatBookingService {
         private final PassengerRepository passengerRepository;
         private final BookingPassengerRepository bookingPassengerRepository;
         private final SeatSocketService socketService;
-        private final EntityManager entityManager;
 
         /**
          * Atomic multi-seat booking — ONE @Transactional method.
@@ -69,7 +77,7 @@ public class MultiSeatBookingService {
                 // --- Per-passenger segment validation ---
                 for (PassengerRequest pr : request.getPassengerDetails()) {
                         if (pr.getFromStopOrder() >= pr.getToStopOrder()) {
-                                throw new InvalidStopRangeException(
+                                throw new InvalidStopRangeExcepti@@on(
                                                 "fromStopOrder must be less than toStopOrder for passenger '"
                                                                 + pr.getName() + "' on seat " + pr.getSeatId());
                         }
@@ -327,3 +335,10 @@ public class MultiSeatBookingService {
                 return UUID.randomUUID().toString().substring(0, 8).toUpperCase();
         }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: _empty_/InvalidStopRangeException#

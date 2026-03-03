@@ -13,7 +13,6 @@ import net.vuega.vuega_backend.Model.passengers.Gender;
 public class PassengerDTO {
 
     private Long passengerId;
-    private Long bookingId;
     private String name;
     private Integer age;
     private Gender gender;

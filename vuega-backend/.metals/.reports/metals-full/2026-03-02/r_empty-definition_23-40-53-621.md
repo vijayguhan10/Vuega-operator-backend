@@ -1,3 +1,14 @@
+error id: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/bookings/BookingController.java:_empty_/MultiSeatBookingResponse#
+file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/bookings/BookingController.java
+empty definition using pc, found symbol in pc: _empty_/MultiSeatBookingResponse#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 1916
+uri: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/bookings/BookingController.java
+text:
+```scala
 package net.vuega.vuega_backend.Controller.bookings;
 
 import java.util.List;
@@ -38,7 +49,7 @@ public class BookingController {
 
     // Atomic multi-seat booking — validates session, locks, overlap, then books
     @PostMapping
-    public ResponseEntity<ResponseDto<MultiSeatBookingResponse>> createBooking(
+    public ResponseEntity<ResponseDto<MultiSeatBookingResp@@onse>> createBooking(
             @Valid @RequestBody MultiSeatBookingRequest request) {
         try {
             MultiSeatBookingResponse response = multiSeatBookingService.createBooking(request);
@@ -85,3 +96,10 @@ public class BookingController {
         return ResponseEntity.ok(ResponseDto.success(seatLockService.getBookingHistory(passengerId)));
     }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: _empty_/MultiSeatBookingResponse#

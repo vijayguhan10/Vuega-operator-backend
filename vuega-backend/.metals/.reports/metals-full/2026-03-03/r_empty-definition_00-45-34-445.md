@@ -1,3 +1,14 @@
+error id: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/bookings/MultiSeatBookingService.java:net/vuega/vuega_backend/DTO/seats/seat/bookings/BookingDTO#
+file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/bookings/MultiSeatBookingService.java
+empty definition using pc, found symbol in pc: net/vuega/vuega_backend/DTO/seats/seat/bookings/BookingDTO#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 774
+uri: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/bookings/MultiSeatBookingService.java
+text:
+```scala
 package net.vuega.vuega_backend.Service.bookings;
 
 import java.math.BigDecimal;
@@ -12,15 +23,13 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import jakarta.persistence.EntityManager;
-
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import net.vuega.vuega_backend.DTO.bookings.MultiSeatBookingRequest;
 import net.vuega.vuega_backend.DTO.bookings.MultiSeatBookingResponse;
 import net.vuega.vuega_backend.DTO.bookings.PassengerRequest;
 import net.vuega.vuega_backend.DTO.passengers.PassengerDTO;
-import net.vuega.vuega_backend.DTO.seats.seat.bookings.BookingDTO;
+import net.vuega.vuega_backend.DTO.seats.seat.bookings.@@BookingDTO;
 import net.vuega.vuega_backend.DTO.seats.socket.SeatUpdateMessage;
 import net.vuega.vuega_backend.Exception.InvalidStopRangeException;
 import net.vuega.vuega_backend.Exception.SeatMismatchException;
@@ -55,7 +64,6 @@ public class MultiSeatBookingService {
         private final PassengerRepository passengerRepository;
         private final BookingPassengerRepository bookingPassengerRepository;
         private final SeatSocketService socketService;
-        private final EntityManager entityManager;
 
         /**
          * Atomic multi-seat booking — ONE @Transactional method.
@@ -327,3 +335,10 @@ public class MultiSeatBookingService {
                 return UUID.randomUUID().toString().substring(0, 8).toUpperCase();
         }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: net/vuega/vuega_backend/DTO/seats/seat/bookings/BookingDTO#

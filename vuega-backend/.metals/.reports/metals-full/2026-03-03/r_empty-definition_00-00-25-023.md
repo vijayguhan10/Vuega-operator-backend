@@ -1,3 +1,14 @@
+error id: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/bookings/MultiSeatBookingService.java:_empty_/Passenger#builder#booking#
+file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/bookings/MultiSeatBookingService.java
+empty definition using pc, found symbol in pc: _empty_/Passenger#builder#booking#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 9489
+uri: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/bookings/MultiSeatBookingService.java
+text:
+```scala
 package net.vuega.vuega_backend.Service.bookings;
 
 import java.math.BigDecimal;
@@ -11,8 +22,6 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import jakarta.persistence.EntityManager;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -55,7 +64,6 @@ public class MultiSeatBookingService {
         private final PassengerRepository passengerRepository;
         private final BookingPassengerRepository bookingPassengerRepository;
         private final SeatSocketService socketService;
-        private final EntityManager entityManager;
 
         /**
          * Atomic multi-seat booking — ONE @Transactional method.
@@ -164,14 +172,14 @@ public class MultiSeatBookingService {
                                 .build();
                 mainBooking = bookingRepository.save(mainBooking);
 
-                // 4.2 — Insert Passengers, SeatBookings, and BookingPassengers (one per
-                // passenger entry)
+                // 4.2 — Insert Passengers, SeatBookings, and BookingPassengers (one per passenger entry)
                 List<Passenger> passengers = new ArrayList<>();
                 List<net.vuega.vuega_backend.Model.seats.bookings.Booking> seatBookings = new ArrayList<>();
 
                 for (PassengerRequest pr : request.getPassengerDetails()) {
-                        // Insert passenger (no booking FK — linked via booking_passengers)
+                        // Insert passenger linked to main booking
                         Passenger passenger = Passenger.builder()
+                                        .@@booking(mainBooking)
                                         .name(pr.getName())
                                         .age(pr.getAge())
                                         .gender(pr.getGender())
@@ -188,8 +196,8 @@ public class MultiSeatBookingService {
 
                         // Insert seat booking with this passenger's seat and segment
                         SeatLock lock = lockBySeatId.get(pr.getSeatId());
-                        net.vuega.vuega_backend.Model.seats.bookings.Booking seatBooking = net.vuega.vuega_backend.Model.seats.bookings.Booking
-                                        .builder()
+                        net.vuega.vuega_backend.Model.seats.bookings.Booking seatBooking =
+                                        net.vuega.vuega_backend.Model.seats.bookings.Booking.builder()
                                         .bookingId(mainBooking.getBookingId())
                                         .seat(lock.getSeat())
                                         .scheduleId(session.getScheduleId())
@@ -238,6 +246,7 @@ public class MultiSeatBookingService {
                 List<PassengerDTO> passengerDTOs = passengers.stream()
                                 .map(p -> PassengerDTO.builder()
                                                 .passengerId(p.getPassengerId())
+                                                .bookingId(p.getBooking().getBookingId())
                                                 .name(p.getName())
                                                 .age(p.getAge())
                                                 .gender(p.getGender())
@@ -274,38 +283,15 @@ public class MultiSeatBookingService {
         }
 
         private MultiSeatBookingResponse buildResponseFromExisting(Booking mainBooking) {
-                // Look up passengers via junction table
-                List<Long> passengerIds = bookingPassengerRepository
-                                .findByBookingId(mainBooking.getBookingId())
-                                .stream()
-                                .map(BookingPassenger::getPassengerId)
-                                .toList();
-                List<Passenger> passengers = passengerRepository.findAllById(passengerIds);
+                List<Passenger> passengers = passengerRepository.findByBookingBookingId(mainBooking.getBookingId());
 
                 List<PassengerDTO> passengerDTOs = passengers.stream()
                                 .map(p -> PassengerDTO.builder()
                                                 .passengerId(p.getPassengerId())
+                                                .bookingId(p.getBooking().getBookingId())
                                                 .name(p.getName())
                                                 .age(p.getAge())
                                                 .gender(p.getGender())
-                                                .build())
-                                .toList();
-
-                // Look up seat bookings for this booking
-                List<BookingDTO> seatBookingDTOs = seatBookingRepository
-                                .findByBookingId(mainBooking.getBookingId())
-                                .stream()
-                                .map(sb -> BookingDTO.builder()
-                                                .seatStatusId(sb.getSeatStatusId())
-                                                .bookingId(sb.getBookingId())
-                                                .seatId(sb.getSeat().getSeatId())
-                                                .seatNo(sb.getSeat().getSeatNo())
-                                                .busId(sb.getSeat().getBusId())
-                                                .scheduleId(sb.getScheduleId())
-                                                .passengerId(sb.getPassengerId())
-                                                .fromStopOrder(sb.getFromStopOrder())
-                                                .toStopOrder(sb.getToStopOrder())
-                                                .status(sb.getStatus())
                                                 .build())
                                 .toList();
 
@@ -319,7 +305,6 @@ public class MultiSeatBookingService {
                                 .idempotencyKey(mainBooking.getIdempotencyKey())
                                 .createdAt(mainBooking.getCreatedAt())
                                 .passengers(passengerDTOs)
-                                .seatBookings(seatBookingDTOs)
                                 .build();
         }
 
@@ -327,3 +312,10 @@ public class MultiSeatBookingService {
                 return UUID.randomUUID().toString().substring(0, 8).toUpperCase();
         }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: _empty_/Passenger#builder#booking#

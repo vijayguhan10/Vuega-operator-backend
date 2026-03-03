@@ -32,9 +32,6 @@ public class BookingSession {
     @Column(name = "session_id")
     private Long sessionId;
 
-    @Column(name = "passenger_id", nullable = false)
-    private Long passengerId;
-
     @Column(name = "schedule_id", nullable = false)
     private Long scheduleId;
 
