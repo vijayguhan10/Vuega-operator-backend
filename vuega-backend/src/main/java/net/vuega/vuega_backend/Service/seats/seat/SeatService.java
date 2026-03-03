@@ -14,8 +14,8 @@ import net.vuega.vuega_backend.DTO.seats.seat.CreateSeatRequest;
 import net.vuega.vuega_backend.DTO.seats.seat.CreateSeatsInBatchRequest;
 import net.vuega.vuega_backend.DTO.seats.seat.SeatDTO;
 import net.vuega.vuega_backend.DTO.seats.seat.UpdateSeatRequest;
-import net.vuega.vuega_backend.Exception.DuplicateSeatException;
-import net.vuega.vuega_backend.Exception.SeatNotFoundException;
+import net.vuega.vuega_backend.exception.DuplicateSeatException;
+import net.vuega.vuega_backend.exception.SeatNotFoundException;
 import net.vuega.vuega_backend.Model.seats.seat.Seat;
 import net.vuega.vuega_backend.Repository.seats.seat.SeatRepository;
 

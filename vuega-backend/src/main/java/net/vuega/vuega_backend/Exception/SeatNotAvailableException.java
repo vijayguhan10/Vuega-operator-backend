@@ -1,4 +1,4 @@
-package net.vuega.vuega_backend.Exception;
+package net.vuega.vuega_backend.exception;
 
 // Thrown when a seat's current status prevents the requested operation.
 public class SeatNotAvailableException extends RuntimeException {
