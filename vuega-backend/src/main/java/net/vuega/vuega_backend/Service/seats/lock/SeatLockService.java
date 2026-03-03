@@ -3,31 +3,31 @@ package net.vuega.vuega_backend.Service.seats.lock;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import org.springframework.dao.DataIntegrityViolationException;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import net.vuega.vuega_backend.DTO.seats.lock.AcquireLockRequest;
-import net.vuega.vuega_backend.DTO.seats.lock.BookSeatRequest;
 import net.vuega.vuega_backend.DTO.seats.lock.SeatLockDTO;
 import net.vuega.vuega_backend.DTO.seats.seat.bookings.BookingDTO;
+import net.vuega.vuega_backend.DTO.seats.session.BookingSessionDTO;
 import net.vuega.vuega_backend.DTO.seats.socket.SeatUpdateMessage;
 import net.vuega.vuega_backend.Exception.BookingNotFoundException;
-import net.vuega.vuega_backend.Exception.InvalidStopRangeException;
 import net.vuega.vuega_backend.Exception.SeatLockConflictException;
 import net.vuega.vuega_backend.Exception.SeatLockNotFoundException;
-import net.vuega.vuega_backend.Exception.SeatNotAvailableException;
 import net.vuega.vuega_backend.Exception.SeatNotFoundException;
+import net.vuega.vuega_backend.Exception.SessionExpiredException;
+import net.vuega.vuega_backend.Exception.SessionNotFoundException;
 import net.vuega.vuega_backend.Model.seats.bookings.Booking;
 import net.vuega.vuega_backend.Model.seats.bookings.BookingStatus;
 import net.vuega.vuega_backend.Model.seats.lock.SeatLock;
 import net.vuega.vuega_backend.Model.seats.seat.Seat;
-import net.vuega.vuega_backend.Repository.seats.bookings.BookingRepository;
+import net.vuega.vuega_backend.Model.seats.session.BookingSession;
+import net.vuega.vuega_backend.Repository.seats.bookings.SeatBookingRepository;
 import net.vuega.vuega_backend.Repository.seats.lock.SeatLockRepository;
 import net.vuega.vuega_backend.Repository.seats.seat.SeatRepository;
+import net.vuega.vuega_backend.Repository.seats.session.BookingSessionRepository;
 import net.vuega.vuega_backend.Service.seats.socket.SeatSocketService;
 
 @Service
@@ -35,57 +35,92 @@ import net.vuega.vuega_backend.Service.seats.socket.SeatSocketService;
 @Slf4j
 public class SeatLockService {
 
-        private static final int LOCK_TTL_MINUTES = 10;
+        private static final int SESSION_TTL_MINUTES = 10;
 
         private final SeatRepository seatRepository;
         private final SeatLockRepository lockRepository;
-        private final BookingRepository bookingRepository;
+        private final SeatBookingRepository seatBookingRepository;
+        private final BookingSessionRepository sessionRepository;
         private final SeatSocketService socketService;
+        private final SeatBookingRepository bookingRepository;
 
-        // Acquire lock
+        /**
+         * Acquire a lock on a single seat.
+         * If sessionId is not provided, a new BookingSession is created.
+         * If sessionId is provided, the session is validated and its expiry extended.
+         * Concurrency is handled by the unique constraint on (seat_id, schedule_id).
+         */
         @Transactional
         public SeatLockDTO acquireLock(Long seatId, AcquireLockRequest request) {
+
+                Long scheduleId = request.getScheduleId();
+
+                // 1. Validate seat exists
                 Seat seat = seatRepository.findById(seatId)
                                 .orElseThrow(() -> new SeatNotFoundException(seatId));
 
-                SeatLock lock = SeatLock.builder()
-                                .seat(seat)
-                                .scheduleId(request.getScheduleId())
-                                .passengerId(request.getPassengerId())
-                                .expiresAt(LocalDateTime.now().plusMinutes(LOCK_TTL_MINUTES))
-                                .build();
-
-                SeatLockDTO result;
-                try {
-                        result = toDTO(lockRepository.saveAndFlush(lock));
-                } catch (DataIntegrityViolationException e) {
-                        SeatLock existing = lockRepository
-                                        .findActiveLockBySeatId(seatId, request.getScheduleId(), LocalDateTime.now())
-                                        .orElse(null);
-                        String detail = existing != null
-                                        ? "passenger " + existing.getPassengerId() + ", expires at "
-                                                        + existing.getExpiresAt()
-                                        : "another request";
-                        throw new SeatLockConflictException("Seat " + seatId + " is already locked by " + detail + ".");
+                // 2. Check for existing confirmed booking on this seat+schedule
+                boolean alreadyBooked = seatBookingRepository.existsBySeat_SeatIdAndScheduleIdAndStatus(
+                                seatId, scheduleId, BookingStatus.BOOKED);
+                if (alreadyBooked) {
+                        throw new SeatLockConflictException("Seat " + seatId + " is already booked.");
                 }
 
+                // 3. Check for existing lock
+                lockRepository.findBySeatIdAndScheduleId(seatId, scheduleId).ifPresent(existingLock -> {
+                        if (existingLock.getSession().getExpiresAt().isAfter(LocalDateTime.now())) {
+                                throw new SeatLockConflictException("Seat " + seatId + " is already locked.");
+                        }
+                        lockRepository.delete(existingLock);
+                        lockRepository.flush();
+                });
+
+                // 4. Resolve or create session — SAVE SESSION FIRST
+                BookingSession session;
+                if (request.getSessionId() != null) {
+                        session = sessionRepository.findById(request.getSessionId())
+                                        .orElseThrow(() -> new SessionNotFoundException(request.getSessionId()));
+                        if (session.getExpiresAt().isBefore(LocalDateTime.now())) {
+                                throw new SessionExpiredException(request.getSessionId().toString());
+                        }
+                } else {
+                        session = BookingSession.builder()
+                                        .scheduleId(scheduleId)
+                                        .expiresAt(LocalDateTime.now().plusMinutes(SESSION_TTL_MINUTES))
+                                        .build();
+                        session = sessionRepository.save(session);
+                        sessionRepository.flush();
+                }
+
+                // 5. Create and save lock (session is now a persistent entity)
+                SeatLock lock = SeatLock.builder()
+                                .seat(seat)
+                                .scheduleId(scheduleId)
+                                .session(session)
+                                .build();
+
+                lock = lockRepository.save(lock);
+
+                // 6. Notify via WebSocket
                 socketService.broadcast(SeatUpdateMessage.builder()
                                 .event(SeatUpdateMessage.Event.LOCKED)
                                 .busId(seat.getBusId())
                                 .seatId(seatId)
                                 .seatNo(seat.getSeatNo())
-                                .scheduleId(request.getScheduleId())
+                                .scheduleId(scheduleId)
                                 .timestamp(LocalDateTime.now())
                                 .build());
 
-                return result;
+                return toDTO(lock);
         }
 
-        // Release lock
+        /**
+         * Release a specific lock by seat and schedule.
+         */
         @Transactional
-        public void releaseLock(Long seatId, Long scheduleId, Long passengerId) {
-                SeatLock lock = lockRepository.findActiveLock(seatId, scheduleId, passengerId, LocalDateTime.now())
-                                .orElseThrow(() -> new SeatLockNotFoundException(seatId, passengerId));
+        public void releaseLock(Long seatId, Long scheduleId) {
+                SeatLock lock = lockRepository.findBySeatIdAndScheduleId(seatId, scheduleId)
+                                .orElseThrow(() -> new SeatLockNotFoundException(seatId, null));
 
                 Seat seat = lock.getSeat();
                 lockRepository.delete(lock);
@@ -100,90 +135,9 @@ public class SeatLockService {
                                 .build());
         }
 
-        // Renew lock
-        @Transactional
-        public SeatLockDTO renewLock(Long seatId, Long scheduleId, Long passengerId) {
-                SeatLock lock = lockRepository.findActiveLock(seatId, scheduleId, passengerId, LocalDateTime.now())
-                                .orElseThrow(() -> new SeatLockNotFoundException(seatId, passengerId));
-
-                lock.setExpiresAt(LocalDateTime.now().plusMinutes(LOCK_TTL_MINUTES));
-                return toDTO(lockRepository.save(lock));
-        }
-
-        // Book seat
-        @Transactional
-        public BookingDTO bookSeat(Long seatId, BookSeatRequest request) {
-                if (request.getFromStopOrder() >= request.getToStopOrder()) {
-                        throw new InvalidStopRangeException("fromStopOrder must be less than toStopOrder");
-                }
-
-                if (request.getIdempotencyKey() != null && !request.getIdempotencyKey().isBlank()) {
-                        return bookingRepository.findByIdempotencyKey(request.getIdempotencyKey())
-                                        .map(existing -> {
-                                                log.info("bookSeat: idempotency hit key={}",
-                                                                request.getIdempotencyKey());
-                                                return toBookingDTO(existing);
-                                        })
-                                        .orElseGet(() -> doBookSeat(seatId, request));
-                }
-
-                return doBookSeat(seatId, request);
-        }
-
-        private BookingDTO doBookSeat(Long seatId, BookSeatRequest request) {
-                SeatLock lock = lockRepository.findActiveLock(
-                                seatId, request.getScheduleId(), request.getPassengerId(), LocalDateTime.now())
-                                .orElseThrow(() -> new SeatLockConflictException(
-                                                "No active lock found for seat " + seatId + " on schedule "
-                                                                + request.getScheduleId()
-                                                                + ". Please acquire a lock first via POST /api/seats/"
-                                                                + seatId + "/lock."));
-
-                long overlapping = bookingRepository.countOverlappingBookings(
-                                seatId, request.getScheduleId(),
-                                request.getFromStopOrder(), request.getToStopOrder(),
-                                BookingStatus.BOOKED);
-                if (overlapping > 0) {
-                        throw new SeatNotAvailableException("Seat " + seatId + " is already booked for this segment.");
-                }
-
-                Seat seat = lock.getSeat();
-
-                Booking booking = Booking.builder()
-                                .seat(seat)
-                                .scheduleId(request.getScheduleId())
-                                .passengerId(request.getPassengerId())
-                                .fromStopOrder(request.getFromStopOrder())
-                                .toStopOrder(request.getToStopOrder())
-                                .status(BookingStatus.BOOKED)
-                                .idempotencyKey(request.getIdempotencyKey())
-                                .build();
-
-                Booking saved;
-                try {
-                        saved = bookingRepository.saveAndFlush(booking);
-                } catch (DataIntegrityViolationException e) {
-                        throw new SeatNotAvailableException(
-                                        "Seat " + seatId + " was just booked by another request for this segment.");
-                }
-
-                lockRepository.delete(lock);
-
-                socketService.broadcast(SeatUpdateMessage.builder()
-                                .event(SeatUpdateMessage.Event.BOOKED)
-                                .busId(seat.getBusId())
-                                .seatId(seatId)
-                                .seatNo(seat.getSeatNo())
-                                .scheduleId(request.getScheduleId())
-                                .fromStopOrder(request.getFromStopOrder())
-                                .toStopOrder(request.getToStopOrder())
-                                .timestamp(LocalDateTime.now())
-                                .build());
-
-                return toBookingDTO(saved);
-        }
-
-        // Cancel booking — soft delete, status set to CANCELLED
+        /**
+         * Cancel a seat booking (soft delete — status set to CANCELLED).
+         */
         @Transactional
         public BookingDTO cancelBooking(Long seatStatusId, Long passengerId) {
                 Booking booking = bookingRepository.findById(seatStatusId)
@@ -216,40 +170,46 @@ public class SeatLockService {
                 return toBookingDTO(saved);
         }
 
+        /**
+         * Get the current lock on a seat for a given schedule.
+         */
         @Transactional(readOnly = true)
         public SeatLockDTO getLockBySeat(Long seatId, Long scheduleId) {
-                return lockRepository.findActiveLockBySeatId(seatId, scheduleId, LocalDateTime.now())
+                return lockRepository.findBySeatIdAndScheduleId(seatId, scheduleId)
                                 .map(this::toDTO)
                                 .orElseThrow(() -> new SeatLockNotFoundException(seatId, null));
         }
 
+        /**
+         * Get all locks for a booking session.
+         */
+        @Transactional(readOnly = true)
+        public List<SeatLockDTO> getLocksBySession(Long sessionId) {
+                return lockRepository.findBySessionIdWithSeat(sessionId)
+                                .stream()
+                                .map(this::toDTO)
+                                .toList();
+        }
+
+        /**
+         * Get session info by ID.
+         */
+        @Transactional(readOnly = true)
+        public BookingSessionDTO getSession(Long sessionId) {
+                BookingSession session = sessionRepository.findById(sessionId)
+                                .orElseThrow(() -> new SessionNotFoundException(sessionId));
+                return toSessionDTO(session);
+        }
+
+        /**
+         * Get booking history for a passenger.
+         */
         @Transactional(readOnly = true)
         public List<BookingDTO> getBookingHistory(Long passengerId) {
                 return bookingRepository.findByPassengerId(passengerId)
                                 .stream()
                                 .map(this::toBookingDTO)
                                 .toList();
-        }
-
-        @Scheduled(fixedRate = 10_000)
-        @Transactional
-        public void releaseExpiredLocks() {
-                LocalDateTime now = LocalDateTime.now();
-                List<SeatLock> expired = lockRepository.findExpiredLocksWithSeat(now);
-                if (!expired.isEmpty()) {
-                        int count = lockRepository.deleteExpiredLocks(now);
-
-                        expired.forEach(lock -> socketService.broadcast(SeatUpdateMessage.builder()
-                                        .event(SeatUpdateMessage.Event.EXPIRED)
-                                        .busId(lock.getSeat().getBusId())
-                                        .seatId(lock.getSeat().getSeatId())
-                                        .seatNo(lock.getSeat().getSeatNo())
-                                        .scheduleId(lock.getScheduleId())
-                                        .timestamp(now)
-                                        .build()));
-
-                        log.info("[SeatLockService] Released {} expired lock(s)", count);
-                }
         }
 
         private SeatLockDTO toDTO(SeatLock lock) {
@@ -259,14 +219,14 @@ public class SeatLockService {
                                 .seatNo(lock.getSeat().getSeatNo())
                                 .busId(lock.getSeat().getBusId())
                                 .scheduleId(lock.getScheduleId())
-                                .passengerId(lock.getPassengerId())
-                                .expiresAt(lock.getExpiresAt())
+                                .sessionId(lock.getSession().getSessionId())
                                 .build();
         }
 
         private BookingDTO toBookingDTO(Booking booking) {
                 return BookingDTO.builder()
                                 .seatStatusId(booking.getSeatStatusId())
+                                .bookingId(booking.getBookingId())
                                 .seatId(booking.getSeat().getSeatId())
                                 .seatNo(booking.getSeat().getSeatNo())
                                 .busId(booking.getSeat().getBusId())
@@ -275,9 +235,15 @@ public class SeatLockService {
                                 .fromStopOrder(booking.getFromStopOrder())
                                 .toStopOrder(booking.getToStopOrder())
                                 .status(booking.getStatus())
-                                .idempotencyKey(booking.getIdempotencyKey())
-                                .createdAt(booking.getCreatedAt())
-                                .updatedAt(booking.getUpdatedAt())
+                                .build();
+        }
+
+        private BookingSessionDTO toSessionDTO(BookingSession session) {
+                return BookingSessionDTO.builder()
+                                .sessionId(session.getSessionId())
+                                .scheduleId(session.getScheduleId())
+                                .expiresAt(session.getExpiresAt())
+                                .createdAt(session.getCreatedAt())
                                 .build();
         }
 }

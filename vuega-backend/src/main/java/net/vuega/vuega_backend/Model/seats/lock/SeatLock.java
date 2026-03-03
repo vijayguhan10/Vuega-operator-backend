@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EntityListeners;
@@ -22,6 +23,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import net.vuega.vuega_backend.Model.seats.seat.Seat;
+import net.vuega.vuega_backend.Model.seats.session.BookingSession;
 
 @Entity
 @EntityListeners(AuditingEntityListener.class)
@@ -45,11 +47,9 @@ public class SeatLock {
     @Column(name = "schedule_id", nullable = false)
     private Long scheduleId;
 
-    @Column(name = "passenger_id", nullable = false)
-    private Long passengerId;
-
-    @Column(name = "expires_at", nullable = false)
-    private LocalDateTime expiresAt;
+    @ManyToOne(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+    @JoinColumn(name = "session_id", nullable = false)
+    private BookingSession session;
 
     @CreatedDate
     @Column(name = "created_at", nullable = false, updatable = false)

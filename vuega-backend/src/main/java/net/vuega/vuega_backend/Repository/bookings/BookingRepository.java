@@ -19,4 +19,6 @@ public interface BookingRepository extends JpaRepository<Booking, Long> {
     List<Booking> findByScheduleId(Long scheduleId);
 
     List<Booking> findByStatus(BookingStatus status);
+
+    Optional<Booking> findByIdempotencyKey(String idempotencyKey);
 }

@@ -19,7 +19,7 @@ public interface SeatRepository extends JpaRepository<Seat, Long> {
     @Query("""
             SELECT s FROM Seat s WHERE s.busId = :busId
             AND NOT EXISTS (
-                SELECT 1 FROM Booking b
+                SELECT 1 FROM SeatBooking b
                 WHERE b.seat.seatId = s.seatId
                 AND b.scheduleId = :scheduleId
                 AND b.status = 'CONFIRMED'
