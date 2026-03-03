@@ -18,6 +18,7 @@ public class SeatSocketService {
 
     private final SimpMessagingTemplate messagingTemplate;
 
+    // Sends a seat update event to the WebSocket topic for the given bus.
     public void broadcast(SeatUpdateMessage message) {
         if (message.getTimestamp() == null) {
             message.setTimestamp(LocalDateTime.now());

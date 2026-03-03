@@ -16,7 +16,6 @@ import net.vuega.vuega_backend.Model.scheduler.Schedule;
 import net.vuega.vuega_backend.Model.scheduler.ScheduleStatus;
 import net.vuega.vuega_backend.Repository.scheduler.ScheduleRepository;
 
-// Schedule service — CRUD and Control Plane enrichment.
 @Service
 public class ScheduleService {
 
@@ -32,6 +31,7 @@ public class ScheduleService {
                 .build();
     }
 
+    // Creates a schedule after checking for time overlaps on the same bus.
     public ScheduleDTO createSchedule(CreateScheduleRequest request) {
         if (repository.existsOverlappingSchedule(
                 request.getBusId(),
@@ -54,6 +54,7 @@ public class ScheduleService {
         return enrichWithControlPlane(saved);
     }
 
+    // Fetches a single schedule by ID, enriched with bus and route details.
     public ScheduleDTO getScheduleById(Long id) {
         Schedule schedule = repository.findById(id).orElse(null);
         if (schedule == null)
@@ -61,12 +62,14 @@ public class ScheduleService {
         return enrichWithControlPlane(schedule);
     }
 
+    // Returns all schedules enriched with Control Plane data.
     public List<ScheduleDTO> getAllSchedules() {
         return repository.findAll().stream()
                 .map(this::enrichWithControlPlane)
                 .toList();
     }
 
+    // Partially updates a schedule; validates no overlap with existing ones.
     public ScheduleDTO updateSchedule(Long id, UpdateScheduleRequest request) {
         Schedule schedule = repository.findById(id).orElse(null);
         if (schedule == null)
@@ -99,6 +102,7 @@ public class ScheduleService {
         return enrichWithControlPlane(saved);
     }
 
+    // Soft-deletes a schedule by setting its status to ABORTED.
     public ScheduleDTO deleteSchedule(Long id) {
         Schedule schedule = repository.findById(id).orElse(null);
         if (schedule == null)
@@ -109,30 +113,35 @@ public class ScheduleService {
         return enrichWithControlPlane(saved);
     }
 
+    // Filters schedules by bus ID.
     public List<ScheduleDTO> getSchedulesByBus(Long busId) {
         return repository.findByBusId(busId).stream()
                 .map(this::enrichWithControlPlane)
                 .toList();
     }
 
+    // Filters schedules by route ID.
     public List<ScheduleDTO> getSchedulesByRoute(Long routeId) {
         return repository.findByRouteId(routeId).stream()
                 .map(this::enrichWithControlPlane)
                 .toList();
     }
 
+    // Filters schedules by status (ACTIVE, INACTIVE, ABORTED).
     public List<ScheduleDTO> getSchedulesByStatus(ScheduleStatus status) {
         return repository.findByStatus(status).stream()
                 .map(this::enrichWithControlPlane)
                 .toList();
     }
 
+    // Filters schedules by both bus and route.
     public List<ScheduleDTO> getSchedulesByBusAndRoute(Long busId, Long routeId) {
         return repository.findByBusIdAndRouteId(busId, routeId).stream()
                 .map(this::enrichWithControlPlane)
                 .toList();
     }
 
+    // Toggles a schedule between ACTIVE and INACTIVE status.
     public ScheduleDTO toggleStatus(Long id) {
         Schedule schedule = repository.findById(id).orElse(null);
         if (schedule == null)
