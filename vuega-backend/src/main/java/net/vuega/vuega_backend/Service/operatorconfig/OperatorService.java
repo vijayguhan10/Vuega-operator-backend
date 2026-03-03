@@ -20,6 +20,7 @@ public class OperatorService {
                 .build();
     }
 
+    // Forwards login credentials to the control-panel API; returns null on failure.
     public OperatorDTO login(LoginRequest request) {
         try {
             return restClient.post()

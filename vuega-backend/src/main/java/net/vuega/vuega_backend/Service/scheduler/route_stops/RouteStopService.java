@@ -21,9 +21,7 @@ public class RouteStopService {
 
     private final RouteStopRepository routeStopRepository;
 
-    /**
-     * Create a new route stop.
-     */
+    // Saves a new route stop; throws if the stop order already exists for that route.
     @Transactional
     public RouteStopDTO createRouteStop(CreateRouteStopRequest request) {
         log.info("Creating route stop for route {}, stop order {}", request.getRouteId(), request.getStopOrder());
@@ -47,9 +45,7 @@ public class RouteStopService {
         return toDTO(saved);
     }
 
-    /**
-     * Get a specific route stop by ID.
-     */
+    // Looks up a single route stop by its primary key.
     @Transactional(readOnly = true)
     public RouteStopDTO getRouteStopById(Long stopId) {
         RouteStop routeStop = routeStopRepository.findById(stopId)
@@ -57,9 +53,7 @@ public class RouteStopService {
         return toDTO(routeStop);
     }
 
-    /**
-     * Get all route stops for a specific route, ordered by stop order.
-     */
+    // Returns all stops for a route, ordered by stop sequence.
     @Transactional(readOnly = true)
     public List<RouteStopDTO> getRouteStopsByRoute(Long routeId) {
         return routeStopRepository.findByRouteIdOrderByStopOrderAsc(routeId)
@@ -68,9 +62,7 @@ public class RouteStopService {
                 .toList();
     }
 
-    /**
-     * Get a specific route stop by route ID and stop order.
-     */
+    // Finds a route stop by route ID and its position in the sequence.
     @Transactional(readOnly = true)
     public RouteStopDTO getRouteStopByRouteAndOrder(Long routeId, Integer stopOrder) {
         RouteStop routeStop = routeStopRepository.findByRouteIdAndStopOrder(routeId, stopOrder)
@@ -79,9 +71,7 @@ public class RouteStopService {
         return toDTO(routeStop);
     }
 
-    /**
-     * Get all route stops for a specific city.
-     */
+    // Returns all route stops associated with a given city.
     @Transactional(readOnly = true)
     public List<RouteStopDTO> getRouteStopsByCity(String cityId) {
         return routeStopRepository.findByCityId(cityId)
@@ -90,9 +80,7 @@ public class RouteStopService {
                 .toList();
     }
 
-    /**
-     * Update a route stop.
-     */
+    // Partially updates a route stop's fields (cityId, stopOrder, distance, offset).
     @Transactional
     public RouteStopDTO updateRouteStop(Long stopId, UpdateRouteStopRequest request) {
         RouteStop routeStop = routeStopRepository.findById(stopId)
@@ -116,9 +104,7 @@ public class RouteStopService {
         return toDTO(updated);
     }
 
-    /**
-     * Delete a route stop.
-     */
+    // Deletes a route stop by ID; throws if not found.
     @Transactional
     public void deleteRouteStop(Long stopId) {
         if (!routeStopRepository.existsById(stopId)) {
@@ -128,9 +114,7 @@ public class RouteStopService {
         log.info("Route stop {} deleted", stopId);
     }
 
-    /**
-     * Delete all route stops for a route.
-     */
+    // Removes all route stops belonging to a specific route.
     @Transactional
     public void deleteRouteStopsByRoute(Long routeId) {
         routeStopRepository.deleteByRouteId(routeId);

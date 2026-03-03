@@ -54,16 +54,11 @@ public class MultiSeatBookingService {
         private final BookingPassengerRepository bookingPassengerRepository;
         private final SeatSocketService socketService;
 
-        /**
-         * Atomic multi-seat booking — ONE @Transactional method.
-         *
-         * If ANY step fails, the entire transaction rolls back automatically.
-         * No manual revert logic. No partial commits.
-         */
+        // Validates session, locks, and segments, then atomically creates the booking.
+        // Rolls back entirely on any failure — no partial commits.
         @Transactional
         public MultiSeatBookingResponse createBooking(MultiSeatBookingRequest request) {
 
-                // --- Per-passenger segment validation ---
                 for (PassengerRequest pr : request.getPassengerDetails()) {
                         if (pr.getFromStopOrder() >= pr.getToStopOrder()) {
                                 throw new InvalidStopRangeException(
@@ -72,7 +67,6 @@ public class MultiSeatBookingService {
                         }
                 }
 
-                // --- Idempotency check ---
                 if (request.getIdempotencyKey() != null && !request.getIdempotencyKey().isBlank()) {
                         Optional<Booking> existing = bookingRepository
                                         .findByIdempotencyKey(request.getIdempotencyKey());
@@ -82,9 +76,6 @@ public class MultiSeatBookingService {
                         }
                 }
 
-                // -----------------------------------------------------------
-                // Step 1 — Validate Session
-                // -----------------------------------------------------------
                 BookingSession session = sessionRepository.findById(request.getSessionId())
                                 .orElseThrow(() -> new SessionNotFoundException(request.getSessionId()));
 
@@ -94,9 +85,6 @@ public class MultiSeatBookingService {
                                         "Session " + request.getSessionId() + " has expired.");
                 }
 
-                // -----------------------------------------------------------
-                // Step 2 — Validate SeatLocks match passenger seat assignments
-                // -----------------------------------------------------------
                 List<SeatLock> sessionLocks = lockRepository.findBySessionIdWithSeat(request.getSessionId());
 
                 Set<Long> lockedSeatIds = sessionLocks.stream()
@@ -114,13 +102,9 @@ public class MultiSeatBookingService {
                                                         + " for session " + request.getSessionId() + ".");
                 }
 
-                // Build a lookup: seatId -> SeatLock (for seat entity access)
                 var lockBySeatId = sessionLocks.stream()
                                 .collect(Collectors.toMap(lock -> lock.getSeat().getSeatId(), lock -> lock));
 
-                // -----------------------------------------------------------
-                // Step 3 — Validate no overlapping bookings per seat+segment
-                // -----------------------------------------------------------
                 var bookedStatus = net.vuega.vuega_backend.Model.seats.bookings.BookingStatus.BOOKED;
                 for (PassengerRequest pr : request.getPassengerDetails()) {
                         long overlapping = seatBookingRepository.countOverlappingBookings(
@@ -141,11 +125,6 @@ public class MultiSeatBookingService {
                         }
                 }
 
-                // -----------------------------------------------------------
-                // Step 4 — Insert all booking data in same transaction
-                // -----------------------------------------------------------
-
-                // 4.1 — Create main Booking record
                 String pnr = generatePnr();
                 BigDecimal totalAmount = sessionLocks.stream()
                                 .map(lock -> lock.getSeat().getBasePrice())
@@ -161,13 +140,10 @@ public class MultiSeatBookingService {
                                 .build();
                 mainBooking = bookingRepository.save(mainBooking);
 
-                // 4.2 — Insert Passengers, SeatBookings, and BookingPassengers (one per
-                // passenger entry)
                 List<Passenger> passengers = new ArrayList<>();
                 List<net.vuega.vuega_backend.Model.seats.bookings.Booking> seatBookings = new ArrayList<>();
 
                 for (PassengerRequest pr : request.getPassengerDetails()) {
-                        // Insert passenger (no booking FK — linked via booking_passengers)
                         Passenger passenger = Passenger.builder()
                                         .name(pr.getName())
                                         .age(pr.getAge())
@@ -176,14 +152,12 @@ public class MultiSeatBookingService {
                         passenger = passengerRepository.save(passenger);
                         passengers.add(passenger);
 
-                        // Insert booking_passengers junction record
                         BookingPassenger bp = BookingPassenger.builder()
                                         .bookingId(mainBooking.getBookingId())
                                         .passengerId(passenger.getPassengerId())
                                         .build();
                         bookingPassengerRepository.save(bp);
 
-                        // Insert seat booking with this passenger's seat and segment
                         SeatLock lock = lockBySeatId.get(pr.getSeatId());
                         net.vuega.vuega_backend.Model.seats.bookings.Booking seatBooking = net.vuega.vuega_backend.Model.seats.bookings.Booking
                                         .builder()
@@ -198,12 +172,8 @@ public class MultiSeatBookingService {
                         seatBookings.add(seatBookingRepository.save(seatBooking));
                 }
 
-                // -----------------------------------------------------------
-                // Step 5 — Delete Session (locks cascade-delete automatically)
-                // -----------------------------------------------------------
                 sessionRepository.delete(session);
 
-                // Broadcast BOOKED events for each seat
                 for (net.vuega.vuega_backend.Model.seats.bookings.Booking sb : seatBookings) {
                         socketService.broadcast(SeatUpdateMessage.builder()
                                         .event(SeatUpdateMessage.Event.BOOKED)
@@ -223,10 +193,7 @@ public class MultiSeatBookingService {
                 return buildResponse(mainBooking, passengers, seatBookings);
         }
 
-        // ---------------------------------------------------------------
-        // Response builders
-        // ---------------------------------------------------------------
-
+        // Builds the API response DTO from freshly-created entities.
         private MultiSeatBookingResponse buildResponse(
                         Booking mainBooking,
                         List<Passenger> passengers,
@@ -270,8 +237,8 @@ public class MultiSeatBookingService {
                                 .build();
         }
 
+        // Reconstructs a response from a previously persisted booking (idempotency hit).
         private MultiSeatBookingResponse buildResponseFromExisting(Booking mainBooking) {
-                // Look up passengers via junction table
                 List<Long> passengerIds = bookingPassengerRepository
                                 .findByBookingId(mainBooking.getBookingId())
                                 .stream()
