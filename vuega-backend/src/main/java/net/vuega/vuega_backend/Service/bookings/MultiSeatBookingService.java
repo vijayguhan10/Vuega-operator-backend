@@ -20,11 +20,6 @@ import net.vuega.vuega_backend.DTO.bookings.PassengerRequest;
 import net.vuega.vuega_backend.DTO.passengers.PassengerDTO;
 import net.vuega.vuega_backend.DTO.seats.seat.bookings.BookingDTO;
 import net.vuega.vuega_backend.DTO.seats.socket.SeatUpdateMessage;
-import net.vuega.vuega_backend.exception.InvalidStopRangeException;
-import net.vuega.vuega_backend.exception.SeatMismatchException;
-import net.vuega.vuega_backend.exception.SeatNotAvailableException;
-import net.vuega.vuega_backend.exception.SessionExpiredException;
-import net.vuega.vuega_backend.exception.SessionNotFoundException;
 import net.vuega.vuega_backend.Model.bookings.Booking;
 import net.vuega.vuega_backend.Model.bookings.BookingPassenger;
 import net.vuega.vuega_backend.Model.bookings.BookingStatus;
@@ -38,6 +33,11 @@ import net.vuega.vuega_backend.Repository.seats.bookings.SeatBookingRepository;
 import net.vuega.vuega_backend.Repository.seats.lock.SeatLockRepository;
 import net.vuega.vuega_backend.Repository.seats.session.BookingSessionRepository;
 import net.vuega.vuega_backend.Service.seats.socket.SeatSocketService;
+import net.vuega.vuega_backend.exception.InvalidStopRangeException;
+import net.vuega.vuega_backend.exception.SeatMismatchException;
+import net.vuega.vuega_backend.exception.SeatNotAvailableException;
+import net.vuega.vuega_backend.exception.SessionExpiredException;
+import net.vuega.vuega_backend.exception.SessionNotFoundException;
 
 @Service
 @RequiredArgsConstructor
@@ -237,7 +237,8 @@ public class MultiSeatBookingService {
                                 .build();
         }
 
-        // Reconstructs a response from a previously persisted booking (idempotency hit).
+        // Reconstructs a response from a previously persisted booking (idempotency
+        // hit).
         private MultiSeatBookingResponse buildResponseFromExisting(Booking mainBooking) {
                 List<Long> passengerIds = bookingPassengerRepository
                                 .findByBookingId(mainBooking.getBookingId())

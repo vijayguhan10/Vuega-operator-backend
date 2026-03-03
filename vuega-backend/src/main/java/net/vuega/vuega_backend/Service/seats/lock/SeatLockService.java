@@ -13,12 +13,6 @@ import net.vuega.vuega_backend.DTO.seats.lock.SeatLockDTO;
 import net.vuega.vuega_backend.DTO.seats.seat.bookings.BookingDTO;
 import net.vuega.vuega_backend.DTO.seats.session.BookingSessionDTO;
 import net.vuega.vuega_backend.DTO.seats.socket.SeatUpdateMessage;
-import net.vuega.vuega_backend.exception.BookingNotFoundException;
-import net.vuega.vuega_backend.exception.SeatLockConflictException;
-import net.vuega.vuega_backend.exception.SeatLockNotFoundException;
-import net.vuega.vuega_backend.exception.SeatNotFoundException;
-import net.vuega.vuega_backend.exception.SessionExpiredException;
-import net.vuega.vuega_backend.exception.SessionNotFoundException;
 import net.vuega.vuega_backend.Model.seats.bookings.Booking;
 import net.vuega.vuega_backend.Model.seats.bookings.BookingStatus;
 import net.vuega.vuega_backend.Model.seats.lock.SeatLock;
@@ -29,6 +23,12 @@ import net.vuega.vuega_backend.Repository.seats.lock.SeatLockRepository;
 import net.vuega.vuega_backend.Repository.seats.seat.SeatRepository;
 import net.vuega.vuega_backend.Repository.seats.session.BookingSessionRepository;
 import net.vuega.vuega_backend.Service.seats.socket.SeatSocketService;
+import net.vuega.vuega_backend.exception.BookingNotFoundException;
+import net.vuega.vuega_backend.exception.SeatLockConflictException;
+import net.vuega.vuega_backend.exception.SeatLockNotFoundException;
+import net.vuega.vuega_backend.exception.SeatNotFoundException;
+import net.vuega.vuega_backend.exception.SessionExpiredException;
+import net.vuega.vuega_backend.exception.SessionNotFoundException;
 
 @Service
 @RequiredArgsConstructor
@@ -44,7 +44,8 @@ public class SeatLockService {
         private final SeatSocketService socketService;
         private final SeatBookingRepository bookingRepository;
 
-        // Locks a seat for a schedule; creates or reuses a session, checks for conflicts.
+        // Locks a seat for a schedule; creates or reuses a session, checks for
+        // conflicts.
         @Transactional
         public SeatLockDTO acquireLock(Long seatId, AcquireLockRequest request) {
 
@@ -103,7 +104,8 @@ public class SeatLockService {
                 return toDTO(lock);
         }
 
-        // Removes an existing lock on a seat for a given schedule and notifies via WebSocket.
+        // Removes an existing lock on a seat for a given schedule and notifies via
+        // WebSocket.
         @Transactional
         public void releaseLock(Long seatId, Long scheduleId) {
                 SeatLock lock = lockRepository.findBySeatIdAndScheduleId(seatId, scheduleId)

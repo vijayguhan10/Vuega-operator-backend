@@ -14,10 +14,10 @@ import net.vuega.vuega_backend.DTO.seats.seat.CreateSeatRequest;
 import net.vuega.vuega_backend.DTO.seats.seat.CreateSeatsInBatchRequest;
 import net.vuega.vuega_backend.DTO.seats.seat.SeatDTO;
 import net.vuega.vuega_backend.DTO.seats.seat.UpdateSeatRequest;
-import net.vuega.vuega_backend.exception.DuplicateSeatException;
-import net.vuega.vuega_backend.exception.SeatNotFoundException;
 import net.vuega.vuega_backend.Model.seats.seat.Seat;
 import net.vuega.vuega_backend.Repository.seats.seat.SeatRepository;
+import net.vuega.vuega_backend.exception.DuplicateSeatException;
+import net.vuega.vuega_backend.exception.SeatNotFoundException;
 
 @Service
 @Slf4j
@@ -52,7 +52,8 @@ public class SeatService {
         return toDTO(repository.save(seat));
     }
 
-    // Creates multiple seats in a single transaction; fails if any duplicate exists.
+    // Creates multiple seats in a single transaction; fails if any duplicate
+    // exists.
     @Transactional
     public List<SeatDTO> createSeatsInBatch(CreateSeatsInBatchRequest request) {
         for (CreateSeatRequest r : request.getSeats()) {
@@ -99,7 +100,8 @@ public class SeatService {
                 .toList();
     }
 
-    // Partially updates seat fields (seatNo, type, basePrice); validates no duplicate.
+    // Partially updates seat fields (seatNo, type, basePrice); validates no
+    // duplicate.
     @Transactional
     public SeatDTO updateSeat(Long seatId, UpdateSeatRequest request) {
         Seat seat = repository.findById(seatId)
