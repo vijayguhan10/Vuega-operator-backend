@@ -10,9 +10,9 @@ import lombok.extern.slf4j.Slf4j;
 import net.vuega.vuega_backend.DTO.scheduler.route_stops.CreateRouteStopRequest;
 import net.vuega.vuega_backend.DTO.scheduler.route_stops.RouteStopDTO;
 import net.vuega.vuega_backend.DTO.scheduler.route_stops.UpdateRouteStopRequest;
-import net.vuega.vuega_backend.exception.RouteStopNotFoundException;
 import net.vuega.vuega_backend.Model.scheduler.route_stops.RouteStop;
 import net.vuega.vuega_backend.Repository.scheduler.route_stops.RouteStopRepository;
+import net.vuega.vuega_backend.exception.RouteStopNotFoundException;
 
 @Service
 @RequiredArgsConstructor
@@ -21,7 +21,8 @@ public class RouteStopService {
 
     private final RouteStopRepository routeStopRepository;
 
-    // Saves a new route stop; throws if the stop order already exists for that route.
+    // Saves a new route stop; throws if the stop order already exists for that
+    // route.
     @Transactional
     public RouteStopDTO createRouteStop(CreateRouteStopRequest request) {
         log.info("Creating route stop for route {}, stop order {}", request.getRouteId(), request.getStopOrder());
@@ -80,7 +81,8 @@ public class RouteStopService {
                 .toList();
     }
 
-    // Partially updates a route stop's fields (cityId, stopOrder, distance, offset).
+    // Partially updates a route stop's fields (cityId, stopOrder, distance,
+    // offset).
     @Transactional
     public RouteStopDTO updateRouteStop(Long stopId, UpdateRouteStopRequest request) {
         RouteStop routeStop = routeStopRepository.findById(stopId)

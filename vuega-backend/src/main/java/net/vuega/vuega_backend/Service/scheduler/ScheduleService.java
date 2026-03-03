@@ -11,10 +11,10 @@ import org.springframework.web.client.RestClient;
 import net.vuega.vuega_backend.DTO.scheduler.CreateScheduleRequest;
 import net.vuega.vuega_backend.DTO.scheduler.ScheduleDTO;
 import net.vuega.vuega_backend.DTO.scheduler.UpdateScheduleRequest;
-import net.vuega.vuega_backend.exception.ScheduleOverlapException;
 import net.vuega.vuega_backend.Model.scheduler.Schedule;
 import net.vuega.vuega_backend.Model.scheduler.ScheduleStatus;
 import net.vuega.vuega_backend.Repository.scheduler.ScheduleRepository;
+import net.vuega.vuega_backend.exception.ScheduleOverlapException;
 
 @Service
 public class ScheduleService {
