@@ -1,3 +1,14 @@
+error id: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/lock/SeatLockService.java:net/vuega/vuega_backend/Model/seats/lock/SeatLock#
+file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/lock/SeatLockService.java
+empty definition using pc, found symbol in pc: net/vuega/vuega_backend/Model/seats/lock/SeatLock#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 1262
+uri: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/lock/SeatLockService.java
+text:
+```scala
 package net.vuega.vuega_backend.Service.seats.lock;
 
 import java.time.LocalDateTime;
@@ -22,7 +33,7 @@ import net.vuega.vuega_backend.Exception.SessionExpiredException;
 import net.vuega.vuega_backend.Exception.SessionNotFoundException;
 import net.vuega.vuega_backend.Model.seats.bookings.Booking;
 import net.vuega.vuega_backend.Model.seats.bookings.BookingStatus;
-import net.vuega.vuega_backend.Model.seats.lock.SeatLock;
+import net.vuega.vuega_backend.Model.seats.lock.@@SeatLock;
 import net.vuega.vuega_backend.Model.seats.seat.Seat;
 import net.vuega.vuega_backend.Model.seats.session.BookingSession;
 import net.vuega.vuega_backend.Repository.seats.bookings.SeatBookingRepository;
@@ -40,10 +51,9 @@ public class SeatLockService {
 
         private final SeatRepository seatRepository;
         private final SeatLockRepository lockRepository;
-        private final SeatBookingRepository seatBookingRepository;
+        private final SeatBookingRepository bookingRepository;
         private final BookingSessionRepository sessionRepository;
         private final SeatSocketService socketService;
-        private final SeatBookingRepository bookingRepository;
 
         /**
          * Acquire a lock on a single seat.
@@ -95,7 +105,7 @@ public class SeatLockService {
 
                 // 5. Create and save lock (session is now a persistent entity)
                 SeatLock lock = SeatLock.builder()
-                                .seat(seat)
+                                .seatId(seatId)
                                 .scheduleId(scheduleId)
                                 .session(session)
                                 .build();
@@ -248,3 +258,10 @@ public class SeatLockService {
                                 .build();
         }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: net/vuega/vuega_backend/Model/seats/lock/SeatLock#

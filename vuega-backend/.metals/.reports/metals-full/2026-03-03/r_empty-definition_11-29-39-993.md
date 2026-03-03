@@ -1,3 +1,14 @@
+error id: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/lock/SeatLockService.java:_empty_/bookingRepository#
+file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/lock/SeatLockService.java
+empty definition using pc, found symbol in pc: _empty_/bookingRepository#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 6916
+uri: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/lock/SeatLockService.java
+text:
+```scala
 package net.vuega.vuega_backend.Service.seats.lock;
 
 import java.time.LocalDateTime;
@@ -43,7 +54,6 @@ public class SeatLockService {
         private final SeatBookingRepository seatBookingRepository;
         private final BookingSessionRepository sessionRepository;
         private final SeatSocketService socketService;
-        private final SeatBookingRepository bookingRepository;
 
         /**
          * Acquire a lock on a single seat.
@@ -141,7 +151,7 @@ public class SeatLockService {
          */
         @Transactional
         public BookingDTO cancelBooking(Long seatStatusId, Long passengerId) {
-                Booking booking = bookingRepository.findById(seatStatusId)
+                Booking booking = @@bookingRepository.findById(seatStatusId)
                                 .orElseThrow(() -> new BookingNotFoundException(seatStatusId));
 
                 if (!booking.getPassengerId().equals(passengerId)) {
@@ -248,3 +258,10 @@ public class SeatLockService {
                                 .build();
         }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: _empty_/bookingRepository#

@@ -1,3 +1,14 @@
+error id: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/lock/SeatLockService.java:net/vuega/vuega_backend/Repository/seats/bookings/SeatBookingRepository#
+file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/lock/SeatLockService.java
+empty definition using pc, found symbol in pc: net/vuega/vuega_backend/Repository/seats/bookings/SeatBookingRepository#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 1450
+uri: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/lock/SeatLockService.java
+text:
+```scala
 package net.vuega.vuega_backend.Service.seats.lock;
 
 import java.time.LocalDateTime;
@@ -25,7 +36,7 @@ import net.vuega.vuega_backend.Model.seats.bookings.BookingStatus;
 import net.vuega.vuega_backend.Model.seats.lock.SeatLock;
 import net.vuega.vuega_backend.Model.seats.seat.Seat;
 import net.vuega.vuega_backend.Model.seats.session.BookingSession;
-import net.vuega.vuega_backend.Repository.seats.bookings.SeatBookingRepository;
+import net.vuega.vuega_backend.Repository.seats.bookings.@@SeatBookingRepository;
 import net.vuega.vuega_backend.Repository.seats.lock.SeatLockRepository;
 import net.vuega.vuega_backend.Repository.seats.seat.SeatRepository;
 import net.vuega.vuega_backend.Repository.seats.session.BookingSessionRepository;
@@ -43,7 +54,6 @@ public class SeatLockService {
         private final SeatBookingRepository seatBookingRepository;
         private final BookingSessionRepository sessionRepository;
         private final SeatSocketService socketService;
-        private final SeatBookingRepository bookingRepository;
 
         /**
          * Acquire a lock on a single seat.
@@ -248,3 +258,10 @@ public class SeatLockService {
                                 .build();
         }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: net/vuega/vuega_backend/Repository/seats/bookings/SeatBookingRepository#

@@ -1,3 +1,14 @@
+error id: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/lock/SeatLockService.java:_empty_/seatBookingRepository#
+file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/lock/SeatLockService.java
+empty definition using pc, found symbol in pc: _empty_/seatBookingRepository#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 2990
+uri: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/lock/SeatLockService.java
+text:
+```scala
 package net.vuega.vuega_backend.Service.seats.lock;
 
 import java.time.LocalDateTime;
@@ -40,10 +51,9 @@ public class SeatLockService {
 
         private final SeatRepository seatRepository;
         private final SeatLockRepository lockRepository;
-        private final SeatBookingRepository seatBookingRepository;
+        private final SeatBookingRepository bookingRepository;
         private final BookingSessionRepository sessionRepository;
         private final SeatSocketService socketService;
-        private final SeatBookingRepository bookingRepository;
 
         /**
          * Acquire a lock on a single seat.
@@ -61,7 +71,7 @@ public class SeatLockService {
                                 .orElseThrow(() -> new SeatNotFoundException(seatId));
 
                 // 2. Check for existing confirmed booking on this seat+schedule
-                boolean alreadyBooked = seatBookingRepository.existsBySeat_SeatIdAndScheduleIdAndStatus(
+                boolean alreadyBooked = @@seatBookingRepository.existsBySeat_SeatIdAndScheduleIdAndStatus(
                                 seatId, scheduleId, BookingStatus.BOOKED);
                 if (alreadyBooked) {
                         throw new SeatLockConflictException("Seat " + seatId + " is already booked.");
@@ -248,3 +258,10 @@ public class SeatLockService {
                                 .build();
         }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: _empty_/seatBookingRepository#

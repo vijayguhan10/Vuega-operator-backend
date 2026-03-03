@@ -1,3 +1,14 @@
+error id: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/lock/SeatLockService.java:net/vuega/vuega_backend/Exception/SeatLockConflictException#
+file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/lock/SeatLockService.java
+empty definition using pc, found symbol in pc: net/vuega/vuega_backend/Exception/SeatLockConflictException#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 794
+uri: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/lock/SeatLockService.java
+text:
+```scala
 package net.vuega.vuega_backend.Service.seats.lock;
 
 import java.time.LocalDateTime;
@@ -15,7 +26,7 @@ import net.vuega.vuega_backend.DTO.seats.seat.bookings.BookingDTO;
 import net.vuega.vuega_backend.DTO.seats.session.BookingSessionDTO;
 import net.vuega.vuega_backend.DTO.seats.socket.SeatUpdateMessage;
 import net.vuega.vuega_backend.Exception.BookingNotFoundException;
-import net.vuega.vuega_backend.Exception.SeatLockConflictException;
+import net.vuega.vuega_backend.Exception.@@SeatLockConflictException;
 import net.vuega.vuega_backend.Exception.SeatLockNotFoundException;
 import net.vuega.vuega_backend.Exception.SeatNotFoundException;
 import net.vuega.vuega_backend.Exception.SessionExpiredException;
@@ -40,10 +51,9 @@ public class SeatLockService {
 
         private final SeatRepository seatRepository;
         private final SeatLockRepository lockRepository;
-        private final SeatBookingRepository seatBookingRepository;
+        private final SeatBookingRepository bookingRepository;
         private final BookingSessionRepository sessionRepository;
         private final SeatSocketService socketService;
-        private final SeatBookingRepository bookingRepository;
 
         /**
          * Acquire a lock on a single seat.
@@ -56,27 +66,23 @@ public class SeatLockService {
 
                 Long scheduleId = request.getScheduleId();
 
-                // 1. Validate seat exists
-                Seat seat = seatRepository.findById(seatId)
-                                .orElseThrow(() -> new SeatNotFoundException(seatId));
-
-                // 2. Check for existing confirmed booking on this seat+schedule
+                // 1. Check for existing confirmed booking on this seat+schedule
                 boolean alreadyBooked = seatBookingRepository.existsBySeat_SeatIdAndScheduleIdAndStatus(
                                 seatId, scheduleId, BookingStatus.BOOKED);
                 if (alreadyBooked) {
                         throw new SeatLockConflictException("Seat " + seatId + " is already booked.");
                 }
 
-                // 3. Check for existing lock
+                // 2. Check for existing lock
                 lockRepository.findBySeatIdAndScheduleId(seatId, scheduleId).ifPresent(existingLock -> {
                         if (existingLock.getSession().getExpiresAt().isAfter(LocalDateTime.now())) {
-                                throw new SeatLockConflictException("Seat " + seatId + " is already locked.");
+                                throw new SeatAlreadyLockedException(seatId);
                         }
                         lockRepository.delete(existingLock);
                         lockRepository.flush();
                 });
 
-                // 4. Resolve or create session — SAVE SESSION FIRST
+                // 3. Resolve or create session — SAVE SESSION FIRST
                 BookingSession session;
                 if (request.getSessionId() != null) {
                         session = sessionRepository.findById(request.getSessionId())
@@ -89,30 +95,30 @@ public class SeatLockService {
                                         .scheduleId(scheduleId)
                                         .expiresAt(LocalDateTime.now().plusMinutes(SESSION_TTL_MINUTES))
                                         .build();
-                        session = sessionRepository.save(session);
+                        session = sessionRepository.save(session); // Save session to DB first
                         sessionRepository.flush();
                 }
 
-                // 5. Create and save lock (session is now a persistent entity)
+                // 4. Create and save lock (session is now a persistent entity)
                 SeatLock lock = SeatLock.builder()
-                                .seat(seat)
+                                .seatId(seatId)
                                 .scheduleId(scheduleId)
                                 .session(session)
                                 .build();
 
                 lock = lockRepository.save(lock);
 
-                // 6. Notify via WebSocket
+                // 5. Notify via WebSocket
                 socketService.broadcast(SeatUpdateMessage.builder()
                                 .event(SeatUpdateMessage.Event.LOCKED)
                                 .busId(seat.getBusId())
                                 .seatId(seatId)
                                 .seatNo(seat.getSeatNo())
-                                .scheduleId(scheduleId)
+                                .scheduleId(request.getScheduleId())
                                 .timestamp(LocalDateTime.now())
                                 .build());
 
-                return toDTO(lock);
+                return result;
         }
 
         /**
@@ -248,3 +254,10 @@ public class SeatLockService {
                                 .build();
         }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: net/vuega/vuega_backend/Exception/SeatLockConflictException#

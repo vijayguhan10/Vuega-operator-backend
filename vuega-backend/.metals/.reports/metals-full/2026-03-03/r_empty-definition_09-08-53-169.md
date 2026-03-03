@@ -1,3 +1,14 @@
+error id: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/lock/SeatLockService.java:_empty_/BookingSessionRepository#
+file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/lock/SeatLockService.java
+empty definition using pc, found symbol in pc: _empty_/BookingSessionRepository#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 2102
+uri: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Service/seats/lock/SeatLockService.java
+text:
+```scala
 package net.vuega.vuega_backend.Service.seats.lock;
 
 import java.time.LocalDateTime;
@@ -40,10 +51,9 @@ public class SeatLockService {
 
         private final SeatRepository seatRepository;
         private final SeatLockRepository lockRepository;
-        private final SeatBookingRepository seatBookingRepository;
-        private final BookingSessionRepository sessionRepository;
-        private final SeatSocketService socketService;
         private final SeatBookingRepository bookingRepository;
+        private final Booki@@ngSessionRepository sessionRepository;
+        private final SeatSocketService socketService;
 
         /**
          * Acquire a lock on a single seat.
@@ -53,66 +63,55 @@ public class SeatLockService {
          */
         @Transactional
         public SeatLockDTO acquireLock(Long seatId, AcquireLockRequest request) {
-
-                Long scheduleId = request.getScheduleId();
-
-                // 1. Validate seat exists
                 Seat seat = seatRepository.findById(seatId)
                                 .orElseThrow(() -> new SeatNotFoundException(seatId));
 
-                // 2. Check for existing confirmed booking on this seat+schedule
-                boolean alreadyBooked = seatBookingRepository.existsBySeat_SeatIdAndScheduleIdAndStatus(
-                                seatId, scheduleId, BookingStatus.BOOKED);
-                if (alreadyBooked) {
-                        throw new SeatLockConflictException("Seat " + seatId + " is already booked.");
-                }
-
-                // 3. Check for existing lock
-                lockRepository.findBySeatIdAndScheduleId(seatId, scheduleId).ifPresent(existingLock -> {
-                        if (existingLock.getSession().getExpiresAt().isAfter(LocalDateTime.now())) {
-                                throw new SeatLockConflictException("Seat " + seatId + " is already locked.");
-                        }
-                        lockRepository.delete(existingLock);
-                        lockRepository.flush();
-                });
-
-                // 4. Resolve or create session — SAVE SESSION FIRST
                 BookingSession session;
                 if (request.getSessionId() != null) {
+                        // Validate existing session
                         session = sessionRepository.findById(request.getSessionId())
                                         .orElseThrow(() -> new SessionNotFoundException(request.getSessionId()));
                         if (session.getExpiresAt().isBefore(LocalDateTime.now())) {
-                                throw new SessionExpiredException(request.getSessionId().toString());
+                                throw new SessionExpiredException(
+                                                "Session " + request.getSessionId() + " has expired.");
                         }
+                        // Extend session expiry on every lock
+                        session.setExpiresAt(LocalDateTime.now().plusMinutes(SESSION_TTL_MINUTES));
+                        sessionRepository.save(session);
                 } else {
+                        // Create new session — no passenger data at this stage
                         session = BookingSession.builder()
-                                        .scheduleId(scheduleId)
+                                        .scheduleId(request.getScheduleId())
                                         .expiresAt(LocalDateTime.now().plusMinutes(SESSION_TTL_MINUTES))
                                         .build();
                         session = sessionRepository.save(session);
-                        sessionRepository.flush();
                 }
 
-                // 5. Create and save lock (session is now a persistent entity)
                 SeatLock lock = SeatLock.builder()
                                 .seat(seat)
-                                .scheduleId(scheduleId)
+                                .scheduleId(request.getScheduleId())
                                 .session(session)
                                 .build();
 
-                lock = lockRepository.save(lock);
+                SeatLockDTO result;
+                try {
+                        result = toDTO(lockRepository.saveAndFlush(lock));
+                } catch (DataIntegrityViolationException e) {
+                        throw new SeatLockConflictException(
+                                        "Seat " + seatId + " is already locked for schedule "
+                                                        + request.getScheduleId() + ".");
+                }
 
-                // 6. Notify via WebSocket
                 socketService.broadcast(SeatUpdateMessage.builder()
                                 .event(SeatUpdateMessage.Event.LOCKED)
                                 .busId(seat.getBusId())
                                 .seatId(seatId)
                                 .seatNo(seat.getSeatNo())
-                                .scheduleId(scheduleId)
+                                .scheduleId(request.getScheduleId())
                                 .timestamp(LocalDateTime.now())
                                 .build());
 
-                return toDTO(lock);
+                return result;
         }
 
         /**
@@ -248,3 +247,10 @@ public class SeatLockService {
                                 .build();
         }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: _empty_/BookingSessionRepository#

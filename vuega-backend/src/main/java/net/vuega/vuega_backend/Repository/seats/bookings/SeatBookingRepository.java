@@ -40,4 +40,6 @@ public interface SeatBookingRepository extends JpaRepository<Booking, Long> {
         List<Booking> findHistoryBySeatAndSchedule(
                         @Param("seatId") Long seatId,
                         @Param("scheduleId") Long scheduleId);
+
+        boolean existsBySeat_SeatIdAndScheduleIdAndStatus(Long seatId, Long scheduleId, BookingStatus status);
 }
