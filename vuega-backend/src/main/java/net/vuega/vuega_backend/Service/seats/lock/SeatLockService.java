@@ -13,12 +13,12 @@ import net.vuega.vuega_backend.DTO.seats.lock.SeatLockDTO;
 import net.vuega.vuega_backend.DTO.seats.seat.bookings.BookingDTO;
 import net.vuega.vuega_backend.DTO.seats.session.BookingSessionDTO;
 import net.vuega.vuega_backend.DTO.seats.socket.SeatUpdateMessage;
-import net.vuega.vuega_backend.Exception.BookingNotFoundException;
-import net.vuega.vuega_backend.Exception.SeatLockConflictException;
-import net.vuega.vuega_backend.Exception.SeatLockNotFoundException;
-import net.vuega.vuega_backend.Exception.SeatNotFoundException;
-import net.vuega.vuega_backend.Exception.SessionExpiredException;
-import net.vuega.vuega_backend.Exception.SessionNotFoundException;
+import net.vuega.vuega_backend.exception.BookingNotFoundException;
+import net.vuega.vuega_backend.exception.SeatLockConflictException;
+import net.vuega.vuega_backend.exception.SeatLockNotFoundException;
+import net.vuega.vuega_backend.exception.SeatNotFoundException;
+import net.vuega.vuega_backend.exception.SessionExpiredException;
+import net.vuega.vuega_backend.exception.SessionNotFoundException;
 import net.vuega.vuega_backend.Model.seats.bookings.Booking;
 import net.vuega.vuega_backend.Model.seats.bookings.BookingStatus;
 import net.vuega.vuega_backend.Model.seats.lock.SeatLock;
@@ -44,29 +44,21 @@ public class SeatLockService {
         private final SeatSocketService socketService;
         private final SeatBookingRepository bookingRepository;
 
-        /**
-         * Acquire a lock on a single seat.
-         * If sessionId is not provided, a new BookingSession is created.
-         * If sessionId is provided, the session is validated and its expiry extended.
-         * Concurrency is handled by the unique constraint on (seat_id, schedule_id).
-         */
+        // Locks a seat for a schedule; creates or reuses a session, checks for conflicts.
         @Transactional
         public SeatLockDTO acquireLock(Long seatId, AcquireLockRequest request) {
 
                 Long scheduleId = request.getScheduleId();
 
-                // 1. Validate seat exists
                 Seat seat = seatRepository.findById(seatId)
                                 .orElseThrow(() -> new SeatNotFoundException(seatId));
 
-                // 2. Check for existing confirmed booking on this seat+schedule
                 boolean alreadyBooked = seatBookingRepository.existsBySeat_SeatIdAndScheduleIdAndStatus(
                                 seatId, scheduleId, BookingStatus.BOOKED);
                 if (alreadyBooked) {
                         throw new SeatLockConflictException("Seat " + seatId + " is already booked.");
                 }
 
-                // 3. Check for existing lock
                 lockRepository.findBySeatIdAndScheduleId(seatId, scheduleId).ifPresent(existingLock -> {
                         if (existingLock.getSession().getExpiresAt().isAfter(LocalDateTime.now())) {
                                 throw new SeatLockConflictException("Seat " + seatId + " is already locked.");
@@ -75,7 +67,6 @@ public class SeatLockService {
                         lockRepository.flush();
                 });
 
-                // 4. Resolve or create session — SAVE SESSION FIRST
                 BookingSession session;
                 if (request.getSessionId() != null) {
                         session = sessionRepository.findById(request.getSessionId())
@@ -92,7 +83,6 @@ public class SeatLockService {
                         sessionRepository.flush();
                 }
 
-                // 5. Create and save lock (session is now a persistent entity)
                 SeatLock lock = SeatLock.builder()
                                 .seat(seat)
                                 .scheduleId(scheduleId)
@@ -101,7 +91,6 @@ public class SeatLockService {
 
                 lock = lockRepository.save(lock);
 
-                // 6. Notify via WebSocket
                 socketService.broadcast(SeatUpdateMessage.builder()
                                 .event(SeatUpdateMessage.Event.LOCKED)
                                 .busId(seat.getBusId())
@@ -114,9 +103,7 @@ public class SeatLockService {
                 return toDTO(lock);
         }
 
-        /**
-         * Release a specific lock by seat and schedule.
-         */
+        // Removes an existing lock on a seat for a given schedule and notifies via WebSocket.
         @Transactional
         public void releaseLock(Long seatId, Long scheduleId) {
                 SeatLock lock = lockRepository.findBySeatIdAndScheduleId(seatId, scheduleId)
@@ -135,9 +122,7 @@ public class SeatLockService {
                                 .build());
         }
 
-        /**
-         * Cancel a seat booking (soft delete — status set to CANCELLED).
-         */
+        // Sets a booking status to CANCELLED if the passenger owns it, then broadcasts.
         @Transactional
         public BookingDTO cancelBooking(Long seatStatusId, Long passengerId) {
                 Booking booking = bookingRepository.findById(seatStatusId)
@@ -170,9 +155,7 @@ public class SeatLockService {
                 return toBookingDTO(saved);
         }
 
-        /**
-         * Get the current lock on a seat for a given schedule.
-         */
+        // Returns the active lock for a seat on a given schedule.
         @Transactional(readOnly = true)
         public SeatLockDTO getLockBySeat(Long seatId, Long scheduleId) {
                 return lockRepository.findBySeatIdAndScheduleId(seatId, scheduleId)
@@ -180,9 +163,7 @@ public class SeatLockService {
                                 .orElseThrow(() -> new SeatLockNotFoundException(seatId, null));
         }
 
-        /**
-         * Get all locks for a booking session.
-         */
+        // Returns all locks belonging to a specific booking session.
         @Transactional(readOnly = true)
         public List<SeatLockDTO> getLocksBySession(Long sessionId) {
                 return lockRepository.findBySessionIdWithSeat(sessionId)
@@ -191,9 +172,7 @@ public class SeatLockService {
                                 .toList();
         }
 
-        /**
-         * Get session info by ID.
-         */
+        // Fetches booking session details by ID.
         @Transactional(readOnly = true)
         public BookingSessionDTO getSession(Long sessionId) {
                 BookingSession session = sessionRepository.findById(sessionId)
@@ -201,9 +180,7 @@ public class SeatLockService {
                 return toSessionDTO(session);
         }
 
-        /**
-         * Get booking history for a passenger.
-         */
+        // Returns all seat bookings for a given passenger.
         @Transactional(readOnly = true)
         public List<BookingDTO> getBookingHistory(Long passengerId) {
                 return bookingRepository.findByPassengerId(passengerId)

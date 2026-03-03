@@ -14,8 +14,8 @@ import net.vuega.vuega_backend.DTO.seats.seat.CreateSeatRequest;
 import net.vuega.vuega_backend.DTO.seats.seat.CreateSeatsInBatchRequest;
 import net.vuega.vuega_backend.DTO.seats.seat.SeatDTO;
 import net.vuega.vuega_backend.DTO.seats.seat.UpdateSeatRequest;
-import net.vuega.vuega_backend.Exception.DuplicateSeatException;
-import net.vuega.vuega_backend.Exception.SeatNotFoundException;
+import net.vuega.vuega_backend.exception.DuplicateSeatException;
+import net.vuega.vuega_backend.exception.SeatNotFoundException;
 import net.vuega.vuega_backend.Model.seats.seat.Seat;
 import net.vuega.vuega_backend.Repository.seats.seat.SeatRepository;
 
@@ -35,6 +35,7 @@ public class SeatService {
                 .build();
     }
 
+    // Creates a single seat after checking for duplicate seat numbers on the bus.
     @Transactional
     public SeatDTO createSeat(CreateSeatRequest request) {
         if (repository.existsByBusIdAndSeatNo(request.getBusId(), request.getSeatNo())) {
@@ -51,6 +52,7 @@ public class SeatService {
         return toDTO(repository.save(seat));
     }
 
+    // Creates multiple seats in a single transaction; fails if any duplicate exists.
     @Transactional
     public List<SeatDTO> createSeatsInBatch(CreateSeatsInBatchRequest request) {
         for (CreateSeatRequest r : request.getSeats()) {
@@ -73,6 +75,7 @@ public class SeatService {
                 .toList();
     }
 
+    // Fetches a seat by ID, enriched with bus details from Control Plane.
     @Transactional(readOnly = true)
     public SeatDTO getSeatById(Long seatId) {
         Seat seat = repository.findById(seatId)
@@ -80,6 +83,7 @@ public class SeatService {
         return toDTOEnriched(seat);
     }
 
+    // Returns all seats for a given bus, enriched with bus details.
     @Transactional(readOnly = true)
     public List<SeatDTO> getSeatsByBus(Long busId) {
         return repository.findByBusId(busId).stream()
@@ -87,6 +91,7 @@ public class SeatService {
                 .toList();
     }
 
+    // Returns seats not booked for the given schedule segment (fromStop to toStop).
     @Transactional(readOnly = true)
     public List<SeatDTO> getAvailableSeatsForSegment(Long busId, Long scheduleId, int fromStop, int toStop) {
         return repository.findAvailableSeatsForSegment(busId, scheduleId, fromStop, toStop).stream()
@@ -94,6 +99,7 @@ public class SeatService {
                 .toList();
     }
 
+    // Partially updates seat fields (seatNo, type, basePrice); validates no duplicate.
     @Transactional
     public SeatDTO updateSeat(Long seatId, UpdateSeatRequest request) {
         Seat seat = repository.findById(seatId)

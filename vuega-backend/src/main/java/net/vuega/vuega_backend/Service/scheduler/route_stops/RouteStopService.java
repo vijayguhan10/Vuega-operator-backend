@@ -10,7 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 import net.vuega.vuega_backend.DTO.scheduler.route_stops.CreateRouteStopRequest;
 import net.vuega.vuega_backend.DTO.scheduler.route_stops.RouteStopDTO;
 import net.vuega.vuega_backend.DTO.scheduler.route_stops.UpdateRouteStopRequest;
-import net.vuega.vuega_backend.Exception.RouteStopNotFoundException;
+import net.vuega.vuega_backend.exception.RouteStopNotFoundException;
 import net.vuega.vuega_backend.Model.scheduler.route_stops.RouteStop;
 import net.vuega.vuega_backend.Repository.scheduler.route_stops.RouteStopRepository;
 

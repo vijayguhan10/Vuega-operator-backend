@@ -1,4 +1,4 @@
-package net.vuega.vuega_backend.Exception;
+package net.vuega.vuega_backend.exception;
 
 public class SessionNotFoundException extends RuntimeException {
     public SessionNotFoundException(Long sessionId) {

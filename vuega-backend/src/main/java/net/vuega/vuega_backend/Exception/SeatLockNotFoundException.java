@@ -1,4 +1,4 @@
-package net.vuega.vuega_backend.Exception;
+package net.vuega.vuega_backend.exception;
 
 // Thrown when no active lock exists for the given seat or partner.
 public class SeatLockNotFoundException extends RuntimeException {

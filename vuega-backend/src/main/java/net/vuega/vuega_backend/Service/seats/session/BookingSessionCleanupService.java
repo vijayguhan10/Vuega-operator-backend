@@ -10,11 +10,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import net.vuega.vuega_backend.Repository.seats.session.BookingSessionRepository;
 
-/**
- * Periodically cleans up expired BookingSessions.
- * SeatLock rows cascade-delete automatically when their session is deleted.
- * Does NOT touch any Booking data.
- */
 @Service
 @RequiredArgsConstructor
 @Slf4j
@@ -22,6 +17,7 @@ public class BookingSessionCleanupService {
 
     private final BookingSessionRepository sessionRepository;
 
+    // Runs every 15s to delete expired sessions; cascade-deletes their locks.
     @Scheduled(fixedRate = 15_000)
     @Transactional
     public void cleanupExpiredSessions() {
