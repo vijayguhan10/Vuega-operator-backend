@@ -21,9 +21,9 @@ import net.vuega.vuega_backend.DTO.seats.lock.SeatLockDTO;
 import net.vuega.vuega_backend.DTO.seats.session.BookingSessionDTO;
 import net.vuega.vuega_backend.exception.SeatLockConflictException;
 import net.vuega.vuega_backend.exception.SeatLockNotFoundException;
-import net.vuega.vuega_backend.Exception.SeatNotFoundException;
-import net.vuega.vuega_backend.Exception.SessionExpiredException;
-import net.vuega.vuega_backend.Exception.SessionNotFoundException;
+import net.vuega.vuega_backend.exception.SeatNotFoundException;
+import net.vuega.vuega_backend.exception.SessionExpiredException;
+import net.vuega.vuega_backend.exception.SessionNotFoundException;
 import net.vuega.vuega_backend.Service.seats.lock.SeatLockService;
 
 @RestController

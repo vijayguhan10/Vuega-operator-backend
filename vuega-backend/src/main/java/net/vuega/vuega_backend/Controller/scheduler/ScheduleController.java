@@ -20,7 +20,7 @@ import net.vuega.vuega_backend.DTO.ResponseDto;
 import net.vuega.vuega_backend.DTO.scheduler.CreateScheduleRequest;
 import net.vuega.vuega_backend.DTO.scheduler.ScheduleDTO;
 import net.vuega.vuega_backend.DTO.scheduler.UpdateScheduleRequest;
-import net.vuega.vuega_backend.Exception.ScheduleOverlapException;
+import net.vuega.vuega_backend.exception.ScheduleOverlapException;
 import net.vuega.vuega_backend.Model.scheduler.ScheduleStatus;
 import net.vuega.vuega_backend.Service.scheduler.ScheduleService;
 
