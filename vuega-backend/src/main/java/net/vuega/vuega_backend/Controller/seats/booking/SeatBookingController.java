@@ -18,13 +18,6 @@ import net.vuega.vuega_backend.DTO.ResponseDto;
 import net.vuega.vuega_backend.DTO.bookings.MultiSeatBookingRequest;
 import net.vuega.vuega_backend.DTO.bookings.MultiSeatBookingResponse;
 import net.vuega.vuega_backend.DTO.seats.seat.bookings.BookingDTO;
-import net.vuega.vuega_backend.exception.BookingNotFoundException;
-import net.vuega.vuega_backend.exception.InvalidStopRangeException;
-import net.vuega.vuega_backend.exception.SeatLockConflictException;
-import net.vuega.vuega_backend.exception.SeatMismatchException;
-import net.vuega.vuega_backend.exception.SeatNotAvailableException;
-import net.vuega.vuega_backend.exception.SessionExpiredException;
-import net.vuega.vuega_backend.exception.SessionNotFoundException;
 import net.vuega.vuega_backend.Service.bookings.MultiSeatBookingService;
 import net.vuega.vuega_backend.Service.seats.lock.SeatLockService;
 
