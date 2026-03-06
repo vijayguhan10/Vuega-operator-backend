@@ -1,0 +1,15 @@
+package net.vuega.vuega_backend.Operator_pannel.DTO.seats.lock;
+
+import lombok.Builder;
+import lombok.Data;
+
+@Data
+@Builder
+public class SeatLockDTO {
+    private Long lockId;
+    private Long seatId;
+    private String seatNo;
+    private Long busId;
+    private Long scheduleId;
+    private Long sessionId;
+}
