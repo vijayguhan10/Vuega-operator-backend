@@ -11,13 +11,15 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
+//import org.springframework.transaction.annotation.Transactional;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import net.vuega.vuega_backend.DTO.ResponseDto;
 import net.vuega.vuega_backend.DTO.bookings.MultiSeatBookingRequest;
 import net.vuega.vuega_backend.DTO.bookings.MultiSeatBookingResponse;
 import net.vuega.vuega_backend.DTO.seats.seat.bookings.BookingDTO;
+import net.vuega.vuega_backend.Service.bookings.MultiSeatBookingService;
+import net.vuega.vuega_backend.Service.seats.lock.SeatLockService;
 import net.vuega.vuega_backend.exception.BookingNotFoundException;
 import net.vuega.vuega_backend.exception.InvalidStopRangeException;
 import net.vuega.vuega_backend.exception.SeatLockConflictException;
@@ -25,8 +27,6 @@ import net.vuega.vuega_backend.exception.SeatMismatchException;
 import net.vuega.vuega_backend.exception.SeatNotAvailableException;
 import net.vuega.vuega_backend.exception.SessionExpiredException;
 import net.vuega.vuega_backend.exception.SessionNotFoundException;
-import net.vuega.vuega_backend.Service.bookings.MultiSeatBookingService;
-import net.vuega.vuega_backend.Service.seats.lock.SeatLockService;
 
 /**
  * Single unified booking endpoint.
