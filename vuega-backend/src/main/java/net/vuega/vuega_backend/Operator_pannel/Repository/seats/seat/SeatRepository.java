@@ -1,4 +1,4 @@
-package net.vuega.vuega_backend.Repository.seats.seat;
+package net.vuega.vuega_backend.Operator_pannel.Repository.seats.seat;
 
 import java.util.List;
 
@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import net.vuega.vuega_backend.Model.seats.seat.Seat;
+import net.vuega.vuega_backend.Operator_pannel.Model.seats.seat.Seat;
 
 @Repository
 public interface SeatRepository extends JpaRepository<Seat, Long> {

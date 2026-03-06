@@ -1,4 +1,4 @@
-package net.vuega.vuega_backend.Service.bookings;
+package net.vuega.vuega_backend.Operator_pannel.Service.bookings;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -14,30 +14,30 @@ import org.springframework.transaction.annotation.Transactional;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import net.vuega.vuega_backend.DTO.bookings.MultiSeatBookingRequest;
-import net.vuega.vuega_backend.DTO.bookings.MultiSeatBookingResponse;
-import net.vuega.vuega_backend.DTO.bookings.PassengerRequest;
-import net.vuega.vuega_backend.DTO.passengers.PassengerDTO;
-import net.vuega.vuega_backend.DTO.seats.seat.bookings.BookingDTO;
-import net.vuega.vuega_backend.DTO.seats.socket.SeatUpdateMessage;
-import net.vuega.vuega_backend.Model.bookings.Booking;
-import net.vuega.vuega_backend.Model.bookings.BookingPassenger;
-import net.vuega.vuega_backend.Model.bookings.BookingStatus;
-import net.vuega.vuega_backend.Model.passengers.Passenger;
-import net.vuega.vuega_backend.Model.seats.lock.SeatLock;
-import net.vuega.vuega_backend.Model.seats.session.BookingSession;
-import net.vuega.vuega_backend.Repository.bookings.BookingPassengerRepository;
-import net.vuega.vuega_backend.Repository.bookings.BookingRepository;
-import net.vuega.vuega_backend.Repository.passengers.PassengerRepository;
-import net.vuega.vuega_backend.Repository.seats.bookings.SeatBookingRepository;
-import net.vuega.vuega_backend.Repository.seats.lock.SeatLockRepository;
-import net.vuega.vuega_backend.Repository.seats.session.BookingSessionRepository;
-import net.vuega.vuega_backend.Service.seats.socket.SeatSocketService;
-import net.vuega.vuega_backend.exception.InvalidStopRangeException;
-import net.vuega.vuega_backend.exception.SeatMismatchException;
-import net.vuega.vuega_backend.exception.SeatNotAvailableException;
-import net.vuega.vuega_backend.exception.SessionExpiredException;
-import net.vuega.vuega_backend.exception.SessionNotFoundException;
+import net.vuega.vuega_backend.Operator_pannel.DTO.bookings.MultiSeatBookingRequest;
+import net.vuega.vuega_backend.Operator_pannel.DTO.bookings.MultiSeatBookingResponse;
+import net.vuega.vuega_backend.Operator_pannel.DTO.bookings.PassengerRequest;
+import net.vuega.vuega_backend.Operator_pannel.DTO.passengers.PassengerDTO;
+import net.vuega.vuega_backend.Operator_pannel.DTO.seats.seat.bookings.BookingDTO;
+import net.vuega.vuega_backend.Operator_pannel.DTO.seats.socket.SeatUpdateMessage;
+import net.vuega.vuega_backend.Operator_pannel.Model.bookings.Booking;
+import net.vuega.vuega_backend.Operator_pannel.Model.bookings.BookingPassenger;
+import net.vuega.vuega_backend.Operator_pannel.Model.bookings.BookingStatus;
+import net.vuega.vuega_backend.Operator_pannel.Model.passengers.Passenger;
+import net.vuega.vuega_backend.Operator_pannel.Model.seats.lock.SeatLock;
+import net.vuega.vuega_backend.Operator_pannel.Model.seats.session.BookingSession;
+import net.vuega.vuega_backend.Operator_pannel.Repository.bookings.BookingPassengerRepository;
+import net.vuega.vuega_backend.Operator_pannel.Repository.bookings.BookingRepository;
+import net.vuega.vuega_backend.Operator_pannel.Repository.passengers.PassengerRepository;
+import net.vuega.vuega_backend.Operator_pannel.Repository.seats.bookings.SeatBookingRepository;
+import net.vuega.vuega_backend.Operator_pannel.Repository.seats.lock.SeatLockRepository;
+import net.vuega.vuega_backend.Operator_pannel.Repository.seats.session.BookingSessionRepository;
+import net.vuega.vuega_backend.Operator_pannel.Service.seats.socket.SeatSocketService;
+import net.vuega.vuega_backend.Operator_pannel.exception.InvalidStopRangeException;
+import net.vuega.vuega_backend.Operator_pannel.exception.SeatMismatchException;
+import net.vuega.vuega_backend.Operator_pannel.exception.SeatNotAvailableException;
+import net.vuega.vuega_backend.Operator_pannel.exception.SessionExpiredException;
+import net.vuega.vuega_backend.Operator_pannel.exception.SessionNotFoundException;
 
 @Service
 @RequiredArgsConstructor
@@ -105,7 +105,7 @@ public class MultiSeatBookingService {
                 var lockBySeatId = sessionLocks.stream()
                                 .collect(Collectors.toMap(lock -> lock.getSeat().getSeatId(), lock -> lock));
 
-                var bookedStatus = net.vuega.vuega_backend.Model.seats.bookings.BookingStatus.BOOKED;
+                var bookedStatus = net.vuega.vuega_backend.Operator_pannel.Model.seats.bookings.BookingStatus.BOOKED;
                 for (PassengerRequest pr : request.getPassengerDetails()) {
                         long overlapping = seatBookingRepository.countOverlappingBookings(
                                         pr.getSeatId(),
@@ -141,7 +141,7 @@ public class MultiSeatBookingService {
                 mainBooking = bookingRepository.save(mainBooking);
 
                 List<Passenger> passengers = new ArrayList<>();
-                List<net.vuega.vuega_backend.Model.seats.bookings.Booking> seatBookings = new ArrayList<>();
+                List<net.vuega.vuega_backend.Operator_pannel.Model.seats.bookings.Booking> seatBookings = new ArrayList<>();
 
                 for (PassengerRequest pr : request.getPassengerDetails()) {
                         Passenger passenger = Passenger.builder()
@@ -159,7 +159,7 @@ public class MultiSeatBookingService {
                         bookingPassengerRepository.save(bp);
 
                         SeatLock lock = lockBySeatId.get(pr.getSeatId());
-                        net.vuega.vuega_backend.Model.seats.bookings.Booking seatBooking = net.vuega.vuega_backend.Model.seats.bookings.Booking
+                        net.vuega.vuega_backend.Operator_pannel.Model.seats.bookings.Booking seatBooking = net.vuega.vuega_backend.Operator_pannel.Model.seats.bookings.Booking
                                         .builder()
                                         .bookingId(mainBooking.getBookingId())
                                         .seat(lock.getSeat())
@@ -174,7 +174,7 @@ public class MultiSeatBookingService {
 
                 sessionRepository.delete(session);
 
-                for (net.vuega.vuega_backend.Model.seats.bookings.Booking sb : seatBookings) {
+                for (net.vuega.vuega_backend.Operator_pannel.Model.seats.bookings.Booking sb : seatBookings) {
                         socketService.broadcast(SeatUpdateMessage.builder()
                                         .event(SeatUpdateMessage.Event.BOOKED)
                                         .busId(sb.getSeat().getBusId())
@@ -197,7 +197,7 @@ public class MultiSeatBookingService {
         private MultiSeatBookingResponse buildResponse(
                         Booking mainBooking,
                         List<Passenger> passengers,
-                        List<net.vuega.vuega_backend.Model.seats.bookings.Booking> seatBookings) {
+                        List<net.vuega.vuega_backend.Operator_pannel.Model.seats.bookings.Booking> seatBookings) {
 
                 List<PassengerDTO> passengerDTOs = passengers.stream()
                                 .map(p -> PassengerDTO.builder()

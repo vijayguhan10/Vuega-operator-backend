@@ -1,4 +1,4 @@
-package net.vuega.vuega_backend.Service.operatorconfig;
+package net.vuega.vuega_backend.Operator_pannel.Service.operatorconfig;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
@@ -6,8 +6,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestClient;
 
-import net.vuega.vuega_backend.DTO.operatorconfig.LoginRequest;
-import net.vuega.vuega_backend.DTO.operatorconfig.OperatorDTO;
+import net.vuega.vuega_backend.Operator_pannel.DTO.operatorconfig.LoginRequest;
+import net.vuega.vuega_backend.Operator_pannel.DTO.operatorconfig.OperatorDTO;
 
 @Service
 public class OperatorService {

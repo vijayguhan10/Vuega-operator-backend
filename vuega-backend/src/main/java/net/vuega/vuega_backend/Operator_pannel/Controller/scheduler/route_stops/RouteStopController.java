@@ -1,4 +1,4 @@
-package net.vuega.vuega_backend.Controller.scheduler.route_stops;
+package net.vuega.vuega_backend.Operator_pannel.Controller.scheduler.route_stops;
 
 import java.util.List;
 
@@ -15,11 +15,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import net.vuega.vuega_backend.DTO.ResponseDto;
-import net.vuega.vuega_backend.DTO.scheduler.route_stops.CreateRouteStopRequest;
-import net.vuega.vuega_backend.DTO.scheduler.route_stops.RouteStopDTO;
-import net.vuega.vuega_backend.DTO.scheduler.route_stops.UpdateRouteStopRequest;
-import net.vuega.vuega_backend.Service.scheduler.route_stops.RouteStopService;
+import net.vuega.vuega_backend.Operator_pannel.DTO.ResponseDto;
+import net.vuega.vuega_backend.Operator_pannel.DTO.scheduler.route_stops.CreateRouteStopRequest;
+import net.vuega.vuega_backend.Operator_pannel.DTO.scheduler.route_stops.RouteStopDTO;
+import net.vuega.vuega_backend.Operator_pannel.DTO.scheduler.route_stops.UpdateRouteStopRequest;
+import net.vuega.vuega_backend.Operator_pannel.Service.scheduler.route_stops.RouteStopService;
 
 @RestController
 @RequestMapping("/api/v1/route-stops")

@@ -1,4 +1,4 @@
-package net.vuega.vuega_backend.DTO.seats.seat;
+package net.vuega.vuega_backend.Operator_pannel.DTO.seats.seat;
 
 import java.math.BigDecimal;
 
@@ -10,7 +10,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import net.vuega.vuega_backend.Model.seats.seat.SeatType;
+import net.vuega.vuega_backend.Operator_pannel.Model.seats.seat.SeatType;
 
 @Data
 @NoArgsConstructor

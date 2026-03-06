@@ -1,4 +1,4 @@
-package net.vuega.vuega_backend.Model.seats.seat;
+package net.vuega.vuega_backend.Operator_pannel.Model.seats.seat;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;

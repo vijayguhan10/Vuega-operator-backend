@@ -1,4 +1,4 @@
-package net.vuega.vuega_backend.Model.passengers;
+package net.vuega.vuega_backend.Operator_pannel.Model.passengers;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

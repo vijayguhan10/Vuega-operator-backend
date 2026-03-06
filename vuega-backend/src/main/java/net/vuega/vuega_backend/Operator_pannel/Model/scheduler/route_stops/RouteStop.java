@@ -1,4 +1,4 @@
-package net.vuega.vuega_backend.Model.scheduler.route_stops;
+package net.vuega.vuega_backend.Operator_pannel.Model.scheduler.route_stops;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

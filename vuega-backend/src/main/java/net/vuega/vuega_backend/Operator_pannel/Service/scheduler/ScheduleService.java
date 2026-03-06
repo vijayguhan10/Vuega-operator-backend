@@ -1,4 +1,4 @@
-package net.vuega.vuega_backend.Service.scheduler;
+package net.vuega.vuega_backend.Operator_pannel.Service.scheduler;
 
 import java.util.List;
 import java.util.Map;
@@ -8,13 +8,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestClient;
 
-import net.vuega.vuega_backend.DTO.scheduler.CreateScheduleRequest;
-import net.vuega.vuega_backend.DTO.scheduler.ScheduleDTO;
-import net.vuega.vuega_backend.DTO.scheduler.UpdateScheduleRequest;
-import net.vuega.vuega_backend.Model.scheduler.Schedule;
-import net.vuega.vuega_backend.Model.scheduler.ScheduleStatus;
-import net.vuega.vuega_backend.Repository.scheduler.ScheduleRepository;
-import net.vuega.vuega_backend.exception.ScheduleOverlapException;
+import net.vuega.vuega_backend.Operator_pannel.DTO.scheduler.CreateScheduleRequest;
+import net.vuega.vuega_backend.Operator_pannel.DTO.scheduler.ScheduleDTO;
+import net.vuega.vuega_backend.Operator_pannel.DTO.scheduler.UpdateScheduleRequest;
+import net.vuega.vuega_backend.Operator_pannel.Model.scheduler.Schedule;
+import net.vuega.vuega_backend.Operator_pannel.Model.scheduler.ScheduleStatus;
+import net.vuega.vuega_backend.Operator_pannel.Repository.scheduler.ScheduleRepository;
+import net.vuega.vuega_backend.Operator_pannel.exception.ScheduleOverlapException;
 
 @Service
 public class ScheduleService {

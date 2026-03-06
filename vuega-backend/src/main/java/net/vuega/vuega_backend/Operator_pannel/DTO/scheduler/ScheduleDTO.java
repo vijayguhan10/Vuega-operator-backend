@@ -1,4 +1,4 @@
-package net.vuega.vuega_backend.DTO.scheduler;
+package net.vuega.vuega_backend.Operator_pannel.DTO.scheduler;
 
 import java.time.LocalTime;
 
@@ -6,7 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import net.vuega.vuega_backend.Model.scheduler.ScheduleStatus;
+import net.vuega.vuega_backend.Operator_pannel.Model.scheduler.ScheduleStatus;
 
 @Data
 @NoArgsConstructor

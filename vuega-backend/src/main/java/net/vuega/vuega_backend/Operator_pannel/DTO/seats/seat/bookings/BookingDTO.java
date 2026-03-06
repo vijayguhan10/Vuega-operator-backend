@@ -1,8 +1,8 @@
-package net.vuega.vuega_backend.DTO.seats.seat.bookings;
+package net.vuega.vuega_backend.Operator_pannel.DTO.seats.seat.bookings;
 
 import lombok.Builder;
 import lombok.Data;
-import net.vuega.vuega_backend.Model.seats.bookings.BookingStatus;
+import net.vuega.vuega_backend.Operator_pannel.Model.seats.bookings.BookingStatus;
 
 @Data
 @Builder

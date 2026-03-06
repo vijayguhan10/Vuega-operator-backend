@@ -1,11 +1,11 @@
-package net.vuega.vuega_backend.Repository.bookings;
+package net.vuega.vuega_backend.Operator_pannel.Repository.bookings;
 
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import net.vuega.vuega_backend.Model.bookings.BookingPassenger;
+import net.vuega.vuega_backend.Operator_pannel.Model.bookings.BookingPassenger;
 
 @Repository
 public interface BookingPassengerRepository extends JpaRepository<BookingPassenger, Long> {

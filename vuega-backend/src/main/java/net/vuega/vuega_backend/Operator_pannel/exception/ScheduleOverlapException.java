@@ -1,4 +1,4 @@
-package net.vuega.vuega_backend.exception;
+package net.vuega.vuega_backend.Operator_pannel.exception;
 
 public class ScheduleOverlapException extends RuntimeException {
     public ScheduleOverlapException(String message) {

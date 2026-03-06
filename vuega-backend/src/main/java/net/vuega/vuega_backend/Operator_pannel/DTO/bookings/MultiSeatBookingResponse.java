@@ -1,4 +1,4 @@
-package net.vuega.vuega_backend.DTO.bookings;
+package net.vuega.vuega_backend.Operator_pannel.DTO.bookings;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -8,9 +8,9 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import net.vuega.vuega_backend.DTO.passengers.PassengerDTO;
-import net.vuega.vuega_backend.DTO.seats.seat.bookings.BookingDTO;
-import net.vuega.vuega_backend.Model.bookings.BookingStatus;
+import net.vuega.vuega_backend.Operator_pannel.DTO.passengers.PassengerDTO;
+import net.vuega.vuega_backend.Operator_pannel.DTO.seats.seat.bookings.BookingDTO;
+import net.vuega.vuega_backend.Operator_pannel.Model.bookings.BookingStatus;
 
 @Data
 @NoArgsConstructor

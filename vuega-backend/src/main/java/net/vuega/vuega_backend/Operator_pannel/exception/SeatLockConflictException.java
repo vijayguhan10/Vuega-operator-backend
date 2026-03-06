@@ -1,4 +1,4 @@
-package net.vuega.vuega_backend.exception;
+package net.vuega.vuega_backend.Operator_pannel.exception;
 
 // Thrown when a conflicting lock exists or the requesting partner does not own the lock.
 public class SeatLockConflictException extends RuntimeException {

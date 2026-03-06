@@ -1,4 +1,4 @@
-package net.vuega.vuega_backend.Service.seats.seat;
+package net.vuega.vuega_backend.Operator_pannel.Service.seats.seat;
 
 import java.util.List;
 import java.util.Map;
@@ -10,14 +10,14 @@ import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestClient;
 
 import lombok.extern.slf4j.Slf4j;
-import net.vuega.vuega_backend.DTO.seats.seat.CreateSeatRequest;
-import net.vuega.vuega_backend.DTO.seats.seat.CreateSeatsInBatchRequest;
-import net.vuega.vuega_backend.DTO.seats.seat.SeatDTO;
-import net.vuega.vuega_backend.DTO.seats.seat.UpdateSeatRequest;
-import net.vuega.vuega_backend.Model.seats.seat.Seat;
-import net.vuega.vuega_backend.Repository.seats.seat.SeatRepository;
-import net.vuega.vuega_backend.exception.DuplicateSeatException;
-import net.vuega.vuega_backend.exception.SeatNotFoundException;
+import net.vuega.vuega_backend.Operator_pannel.DTO.seats.seat.CreateSeatRequest;
+import net.vuega.vuega_backend.Operator_pannel.DTO.seats.seat.CreateSeatsInBatchRequest;
+import net.vuega.vuega_backend.Operator_pannel.DTO.seats.seat.SeatDTO;
+import net.vuega.vuega_backend.Operator_pannel.DTO.seats.seat.UpdateSeatRequest;
+import net.vuega.vuega_backend.Operator_pannel.Model.seats.seat.Seat;
+import net.vuega.vuega_backend.Operator_pannel.Repository.seats.seat.SeatRepository;
+import net.vuega.vuega_backend.Operator_pannel.exception.DuplicateSeatException;
+import net.vuega.vuega_backend.Operator_pannel.exception.SeatNotFoundException;
 
 @Service
 @Slf4j

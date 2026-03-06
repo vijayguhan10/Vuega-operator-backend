@@ -1,4 +1,4 @@
-package net.vuega.vuega_backend.Service.seats.session;
+package net.vuega.vuega_backend.Operator_pannel.Service.seats.session;
 
 import java.time.LocalDateTime;
 
@@ -8,7 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import net.vuega.vuega_backend.Repository.seats.session.BookingSessionRepository;
+import net.vuega.vuega_backend.Operator_pannel.Repository.seats.session.BookingSessionRepository;
 
 @Service
 @RequiredArgsConstructor

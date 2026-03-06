@@ -1,4 +1,4 @@
-package net.vuega.vuega_backend.Controller.seats.lock;
+package net.vuega.vuega_backend.Operator_pannel.Controller.seats.lock;
 
 import java.util.List;
 
@@ -15,16 +15,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import net.vuega.vuega_backend.DTO.ResponseDto;
-import net.vuega.vuega_backend.DTO.seats.lock.AcquireLockRequest;
-import net.vuega.vuega_backend.DTO.seats.lock.SeatLockDTO;
-import net.vuega.vuega_backend.DTO.seats.session.BookingSessionDTO;
-import net.vuega.vuega_backend.Service.seats.lock.SeatLockService;
-import net.vuega.vuega_backend.exception.SeatLockConflictException;
-import net.vuega.vuega_backend.exception.SeatLockNotFoundException;
-import net.vuega.vuega_backend.exception.SeatNotFoundException;
-import net.vuega.vuega_backend.exception.SessionExpiredException;
-import net.vuega.vuega_backend.exception.SessionNotFoundException;
+import net.vuega.vuega_backend.Operator_pannel.DTO.ResponseDto;
+import net.vuega.vuega_backend.Operator_pannel.DTO.seats.lock.AcquireLockRequest;
+import net.vuega.vuega_backend.Operator_pannel.DTO.seats.lock.SeatLockDTO;
+import net.vuega.vuega_backend.Operator_pannel.DTO.seats.session.BookingSessionDTO;
+import net.vuega.vuega_backend.Operator_pannel.Service.seats.lock.SeatLockService;
+import net.vuega.vuega_backend.Operator_pannel.exception.SeatLockConflictException;
+import net.vuega.vuega_backend.Operator_pannel.exception.SeatLockNotFoundException;
+import net.vuega.vuega_backend.Operator_pannel.exception.SeatNotFoundException;
+import net.vuega.vuega_backend.Operator_pannel.exception.SessionExpiredException;
+import net.vuega.vuega_backend.Operator_pannel.exception.SessionNotFoundException;
 
 @RestController
 @RequestMapping("/api/seats")

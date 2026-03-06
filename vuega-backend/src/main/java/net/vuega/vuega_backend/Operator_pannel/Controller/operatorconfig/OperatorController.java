@@ -1,4 +1,4 @@
-package net.vuega.vuega_backend.Controller.operatorconfig;
+package net.vuega.vuega_backend.Operator_pannel.Controller.operatorconfig;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import lombok.RequiredArgsConstructor;
-import net.vuega.vuega_backend.DTO.ResponseDto;
-import net.vuega.vuega_backend.DTO.operatorconfig.LoginRequest;
-import net.vuega.vuega_backend.DTO.operatorconfig.OperatorDTO;
-import net.vuega.vuega_backend.Service.operatorconfig.OperatorService;
+import net.vuega.vuega_backend.Operator_pannel.DTO.ResponseDto;
+import net.vuega.vuega_backend.Operator_pannel.DTO.operatorconfig.LoginRequest;
+import net.vuega.vuega_backend.Operator_pannel.DTO.operatorconfig.OperatorDTO;
+import net.vuega.vuega_backend.Operator_pannel.Service.operatorconfig.OperatorService;
 
 @RestController
 @RequestMapping("/api/operators")

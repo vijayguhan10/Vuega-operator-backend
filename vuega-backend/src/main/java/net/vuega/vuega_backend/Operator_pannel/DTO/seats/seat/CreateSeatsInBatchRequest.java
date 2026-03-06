@@ -1,4 +1,4 @@
-package net.vuega.vuega_backend.DTO.seats.seat;
+package net.vuega.vuega_backend.Operator_pannel.DTO.seats.seat;
 
 import java.util.List;
 

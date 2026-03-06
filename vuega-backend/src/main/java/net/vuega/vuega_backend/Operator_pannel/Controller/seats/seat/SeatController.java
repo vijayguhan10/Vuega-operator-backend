@@ -1,4 +1,4 @@
-package net.vuega.vuega_backend.Controller.seats.seat;
+package net.vuega.vuega_backend.Operator_pannel.Controller.seats.seat;
 
 import java.util.List;
 
@@ -15,16 +15,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import net.vuega.vuega_backend.DTO.ResponseDto;
-import net.vuega.vuega_backend.DTO.seats.seat.CreateSeatRequest;
-import net.vuega.vuega_backend.DTO.seats.seat.CreateSeatsInBatchRequest;
-import net.vuega.vuega_backend.DTO.seats.seat.SeatDTO;
-import net.vuega.vuega_backend.DTO.seats.seat.UpdateSeatRequest;
-import net.vuega.vuega_backend.exception.DuplicateSeatException;
-import net.vuega.vuega_backend.exception.InvalidStopRangeException;
-import net.vuega.vuega_backend.exception.SeatNotAvailableException;
-import net.vuega.vuega_backend.exception.SeatNotFoundException;
-import net.vuega.vuega_backend.Service.seats.seat.SeatService;
+import net.vuega.vuega_backend.Operator_pannel.DTO.ResponseDto;
+import net.vuega.vuega_backend.Operator_pannel.DTO.seats.seat.CreateSeatRequest;
+import net.vuega.vuega_backend.Operator_pannel.DTO.seats.seat.CreateSeatsInBatchRequest;
+import net.vuega.vuega_backend.Operator_pannel.DTO.seats.seat.SeatDTO;
+import net.vuega.vuega_backend.Operator_pannel.DTO.seats.seat.UpdateSeatRequest;
+import net.vuega.vuega_backend.Operator_pannel.exception.DuplicateSeatException;
+import net.vuega.vuega_backend.Operator_pannel.exception.InvalidStopRangeException;
+import net.vuega.vuega_backend.Operator_pannel.exception.SeatNotAvailableException;
+import net.vuega.vuega_backend.Operator_pannel.exception.SeatNotFoundException;
+import net.vuega.vuega_backend.Operator_pannel.Service.seats.seat.SeatService;
 
 // REST controller for seat CRUD and availability toggling.
 @RestController

@@ -1,4 +1,4 @@
-package net.vuega.vuega_backend.exception;
+package net.vuega.vuega_backend.Operator_pannel.exception;
 
 // Thrown when no seat exists for the given seatId.
 public class SeatNotFoundException extends RuntimeException {

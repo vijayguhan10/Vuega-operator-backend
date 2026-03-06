@@ -1,10 +1,10 @@
-package net.vuega.vuega_backend.DTO.bookings;
+package net.vuega.vuega_backend.Operator_pannel.DTO.bookings;
 
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
-import net.vuega.vuega_backend.Model.passengers.Gender;
+import net.vuega.vuega_backend.Operator_pannel.Model.passengers.Gender;
 
 @Data
 public class PassengerRequest {

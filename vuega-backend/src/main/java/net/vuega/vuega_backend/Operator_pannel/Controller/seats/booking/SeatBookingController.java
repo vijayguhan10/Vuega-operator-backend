@@ -1,4 +1,4 @@
-package net.vuega.vuega_backend.Controller.seats.booking;
+package net.vuega.vuega_backend.Operator_pannel.Controller.seats.booking;
 
 import java.util.List;
 
@@ -14,19 +14,19 @@ import org.springframework.web.bind.annotation.RestController;
 //import org.springframework.transaction.annotation.Transactional;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import net.vuega.vuega_backend.DTO.ResponseDto;
-import net.vuega.vuega_backend.DTO.bookings.MultiSeatBookingRequest;
-import net.vuega.vuega_backend.DTO.bookings.MultiSeatBookingResponse;
-import net.vuega.vuega_backend.DTO.seats.seat.bookings.BookingDTO;
-import net.vuega.vuega_backend.Service.bookings.MultiSeatBookingService;
-import net.vuega.vuega_backend.Service.seats.lock.SeatLockService;
-import net.vuega.vuega_backend.exception.BookingNotFoundException;
-import net.vuega.vuega_backend.exception.InvalidStopRangeException;
-import net.vuega.vuega_backend.exception.SeatLockConflictException;
-import net.vuega.vuega_backend.exception.SeatMismatchException;
-import net.vuega.vuega_backend.exception.SeatNotAvailableException;
-import net.vuega.vuega_backend.exception.SessionExpiredException;
-import net.vuega.vuega_backend.exception.SessionNotFoundException;
+import net.vuega.vuega_backend.Operator_pannel.DTO.ResponseDto;
+import net.vuega.vuega_backend.Operator_pannel.DTO.bookings.MultiSeatBookingRequest;
+import net.vuega.vuega_backend.Operator_pannel.DTO.bookings.MultiSeatBookingResponse;
+import net.vuega.vuega_backend.Operator_pannel.DTO.seats.seat.bookings.BookingDTO;
+import net.vuega.vuega_backend.Operator_pannel.Service.bookings.MultiSeatBookingService;
+import net.vuega.vuega_backend.Operator_pannel.Service.seats.lock.SeatLockService;
+import net.vuega.vuega_backend.Operator_pannel.exception.BookingNotFoundException;
+import net.vuega.vuega_backend.Operator_pannel.exception.InvalidStopRangeException;
+import net.vuega.vuega_backend.Operator_pannel.exception.SeatLockConflictException;
+import net.vuega.vuega_backend.Operator_pannel.exception.SeatMismatchException;
+import net.vuega.vuega_backend.Operator_pannel.exception.SeatNotAvailableException;
+import net.vuega.vuega_backend.Operator_pannel.exception.SessionExpiredException;
+import net.vuega.vuega_backend.Operator_pannel.exception.SessionNotFoundException;
 
 /**
  * Single unified booking endpoint.

@@ -1,4 +1,4 @@
-package net.vuega.vuega_backend.Repository.seats.session;
+package net.vuega.vuega_backend.Operator_pannel.Repository.seats.session;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
@@ -9,7 +9,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import net.vuega.vuega_backend.Model.seats.session.BookingSession;
+import net.vuega.vuega_backend.Operator_pannel.Model.seats.session.BookingSession;
 
 @Repository
 public interface BookingSessionRepository extends JpaRepository<BookingSession, Long> {

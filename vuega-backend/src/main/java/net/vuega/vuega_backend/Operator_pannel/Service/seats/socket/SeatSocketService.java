@@ -1,4 +1,4 @@
-package net.vuega.vuega_backend.Service.seats.socket;
+package net.vuega.vuega_backend.Operator_pannel.Service.seats.socket;
 
 import java.time.LocalDateTime;
 
@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import net.vuega.vuega_backend.DTO.seats.socket.SeatUpdateMessage;
+import net.vuega.vuega_backend.Operator_pannel.DTO.seats.socket.SeatUpdateMessage;
 
 @Service
 @RequiredArgsConstructor

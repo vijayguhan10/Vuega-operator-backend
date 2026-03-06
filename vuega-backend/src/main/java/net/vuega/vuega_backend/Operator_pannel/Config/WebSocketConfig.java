@@ -1,4 +1,4 @@
-package net.vuega.vuega_backend.Config;
+package net.vuega.vuega_backend.Operator_pannel.Config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.simp.config.MessageBrokerRegistry;

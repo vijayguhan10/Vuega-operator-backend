@@ -1,4 +1,4 @@
-package net.vuega.vuega_backend.Model.seats.bookings;
+package net.vuega.vuega_backend.Operator_pannel.Model.seats.bookings;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -15,7 +15,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import net.vuega.vuega_backend.Model.seats.seat.Seat;
+import net.vuega.vuega_backend.Operator_pannel.Model.seats.seat.Seat;
 
 @Entity(name = "SeatBooking")
 @Table(name = "seat_status")

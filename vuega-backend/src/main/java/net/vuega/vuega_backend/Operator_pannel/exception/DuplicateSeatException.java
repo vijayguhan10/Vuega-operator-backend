@@ -1,4 +1,4 @@
-package net.vuega.vuega_backend.exception;
+package net.vuega.vuega_backend.Operator_pannel.exception;
 
 // Thrown when the same seat number already exists on the given bus.
 public class DuplicateSeatException extends RuntimeException {

@@ -1,4 +1,4 @@
-package net.vuega.vuega_backend.Repository.scheduler.route_stops;
+package net.vuega.vuega_backend.Operator_pannel.Repository.scheduler.route_stops;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import net.vuega.vuega_backend.Model.scheduler.route_stops.RouteStop;
+import net.vuega.vuega_backend.Operator_pannel.Model.scheduler.route_stops.RouteStop;
 
 @Repository
 public interface RouteStopRepository extends JpaRepository<RouteStop, Long> {

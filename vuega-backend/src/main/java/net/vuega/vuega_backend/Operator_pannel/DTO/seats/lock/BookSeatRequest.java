@@ -1,4 +1,4 @@
-package net.vuega.vuega_backend.DTO.seats.lock;
+package net.vuega.vuega_backend.Operator_pannel.DTO.seats.lock;
 
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;

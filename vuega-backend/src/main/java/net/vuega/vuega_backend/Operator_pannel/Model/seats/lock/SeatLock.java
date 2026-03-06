@@ -1,4 +1,4 @@
-package net.vuega.vuega_backend.Model.seats.lock;
+package net.vuega.vuega_backend.Operator_pannel.Model.seats.lock;
 
 import java.time.LocalDateTime;
 
@@ -22,8 +22,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import net.vuega.vuega_backend.Model.seats.seat.Seat;
-import net.vuega.vuega_backend.Model.seats.session.BookingSession;
+import net.vuega.vuega_backend.Operator_pannel.Model.seats.seat.Seat;
+import net.vuega.vuega_backend.Operator_pannel.Model.seats.session.BookingSession;
 
 @Entity
 @EntityListeners(AuditingEntityListener.class)

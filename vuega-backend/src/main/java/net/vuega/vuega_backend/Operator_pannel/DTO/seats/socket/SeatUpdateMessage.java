@@ -1,4 +1,4 @@
-package net.vuega.vuega_backend.DTO.seats.socket;
+package net.vuega.vuega_backend.Operator_pannel.DTO.seats.socket;
 
 import java.time.LocalDateTime;
 

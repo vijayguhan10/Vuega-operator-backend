@@ -1,4 +1,4 @@
-package net.vuega.vuega_backend.DTO.bookings;
+package net.vuega.vuega_backend.Operator_pannel.DTO.bookings;
 
 import java.util.List;
 

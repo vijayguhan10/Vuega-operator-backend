@@ -1,4 +1,4 @@
-package net.vuega.vuega_backend.DTO.scheduler.route_stops;
+package net.vuega.vuega_backend.Operator_pannel.DTO.scheduler.route_stops;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

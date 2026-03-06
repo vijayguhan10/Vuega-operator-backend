@@ -1,4 +1,4 @@
-package net.vuega.vuega_backend.Repository.scheduler;
+package net.vuega.vuega_backend.Operator_pannel.Repository.scheduler;
 
 import java.time.LocalTime;
 import java.util.List;
@@ -8,8 +8,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import net.vuega.vuega_backend.Model.scheduler.Schedule;
-import net.vuega.vuega_backend.Model.scheduler.ScheduleStatus;
+import net.vuega.vuega_backend.Operator_pannel.Model.scheduler.Schedule;
+import net.vuega.vuega_backend.Operator_pannel.Model.scheduler.ScheduleStatus;
 
 // Schedule JPA repository — finders and overlap checks.
 @Repository

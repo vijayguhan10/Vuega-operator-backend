@@ -1,4 +1,4 @@
-package net.vuega.vuega_backend.Repository.seats.lock;
+package net.vuega.vuega_backend.Operator_pannel.Repository.seats.lock;
 
 import java.util.List;
 import java.util.Optional;
@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import net.vuega.vuega_backend.Model.seats.lock.SeatLock;
+import net.vuega.vuega_backend.Operator_pannel.Model.seats.lock.SeatLock;
 
 @Repository
 public interface SeatLockRepository extends JpaRepository<SeatLock, Long> {

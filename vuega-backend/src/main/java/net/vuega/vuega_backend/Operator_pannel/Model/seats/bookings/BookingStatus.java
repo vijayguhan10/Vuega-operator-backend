@@ -1,4 +1,4 @@
-package net.vuega.vuega_backend.Model.seats.bookings;
+package net.vuega.vuega_backend.Operator_pannel.Model.seats.bookings;
 
 public enum BookingStatus {
     BOOKED,

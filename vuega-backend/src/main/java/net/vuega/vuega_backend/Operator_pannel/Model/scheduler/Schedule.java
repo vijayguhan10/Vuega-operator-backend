@@ -1,4 +1,4 @@
-package net.vuega.vuega_backend.Model.scheduler;
+package net.vuega.vuega_backend.Operator_pannel.Model.scheduler;
 
 import java.time.LocalTime;
 
