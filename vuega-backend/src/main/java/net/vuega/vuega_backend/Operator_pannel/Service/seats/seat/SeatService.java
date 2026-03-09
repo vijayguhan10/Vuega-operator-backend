@@ -1,13 +1,9 @@
 package net.vuega.vuega_backend.Operator_pannel.Service.seats.seat;
 
 import java.util.List;
-import java.util.Map;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.client.HttpClientErrorException;
-import org.springframework.web.client.RestClient;
 
 import lombok.extern.slf4j.Slf4j;
 import net.vuega.vuega_backend.Operator_pannel.DTO.seats.seat.CreateSeatRequest;
@@ -16,6 +12,7 @@ import net.vuega.vuega_backend.Operator_pannel.DTO.seats.seat.SeatDTO;
 import net.vuega.vuega_backend.Operator_pannel.DTO.seats.seat.UpdateSeatRequest;
 import net.vuega.vuega_backend.Operator_pannel.Model.seats.seat.Seat;
 import net.vuega.vuega_backend.Operator_pannel.Repository.seats.seat.SeatRepository;
+import net.vuega.vuega_backend.Operator_pannel.Service.cache.ControlPanelCacheService;
 import net.vuega.vuega_backend.Operator_pannel.exception.DuplicateSeatException;
 import net.vuega.vuega_backend.Operator_pannel.exception.SeatNotFoundException;
 
@@ -24,15 +21,13 @@ import net.vuega.vuega_backend.Operator_pannel.exception.SeatNotFoundException;
 public class SeatService {
 
     private final SeatRepository repository;
-    private final RestClient controlPlaneClient;
+    private final ControlPanelCacheService cacheService;
 
     public SeatService(
             SeatRepository repository,
-            @Value("${control-plane.base-url:http://localhost:3000}") String controlPlaneBaseUrl) {
+            ControlPanelCacheService cacheService) {
         this.repository = repository;
-        this.controlPlaneClient = RestClient.builder()
-                .baseUrl(controlPlaneBaseUrl)
-                .build();
+        this.cacheService = cacheService;
     }
 
     // Creates a single seat after checking for duplicate seat numbers on the bus.
@@ -135,21 +130,7 @@ public class SeatService {
 
     private SeatDTO toDTOEnriched(Seat seat) {
         SeatDTO dto = toDTO(seat);
-        dto.setBusDetails(fetchBusDetails(seat.getBusId()));
+        dto.setBusDetails(cacheService.getBusDetails(seat.getBusId()));
         return dto;
-    }
-
-    @SuppressWarnings("unchecked")
-    private Map<String, Object> fetchBusDetails(Long busId) {
-        try {
-            return controlPlaneClient.get()
-                    .uri("/api/controlplane/buses/{busId}", busId)
-                    .retrieve()
-                    .body(Map.class);
-        } catch (HttpClientErrorException e) {
-            return Map.of("error", "Bus not found", "busId", busId);
-        } catch (Exception e) {
-            return Map.of("error", "Control Plane unavailable", "busId", busId);
-        }
     }
 }

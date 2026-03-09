@@ -1,12 +1,8 @@
 package net.vuega.vuega_backend.Operator_pannel.Service.scheduler;
 
 import java.util.List;
-import java.util.Map;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.HttpClientErrorException;
-import org.springframework.web.client.RestClient;
 
 import net.vuega.vuega_backend.Operator_pannel.DTO.scheduler.CreateScheduleRequest;
 import net.vuega.vuega_backend.Operator_pannel.DTO.scheduler.ScheduleDTO;
@@ -14,21 +10,20 @@ import net.vuega.vuega_backend.Operator_pannel.DTO.scheduler.UpdateScheduleReque
 import net.vuega.vuega_backend.Operator_pannel.Model.scheduler.Schedule;
 import net.vuega.vuega_backend.Operator_pannel.Model.scheduler.ScheduleStatus;
 import net.vuega.vuega_backend.Operator_pannel.Repository.scheduler.ScheduleRepository;
+import net.vuega.vuega_backend.Operator_pannel.Service.cache.ControlPanelCacheService;
 import net.vuega.vuega_backend.Operator_pannel.exception.ScheduleOverlapException;
 
 @Service
 public class ScheduleService {
 
     private final ScheduleRepository repository;
-    private final RestClient controlPlaneClient;
+    private final ControlPanelCacheService cacheService;
 
     public ScheduleService(
             ScheduleRepository repository,
-            @Value("${control-plane.base-url:http://localhost:3000}") String controlPlaneBaseUrl) {
+            ControlPanelCacheService cacheService) {
         this.repository = repository;
-        this.controlPlaneClient = RestClient.builder()
-                .baseUrl(controlPlaneBaseUrl)
-                .build();
+        this.cacheService = cacheService;
     }
 
     // Creates a schedule after checking for time overlaps on the same bus.
@@ -166,37 +161,9 @@ public class ScheduleService {
                 .status(schedule.getStatus())
                 .build();
 
-        dto.setBusDetails(fetchBusDetails(schedule.getBusId()));
-        dto.setRouteDetails(fetchRouteDetails(schedule.getRouteId()));
+        dto.setBusDetails(cacheService.getBusDetails(schedule.getBusId()));
+        dto.setRouteDetails(cacheService.getRouteDetails(schedule.getRouteId()));
 
         return dto;
-    }
-
-    @SuppressWarnings("unchecked")
-    private Map<String, Object> fetchBusDetails(Long busId) {
-        try {
-            return controlPlaneClient.get()
-                    .uri("/api/controlplane/buses/{busId}", busId)
-                    .retrieve()
-                    .body(Map.class);
-        } catch (HttpClientErrorException e) {
-            return Map.of("error", "Bus not found", "busId", busId);
-        } catch (Exception e) {
-            return Map.of("error", "Control Plane unavailable", "busId", busId);
-        }
-    }
-
-    @SuppressWarnings("unchecked")
-    private Map<String, Object> fetchRouteDetails(Long routeId) {
-        try {
-            return controlPlaneClient.get()
-                    .uri("/api/controlplane/routes/{routeId}", routeId)
-                    .retrieve()
-                    .body(Map.class);
-        } catch (HttpClientErrorException e) {
-            return Map.of("error", "Route not found", "routeId", routeId);
-        } catch (Exception e) {
-            return Map.of("error", "Control Plane unavailable", "routeId", routeId);
-        }
     }
 }

@@ -1,3 +1,14 @@
+error id: file://<WORKSPACE>/src/main/java/net/vuega/vuega_backend/Operator_pannel/Service/operatorconfig/OperatorService.java:net/vuega/vuega_backend/Operator_pannel/DTO/operatorconfig/OperatorDTO#
+file://<WORKSPACE>/src/main/java/net/vuega/vuega_backend/Operator_pannel/Service/operatorconfig/OperatorService.java
+empty definition using pc, found symbol in pc: net/vuega/vuega_backend/Operator_pannel/DTO/operatorconfig/OperatorDTO#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 395
+uri: file://<WORKSPACE>/src/main/java/net/vuega/vuega_backend/Operator_pannel/Service/operatorconfig/OperatorService.java
+text:
+```scala
 package net.vuega.vuega_backend.Operator_pannel.Service.operatorconfig;
 
 import java.time.LocalDateTime;
@@ -7,7 +18,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import net.vuega.vuega_backend.Operator_pannel.DTO.operatorconfig.LoginRequest;
-import net.vuega.vuega_backend.Operator_pannel.DTO.operatorconfig.OperatorDTO;
+import net.vuega.vuega_backend.Operator_pannel.DTO.operatorconfig.@@OperatorDTO;
 import net.vuega.vuega_backend.Operator_pannel.Service.cache.ControlPanelCacheService;
 
 @Service
@@ -38,17 +49,13 @@ public class OperatorService {
         Map<String, Object> licenseData = cacheService.getLicenseByOperator(operatorId);
 
         String operatorName = operatorData.containsKey("operatorName")
-                ? (String) operatorData.get("operatorName")
-                : null;
+                ? (String) operatorData.get("operatorName") : null;
         String companyName = operatorData.containsKey("companyName")
-                ? (String) operatorData.get("companyName")
-                : null;
+                ? (String) operatorData.get("companyName") : null;
         String accountStatus = operatorData.containsKey("status")
-                ? (String) operatorData.get("status")
-                : null;
+                ? (String) operatorData.get("status") : null;
         String licenseStatus = licenseData.containsKey("status")
-                ? (String) licenseData.get("status")
-                : null;
+                ? (String) licenseData.get("status") : null;
 
         Integer busLimit = null;
         Integer routeLimit = null;
@@ -57,11 +64,9 @@ public class OperatorService {
             Map<String, Object> limitsData = cacheService.getLicenseLimitsByLicenseId(licenseId);
             if (!limitsData.isEmpty()) {
                 busLimit = limitsData.containsKey("busLimit")
-                        ? ((Number) limitsData.get("busLimit")).intValue()
-                        : null;
+                        ? ((Number) limitsData.get("busLimit")).intValue() : null;
                 routeLimit = limitsData.containsKey("routeLimit")
-                        ? ((Number) limitsData.get("routeLimit")).intValue()
-                        : null;
+                        ? ((Number) limitsData.get("routeLimit")).intValue() : null;
             }
         }
 
@@ -78,3 +83,10 @@ public class OperatorService {
                 .build();
     }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: net/vuega/vuega_backend/Operator_pannel/DTO/operatorconfig/OperatorDTO#
