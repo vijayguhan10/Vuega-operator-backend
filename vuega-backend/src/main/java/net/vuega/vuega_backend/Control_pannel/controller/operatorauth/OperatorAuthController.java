@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import net.vuega.vuega_backend.Control_pannel.dto.common.ApiResponse;
 import net.vuega.vuega_backend.Control_pannel.dto.operatorauth.AuthResponse;
@@ -22,7 +23,7 @@ public class OperatorAuthController {
     private final OperatorAuthService operatorAuthService;
 
     @PostMapping("/register")
-    public ResponseEntity<ApiResponse<Void>> register(@RequestBody Register request) {
+    public ResponseEntity<ApiResponse<Void>> register(@Valid @RequestBody Register request) {
         operatorAuthService.register(request);
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(new ApiResponse<>(
@@ -32,7 +33,7 @@ public class OperatorAuthController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<ApiResponse<AuthResponse>> login(@RequestBody Login request) {
+    public ResponseEntity<ApiResponse<AuthResponse>> login(@Valid @RequestBody Login request) {
         AuthResponse response = operatorAuthService.login(request);
         return ResponseEntity.ok(new ApiResponse<>(
                 HttpStatus.OK.value(),

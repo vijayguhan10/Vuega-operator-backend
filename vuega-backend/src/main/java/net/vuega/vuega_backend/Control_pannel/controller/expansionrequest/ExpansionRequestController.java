@@ -6,7 +6,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -80,26 +79,5 @@ public class ExpansionRequestController {
                 HttpStatus.OK.value(),
                 "Expansion request rejected successfully",
                 rejected));
-    }
-
-    // ================= EXCEPTION HANDLERS =================
-    @ExceptionHandler(IllegalArgumentException.class)
-    public ResponseEntity<ApiResponse<Void>> handleIllegalArgumentException(IllegalArgumentException ex) {
-        logger.warn("Illegal argument exception: {}", ex.getMessage());
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-                .body(new ApiResponse<>(
-                        HttpStatus.BAD_REQUEST.value(),
-                        ex.getMessage(),
-                        null));
-    }
-
-    @ExceptionHandler(IllegalStateException.class)
-    public ResponseEntity<ApiResponse<Void>> handleIllegalStateException(IllegalStateException ex) {
-        logger.warn("Illegal state exception: {}", ex.getMessage());
-        return ResponseEntity.status(HttpStatus.CONFLICT)
-                .body(new ApiResponse<>(
-                        HttpStatus.CONFLICT.value(),
-                        ex.getMessage(),
-                        null));
     }
 }

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import jakarta.validation.Valid;
 import net.vuega.vuega_backend.Control_pannel.dto.buses.BusesDto;
 import net.vuega.vuega_backend.Control_pannel.dto.common.ApiResponse;
 import net.vuega.vuega_backend.Control_pannel.service.buses.BusesService;
@@ -28,7 +29,7 @@ public class BusController {
     }
 
     @PostMapping("/")
-    public ResponseEntity<ApiResponse<BusesDto>> createBus(@RequestBody BusesDto dto) {
+    public ResponseEntity<ApiResponse<BusesDto>> createBus(@Valid @RequestBody BusesDto dto) {
         BusesDto created = busService.createBus(dto);
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(new ApiResponse<>(
@@ -58,7 +59,7 @@ public class BusController {
     @PutMapping("/{id}")
     public ResponseEntity<ApiResponse<BusesDto>> updateBus(
             @PathVariable Long id,
-            @RequestBody BusesDto dto) {
+            @Valid @RequestBody BusesDto dto) {
         BusesDto updated = busService.updateBus(id, dto);
         return ResponseEntity.ok(new ApiResponse<>(
                 HttpStatus.OK.value(),

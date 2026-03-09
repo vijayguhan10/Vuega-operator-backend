@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import jakarta.validation.Valid;
 import net.vuega.vuega_backend.Control_pannel.dto.common.ApiResponse;
 import net.vuega.vuega_backend.Control_pannel.dto.routes.RouteDto;
 import net.vuega.vuega_backend.Control_pannel.service.routes.RouteService;
@@ -28,7 +29,7 @@ public class RouteController {
     }
 
     @PostMapping("/")
-    public ResponseEntity<ApiResponse<RouteDto>> createRoute(@RequestBody RouteDto dto) {
+    public ResponseEntity<ApiResponse<RouteDto>> createRoute(@Valid @RequestBody RouteDto dto) {
         RouteDto created = routeService.createRoute(dto);
         return ResponseEntity
                 .status(HttpStatus.CREATED)
@@ -59,7 +60,7 @@ public class RouteController {
     @PutMapping("/{id}")
     public ResponseEntity<ApiResponse<RouteDto>> updateRoute(
             @PathVariable Long id,
-            @RequestBody RouteDto dto) {
+            @Valid @RequestBody RouteDto dto) {
         RouteDto updated = routeService.updateRoute(id, dto);
         return ResponseEntity.ok(new ApiResponse<>(
                 HttpStatus.OK.value(),

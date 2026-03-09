@@ -104,9 +104,20 @@ public class RouteService {
             throw new RuntimeException("To city not found");
         }
 
-        if (dto.getFromCityId() != null && dto.getToCityId() != null &&
-                dto.getFromCityId().equals(dto.getToCityId())) {
+        // Resolve effective city IDs (use existing values for partial updates)
+        Long effectiveFromCityId = dto.getFromCityId() != null ? dto.getFromCityId() : route.getFromCityId();
+        Long effectiveToCityId = dto.getToCityId() != null ? dto.getToCityId() : route.getToCityId();
+
+        if (effectiveFromCityId.equals(effectiveToCityId)) {
             throw new IllegalArgumentException("From and To city cannot be same");
+        }
+
+        // Check duplicate route only if cities are changing
+        if (!effectiveFromCityId.equals(route.getFromCityId()) || !effectiveToCityId.equals(route.getToCityId())) {
+            if (routeRepository.existsByOperatorIdAndFromCityIdAndToCityId(
+                    route.getOperatorId(), effectiveFromCityId, effectiveToCityId)) {
+                throw new IllegalArgumentException("Route already exists for this operator");
+            }
         }
 
         // Update only provided fields

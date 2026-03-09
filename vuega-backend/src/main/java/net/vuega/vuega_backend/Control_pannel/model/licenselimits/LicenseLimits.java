@@ -79,9 +79,4 @@ public class LicenseLimits {
         this.tripLimit = tripLimit;
     }
 
-    public LicenseLimits orElseThrow(Object object) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'orElseThrow'");
-    }
-
 }

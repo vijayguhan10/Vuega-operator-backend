@@ -140,6 +140,10 @@ public class LicenseService {
         if (dto.getStatus() == null) {
             throw new IllegalArgumentException("License status is required");
         }
+        if (dto.getStartDate() != null && dto.getEndDate() != null
+                && !dto.getEndDate().after(dto.getStartDate())) {
+            throw new IllegalArgumentException("End date must be after start date");
+        }
     }
 
 }

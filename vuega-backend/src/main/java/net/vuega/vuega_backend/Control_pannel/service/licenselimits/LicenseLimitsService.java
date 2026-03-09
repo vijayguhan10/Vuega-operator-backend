@@ -31,6 +31,10 @@ public class LicenseLimitsService {
             throw new IllegalArgumentException("License not found with ID: " + dto.getLicenseId());
         }
 
+        if (licenseLimitsRepository.findByLicenseId(dto.getLicenseId()) != null) {
+            throw new IllegalArgumentException("License limits already exist for license ID: " + dto.getLicenseId());
+        }
+
         LicenseLimits entity = convertToEntity(dto);
         LicenseLimits saved = licenseLimitsRepository.save(entity);
         return convertToDto(saved);

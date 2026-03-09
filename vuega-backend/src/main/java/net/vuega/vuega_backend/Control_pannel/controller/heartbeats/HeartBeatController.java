@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import net.vuega.vuega_backend.Control_pannel.dto.common.ApiResponse;
 import net.vuega.vuega_backend.Control_pannel.dto.heartbeats.HeartBeatDto;
@@ -26,7 +27,7 @@ public class HeartBeatController {
     // ================= POST =================
     @PostMapping("/")
     public ResponseEntity<ApiResponse<HeartBeatDto>> receiveHeartbeat(
-            @RequestBody HeartBeatDto dto) {
+            @Valid @RequestBody HeartBeatDto dto) {
 
         HeartBeatDto created = service.receiveHeartbeat(dto);
         return ResponseEntity

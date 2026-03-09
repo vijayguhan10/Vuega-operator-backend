@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import jakarta.validation.Valid;
 import net.vuega.vuega_backend.Control_pannel.dto.common.ApiResponse;
 import net.vuega.vuega_backend.Control_pannel.dto.licenses.LicensesDto;
 import net.vuega.vuega_backend.Control_pannel.service.licenses.LicenseService;
@@ -47,7 +48,7 @@ public class LicenseController {
     }
 
     @PostMapping("/")
-    public ResponseEntity<ApiResponse<LicensesDto>> createLicense(@RequestBody LicensesDto dto) {
+    public ResponseEntity<ApiResponse<LicensesDto>> createLicense(@Valid @RequestBody LicensesDto dto) {
         LicensesDto created = licenseService.createLicense(dto);
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(new ApiResponse<>(
@@ -57,7 +58,7 @@ public class LicenseController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<ApiResponse<LicensesDto>> updateLicense(@PathVariable Long id, @RequestBody LicensesDto dto) {
+    public ResponseEntity<ApiResponse<LicensesDto>> updateLicense(@PathVariable Long id, @Valid @RequestBody LicensesDto dto) {
         LicensesDto updated = licenseService.updateLicense(id, dto);
         return ResponseEntity.ok(new ApiResponse<>(
                 HttpStatus.OK.value(),

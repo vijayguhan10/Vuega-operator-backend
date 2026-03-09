@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import jakarta.validation.Valid;
 import net.vuega.vuega_backend.Control_pannel.dto.common.ApiResponse;
 import net.vuega.vuega_backend.Control_pannel.dto.licenselimits.LicenseLimitsDto;
 import net.vuega.vuega_backend.Control_pannel.service.licenselimits.LicenseLimitsService;
@@ -26,7 +27,7 @@ public class LicenseLimitsController {
     }
 
     @PostMapping("/")
-    public ResponseEntity<ApiResponse<LicenseLimitsDto>> createLicenseLimits(@RequestBody LicenseLimitsDto dto) {
+    public ResponseEntity<ApiResponse<LicenseLimitsDto>> createLicenseLimits(@Valid @RequestBody LicenseLimitsDto dto) {
         LicenseLimitsDto created = licenseLimitsService.createLicenseLimits(dto);
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(new ApiResponse<>(
@@ -48,7 +49,7 @@ public class LicenseLimitsController {
     @PutMapping("/{licenseId}")
     public ResponseEntity<ApiResponse<LicenseLimitsDto>> updateLicenseLimitsByLicenseId(
             @PathVariable Long licenseId,
-            @RequestBody LicenseLimitsDto dto) {
+            @Valid @RequestBody LicenseLimitsDto dto) {
         LicenseLimitsDto updated = licenseLimitsService.updateLicenseLimitsByLicenseId(licenseId, dto);
         return ResponseEntity.ok(new ApiResponse<>(
                 HttpStatus.OK.value(),

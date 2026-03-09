@@ -137,8 +137,8 @@ public class BusesService {
         if (dto == null)
             throw new IllegalArgumentException("Bus cannot be null");
 
-        // if (dto.getOperatorId() == null)
-        // throw new IllegalArgumentException("Operator ID is required");
+        if (dto.getOperatorId() == null)
+            throw new IllegalArgumentException("Operator ID is required");
 
         if (dto.getBusNumber() == null || dto.getBusNumber().isBlank())
             throw new IllegalArgumentException("Bus number is required");

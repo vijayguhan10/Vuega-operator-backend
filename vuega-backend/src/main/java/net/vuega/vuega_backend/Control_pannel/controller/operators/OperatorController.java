@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import jakarta.validation.Valid;
 import net.vuega.vuega_backend.Control_pannel.dto.common.ApiResponse;
 import net.vuega.vuega_backend.Control_pannel.dto.operators.OperatorsDto;
 import net.vuega.vuega_backend.Control_pannel.service.operators.OperatorService;
@@ -49,7 +50,7 @@ public class OperatorController {
     }
 
     @PostMapping("/")
-    public ResponseEntity<ApiResponse<OperatorsDto>> createOperator(@RequestBody OperatorsDto dto) {
+    public ResponseEntity<ApiResponse<OperatorsDto>> createOperator(@Valid @RequestBody OperatorsDto dto) {
 
         OperatorsDto created = operatorService.createOperator(dto);
 
@@ -63,7 +64,7 @@ public class OperatorController {
     @PutMapping("/{id}")
     public ResponseEntity<ApiResponse<OperatorsDto>> updateOperator(
             @PathVariable Long id,
-            @RequestBody OperatorsDto dto) {
+            @Valid @RequestBody OperatorsDto dto) {
 
         OperatorsDto updated = operatorService.updateOperator(id, dto);
 
