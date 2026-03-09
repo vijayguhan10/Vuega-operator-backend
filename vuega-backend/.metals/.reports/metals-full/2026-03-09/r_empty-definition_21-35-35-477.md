@@ -1,6 +1,17 @@
+error id: file://<WORKSPACE>/src/main/java/net/vuega/vuega_backend/Control_pannel/service/operatorauth/OperatorAuthService.java:org/mindrot/jbcrypt/BCrypt#
+file://<WORKSPACE>/src/main/java/net/vuega/vuega_backend/Control_pannel/service/operatorauth/OperatorAuthService.java
+empty definition using pc, found symbol in pc: org/mindrot/jbcrypt/BCrypt#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 97
+uri: file://<WORKSPACE>/src/main/java/net/vuega/vuega_backend/Control_pannel/service/operatorauth/OperatorAuthService.java
+text:
+```scala
 package net.vuega.vuega_backend.Control_pannel.service.operatorauth;
 
-import org.mindrot.jbcrypt.BCrypt;
+import org.mindrot.jbcrypt.@@BCrypt;
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
@@ -79,3 +90,9 @@ public class OperatorAuthService {
                 user.getRole().name());
     }
 }
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: org/mindrot/jbcrypt/BCrypt#

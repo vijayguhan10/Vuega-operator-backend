@@ -1,9 +1,20 @@
+error id: file://<WORKSPACE>/src/main/java/net/vuega/vuega_backend/Operator_pannel/Service/operatorconfig/OperatorService.java:org/springframework/security/crypto/bcrypt/BCryptPasswordEncoder#
+file://<WORKSPACE>/src/main/java/net/vuega/vuega_backend/Operator_pannel/Service/operatorconfig/OperatorService.java
+empty definition using pc, found symbol in pc: org/springframework/security/crypto/bcrypt/BCryptPasswordEncoder#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 178
+uri: file://<WORKSPACE>/src/main/java/net/vuega/vuega_backend/Operator_pannel/Service/operatorconfig/OperatorService.java
+text:
+```scala
 package net.vuega.vuega_backend.Operator_pannel.Service.operatorconfig;
 
 import java.time.LocalDateTime;
 import java.util.Map;
 
-import org.mindrot.jbcrypt.BCrypt;
+import org.springframework.security.crypto.bcrypt.@@BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import net.vuega.vuega_backend.Operator_pannel.DTO.operatorconfig.LoginRequest;
@@ -14,9 +25,11 @@ import net.vuega.vuega_backend.Operator_pannel.Service.cache.ControlPanelCacheSe
 public class OperatorService {
 
     private final ControlPanelCacheService cacheService;
+    private final BCryptPasswordEncoder passwordEncoder;
 
     public OperatorService(ControlPanelCacheService cacheService) {
         this.cacheService = cacheService;
+        this.passwordEncoder = new BCryptPasswordEncoder();
     }
 
     // Validates login credentials against cached OperatorAuth data in Redis.
@@ -27,7 +40,7 @@ public class OperatorService {
         }
 
         String storedPassword = (String) authData.get("password");
-        if (storedPassword == null || !BCrypt.checkpw(request.getPassword(), storedPassword)) {
+        if (storedPassword == null || !passwordEncoder.matches(request.getPassword(), storedPassword)) {
             return null;
         }
 
@@ -76,3 +89,10 @@ public class OperatorService {
                 .build();
     }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: org/springframework/security/crypto/bcrypt/BCryptPasswordEncoder#

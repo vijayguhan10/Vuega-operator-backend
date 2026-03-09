@@ -1,6 +1,17 @@
+error id: file://<WORKSPACE>/src/main/java/net/vuega/vuega_backend/Control_pannel/service/operatorauth/OperatorAuthService.java:org/springframework/security/crypto/bcrypt/BCryptPasswordEncoder#
+file://<WORKSPACE>/src/main/java/net/vuega/vuega_backend/Control_pannel/service/operatorauth/OperatorAuthService.java
+empty definition using pc, found symbol in pc: org/springframework/security/crypto/bcrypt/BCryptPasswordEncoder#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 120
+uri: file://<WORKSPACE>/src/main/java/net/vuega/vuega_backend/Control_pannel/service/operatorauth/OperatorAuthService.java
+text:
+```scala
 package net.vuega.vuega_backend.Control_pannel.service.operatorauth;
 
-import org.mindrot.jbcrypt.BCrypt;
+import org.springframework.security.crypto.bcrypt.@@BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
@@ -20,7 +31,7 @@ public class OperatorAuthService {
     private final OperatorRepository operatorRepository;
     private final LicenseRepository licenseRepository;
 
-
+    private final BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
     // ================= REGISTER =================
     public void register(Register request) {
@@ -57,7 +68,7 @@ public class OperatorAuthService {
         user.setLicenceId(request.getLicenceId());
         user.setName(request.getName());
         user.setEmail(request.getEmail());
-        user.setPassword(BCrypt.hashpw(request.getPassword(), BCrypt.gensalt()));
+        user.setPassword(passwordEncoder.encode(request.getPassword()));
         user.setRole(request.getRole());
 
         repository.save(user);
@@ -69,7 +80,7 @@ public class OperatorAuthService {
         OperatorAuth user = repository.findByEmail(request.getEmail())
                 .orElseThrow(() -> new IllegalArgumentException("Invalid email or password"));
 
-        if (!BCrypt.checkpw(request.getPassword(), user.getPassword())) {
+        if (!passwordEncoder.matches(request.getPassword(), user.getPassword())) {
             throw new IllegalArgumentException("Invalid email or password");
         }
 
@@ -79,3 +90,9 @@ public class OperatorAuthService {
                 user.getRole().name());
     }
 }
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: org/springframework/security/crypto/bcrypt/BCryptPasswordEncoder#
