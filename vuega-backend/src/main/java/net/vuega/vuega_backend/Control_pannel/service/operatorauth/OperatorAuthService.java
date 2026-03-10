@@ -20,8 +20,6 @@ public class OperatorAuthService {
     private final OperatorRepository operatorRepository;
     private final LicenseRepository licenseRepository;
 
-
-
     // ================= REGISTER =================
     public void register(Register request) {
 
