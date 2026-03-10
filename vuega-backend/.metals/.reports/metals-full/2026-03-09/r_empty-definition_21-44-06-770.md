@@ -1,15 +1,15 @@
-error id: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/scheduler/ScheduleController.java:net/vuega/vuega_backend/DTO/ResponseDto#
-file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/scheduler/ScheduleController.java
-empty definition using pc, found symbol in pc: net/vuega/vuega_backend/DTO/ResponseDto#
+error id: file://<WORKSPACE>/src/main/java/net/vuega/vuega_backend/Operator_pannel/Controller/scheduler/ScheduleController.java:net/vuega/vuega_backend/Operator_pannel/Model/scheduler/ScheduleStatus#
+file://<WORKSPACE>/src/main/java/net/vuega/vuega_backend/Operator_pannel/Controller/scheduler/ScheduleController.java
+empty definition using pc, found symbol in pc: net/vuega/vuega_backend/Operator_pannel/Model/scheduler/ScheduleStatus#
 empty definition using semanticdb
 empty definition using fallback
 non-local guesses:
 
-offset: 855
-uri: file:///C:/Projects/Vuega-backend/vuega-backend/src/main/java/net/vuega/vuega_backend/Controller/scheduler/ScheduleController.java
+offset: 1205
+uri: file://<WORKSPACE>/src/main/java/net/vuega/vuega_backend/Operator_pannel/Controller/scheduler/ScheduleController.java
 text:
 ```scala
-package net.vuega.vuega_backend.Controller.scheduler;
+package net.vuega.vuega_backend.Operator_pannel.Controller.scheduler;
 
 import java.util.List;
 
@@ -27,13 +27,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import lombok.RequiredArgsConstructor;
-import net.vuega.vuega_backend.DTO.@@ResponseDto;
-import net.vuega.vuega_backend.DTO.scheduler.CreateScheduleRequest;
-import net.vuega.vuega_backend.DTO.scheduler.ScheduleDTO;
-import net.vuega.vuega_backend.DTO.scheduler.UpdateScheduleRequest;
-import net.vuega.vuega_backend.Exception.ScheduleOverlapException;
-import net.vuega.vuega_backend.Model.scheduler.ScheduleStatus;
-import net.vuega.vuega_backend.Service.scheduler.ScheduleService;
+import net.vuega.vuega_backend.Operator_pannel.DTO.ResponseDto;
+import net.vuega.vuega_backend.Operator_pannel.DTO.scheduler.CreateScheduleRequest;
+import net.vuega.vuega_backend.Operator_pannel.DTO.scheduler.ScheduleDTO;
+import net.vuega.vuega_backend.Operator_pannel.DTO.scheduler.UpdateScheduleRequest;
+import net.vuega.vuega_backend.Operator_pannel.Model.scheduler.@@ScheduleStatus;
+import net.vuega.vuega_backend.Operator_pannel.Service.scheduler.ScheduleService;
+import net.vuega.vuega_backend.Operator_pannel.exception.ScheduleOverlapException;
 
 // Schedule REST controller — CRUD and business queries.
 @RestController
@@ -133,4 +133,4 @@ public class ScheduleController {
 
 #### Short summary: 
 
-empty definition using pc, found symbol in pc: net/vuega/vuega_backend/DTO/ResponseDto#
+empty definition using pc, found symbol in pc: net/vuega/vuega_backend/Operator_pannel/Model/scheduler/ScheduleStatus#
