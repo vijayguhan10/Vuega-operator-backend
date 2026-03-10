@@ -1,0 +1,98 @@
+error id: file://<WORKSPACE>/src/main/java/net/vuega/vuega_backend/Control_pannel/service/operatorauth/OperatorAuthService.java:org/mindrot/jbcrypt/BCrypt#
+file://<WORKSPACE>/src/main/java/net/vuega/vuega_backend/Control_pannel/service/operatorauth/OperatorAuthService.java
+empty definition using pc, found symbol in pc: org/mindrot/jbcrypt/BCrypt#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 97
+uri: file://<WORKSPACE>/src/main/java/net/vuega/vuega_backend/Control_pannel/service/operatorauth/OperatorAuthService.java
+text:
+```scala
+package net.vuega.vuega_backend.Control_pannel.service.operatorauth;
+
+import org.mindrot.jbcrypt.@@BCrypt;
+import org.springframework.stereotype.Service;
+
+import lombok.RequiredArgsConstructor;
+import net.vuega.vuega_backend.Control_pannel.dto.operatorauth.AuthResponse;
+import net.vuega.vuega_backend.Control_pannel.dto.operatorauth.Login;
+import net.vuega.vuega_backend.Control_pannel.dto.operatorauth.Register;
+import net.vuega.vuega_backend.Control_pannel.model.operatorauth.OperatorAuth;
+import net.vuega.vuega_backend.Control_pannel.repository.licenses.LicenseRepository;
+import net.vuega.vuega_backend.Control_pannel.repository.operatorauth.OperatorAuthRepository;
+import net.vuega.vuega_backend.Control_pannel.repository.operators.OperatorRepository;
+
+@Service
+@RequiredArgsConstructor
+public class OperatorAuthService {
+
+    private final OperatorAuthRepository repository;
+    private final OperatorRepository operatorRepository;
+    private final LicenseRepository licenseRepository;
+
+
+
+    // ================= REGISTER =================
+    public void register(Register request) {
+
+        // Validate operator exists
+        if (!operatorRepository.existsById(request.getOperatorId())) {
+            throw new IllegalArgumentException("Operator ID does not exist");
+        }
+
+        // Validate license exists (try as ID first, then as key)
+        boolean licenseExists = false;
+        try {
+            long licenseId = Long.parseLong(request.getLicenceId());
+            licenseExists = licenseRepository.existsById(licenseId);
+        } catch (NumberFormatException e) {
+            // If not a number, check as license key
+            licenseExists = licenseRepository.existsByLicenseKey(request.getLicenceId());
+        }
+
+        if (!licenseExists) {
+            throw new IllegalArgumentException("License ID does not exist");
+        }
+
+        if (repository.existsByEmail(request.getEmail())) {
+            throw new IllegalArgumentException("Email already exists");
+        }
+
+        if (repository.existsByLicenceId(request.getLicenceId())) {
+            throw new IllegalArgumentException("Licence ID already exists");
+        }
+
+        OperatorAuth user = new OperatorAuth();
+        user.setOperatorId(request.getOperatorId());
+        user.setLicenceId(request.getLicenceId());
+        user.setName(request.getName());
+        user.setEmail(request.getEmail());
+        user.setPassword(BCrypt.hashpw(request.getPassword(), BCrypt.gensalt()));
+        user.setRole(request.getRole());
+
+        repository.save(user);
+    }
+
+    // ================= LOGIN =================
+    public AuthResponse login(Login request) {
+
+        OperatorAuth user = repository.findByEmail(request.getEmail())
+                .orElseThrow(() -> new IllegalArgumentException("Invalid email or password"));
+
+        if (!BCrypt.checkpw(request.getPassword(), user.getPassword())) {
+            throw new IllegalArgumentException("Invalid email or password");
+        }
+
+        return new AuthResponse(
+                String.valueOf(user.getOperatorId()),
+                user.getEmail(),
+                user.getRole().name());
+    }
+}
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: org/mindrot/jbcrypt/BCrypt#
